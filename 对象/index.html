@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var hqGetModuleName=function(){
+        return "zheg";
+    };
+    function hq(name,age){
+        var pbE = new Object();
+        pbE.name=name;
+        pbE.age=age;
+        pbE.hqGetModuleName=hqGetModuleName;
+        return pbE;
+    };
+    var x = hq("zhang",15);
+    console.log(pbE.hq().hqGetModuleName)
+    /*window.onbeforeunonload = function () {}
+    window.onbeforeunonload = null*/
+    //关闭浏览器执行方法
+</script>
+</body>
+</html>

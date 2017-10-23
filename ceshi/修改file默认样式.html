@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
+<head>
+    <title>添加附件</title>
+</head>
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript">
+    function fclick(obj){
+        style.posTop=event.srcElement.offsetTop
+        style.posLeft=event.x-offsetWidth/2
+    }
+    $(function(){
+        $("#addFile").click(function(){
+            var br = $("<br>");
+            var input1 = $("<input id='inputrecievedocument' type='text'/>");
+            var input2 = $("<input type='button' style='margin-left:5px;background-color:blue' id='btnrecievedocument' onmouseover='fclick(t_file)' value='浏览'/>");
+            var input3 = $("<input name='upfile' type='file' style='position:absolute;filter:alpha(opacity=0);width:70px;' id='t_file' onchange='inputrecievedocument.value=this.value' hidefocus/>");
+            var button = $("<input type='button' value='删除' style='margin-left:5px;background-color:blue'/>");
+            $("#file").append(br).append(input1).append(input3).append(input2).append(button);
+            button.click(function() {
+                br.remove();
+                input1.remove();
+                input2.remove();
+                input3.remove();
+                button.remove();
+            });
+
+        });
+
+    });
+</script>
+<body class="body">
+<form method="post" action="" enctype="multipart/form-data">
+    <input type="button" value="添加附件" class="btn_fujian" id="addFile" style="margin-left:20px;margin-top:2px;"/>
+    <div id="file"></div>
+</form>
+</body>
+</html>

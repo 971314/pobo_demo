@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<input type="text" value="2016/10/10" id="data">
+<body>
+<script src="js/jquery-3.1.1.min.js"></script>
+<script>
+    function getLastYearYestdy(date){
+        var strYear = date.getFullYear() - 1;
+        var strDay = date.getDate();
+        var strMonth = date.getMonth()+1;
+        if(strMonth<10)
+        {
+            strMonth="0"+strMonth;
+        }
+        if(strDay<10)
+        {
+            strDay="0"+strDay;
+        }
+        datastr = strYear+"-"+strMonth+"-"+strDay;
+
+//        console.log(datastr)
+        return datastr;
+    }
+//    getLastYearYestdy()
+//    console.log(getLastYearYestdy(new Date()));
+    var time = getLastYearYestdy(new Date());
+    console.log(new Date().toLocaleDateString().replace(/\//g,''))
+    console.log(time.replace(/-/g,''))
+    var dang = new Date().toLocaleDateString().replace(/\//g,'');
+    var time = time.replace(/-/g,'')
+    console.log(dang-time)
+    if( (dang-time) != 10000 && (dang-time) > 10000){
+        console.log('1111')
+    }else{
+        console.log('00000')
+    }
+    var data = $("#data").val();
+    data = data.replace(/\//g,'');
+    console.log(data)
+</script>
+</body>
+</html>

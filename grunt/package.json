@@ -1,0 +1,38 @@
+{
+  "name": "grunt-study",
+  "version": "1.0.0",
+  "description": "study",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hubcarl"
+  },
+  "devDependencies":{
+    "matchdep": "latest",
+    "shelljs": "latest",
+    "ngmshell": "latest",
+    "grunt": "latest",
+    "grunt-contrib-clean": "latest",
+    "grunt-contrib-concat": "latest",
+    "grunt-contrib-copy": "latest",
+    "grunt-contrib-connect": "latest",
+    "grunt-contrib-htmlmin": "latest",
+    "grunt-contrib-cssmin": "latest",
+    "grunt-contrib-imagemin": "latest",
+    "grunt-contrib-uglify": "latest",
+    "grunt-contrib-watch": "latest",
+    "grunt-usemin": "latest",
+    "connect-livereload": "latest"
+  },
+  "keywords": [
+    "grunt"
+  ],
+  "author": "bluesky",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/hubcarl"
+  }
+}

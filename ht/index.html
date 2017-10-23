@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <title>首页</title><!-- Bootstrap --><link href="libs/bootstrap.min.css" rel="stylesheet">
+    <link href="css/common.css" rel="stylesheet">
+    <link href="css/embed.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="libs/jquery-2.2.0.min.js"></script>
+    <script src="libs/bootstrap.min.js"></script>
+    <script src="libs/hammer.min.js"></script>
+    <script src="libs/react.js"></script>
+    <script src="libs/react-dom.js"></script>
+    <style>
+#customized {
+    overflow: hidden;
+    margin-left: -8px;
+    margin-right: -8px;
+    /*margin-bottom: 8px;
+    border-bottom: 1px solid #e4e7f0;*/
+}
+#customized .btn-group {
+    margin: 0;
+}
+#market a p:first-child {
+    display: inline-block;
+    margin-bottom: 0;
+}
+#market-name-0, #market-name-1, #market-name-2 {
+    display: table-cell;
+    height: 28px;
+    vertical-align: middle;
+}
+</style>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="clearfix">
+        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="3000">
+        <ol class="carousel-indicators">
+            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                    <img src="images/top.png" height="109" alt="">
+                </div>
+                <div class="item">
+                    <img src="images/top.png" height="109" alt="">
+                </div>
+                <div class="item">
+                    <img src="images/top.png" height="109" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="nav-blank row" style="border-bottom: none"></div>
+        <div id="customized">
+            <div class="area">
+                <div class="btn-wrap">
+                    <div class="btn-group clearfix">
+                        <div>
+                            <a class="btn btn-default" style="background-image: url(images/nav-zx.png); background-size: 42px 42px" href="">
+                                <p>在线开户</p>
+                            </a>
+                        </div>
+                        <div>
+                            <a class="btn btn-default" style="background-image: url(images/nav-jy.png); background-size: 42px 42px" href="index-calender.html"><p>交易日历</p></a></div><div><a class="btn btn-default" style="background-image: url(images/nav-yw.png); background-size: 42px 42px" href="index-firm.html">
+                        <p>业务指南</p>
+                    </a>
+                    </div>
+                        <div>
+                            <a class="btn btn-default" style="background-image: url(images/nav-lh.png); background-size: 42px 42px" href="index-list.html">
+                                <p>龙虎榜</p>
+                            </a>
+                        </div>
+                        <div>
+                            <a class="btn btn-default" style="background-image: url(images/nav-cf.png); background-size: 42px 42px" href="">
+                                <p>财富管家</p>
+                            </a>
+                        </div><div>
+                        <a class="btn btn-default" style="background-image: url(images/nav-sp.png); background-size: 42px 42px" href="index-race.html">
+                            <p>实盘大赛</p>
+                        </a>
+                    </div>
+                        <div>
+                            <a class="btn btn-default" style="background-image: url(images/nav-px.png); background-size: 42px 42px" href="index-school.html">
+                                <p>培训课堂</p>
+                            </a>
+                        </div>
+                        <div>
+                            <a class="btn btn-default" style="background-image: url(images/nav-zj.png); background-size: 42px 42px" href="index-haitong.html">
+                                <p>走进海通</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="nav-blank row" style="border-bottom: none"></div>
+        <div class="row area">
+            <p class="area-title geng" style="line-height: 44px;background:url('images/title-1.png') no-repeat 0;color:#f2415a">公告
+                <span class="area-co">探索研究碳排放权期货交易</span>
+                <a href="" style="color:#f2415a">
+                    <span class="geng-s">更多</span>
+                    <img src="images/title-bor2.png">
+                </a>
+            </p>
+        </div>
+        <div class="row area">
+        <p class="area-title geng" style="line-height: 44px;background:url('images/title-2.png') no-repeat 0;color:#f78413">活动
+            <a href="" style="color:#f78413">
+                <span class="geng-s">更多</span>
+                <img src="images/title-bor1.png">
+            </a>
+        </p>
+        <div id="info-list">
+            <ul class="clearfloat info-ul" id="hd">
+                <li class="clearfloat">
+                    <img src="images/hu-1.png">
+                    <p>A股期权首秀看涨后市 认沽期权暴跌20%</p>
+                    <span>昨日，沪深两市呈现深强沪弱格局，期指对应地呈现</span>
+                </li>
+                <li class="clearfloat">
+                    <img src="images/hu-1.png">
+                    <p>A股期权首秀看涨后市 认沽期权暴跌20%</p>
+                    <span>昨日，沪深两市呈现深强沪弱格局，期指对应地呈现</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+        <div class="row area">
+            <p class="area-title geng" style="line-height: 44px;background:url('images/title-3.png') no-repeat 0;color:#384692">海通专栏
+                <a href="" style="color:#384692">
+                    <span class="geng-s">更多</span>
+                    <img src="images/title-bor3.png">
+                </a>
+            </p>
+            <div id="info-fist">
+                <ul class="info-ul" id="htzl">
+                    <li>
+                        <p>期权专栏</p>
+                        <span>期权就是一个“有期限的权利”,首先这是一个权利(比如以固定价格买入...</span>
+                    </li>
+                    <li>
+                        <p>期权专栏</p>
+                        <span>期权就是一个“有期限的权利”,首先这是一个权利(比如以固定价格买入...</span>
+                    </li>
+                    <li>
+                        <p>期权专栏</p>
+                        <span>期权就是一个“有期限的权利”,首先这是一个权利(比如以固定价格买入...</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="babel/index.js"></script>
+ <script>$(function(){
+    var myElement= document.getElementById('carousel-example-generic')
+    var hm=new Hammer(myElement);
+    hm.on("swipeleft",function(){
+        $('#carousel-example-generic').carousel('next')
+    })
+    hm.on("swiperight",function(){
+        $('#carousel-example-generic').carousel('prev')
+    })
+})
+</script>
+</body>
+</html>

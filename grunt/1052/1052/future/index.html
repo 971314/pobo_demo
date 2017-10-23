@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>交易</title>
+  <!-- Bootstrap -->
+  <link href="../../css/bootstrap.min.css" rel="stylesheet">
+  <link href="../css/common.css" rel="stylesheet">
+  <link href="../css/embed.css" rel="stylesheet">
+  <style>
+    #stacked-link{
+      margin-top:5px;
+    }
+    .nav>li{
+      background-color: #fff;
+      margin-top:-1px;
+    }
+    .nav ul{
+      list-style:none;
+      margin:0;
+      padding:0;
+      padding-left:15px;
+      font-size: 15px;
+    }
+    .nav ul li{
+      padding: 10px 0;
+      line-height: 30px;
+      border-bottom: 1px solid #e4e7f0;
+      margin-right: -8px;
+    }
+    .nav ul li:last-of-type{
+      border-bottom: none;
+    }
+    .nav ul li a{
+      color: rgba(54, 54, 54, 0.94);
+    }
+    #tip{
+      display:inline-block;
+      width:99%;
+    }
+    .tip{
+      /*margin-left:1rem;*/
+      float:right;
+      color:#bbbaba;
+    }
+    .position-row1 {
+      margin-top: 5px; border-top: 1px solid #e4e7f0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="clearfix">
+      <div class="row" id="account">
+        <p class="b2 lh24">（期货账户 <span id="accnum">***********</span> <span id="name">**</span>）</p>
+      </div>
+      <div id="fund">
+        <div class="row totalasset">
+          <img class="pull-left" src="../images/totalasset.png" alt="总资产" />
+          <p class="b1">当前权益</p>
+          <p class="a8" id="total-asset">--</p>
+        </div>
+      </div>
+      <!--<div class="row">
+        <p class="pl">浮动盈亏<span class="a1" id="total-PL">--</span></p>
+      </div>-->
+      <div class="position-row1">
+          <div class="col-my-21 fund-left">
+            <div class="text-left fund-top">
+              <p class="c2">当日盈亏</p>
+              <p class="c1" id="total-PL">--元</p>
+            </div>
+            <div class="text-left">
+              <p class="c2">风险度</p>
+              <p class="c1" id="risk">--</p>
+            </div>
+          </div>
+          <div class="col-my-21 fund-right">
+            <!--<div class="text-left fund-top">
+              <p class="c2">总资产</p>
+              <p class="c1">--元</p>
+            </div>
+            <div class="text-left">
+              <p class="c2">可用资金</p>
+              <p class="c1">--元</p>
+            </div>-->
+            <div class="text-left fund-top">
+              <p class="c2">可用保证金</p>
+              <p class="c1" id="available">--元</p>
+            </div>
+            <div>
+              <p class="c2">已用保证金</p>
+              <p class="c1" id="guarantee">--元</p>
+            </div>
+          </div>
+        </div>
+      <div class="row" id="trade-link">
+        <div class="btn-group clearfix" style="border-bottom: 1px solid #e4e7f0;">
+          <a class="btn btn-default" id="btn-14" href="pobo:uncheck=0&pageId=802301"><p class="b1">下单</p></a>
+          <a class="btn btn-default" id="btn-11" href="pobo:uncheck=0&pageId=902302"><p class="b1">委托</p></a>
+          <a class="btn btn-default" id="btn-15" href="pobo:uncheck=0&pageId=902303"><p class="b1">成交</p></a>
+          <a class="btn btn-default" id="btn-12" href="pobo:uncheck=0&pageId=902305"><p class="b1">持仓</p></a>
+          <!--<a class="btn btn-default" id="btn-16" href="pobo:uncheck=0&pageId=902304"><p>条件单</p></a>-->
+          <a class="btn btn-default" id="btn-13" href="pobo:uncheck=0&pageId=902306&url=future/view/future-more.html"><p class="b1">更多</p></a>
+        </div>
+        <!--<img class="hide" id="left" src="images/arrow-left.png" alt="">
+        <img id="right" src="images/arrow-right.png" alt="">-->
+      </div>
+      <div class="row" id="stacked-link">
+        <ul class="nav nav-pills nav-stacked">
+        </ul>
+      </div>
+    </div>
+  </div>
+  <script src="../../js/jquery-2.2.0.min.js"></script>
+  <script src="../../js/PB.Utils.js"></script>
+  <script src="../js/trade-common.js"></script>
+  <script src="../js/common.js"></script>
+  <script src="js/future.js"></script>
+</body>
+</html>

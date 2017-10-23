@@ -1,0 +1,43 @@
+description  描述
+entry point  入口
+test command  测试指令
+git repository  git仓库
+keywords  关键字
+anthor  作者
+license 许可证
+devDependencies 开发环境 –save：模块名将被添加到dependencies，可以简化为参数-S。
+dependencies  生产环境 –save-dev: 模块名将被添加到devDependencies，可以简化为参数-D。
+--save-dev
+ webpack-dev-server --progress --colors 开启服务器
+ --progress --colors编译的输出内容带有进度和颜色
+ webpack --progress --colors --watch  启动监听模式
+ ==================webpack指令=======================
+ webpack 执行一次开发时的编译
+ webpack -p 执行一次生成环境的编译（压缩）
+ webpack --watch 在开发时持续监控增量编译（很快）
+ webpack -d 让他生成SourceMaps
+ webpack --progress 显示编译进度
+ webpack --colors 显示静态资源的颜色
+ webpack --sort-modules-by, --sort-chunks-by, --sort-assets-by 将modules/chunks/assets进行列表排序
+ webpack --display-chunks 展示编译后的分块
+ webpack --display-reasons 显示更多引用模块原因
+ webapck --display-error-details 显示更多报错信息
+ ==================不能同步问题============================
+ webpack-dev-server不能与浏览器同步问题
+ 1、iframe 模式
+
+ 我们不访问 http://localhost:8080，而是访问 http://localhost:8080/webpack-dev-server/index.html
+
+ 2、inline 模式
+
+ 在命令行中指定该模式，webpack-dev-server --inline。这样 http://localhost:8080/index.html 页面就会在 js 文件变化后自动刷新了
+ ==============指定webpack配置文件======================
+  "deploy": "webpack --config webpack.deploy.js -p" 指定webpack配置文件
+================新建文件夹==================
+mkdir [name]  新建文件夹
+---------------babel---------------------
+npm i babel-core babel-preset-es2015 --save-dev 先安装 babel 和 预设
+npm install babel-loader --save-dev 安装 babel-loader
+npm install babel-loader --save-dev 添加 .babelrc 文件来配置 babel 使用 规范
+presets:代表需要启动什么样的预设转码[[预设了六种es2015  ,stage-0 , stage-1 ,stage-2 , stage-3 ,React]
+[图片]在大小限制后可以加上&name=./[name].[ext]，会将我们的文件生成在设定的文件夹下

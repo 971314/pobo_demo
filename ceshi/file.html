@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+Jq_input file标签上传图片到服务器
+引入jQuery库
+引入ajaxfileupload.js上传插件库(这也是jQuery的一个插件)
+以ASP.NET为例
+<input type="file" id="uploadfile" name="uploadfile"/>
+<script type="text/javascript">
+    $("#uploadfile").change(function(){
+        $.ajaxFileUpload({
+            url: '../ajax/AjaxCallback.ashx',//处理上传用的后台程序,可以是PHP,也可以是ASP等
+            secureuri: false,//异步
+            fileElementId: 'uploadfile',//上传控件ID
+            dataType: 'json',//返回的数据信息格式
+            success: function(data, status) {
+                if (data.code == '10000') {
+                    alert("上传成功");
+                } else {
+                    alert("上传失败");
+                }
+            }, error: function(data, status, e) {
+                alert(e);
+            }
+        })
+    });
+</script>
+<!--后台CS代码-->
+<!--/// <summary>-->
+    <!--/// 图片上传-->
+    <!--/// </summary>-->
+<!--private void ImageUpload()-->
+<!--{-->
+<!--Response.ContentType = "text/html";//这里一定要html-->
+<!--if (Request.Files.Count > 0)-->
+<!--{-->
+<!--HttpPostedFile file = Request.Files[0];-->
+<!--if (file.ContentLength > 0)-->
+<!--{-->
+<!--string suffix = file.FileName.Substring(file.FileName.LastIndexOf('.'));//后缀-->
+<!--if (".jpg.png.gif.jpeg".IndexOf(suffix.ToLower()) == -1)//文件格式,这里采用图片格式说明-->
+<!--{-->
+<!--Response.Write("{\"msg\":\"文件格式不正确!\",code:\"10001\"}");-->
+<!--return;-->
+<!--}-->
+<!--try-->
+<!--{-->
+<!--file.SaveAs(Server.MapPath("~/uploadfile/") + newName);-->
+<!--Response.Write("{\"msg\":\"" + newName + "\",code:\"10000\"}");-->
+<!--return;-->
+<!--}-->
+<!--catch (Exception ex)-->
+<!--{-->
+<!--Response.Write("{\"msg\":\"" + HttpUtility.HtmlEncode(ex.Message) + "\",code:\"10001\"}");-->
+<!--return;-->
+<!--}-->
+<!--}-->
+<!--Response.Write("{\"msg\":\"请选择要上传的文件!\",code:\"10001\"}");-->
+<!--return;-->
+<!--}-->
+<!--Response.Write("{\"msg\":\"请选择要上传的文件!\",code:\"10001\"}");-->
+<!--return;-->
+<!--}-->
+</body>
+</html>

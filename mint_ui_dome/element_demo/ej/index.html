@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Element</title>
+    <link rel="stylesheet" href="index.css">
+    <style>
+        .el-row {
+            margin-bottom: 20px;
+        }
+        .el-row:last-child {
+            margin-bottom: 0;
+        }
+        .el-col {
+            border-radius: 4px;
+        }
+        .bg-purple-dark {
+            background: #99a9bf;
+        }
+        .bg-purple {
+            background: #d3dce6;
+        }
+        .bg-purple-light {
+            background: #e5e9f2;
+        }
+        .grid-content {
+            border-radius: 4px;
+            min-height: 36px;
+        }
+        .row-bg {
+            padding: 10px 0;
+            background-color: #f9fafc;
+        }
+        .my-autocomplete li{
+            line-height: normal;
+            padding: 7px;
+        }
+
+        .my-autocomplete .name {
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+        .my-autocomplete .addr {
+            font-size: 12px;
+            color: #b4b4b4;
+        }
+
+        .my-autocomplete .highlighted .addr {
+            color: #ddd;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <!--基础布局-->
+    <!--<el-row>
+        <el-col :span="24"><div class="grid-content bg-purple-dark"></div></el-col>
+    </el-row>
+    <el-row>
+        <el-col :span="12"><div class="grid-content bg-purple"></div></el-col>
+        <el-col :span="12"><div class="grid-content bg-purple-light"></div></el-col>
+    </el-row>
+    <el-row>
+        <el-col :span="8"><div class="grid-content bg-purple"></div></el-col>
+        <el-col :span="8"><div class="grid-content bg-purple-light"></div></el-col>
+        <el-col :span="8"><div class="grid-content bg-purple"></div></el-col>
+    </el-row>
+    <el-row>
+        <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
+        <el-col :span="6"><div class="grid-content bg-purple-light"></div></el-col>
+        <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
+        <el-col :span="6"><div class="grid-content bg-purple-light"></div></el-col>
+    </el-row>
+    <el-row>
+        <el-col :span="4"><div class="grid-content bg-purple"></div></el-col>
+        <el-col :span="4"><div class="grid-content bg-purple-light"></div></el-col>
+        <el-col :span="4"><div class="grid-content bg-purple"></div></el-col>
+        <el-col :span="4"><div class="grid-content bg-purple-light"></div></el-col>
+        <el-col :span="4"><div class="grid-content bg-purple"></div></el-col>
+        <el-col :span="4"><div class="grid-content bg-purple-light"></div></el-col>
+    </el-row>
+    &lt;!&ndash;分栏间隔&ndash;&gt;
+    <el-row :gutter="20">
+        <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
+        <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
+        <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
+        <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
+    </el-row>
+    &lt;!&ndash;混合布局&ndash;&gt;
+    <el-row :gutter="20">
+        <el-col :span="16"><div class="grid-content bg-purple"></div></el-col>
+        <el-col :span="8"><div class="grid-content bg-purple"></div></el-col>
+    </el-row>
+    <el-row :gutter="20">
+        <el-col :span="8"><div class="grid-content bg-purple"></div></el-col>
+        <el-col :span="8"><div class="grid-content bg-purple"></div></el-col>
+        <el-col :span="4"><div class="grid-content bg-purple"></div></el-col>
+        <el-col :span="4"><div class="grid-content bg-purple"></div></el-col>
+    </el-row>
+    <el-row :gutter="20">
+        <el-col :span="4"><div class="grid-content bg-purple"></div></el-col>
+        <el-col :span="16"><div class="grid-content bg-purple"></div></el-col>
+        <el-col :span="4"><div class="grid-content bg-purple"></div></el-col>
+    </el-row>
+    &lt;!&ndash;分栏偏移&ndash;&gt;
+    <el-row :gutter="20">
+        <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
+        <el-col :span="6" :offset="6"><div class="grid-content bg-purple"></div></el-col>
+    </el-row>
+    <el-row :gutter="20">
+        <el-col :span="6" :offset="6"><div class="grid-content bg-purple"></div></el-col>
+        <el-col :span="6" :offset="6"><div class="grid-content bg-purple"></div></el-col>
+    </el-row>
+    <el-row :gutter="20">
+        <el-col :span="12" :offset="6"><div class="grid-content bg-purple"></div></el-col>
+    </el-row>
+    &lt;!&ndash;对齐方式&ndash;&gt;
+    <el-row type="flex" class="row-bg">
+        <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
+        <el-col :span="6"><div class="grid-content bg-purple-light"></div></el-col>
+        <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
+    </el-row>
+    <el-row type="flex" class="row-bg" justify="center">
+        <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
+        <el-col :span="6"><div class="grid-content bg-purple-light"></div></el-col>
+        <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
+    </el-row>
+    <el-row type="flex" class="row-bg" justify="end">
+        <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
+        <el-col :span="6"><div class="grid-content bg-purple-light"></div></el-col>
+        <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
+    </el-row>
+    <el-row type="flex" class="row-bg" justify="space-between">
+        <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
+        <el-col :span="6"><div class="grid-content bg-purple-light"></div></el-col>
+        <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
+    </el-row>
+    <el-row type="flex" class="row-bg" justify="space-around">
+        <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
+        <el-col :span="6"><div class="grid-content bg-purple-light"></div></el-col>
+        <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
+    </el-row>
+    &lt;!&ndash;响应式布局&ndash;&gt;
+    <el-row :gutter="10">
+        <el-col :xs="8" :sm="6" :md="4" :lg="3"><div class="grid-content bg-purple"></div></el-col>
+        <el-col :xs="4" :sm="6" :md="8" :lg="9"><div class="grid-content bg-purple-light"></div></el-col>
+        <el-col :xs="4" :sm="6" :md="8" :lg="9"><div class="grid-content bg-purple"></div></el-col>
+        <el-col :xs="8" :sm="6" :md="4" :lg="3"><div class="grid-content bg-purple-light"></div></el-col>
+    </el-row>-->
+
+    <!--lcon图标-->
+    <!--<i class="el-icon-edit"></i>
+    <i class="el-icon-share"></i>
+    <i class="el-icon-delete"></i>
+    <el-button type="primary" icon="search">搜索</el-button>-->
+
+    <!--button按钮-->
+    <!--<el-button>默认按钮</el-button>
+    <el-button type="primary">主要按钮</el-button>
+    <el-button type="text">文字按钮</el-button>
+    <el-button :plain="true" :disabled="true">主要按钮</el-button>
+    <el-button type="primary" :disabled="true">主要按钮</el-button>
+    <el-button type="text" :disabled="true">文字按钮</el-button>
+    &lt;!&ndash;有颜色倾向&ndash;&gt;
+    <div class="block">
+        <span class="demonstration">默认显示颜色</span>
+        <span class="wrapper">
+    <el-button type="success">成功按钮</el-button>
+    <el-button type="warning">警告按钮</el-button>
+    <el-button type="danger">危险按钮</el-button>
+    <el-button type="info">信息按钮</el-button>
+  </span>
+    </div>
+    <div class="block">
+        <span class="demonstration">hover 显示颜色</span>
+        <span class="wrapper">
+    <el-button :plain="true" type="success">成功按钮</el-button>
+    <el-button :plain="true" type="warning">警告按钮</el-button>
+    <el-button :plain="true" type="danger">危险按钮</el-button>
+    <el-button :plain="true" type="info">信息按钮</el-button>
+  </span>
+    </div>
+    &lt;!&ndash;图标按钮&ndash;&gt;
+    <el-button type="primary" icon="edit"></el-button>
+    <el-button type="primary" icon="share"></el-button>
+    <el-button type="primary" icon="delete"></el-button>
+    <el-button type="primary" icon="search">搜索</el-button>
+    <el-button type="primary">上传<i class="el-icon-upload el-icon&#45;&#45;right"></i></el-button>
+    &lt;!&ndash;按钮组&ndash;&gt;
+    <el-button-group>
+        <el-button type="primary" icon="arrow-left">上一页</el-button>
+        <el-button type="primary">下一页<i class="el-icon-arrow-right el-icon&#45;&#45;right"></i></el-button>
+    </el-button-group>
+    <el-button-group>
+        <el-button type="primary" icon="edit"></el-button>
+        <el-button type="primary" icon="share"></el-button>
+        <el-button type="primary" icon="delete"></el-button>
+    </el-button-group>
+    &lt;!&ndash;加载中&ndash;&gt;
+    <el-button type="primary" :loading="true">加载中</el-button>
+    &lt;!&ndash;不同尺寸&ndash;&gt;
+    <el-button type="primary" size="large">大型按钮</el-button>
+    <el-button type="primary">正常按钮</el-button>
+    <el-button type="primary" size="small">小型按钮</el-button>
+    <el-button type="primary" size="mini">超小按钮</el-button>-->
+
+    <!--Radio 单选框-->
+    <!--<el-radio class="radio" v-model="radio" label="1">备选项</el-radio>
+    <el-radio class="radio" v-model="radio" label="2">备选项</el-radio>
+    &lt;!&ndash;禁用状态&ndash;&gt;
+    <el-radio disabled v-model="radio1" label="禁用">备选项</el-radio>
+    <el-radio disabled v-model="radio1" label="选中且禁用">备选项</el-radio>
+    &lt;!&ndash;单选框组&ndash;&gt;
+    <el-radio-group v-model="radio2">
+        <el-radio :label="3">备选项</el-radio>
+        <el-radio :label="6">备选项</el-radio>
+        <el-radio :label="9">备选项</el-radio>
+    </el-radio-group>
+    &lt;!&ndash;按钮样式&ndash;&gt;
+    <el-radio-group v-model="radio3">
+        <el-radio-button label="上海"></el-radio-button>
+        <el-radio-button label="北京"></el-radio-button>
+        <el-radio-button label="广州"></el-radio-button>
+        <el-radio-button label="深圳"></el-radio-button>
+    </el-radio-group>
+    <div style="margin: 15px 0;"></div>
+    <el-radio-group v-model="radio4">
+        <el-radio-button label="上海"></el-radio-button>
+        <el-radio-button label="北京" :disabled="true"></el-radio-button>
+        <el-radio-button label="广州"></el-radio-button>
+        <el-radio-button label="深圳"></el-radio-button>
+    </el-radio-group>
+    <div style="margin: 15px 0;"></div>
+    <el-radio-group v-model="radio5" :disabled="true">
+        <el-radio-button label="上海"></el-radio-button>
+        <el-radio-button label="北京"></el-radio-button>
+        <el-radio-button label="广州"></el-radio-button>
+        <el-radio-button label="深圳"></el-radio-button>
+    </el-radio-group>-->
+
+    <!--Checkbox 多选框-->
+    <!--<el-checkbox v-model="checked" checked>备选项</el-checkbox>
+    &lt;!&ndash;禁用状态&ndash;&gt;
+    <el-checkbox v-model="checked1" disabled>备选项1</el-checkbox>
+    <el-checkbox v-model="checked2" disabled>备选项</el-checkbox>
+    &lt;!&ndash;多选框组&ndash;&gt;
+    <el-checkbox-group v-model="checkList">
+        <el-checkbox label="复选框 A"></el-checkbox>
+        <el-checkbox label="复选框 B"></el-checkbox>
+        <el-checkbox label="复选框 C"></el-checkbox>
+        <el-checkbox label="禁用" disabled></el-checkbox>
+        <el-checkbox label="选中且禁用" disabled></el-checkbox>
+    </el-checkbox-group>
+    &lt;!&ndash;indeterminate 状态&ndash;&gt;
+    <el-checkbox :indeterminate="isIndeterminate" v-model="checkAll" @change="handleCheckAllChange">全选</el-checkbox>
+    <div style="margin: 15px 0;"></div>
+    <el-checkbox-group v-model="checkedCities" @change="handleCheckedCitiesChange">
+        <el-checkbox v-for="city in cities" :label="city">{{city}}</el-checkbox>
+    </el-checkbox-group>-->
+
+    <!--Input 输入框-->
+    <!--<el-input v-model="input" placeholder="请输入内容"></el-input>
+    &lt;!&ndash;禁用状态&ndash;&gt;
+    <el-input
+            placeholder="请输入内容"
+            v-model="input1"
+            :disabled="true">
+    </el-input>
+    &lt;!&ndash;带 icon 的输入框&ndash;&gt;
+    <el-input
+            placeholder="请选择日期"
+            icon="search"
+            v-model="input2"
+            :on-icon-click="handleIconClick">
+    </el-input>
+    &lt;!&ndash;文本域&ndash;&gt;
+    <el-input
+            type="textarea"
+            :rows="2"
+            placeholder="请输入内容"
+            v-model="textarea">
+    </el-input>
+    &lt;!&ndash;可自适应文本高度的文本域&ndash;&gt;
+    <el-input
+            type="textarea"
+            autosize
+            placeholder="请输入内容"
+            v-model="textarea2">
+    </el-input>
+    <div style="margin: 20px 0;"></div>
+    <el-input
+            type="textarea"
+            :autosize="{ minRows: 2, maxRows: 4}"
+            placeholder="请输入内容"
+            v-model="textarea3">
+    </el-input>
+    &lt;!&ndash;复合型输入框&ndash;&gt;
+    <div>
+        <el-input placeholder="请输入内容" v-model="input3">
+            <template slot="prepend">Http://</template>
+        </el-input>
+    </div>
+    <div style="margin-top: 15px;">
+        <el-input placeholder="请输入内容" v-model="input4">
+            <template slot="append">.com</template>
+        </el-input>
+    </div>
+    <div style="margin-top: 15px;">
+        <el-input placeholder="请输入内容" v-model="input5">
+            <el-select v-model="select" slot="prepend" placeholder="请选择">
+                <el-option label="餐厅名" value="1"></el-option>
+                <el-option label="订单号" value="2"></el-option>
+                <el-option label="用户电话" value="3"></el-option>
+            </el-select>
+            <el-button slot="append" icon="search"></el-button>
+        </el-input>
+    </div>
+    &lt;!&ndash;尺寸&ndash;&gt;
+    <div class="demo-input-size">
+        <el-input
+                size="large"
+                placeholder="请输入内容"
+                v-model="input6">
+        </el-input>
+        <el-input
+                placeholder="请输入内容"
+                v-model="input7">
+        </el-input>
+        <el-input
+                size="small"
+                placeholder="请输入内容"
+                v-model="input8">
+        </el-input>
+        <el-input
+                size="mini"
+                placeholder="请输入内容"
+                v-model="input9">
+        </el-input>
+    </div>
+    &lt;!&ndash;带输入建议&ndash;&gt;
+    <el-row class="demo-autocomplete">
+        <el-col :span="12">
+            <div class="sub-title">激活即列出输入建议</div>
+            <el-autocomplete
+                    class="inline-input"
+                    v-model="state1"
+                    :fetch-suggestions="querySearch"
+                    placeholder="请输入内容"
+                    @select="handleSelect"
+            ></el-autocomplete>
+        </el-col>
+        <el-col :span="12">
+            <div class="sub-title">输入后匹配输入建议</div>
+            <el-autocomplete
+                    class="inline-input"
+                    v-model="state2"
+                    :fetch-suggestions="querySearch"
+                    placeholder="请输入内容"
+                    :trigger-on-focus="false"
+                    @select="handleSelect"
+            ></el-autocomplete>
+        </el-col>
+    </el-row>
+    &lt;!&ndash;自定义模板&ndash;&gt;
+    <el-autocomplete
+            popper-class="my-autocomplete"
+            v-model="state3"
+            :fetch-suggestions="querySearch"
+            custom-item="my-item-zh"
+            placeholder="请输入内容"
+            @select="handleSelect"
+    ></el-autocomplete>
+    &lt;!&ndash;远程搜索&ndash;&gt;
+    <el-autocomplete
+            v-model="state4"
+            :fetch-suggestions="querySearchAsync"
+            placeholder="请输入内容"
+            @select="handleSelect"
+    ></el-autocomplete>-->
+
+    <!--InputNumber 计数器-->
+    <!--<el-input-number v-model="num1" @change="handleChange" :min="1" :max="10"></el-input-number>
+    &lt;!&ndash;步数&ndash;&gt;
+    <el-input-number v-model="num3" :step="2"></el-input-number>
+    &lt;!&ndash;尺寸&ndash;&gt;
+    <el-input-number size="large" v-model="num4"></el-input-number>
+    <el-input-number v-model="num5"></el-input-number>
+    <el-input-number size="small" v-model="num6"></el-input-number>-->
+
+    <!--Select 选择器-->
+    <!--基础用法-->
+   <!-- <el-select v-model="value" placeholder="请选择">
+        <el-option
+                v-for="item in options"
+                :label="item.label"
+                :value="item.value">
+        </el-option>
+    </el-select>
+    &lt;!&ndash;有禁用选项&ndash;&gt;
+    <el-select v-model="value2" placeholder="请选择">
+        <el-option
+                v-for="item in options2"
+                :label="item.label"
+                :value="item.value"
+                :disabled="item.disabled">
+        </el-option>
+    </el-select>
+    &lt;!&ndash;可清空单选&ndash;&gt;
+    <el-select v-model="value4" clearable placeholder="请选择">
+        <el-option
+                v-for="item in options"
+                :label="item.label"
+                :value="item.value">
+        </el-option>
+    </el-select>
+    &lt;!&ndash;基础多选&ndash;&gt;
+    <el-select v-model="value5" multiple placeholder="请选择">
+        <el-option
+                v-for="item in options"
+                :label="item.label"
+                :value="item.value">
+        </el-option>
+    </el-select>
+    &lt;!&ndash;自定义模板&ndash;&gt;
+    <el-select v-model="value6" placeholder="请选择">
+        <el-option
+                v-for="item in cities"
+                :label="item.label"
+                :value="item.value">
+            <span style="float: left">{{ item.label }}</span>
+            <span style="float: right; color: #8492a6; font-size: 13px">{{ item.value }}</span>
+        </el-option>
+    </el-select>
+    &lt;!&ndash;分组&ndash;&gt;
+    <el-select v-model="value7" placeholder="请选择">
+        <el-option-group
+                v-for="group in options3"
+                :label="group.label">
+            <el-option
+                    v-for="item in group.options"
+                    :label="item.label"
+                    :value="item.value">
+            </el-option>
+        </el-option-group>
+    </el-select>
+    &lt;!&ndash;可搜索&ndash;&gt;
+    <el-select v-model="value8" filterable placeholder="请选择">
+        <el-option
+                v-for="item in options"
+                :label="item.label"
+                :value="item.value">
+        </el-option>
+    </el-select>
+    &lt;!&ndash;远程搜索&ndash;&gt;
+    <el-select
+            v-model="value9"
+            multiple
+            filterable
+            remote
+            placeholder="请输入关键词"
+            :remote-method="remoteMethod"
+            :loading="loading">
+        <el-option
+                v-for="item in options4"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value">
+        </el-option>
+    </el-select>
+    &lt;!&ndash;创建条目&ndash;&gt;
+    <el-select
+            v-model="value10"
+            multiple
+            filterable
+            allow-create
+            placeholder="请选择文章标签">
+        <el-option
+                v-for="item in options5"
+                :label="item.label"
+                :value="item.value">
+        </el-option>
+    </el-select>-->
+
+    <!--Switch开关-->
+    <!--<el-switch
+            v-model="value1"
+            on-text=""
+            off-text="">
+    </el-switch>
+    <el-switch
+            v-model="value2"
+            on-color="#13ce66"
+            off-color="#ff4949">
+    </el-switch>-->
+
+    <!--Slider 滑块-->
+    <!--<div class="block">
+        <span class="demonstration">默认</span>
+        <el-slider v-model="value1"></el-slider>
+    </div>
+    <div class="block">
+        <span class="demonstration">自定义初始值</span>
+        <el-slider v-model="value2"></el-slider>
+    </div>
+    <div class="block">
+        <span class="demonstration">禁用</span>
+        <el-slider v-model="value3" disabled></el-slider>
+    </div>
+    &lt;!&ndash;离散值&ndash;&gt;
+    <div class="block">
+        <span class="demonstration">不显示间断点</span>
+        <el-slider
+                v-model="value4"
+                :step="10">
+        </el-slider>
+    </div>
+    <div class="block">
+        <span class="demonstration">显示间断点</span>
+        <el-slider
+                v-model="value5"
+                :step="10"
+                show-stops>
+        </el-slider>
+    </div>
+    &lt;!&ndash;带有输入框&ndash;&gt;
+    <div class="block">
+        <el-slider
+                v-model="value6"
+                show-input>
+        </el-slider>
+    </div>-->
+
+    <!--TimePicker 时间选择器-->
+    <!--<el-time-select
+            v-model="value1"
+            :picker-options="{
+    start: '08:30',
+    step: '00:15',
+    end: '18:30'
+  }"
+            placeholder="选择时间">
+    </el-time-select>
+    &lt;!&ndash;任意时间点&ndash;&gt;
+    <el-time-picker
+            v-model="value2"
+            :picker-options="{
+      selectableRange: '18:30:00 - 20:30:00'
+    }"
+            placeholder="任意时间点">
+    </el-time-picker>
+    &lt;!&ndash;固定时间范围&ndash;&gt;
+    <el-time-select
+            placeholder="起始时间"
+            v-model="startTime"
+            :picker-options="{
+      start: '08:30',
+      step: '00:15',
+      end: '18:30'
+    }">
+    </el-time-select>
+    <el-time-select
+            placeholder="结束时间"
+            v-model="endTime"
+            :picker-options="{
+      start: '08:30',
+      step: '00:15',
+      end: '18:30',
+      minTime: startTime
+    }">
+    </el-time-select>
+    &lt;!&ndash;任意时间范围&ndash;&gt;
+    <el-time-picker
+            is-range
+            v-model="value3"
+            placeholder="选择时间范围">
+    </el-time-picker>-->
+
+    <!--DatePicker 日期选择器-->
+    <div class="block">
+        <span class="demonstration">默认</span>
+        <el-date-picker
+                v-model="value1"
+                type="date"
+                placeholder="选择日期"
+                :picker-options="pickerOptions0">
+        </el-date-picker>
+    </div>
+    <div class="block">
+        <span class="demonstration">带快捷选项</span>
+        <el-date-picker
+                v-model="value2"
+                align="right"
+                type="date"
+                placeholder="选择日期"
+                :picker-options="pickerOptions1">
+        </el-date-picker>
+        <!--其他日期单位-->
+        <div class="block">
+            <span class="demonstration">周</span>
+            <el-date-picker
+                    v-model="value3"
+                    type="week"
+                    format="yyyy 第 WW 周"
+                    placeholder="选择周">
+            </el-date-picker>
+        </div>
+        <div class="block">
+            <span class="demonstration">月</span>
+            <el-date-picker
+                    v-model="value4"
+                    type="month"
+                    placeholder="选择月">
+            </el-date-picker>
+        </div>
+        <div class="block">
+            <span class="demonstration">年</span>
+            <el-date-picker
+                    v-model="value5"
+                    align="right"
+                    type="year"
+                    placeholder="选择年">
+            </el-date-picker>
+        </div>
+        <!--选择日期范围-->
+        <div class="block">
+            <span class="demonstration">默认</span>
+            <el-date-picker
+                    v-model="value6"
+                    type="daterange"
+                    placeholder="选择日期范围">
+            </el-date-picker>
+        </div>
+        <div class="block">
+            <span class="demonstration">带快捷选项</span>
+            <el-date-picker
+                    v-model="value7"
+                    type="daterange"
+                    align="right"
+                    placeholder="选择日期范围"
+                    :picker-options="pickerOptions2">
+            </el-date-picker>
+        </div>
+    </div>
+</div>
+<script src="../../vue.js"></script>
+<script src="index.js"></script>
+<script>
+    var cityOptions = ['上海','北京','广州','深圳'];
+    Vue.component('my-item-zh', {
+        functional: true,
+        render: function (h, ctx) {
+            var item = ctx.props.item;
+            return h('li', ctx.data, [
+                h('div', { attrs: { class: 'name' } }, [item.value]),
+                h('span', { attrs: { class: 'addr' } }, [item.address])
+            ]);
+        },
+        props: {
+            item: { type: Object, required: true }
+        }
+    });
+    new Vue({
+        el:'#app',
+        data:{
+            radio:'1',
+            radio1:'选中且禁用',
+            radio2: 6,
+            radio3: '上海',
+            radio4: '上海',
+            radio5: '上海',
+            checked:true,
+            checked1: false,
+            checked2: true,
+            checkList: ['选中且禁用','复选框 A'],
+            checkAll: false,
+            checkedCities: [],
+            cities: cityOptions,
+            isIndeterminate: false,
+            input:'',
+            input1:'',
+            input2:'',
+            textarea:'',
+            textarea2:'',
+            textarea3:'',
+            input3: '',
+            input4: '',
+            input5: '',
+            select: '',
+            input6: '',
+            input7: '',
+            input8: '',
+            input9: '',
+            restaurants: [],
+            state1: '',
+            state2: '',
+            state3: '',
+            state4: '',
+            timeout:  null,
+            num1: 1,
+            num3: 5,
+            num4: 1,
+            num5: 1,
+            num6: 1,
+            options: [{
+                value: '选项1',
+                label: '黄金糕'
+            }, {
+                value: '选项2',
+                label: '双皮奶'
+            }, {
+                value: '选项3',
+                label: '蚵仔煎'
+            }, {
+                value: '选项4',
+                label: '龙须面'
+            }, {
+                value: '选项5',
+                label: '北京烤鸭'
+            }],
+            value:'',
+            options2: [{
+                value: '选项1',
+                label: '黄金糕'
+            }, {
+                value: '选项2',
+                label: '双皮奶',
+                disabled: true
+            }, {
+                value: '选项3',
+                label: '蚵仔煎'
+            }, {
+                value: '选项4',
+                label: '龙须面'
+            }, {
+                value: '选项5',
+                label: '北京烤鸭'
+            }],
+            value2: '',
+            value4: '',
+            value5: [],
+            value6: '',
+            options3: [{
+                label: '热门城市',
+                options: [{
+                    value: 'Shanghai',
+                    label: '上海'
+                }, {
+                    value: 'Beijing',
+                    label: '北京'
+                }]
+            }, {
+                label: '城市名',
+                options: [{
+                    value: 'Chengdu',
+                    label: '成都'
+                }, {
+                    value: 'Shenzhen',
+                    label: '深圳'
+                }, {
+                    value: 'Guangzhou',
+                    label: '广州'
+                }, {
+                    value: 'Dalian',
+                    label: '大连'
+                }]
+            }],
+            value7: '',
+            value8: '',
+            options4: [],
+            value9: [],
+            list: [],
+            loading: false,
+            states: ["Alabama", "Alaska", "Arizona",
+                "Arkansas", "California", "Colorado",
+                "Connecticut", "Delaware", "Florida",
+                "Georgia", "Hawaii", "Idaho", "Illinois",
+                "Indiana", "Iowa", "Kansas", "Kentucky",
+                "Louisiana", "Maine", "Maryland",
+                "Massachusetts", "Michigan", "Minnesota",
+                "Mississippi", "Missouri", "Montana",
+                "Nebraska", "Nevada", "New Hampshire",
+                "New Jersey", "New Mexico", "New York",
+                "North Carolina", "North Dakota", "Ohio",
+                "Oklahoma", "Oregon", "Pennsylvania",
+                "Rhode Island", "South Carolina",
+                "South Dakota", "Tennessee", "Texas",
+                "Utah", "Vermont", "Virginia",
+                "Washington", "West Virginia", "Wisconsin",
+                "Wyoming"],
+            options5: [{
+                value: 'HTML',
+                label: 'HTML'
+            }, {
+                value: 'CSS',
+                label: 'CSS'
+            }, {
+                value: 'JavaScript',
+                label: 'JavaScript'
+            }],
+            value10: [],
+            value1: true,
+            value2: true,
+            value1: 0,
+            value2: 50,
+            value3: 42,
+            value4: 0,
+            value5: 0,
+            value6: 0,
+            value1:'',
+            value2: new Date(2016, 9, 10, 18, 40),
+            startTime: '',
+            endTime: '',
+            value3: [new Date(2016, 9, 10, 8, 40), new Date(2016, 9, 10, 9, 40)],
+            pickerOptions0: {
+                disabledDate(time) {
+                    return time.getTime() < Date.now() - 8.64e7;
+                }
+            },
+            pickerOptions1: {
+                shortcuts: [{
+                    text: '今天',
+                    onClick(picker) {
+                        picker.$emit('pick', new Date());
+                    }
+                }, {
+                    text: '昨天',
+                    onClick(picker) {
+                        const date = new Date();
+                        date.setTime(date.getTime() - 3600 * 1000 * 24);
+                        picker.$emit('pick', date);
+                    }
+                }, {
+                    text: '一周前',
+                    onClick(picker) {
+                        const date = new Date();
+                        date.setTime(date.getTime() - 3600 * 1000 * 24 * 7);
+                        picker.$emit('pick', date);
+                    }
+                }]
+            },
+            value1: '',
+            value2: '',
+            pickerOptions2: {
+                shortcuts: [{
+                    text: '最近一周',
+                    onClick(picker) {
+                        const end = new Date();
+                        const start = new Date();
+                        start.setTime(start.getTime() - 3600 * 1000 * 24 * 7);
+                        picker.$emit('pick', [start, end]);
+                    }
+                }, {
+                    text: '最近一个月',
+                    onClick(picker) {
+                        const end = new Date();
+                        const start = new Date();
+                        start.setTime(start.getTime() - 3600 * 1000 * 24 * 30);
+                        picker.$emit('pick', [start, end]);
+                    }
+                }, {
+                    text: '最近三个月',
+                    onClick(picker) {
+                        const end = new Date();
+                        const start = new Date();
+                        start.setTime(start.getTime() - 3600 * 1000 * 24 * 90);
+                        picker.$emit('pick', [start, end]);
+                    }
+                }]
+            },
+            value6: '',
+            value7: ''
+        },
+        mounted(){
+            this.list = this.states.map(item => {
+                return {value:item,label:item};
+            })
+        },
+        methods:{
+            handleChange(value) {
+                console.log(value);
+            },
+            remoteMethod(query){
+                if (query !== '') {
+                    this.loading = true;
+                    setTimeout(() => {
+                        this.loading = false;
+                        this.options4 = this.list.filter(item => {
+                            return item.label.toLowerCase()
+                                    .indexOf(query.toLowerCase()) > -1;
+                        });
+                    }, 200);
+                } else {
+                    this.options4 = [];
+                }
+            },
+            handleCheckAllChange(event){
+                this.checkedCities = event.target.checked ? cityOptions : [];
+                this.isIndeterminate = false;
+            },
+            handleCheckedCitiesChange(value){
+                let checkedCount = value.length;
+                this.checkAll = checkedCount === this.cities.length;
+                this.isIndeterminate = CheckedCount > 0 && checkedCount < this.cities.length;
+            },
+            handleIconClick(ev){
+                console.log(ev);
+            },
+            querySearch(queryString, cb) {
+                var restaurants = this.restaurants;
+                var results = queryString ? restaurants.filter(this.createFilter(queryString)) : restaurants;
+                // 调用 callback 返回建议列表的数据
+                cb(results);
+            },
+            createFilter(queryString) {
+                return (restaurant) => {
+                    return (restaurant.value.indexOf(queryString.toLowerCase()) === 0);
+                };
+            },
+            loadAll() {
+                return [
+                    { "value": "三全鲜食（北新泾店）", "address": "长宁区新渔路144号" },
+                    { "value": "Hot honey 首尔炸鸡（仙霞路）", "address": "上海市长宁区淞虹路661号" },
+                    { "value": "新旺角茶餐厅", "address": "上海市普陀区真北路988号创邑金沙谷6号楼113" },
+                    { "value": "泷千家(天山西路店)", "address": "天山西路438号" },
+                    { "value": "胖仙女纸杯蛋糕（上海凌空店）", "address": "上海市长宁区金钟路968号1幢18号楼一层商铺18-101" },
+                    { "value": "贡茶", "address": "上海市长宁区金钟路633号" },
+                    { "value": "豪大大香鸡排超级奶爸", "address": "上海市嘉定区曹安公路曹安路1685号" },
+                    { "value": "茶芝兰（奶茶，手抓饼）", "address": "上海市普陀区同普路1435号" },
+                    { "value": "十二泷町", "address": "上海市北翟路1444弄81号B幢-107" },
+                    { "value": "星移浓缩咖啡", "address": "上海市嘉定区新郁路817号" },
+                    { "value": "阿姨奶茶/豪大大", "address": "嘉定区曹安路1611号" },
+                    { "value": "新麦甜四季甜品炸鸡", "address": "嘉定区曹安公路2383弄55号" },
+                    { "value": "Monica摩托主题咖啡店", "address": "嘉定区江桥镇曹安公路2409号1F，2383弄62号1F" },
+                    { "value": "浮生若茶（凌空soho店）", "address": "上海长宁区金钟路968号9号楼地下一层" },
+                    { "value": "NONO JUICE  鲜榨果汁", "address": "上海市长宁区天山西路119号" },
+                    { "value": "CoCo都可(北新泾店）", "address": "上海市长宁区仙霞西路" },
+                    { "value": "快乐柠檬（神州智慧店）", "address": "上海市长宁区天山西路567号1层R117号店铺" },
+                    { "value": "Merci Paul cafe", "address": "上海市普陀区光复西路丹巴路28弄6号楼819" },
+                    { "value": "猫山王（西郊百联店）", "address": "上海市长宁区仙霞西路88号第一层G05-F01-1-306" },
+                    { "value": "枪会山", "address": "上海市普陀区棕榈路" },
+                    { "value": "纵食", "address": "元丰天山花园(东门) 双流路267号" },
+                    { "value": "钱记", "address": "上海市长宁区天山西路" },
+                    { "value": "壹杯加", "address": "上海市长宁区通协路" },
+                    { "value": "唦哇嘀咖", "address": "上海市长宁区新泾镇金钟路999号2幢（B幢）第01层第1-02A单元" },
+                    { "value": "爱茜茜里(西郊百联)", "address": "长宁区仙霞西路88号1305室" },
+                    { "value": "爱茜茜里(近铁广场)", "address": "上海市普陀区真北路818号近铁城市广场北区地下二楼N-B2-O2-C商铺" },
+                    { "value": "鲜果榨汁（金沙江路和美广店）", "address": "普陀区金沙江路2239号金沙和美广场B1-10-6" },
+                    { "value": "开心丽果（缤谷店）", "address": "上海市长宁区威宁路天山路341号" },
+                    { "value": "超级鸡车（丰庄路店）", "address": "上海市嘉定区丰庄路240号" },
+                    { "value": "妙生活果园（北新泾店）", "address": "长宁区新渔路144号" },
+                    { "value": "香宜度麻辣香锅", "address": "长宁区淞虹路148号" },
+                    { "value": "凡仔汉堡（老真北路店）", "address": "上海市普陀区老真北路160号" },
+                    { "value": "港式小铺", "address": "上海市长宁区金钟路968号15楼15-105室" },
+                    { "value": "蜀香源麻辣香锅（剑河路店）", "address": "剑河路443-1" },
+                    { "value": "北京饺子馆", "address": "长宁区北新泾街道天山西路490-1号" },
+                    { "value": "饭典*新简餐（凌空SOHO店）", "address": "上海市长宁区金钟路968号9号楼地下一层9-83室" },
+                    { "value": "焦耳·川式快餐（金钟路店）", "address": "上海市金钟路633号地下一层甲部" },
+                    { "value": "动力鸡车", "address": "长宁区仙霞西路299弄3号101B" },
+                    { "value": "浏阳蒸菜", "address": "天山西路430号" },
+                    { "value": "四海游龙（天山西路店）", "address": "上海市长宁区天山西路" },
+                    { "value": "樱花食堂（凌空店）", "address": "上海市长宁区金钟路968号15楼15-105室" },
+                    { "value": "壹分米客家传统调制米粉(天山店)", "address": "天山西路428号" },
+                    { "value": "福荣祥烧腊（平溪路店）", "address": "上海市长宁区协和路福泉路255弄57-73号" },
+                    { "value": "速记黄焖鸡米饭", "address": "上海市长宁区北新泾街道金钟路180号1层01号摊位" },
+                    { "value": "红辣椒麻辣烫", "address": "上海市长宁区天山西路492号" },
+                    { "value": "(小杨生煎)西郊百联餐厅", "address": "长宁区仙霞西路88号百联2楼" },
+                    { "value": "阳阳麻辣烫", "address": "天山西路389号" },
+                    { "value": "南拳妈妈龙虾盖浇饭", "address": "普陀区金沙江路1699号鑫乐惠美食广场A13" }
+                ];
+            },
+            handleSelect(item) {
+                console.log(item);
+            }
+        },
+        mounted() {
+            this.restaurants = this.loadAll();
+        },
+        querySearchAsync(queryString, cb) {
+            var restaurants = this.restaurants;
+            var results = queryString ? restaurants.filter(this.createStateFilter(queryString)) : restaurants;
+
+            clearTimeout(this.timeout);
+            this.timeout = setTimeout(() => {
+                cb(results);
+            }, 3000 * Math.random());
+        }
+    })
+</script>
+</body>
+</html>

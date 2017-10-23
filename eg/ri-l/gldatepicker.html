@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="js/glDatePicker.default.css" rel="stylesheet" type="text/css">
+    <title>日历</title>
+</head>
+<body>
+<input type="text" id="mydate" />
+<div gldp-el="mydate" style="width:400px; height:300px; position:absolute; top:70px; left:100px;">
+</div>
+<script src="../jquery-1.11.3.min.js"></script>
+<script src="js/glDatePicker.min.js"></script>
+
+<script type="text/javascript">
+    $(function () {
+        $('input').glDatePicker();
+    })
+</script>
+</body>
+</html>

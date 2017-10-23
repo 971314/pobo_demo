@@ -1,0 +1,10 @@
+.toast{
+    display: inline-block;
+    margin:0 auto;
+    padding:10px;
+    position:fixed;
+    left:45%;
+    background: rgba(0, 0, 0, 0.7);
+    color:white;
+    border-radius:5px;
+}

@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <title>Uploadify</title>
+    <script src="jquery-1.11.3.min.js"></script>
+    <script src="jquery.uploadify.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+            $(function() {
+                    $('#file').uploadify({
+                        'swf'      : 'uploadify.swf',
+                        'uploader' : '',
+                        'formData': {'projectid': '${project.id}'},
+                        'fileObjName' : 'file',
+                        'fileSizeLimit' : '0',
+                        'onQueueComplete' : function(queueData) {
+                            alert(queueData.uploadsSuccessful + ' files were successfully uploaded.');
+                        }
+                    });
+                });
+   </script>
+
+</head>
+<body>
+<form>
+    <input type="file" id="file" name="file">
+</form>
+</body>
+</html>

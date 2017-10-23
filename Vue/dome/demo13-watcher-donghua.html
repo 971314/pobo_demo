@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>转台动画于watcher</title>
+</head>
+<body>
+<div id="animated-number-demo">
+    <input v-model.number="number" type="number" step="20">
+    <p>{{animatedNumber}}</p>
+</div>
+<script src="https://unpkg.com/tween.js@16.3.4"></script>
+<script src="vue.js"></script>
+<script>
+new Vue({
+    el:'#animated-number-demo',
+    data:{
+        number:0,
+        animatedNumber:0
+    },
+    watch:{
+        number : function (newValue,oldValue) {
+            var vm = this;
+            function animate(time) {
+                requestAnimationFrame(animate);
+                TWEEN.update(time);
+            }
+            new TWEEN.Tween({tweeningNumber:oldValue})
+                .easing(TWEEN.Easing.Quadratic.Out)
+                .to({tweeningNumber:newValue},500)
+                .onUpdate(function () {
+                    vm.animatedNumber = this.tweeningNumber.toFixed(0)
+                })
+                .start();
+            animate()
+        }
+    }
+})
+</script>
+</body>
+</html>

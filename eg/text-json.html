@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文本转换json</title>
+</head>
+<body>
+<script>
+    var http = 'http://news.huidian.net/HdNews2/Web/Hd_LatestNewsList.aspx?type=mu&gcount=1&group1=40102&group2=&doc=json&count=1';
+    http.split("");
+    var data = [10101];
+    console.log(bb(data));
+    window.location.href = bb(data);
+
+
+
+
+    function bb(arr) {
+        return aa = 'http://news.huidian.net/HdNews2/Web/Hd_LatestNewsList.aspx?type=mu&gcount=1&group1='+arr[0]+'&group2='+arr[1]+'&doc=json&count=1';
+    }
+
+
+
+
+
+    http://192.168.6.18/HdNews2/Web/Hd_LatestNewsList.aspx?type=mu&gcount=1&group1=40102&group2=undefined&doc=json&count=1
+    http://192.168.6.18/HdNews2/Web/Hd_LatestNewsList.aspx?type=mu&gcount=2&group1=10101&group2=undefined&doc=json&count=30
+</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动态路由匹配</title>
+</head>
+<body>
+<div id="app">
+    <p>
+        <router-link to="/user/foo">/user/foo</router-link>
+        <router-link to="/user/var">/user/bar</router-link>
+    </p>
+    <router-view></router-view>
+</div>
+<script src="../js/vue.js"></script>
+<script src="../js/vue-router.js"></script>
+<script>
+    const User = {
+        template:'<div>User {{$route.params.id}}'
+    };
+    const router = new VueRouter({
+        routes:[
+            {path:'/user/:id',component:User}
+        ]
+    });
+    const app = new Vue({router}).$mount('#app');
+</script>
+</body>
+</html>

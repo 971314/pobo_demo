@@ -1,0 +1,98 @@
+body {
+  margin: 0;
+  padding-top: 60px;
+  background-color: #eee;
+  font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+}
+a {
+  text-decoration: none;
+}
+.navbar-fixed-top {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1030;
+}
+.navbar::after {
+  display: table;
+  content: " ";
+  clear: both;
+}
+.navbar-brand {
+  font-size: 18px;
+}
+.navbar-brand.is-active {
+  color: #bfcbd9;
+}
+.el-menu--horizontal>.navbar-brand {
+  transition: none;
+}
+.el-menu--horizontal>.navbar-brand:hover {
+  border-bottom: none;
+}
+.navbar-brand img {
+  display: inline-block;
+  position: relative;
+  top: 9px;
+  width: 35px;
+}
+.navbar-brand span {
+  display: inline-block;
+  margin-left: 10px;
+}
+.el-menu--horizontal .navbar-right {
+  float: right;
+}
+.container {
+  position: relative;
+  margin: 30px auto;
+  width: 1270px;
+  background-color: #fff;
+}
+.container>div {
+  min-height: 600px;
+}
+.menus {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 200px;
+  background: #324157;
+  z-index: 10;
+}
+.content {
+  margin-left: 200px;
+  padding: 20px;
+}
+.error {
+  margin-bottom: 0;
+}
+.error p {
+  margin-top: -20px;
+  margin-bottom: 0;
+  line-height: 36px;
+  color: #ff4949;
+}
+.error span {
+  color: #ff4949;
+}
+.el-button--text.el-button--danger {
+  color: #ff4949;
+}
+.el-button--text.el-button--danger:hover,
+.el-button--text.el-button--danger:focus {
+  color: #ff6d6d;
+  background-color: inherit;
+}
+.user-query .user-form {
+  width: 40%;
+}
+.user-query .user-form .el-select {
+  width: 100%;
+}
+.user-query .el-table--fit td.gutter,
+.user-query .el-table--fit th.gutter {
+  border-right-width: 0;
+}

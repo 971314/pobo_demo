@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>php测试</title>
+</head>
+<body>
+<script>
+    function hideMobile(vaule){
+        if(/^1[34578]\d{9}$/.test(vaule)){
+            console.log('1')
+            vaule = vaule.toString();
+            console.log(vaule.substring(0,5))
+            console.log(vaule.substring(5,9))
+            return vaule = vaule.substring(0,3) + '****' + vaule.substring(7);
+        }else{
+            return vaule;
+        }
+        // var newValue = "****";
+        // return newValue;
+    }
+    var a = 18292320745,
+        b = '18292320745',
+        c = 'lguho';
+
+    console.log(hideMobile(b));
+    console.log(hideMobile(a));
+    console.log(hideMobile(c));
+</script>
+</body>
+</html>

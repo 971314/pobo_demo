@@ -1,0 +1,50 @@
+.carousel{margin-bottom: 9px;}
+#market{height:104px;overflow: hidden;}
+#market .marketCon{display: none;}
+#market .active{display: block;}
+#market a p:first-child {display: inline-block; margin-bottom: 0;}
+.market-name{display: table-cell; height: 28px; vertical-align: middle;}
+.market img{width:8px;height:6px;display: none;}
+.market .up img,
+.market .down img{display: inline;}
+.market .up .m{color:#FE0000;}
+.market .down .m{color:#14A238;}
+#customized {
+    overflow: hidden;
+    margin-left: -8px;
+    margin-right: -8px;
+    padding-bottom: 8px;
+    max-height: 177px;
+    background: #fff;
+}
+#customized .btn-group {
+      margin: 0;
+}
+.div-float{
+    float:left;
+}
+.btn-wrap{
+    float:left;
+}
+.btn-wrap>div {
+  float: left;
+  width: 25%;
+  height: 80px;
+}
+.btn-wrap .btn {
+  display: block;
+  border: none;
+  padding: 58px 0 0;
+  font-size: 14px;
+  color: #808086;
+  line-height: 14px;
+  background-repeat: no-repeat;
+  background-position: center 10px;
+  background-size:42px 42px;  
+  background-color: transparent;
+  height: 80px;
+}
+.indicator{border-bottom: 1px solid #e4e7f0;margin-bottom: 9px;}
+.area-title{line-height: 42px;padding-left:0;}
+.area-title i{display: inline-block;border-bottom: 2px solid #fff;padding:0 10px;font-style: normal;}
+.area-title .active{color: #3366cc;border-bottom: 2px solid #3366cc;pointer-events: none;}

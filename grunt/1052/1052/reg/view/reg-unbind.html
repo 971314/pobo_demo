@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title></title>
+  <link href="../../css/bootstrap.min.css" rel="stylesheet">
+  <link href="../../css/common.css" rel="stylesheet">
+  <style>
+      .setting{margin-top:15px;background:#fff;border-bottom:1px solid #e4e7f0;border-top:1px solid #e4e7f0;line-height: 43px;padding-left:10px;color:#808086;position: relative;}
+      .setting span{position: absolute;right:10px;top:11px;width:40px;height:22px;background: url(../images/2.png);background-size: 40px 22px;}
+      .setting span i{display: inline-block;width:22px;height:22px;background:url(../images/3.png);background-size: 22px 22px;vertical-align: top;}
+      .setting .on{background-image: url(../images/1.png);text-align: right;}
+      #unbind{margin:80px 10px;display: block;line-height: 40px;color:#fff;font-size:17px;background:#36c;border-radius: 4px;text-align: center;}
+      #mask{position: fixed;width:100%;height:100%;background: rgba(0,0,0,0.4);left:0;top:0;display: none;}
+      #mask>div{background: #fff;width:228px;position: absolute;left:50%;top:50%;margin:-50px 0 0 -114px;border-radius: 10px;font-size: 14px;padding:15px 16px 0;}
+      #mask>div>div{margin:20px -16px 0;border-top:1px solid #e4e7f0}
+      #mask a{display: inline-block;width:50%;line-height: 38px;text-align: center;color:#36c;}
+      #mask a:first-child{border-right:1px solid #e4e7f0;font-weight: bold;}
+  </style>
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="goBack" id="goBackA">
+            <img src="../../images/goback.png" />
+          </a>
+        </div>
+        <p class="navbar-text">已关联账户</p>
+      </div>
+    </nav>
+    <div class="setting">关联云条件单、止损<span onclick="alert('暂不支持！')"><i></i></span></div>
+    <a id="unbind" onclick="$('#mask').show()">解除关联</a>
+    <div id="mask">
+        <div>
+            取消关联后，您将无法接收交易类的消息提醒
+            <div><a>确定</a><a onclick="$('#mask').hide()">取消</a></div>
+        </div>
+    </div>
+  <script src="../../../js/jquery-2.2.0.min.js"></script>
+  <script src="../js/binds.js"></script>
+  <script>unbindView()</script>
+</body>
+</html>

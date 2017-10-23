@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body,div,ul,li{margin:0; padding:0; font-size:12px;}
+        .clearFloat{ clear:both; height:0; line-height:0; font-size:0;}
+        .tab_ul{ margin:10px auto 0; padding-left:20px; width:228px; height:31px; background-color:#FCEDFF;border:1px solid #DBA4E8; border-bottom:0;}
+        .tab_ul li{ float:left; display:inline; margin:5px 0 0 5px; width:46px; height:26px;}
+        .tab_ul li a{ display:block;width:46px; height:26px; line-height:26px; text-align:center;font-size:12px; color:#000000; text-decoration:none;}
+        .tab_ul li a:hover{color:#5F0082; font-weight:bold;}
+        .tabDiv{ margin:0 auto; width:248px; height:200px; border:1px solid #DBA4E8; border-top:0; overflow:hidden;}
+        .tabDiv ul{ margin:0 auto; padding-top:10px; width:218px; height:190px;}
+        .tabDiv ul li{ height:24px;color:#666666; font-size:12px; margin-left:20px; }
+        .tabDiv ul li a{ color:#333333; margin-left:5px;}
+    </style>
+</head>
+<body>
+<!--tab-->
+<ul class="tab_ul">
+    <li><a href="#ul1">目录1</a></li>
+    <li><a href="#ul2">目录2</a></li>
+    <li><a href="#ul3">目录3</a></li>
+    <li><a href="#ul4">目录4</a></li>
+    <!--<a href="#ul1">目录1</a>-->
+    <!--<a href="#ul2">目录2</a>-->
+    <!--<a href="#ul3">目录3</a>-->
+    <!--<a href="#ul4">目录4</a>-->
+</ul>
+<div class="tabDiv">
+    <ul id="ul1">
+        <li><a href="#" >java</a></li>
+        <li><a href="#" >c++</a></li>
+        <li><a href="#" >c#</a></li>
+        <li><a href="#" >php</a></li>
+        <li><a href="#" >javascript</a></li>
+        <li><a href="#" >css</a></li>
+        <li><a href="#" >html</a></li>
+    </ul>
+    <ul id="ul2">
+        <li><a href="#" >语文</a></li>
+        <li><a href="#" >数学</a></li>
+        <li><a href="#" >英语</a></li>
+        <li><a href="#" >历史</a></li>
+        <li><a href="#" >地理</a></li>
+        <li><a href="#" >生物</a></li>
+        <li><a href="#" >化学</a></li>
+    </ul>
+    <ul id="ul3">
+        <li><a href="#" >红色</a></li>
+        <li><a href="#" >黄色</a></li>
+        <li><a href="#" >橙色</a></li>
+        <li><a href="#" >绿色</a></li>
+        <li><a href="#" >紫色</a></li>
+        <li><a href="#" >蓝色</a></li>
+        <li><a href="#" >黑色</a></li>
+    </ul>
+    <ul id="ul4">
+        <li><a href="#" >运营</a></li>
+        <li><a href="#" >设计</a></li>
+        <li><a href="#" >产品</a></li>
+        <li><a href="#" >程序</a></li>
+        <li><a href="#" >美工</a></li>
+        <li><a href="#" >交互</a></li>
+        <li><a href="#" >经理</a></li>
+    </ul>
+</div>
+<!--tab结束-->
+</body>
+</html>

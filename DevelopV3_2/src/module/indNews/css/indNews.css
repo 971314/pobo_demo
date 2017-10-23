@@ -1,0 +1,52 @@
+.tabbar-item.active {
+  color: #eb1212;
+  border-bottom-color: #eb1212;
+}
+
+#info-list .list-group-item {
+  padding: 8px;
+  margin-bottom: 0;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid #e4e7f0;
+  border-radius: 0;
+  height: 56px;
+  font-size: 15px;
+  color: #4c4c55;
+  line-height: 19px;
+}
+
+.list-group-item {
+  position: relative;
+  display: block;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+
+a {
+  text-decoration: none;
+}
+
+#info-list .list-group {
+  margin-left: -8px;
+  margin-right: -8px;
+  margin-bottom: 0;
+}
+
+.list-group {
+  padding-left: 0;
+}
+
+#info-list .time {
+  position: absolute;
+  right: 8px;
+  bottom: 2px;
+  font-size: 12px;
+  color: #808086;
+}
+
+.tabbar-indicator {background-color: #eb1212;}
+.segmented-control-item.active {background-color: #fff; color: #eb1212;}
+.segmented-control-item {color: #fff; padding: 0 0; background-color: #eb1212;}
+.segmented-control {border: 1px solid #fff; font-size: 15px; height: 25px; line-height: 25px;}

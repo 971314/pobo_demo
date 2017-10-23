@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>新闻资讯</title>
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../css/common.css" rel="stylesheet">
+    <style>
+      .news {
+        margin-top: 10px;
+      }
+      .news h4 {
+        font-size: 16px;
+      }
+      .info {
+        margin-left: -8px;
+        margin-right: -8px;
+        padding-left: 8px;
+        padding-right: 8px;
+        padding-bottom: 5px;
+        font-size: 12px;
+        color: lightgray;
+        border-bottom: 1px solid #e4e7f0;
+      }
+      .time {
+        margin-left: 10px;
+      }
+      .content {
+        border: none;
+        background-color: transparent;
+        font-size: 14px;
+        line-height: 24px;
+        overflow-wrap: break-word;
+      }
+    </style>
+    
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a href="goBack" class="navbar-brand">
+            <img src="../../images/goback.png" alt="返回">
+          </a>
+        </div>
+        <p class="navbar-text">详细信息</p>
+      </div>
+    </nav>
+    <div class="container-fluid">
+      <div class="clearfix">
+        <div class="news">
+          <h4 class="title"></h4>
+          <p class="info">来源：&nbsp;<span class="provider"></span><span class="time"></span></p>
+          <p class="content"></p>
+        </div>
+      </div>
+    </div>
+    <!--<iframe src="https://www.baidu.com" id="testIframe" width="100%" height="120" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes">dsssssssssssssssssssssssssssssssssssss</iframe>-->
+    <script src="../../../js/jquery-2.2.0.min.js"></script>
+    <script>
+      /**
+       * 获取url参数
+       * @param name 参数名
+       * @returns 参数值
+       */
+      var iframe = document.getElementById("testIframe");
+var iframeHeight = function() {    
+    var hash = window.location.hash.slice(1), h;
+    if (hash && /height=/.test(hash)) {
+        h = hash.replace("height=", "");
+        iframe.height = h;
+    }
+    setTimeout(iframeHeight, 200);
+};
+iframeHeight();
+      
+      function GetQueryString(name) {
+        var reg = new RegExp('(^|&)'+ name +'=([^&]*)(&|$)');
+        var r = window.location.search.substr(1).match(reg);
+        if(r)return unescape(r[2]); return null;
+      }
+
+      var newsId = GetQueryString('newsId');
+      function success(data) {
+        url = data.details;
+        if(isPoboApp){
+          var data = {newsId:newsId};
+          console.log(url.webservice)
+          $.get(url.webservice,data,function (data) {
+            data = data.replace(/\n/g, '<br>');
+            data = data.replace(/\t/g, '&nbsp;&nbsp;&nbsp;&nbsp;');
+            data = data.replace(/\s/g, '&nbsp;');
+            var CONTENTS = JSON.parse(data).News;
+            $('.title').html(CONTENTS.Title);
+            $('.time').html(CONTENTS.Pubtime);
+            $('.provider').html(CONTENTS.Source);
+            $('.content').html(CONTENTS.Text);
+          })
+        }else{
+          /*pbE.INFO().infoQueryListWithJson(JSON.stringify(data));*/
+        }
+      }
+      var isPoboApp = typeof pbE == "undefined",url;
+      var data = {doc: 'json', newsId: newsId, type: 'mu'};
+      function reload() {
+        if(isPoboApp){
+          $.get('../conf/info.json',success)
+        }else{
+          var data = {doc: 'json', newsId: newsId, type: 'mu'};
+          pbE.INFO().infoQueryDetailWithJson(JSON.stringify(data));
+        }
+      }
+      function callback(message) {
+        message = message.replace(/\n/g, '<br>');
+        message = message.replace(/\t/g, '&nbsp;&nbsp;&nbsp;&nbsp;');
+        message = message.replace(/\s/g, '&nbsp;');
+        var msg = JSON.parse(message);
+        if(msg.moduleId == 90004){
+          var newsDetail = msg.jData.News;
+          if (newsDetail.Text.substring(0, 5) == '{url:') {
+            window.location.href='pobo:uncheck=1&pageId=900004&url=' + newsDetail.Text + '?title=详细信息';
+            return;
+          }
+          $('.title').html(newsDetail.Title);
+          $('.time').html(newsDetail.Pubtime);
+          $('.provider').html(newsDetail.Source);
+          $('.content').html(newsDetail.Text);
+        }
+
+      }
+      reload();
+</script>
+  </body>
+</html>

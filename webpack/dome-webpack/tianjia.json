@@ -1,0 +1,79 @@
+{
+  "Id": "",
+  "PlanId": {
+    "Type": "",
+    "Identity": "",
+    "CheckSum": ""
+  },
+  "Contracts": [
+    {
+      "ExchangeCode": "SHFE",
+      "ContractCode": "NI1705"
+    }
+  ],
+  "CreateTime": "",
+  "UpdateTime": "",
+  "TradeDate": "2017-03-09",
+  "TimeCondition": 1,
+  "ConditionChoiced": 1,
+  "ConditionList": [
+    {
+      "Price": {
+        "Type": "最新价",
+        "Operator": "<=",
+        "Value": 38000,
+        "Counter": 1,
+        "MatchedCounter": 0,
+        "Enabled": true
+      }
+    },
+    {
+      "Time": ""
+    }
+  ],
+  "OrderAction": {
+    "ActionType": 1,
+    "SmartOrder": {
+      "Id": "",
+      "PlanId": {
+        "Type": "",
+        "Identity": "",
+        "CheckSum": ""
+      },
+      "ComboOrderId": "",
+      "SplitOrderEnable": false,
+      "ReorderEnable": false,
+      "CancelOrderEnable": false,
+      "Order": {
+        "41": "3",
+        "42": "1",
+        "EAccountId": {
+          "53": "0",
+          "67": "8",
+          "249": "133",
+          "Type": "EAccountID"
+        },
+        "Contract": {
+          "ExchangeCode": "SHFE",
+          "ContractCode": "NI1705"
+        },
+        "Volume": 1,
+        "Direction": "0",
+        "OffsetFlag": "0",
+        "PriceType": "2",
+        "LimitPriceType": "最新价",
+        "LimitPriceOffset": 2,
+        "LimitPrice": "",
+        "AnyPriceType": "1",
+        "OutFactorFalg": false,
+        "ExtRawData": {
+          "41": "3",
+          "42": "1",
+          "119": "1",
+          "127": "0",
+          "495": "1"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>个人信息</title>
+
+  <!-- Bootstrap -->
+  <link href="../../css/bootstrap.min.css" rel="stylesheet">
+  <link href="../../css/common.css" rel="stylesheet">
+  <style>
+    .user-img {
+      margin-top: 13px;
+      margin-bottom: 7px;
+      border-top: 1px solid #e4e7f0;
+      border-bottom: 1px solid #e4e7f0;
+      padding-top: 8px;
+      padding-bottom: 6px;
+      background-color: #fff;
+      line-height: 52px;
+    }
+    .logout{
+      display: inline-block;
+      color:#ffffff;
+      background:#3366cc;
+      width:100%;
+      height:40px;
+      text-align: center;
+      line-height: 40px;
+      border-radius:8px;
+      margin-top:80px;
+    }
+    .logout:hover{
+      color:#ffffff;
+    }
+  </style>
+  <!--<script src="../js/adaptation.js"></script>-->
+</head>
+<body>
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" onclick="goBack()">
+          <img src="../../images/goback.png" alt="返回">
+        </a>
+      </div>
+      <p class="navbar-text">个人信息</p>
+    </div>
+  </nav>
+  <div class="container-fluid">
+    <div class="clearfix">
+      <div class="row user-img">
+        <span>头像</span>
+        <img class="pull-right" src="../images/uimg.png" alt="" width="56" height="56">
+      </div>
+      <ul class="nav nav-pills nav-stacked">
+        <li><a href="javascript:void(0);">手机号码<span class="pull-right" id="phone">--</span></a></li>
+        <li><a id="pwd">修改密码<img class="more" src="../images/more.png" alt="详细"></a></li>
+      </ul>
+      <div><a class="logout">退出登录</a></div>
+    </div>
+  </div>
+  <script src="../../../js/jquery-2.2.0.min.js"></script>
+  <script src="../js/reg.js"></script>
+  <script>
+    if(typeof pbE != 'undefined'){
+      function reload() {
+        var phone = pbE.SYS().getAppCertifyInfo('PbKey_H5_Home_Auth_LoginName');
+        $('#phone').html(phone.substr(0, 3) + '****' + phone.substr(-4));
+      }
+      var phone = pbE.SYS().getAppCertifyInfo('PbKey_H5_Home_Auth_LoginName');
+      $('#phone').html(phone.substr(0, 3) + '****' + phone.substr(-4));
+      $("#pwd").click(function () {
+        $(this).attr('href','pobo:uncheck=0&pageId=905010&url=reg/view/reg-pwd.html').click();
+      })
+        $('.logout').on('tap click',function () {
+            pbE.SYS().clearAuthData();
+            window.location.href = 'pobo:uncheck=0&pageId=800011&url=reg/view/reg-log.html';
+        })
+    }else{
+      $.get('../conf/reg.json',function (data) {
+        var phone = data.PhoneNum;
+        $('#phone').html(phone.substr(0, 3) + '****' + phone.substr(-4));
+      });
+      $("#pwd").click(function () {
+          location.href = 'reg-pwd.html';
+      });
+      $('.logout').click(function () {
+        location.href = 'reg-log.html';
+      })
+    }
+  </script>
+</body>
+</html>

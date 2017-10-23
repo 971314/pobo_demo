@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>止损止盈设置</title>
+    <link href="../../../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../css/common.css" rel="stylesheet">
+    <link href="../css/condition.css" rel="stylesheet">
+</head>
+<body>
+<div id="setStopOfFiled">
+    <!-- 模态框（Modal） -->
+    <div class="modal  dialog-info" id="priceInfoDialog" tabindex="-1" role="dialog"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content" style="border-radius: 10px;">
+                <div class="modal-body dialog-bottom" @click="priceInfoClick(1)" data-dismiss="modal">
+                    涨停价
+                </div>
+                <div class="modal-body dialog-bottom" @click="priceInfoClick(2)" data-dismiss="modal">
+                    跌停价
+                </div>
+                <div class="modal-body dialog-bottom" @click="priceInfoClick(3)" data-dismiss="modal">
+                    对手价
+                </div>
+                <div class="modal-body dialog-bottom" @click="priceInfoClick(4)" style="border-bottom: none;" data-dismiss="modal">
+                    最新价
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav class="navbar navInfo navbar-fixed-top">
+        <div  class="titleBack"><a href="#"><img src="../../images/goback.png"> </a></div>
+        <div class="nav-title">止损止盈 </div>
+        <div class="navThree">
+            <span class="navThreeTitle"></span>
+        </div>
+    </nav>
+    <div class="setDiv setStop">
+        <div class="setOut">
+            <ul>
+                <li style="height: 68px;">
+                    <div class="setOne">合约</div>
+                    <div class="setTwo">
+                        <input type="text" class="inputText" v-model="stopFiledObj.hyName"/>
+                        <div class="stopDiv">
+                            类型：
+                            <span class="stopSpan1">买开</span>
+                            持仓均价：
+                            <span class="stopSpan2">4200</span>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="setOne">数量</div>
+                    <div class="setTwo">
+                         <input type="text" class="inputText" v-model="stopFiledObj.Volume"/>
+                    </div>
+                </li>
+                <li>
+                    <div class="setOne">止盈价</div>
+                    <div class="setTwo">
+                        <input type="text" @blur="blurInfo" class="inputText" v-model="stopFiledObj.filedPrice"/>
+                    </div>
+                </li>
+                <li>
+                    <div class="setOne">止损价</div>
+                    <div class="setTwo">
+                        <input type="text" @blur="blurInfo"  class="inputText" v-model="stopFiledObj.stopPrice"/>
+                    </div>
+                </li>
+                <li>
+                    <div class="setOne">委托价</div>
+                    <div class="setTwo">
+                        <div class="stopSelect"  data-toggle="modal" data-target="#priceInfoDialog">
+                            <span>
+                                 {{stopFiledObj.LimitPriceType}}
+                               <img src="../images/more.png" class="stopMoreImg"/>
+                            </span>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+         </div>
+    </div>
+    <div class="btnDiv conBtn">
+        <button  type="button" class="btnSubmit" data-toggle="button" @click="btnConfirmClick">
+            编辑
+        </button>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="../../../js/vue.js"></script>
+<script type="text/javascript" src="../../../js/jquery-2.2.0.min.js"></script>
+<script type="text/javascript" src="../../../js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../js/config.js"></script>
+<script type="text/javascript" src="../js/feture-edit-stop-filed.js"></script>
+</html>

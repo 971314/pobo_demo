@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>消息中心</title>
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../css/common.css" rel="stylesheet">
+    <style>
+      #info-list .list-group-item:last-child {
+        border-bottom: 1px solid #e4e7f0;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top" id="nav-header"></nav>
+    <div class="container-fluid">
+      <div class="clearfix">
+        <div class="row">
+          <div id="info-list">
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="../../../js/react.min.js"></script>
+    <script src="../../../js/react-dom.min.js"></script>
+    <script src="../../../js/jquery-2.2.0.min.js"></script>
+    <script src="../../js/plugins.js"></script>
+  <script>
+    function GetQueryString(name) {
+      var urls = decodeURI(window.location.search.substr(1));
+      var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)');
+      var r = urls.match(reg);
+      if (r) return unescape(r[2]);return null;
+    }
+    var InfoList = React.createClass({
+      displayName: 'InfoList',
+
+      getDefaultProps: function () {
+        return {
+          dir: ''
+        };
+      },
+      render: function () {
+        var creatContents = function (content) {
+          var href = this.props.dir + 'pobo:uncheck=1&pageId=904002&url=info/view/info-de.html?newsId=' + content.ID;
+          var time = content.Pubtime.split(' ');
+          return React.createElement(
+                  'a',
+                  { className: 'list-group-item clearfix', href: href },
+                  React.createElement('span', { className: 'title', dangerouslySetInnerHTML: { __html: content.Title } }),
+                  React.createElement(
+                          'span',
+                          { className: 'time' },
+                          time[0]
+                  )
+          );
+        };
+        return React.createElement(
+                'div',
+                { className: 'list-group' },
+                this.props.contents.map(creatContents, this)
+        );
+      }
+    });
+    var InfoListPc = React.createClass({
+      displayName: 'InfoList',
+
+      getDefaultProps: function () {
+        return {
+          dir: ''
+        };
+      },
+      render: function () {
+        var creatContents = function (content) {
+          var href = this.props.dir + 'info-de.html?pageId=904002&newsId=' + content.ID;
+          var time = content.Pubtime.split(' ');
+          return React.createElement(
+                  'a',
+                  { className: 'list-group-item clearfix', href: href },
+                  React.createElement('span', { className: 'title', dangerouslySetInnerHTML: { __html: content.Title } }),
+                  React.createElement(
+                          'span',
+                          { className: 'time' },
+                          time[0]
+                  )
+          );
+        };
+        return React.createElement(
+                'div',
+                { className: 'list-group' },
+                this.props.contents.map(creatContents, this)
+        );
+      }
+    });
+    var groupID = GetQueryString('groupID'),
+        name=GetQueryString("name");
+    function success(data) {
+      url = data.index;
+      if (isPoboApp) {
+        pbE.INFO().infoQueryListWithJson(JSON.stringify(data));
+        function reload() {
+          pbE.INFO().infoQueryListWithJson(JSON.stringify(data));
+        }
+      } else {
+        var gp = {gcount:1, count: data.count};
+        for(var i=0; i<gp.gcount; i++){
+          gp["group"+(i+1)] = groupID;
+        }
+        $.get(url.webservice,gp,function (arr) {
+          var CONTENTS = JSON.parse(arr).Indexes;
+          ReactDOM.render(React.createElement(InfoListPc, {contents: CONTENTS}), document.getElementById('info-list'));
+        });
+        function reload() {
+          $.post(url.webservice, function (arr) {
+            var CONTENTS = JSON.parse(data).Indexes;
+            ReactDOM.render(React.createElement(InfoList, {contents: CONTENTS}), document.getElementById('info-list'));
+          });
+        }
+      }
+    }
+
+    var isPoboApp = typeof pbE != "undefined",url;
+    function reload() {
+      if(isPoboApp){
+          ReactDOM.render(React.createElement(NavHeader,{name:name}),document.getElementById("nav-header"));
+        var data = {type: 'mu', groupIDs: [groupID], doc: 'json', count: '10'};
+        success(data);
+      }else{
+          ReactDOM.render(React.createElement(NavHeader,{name:name}),document.getElementById("nav-header"));
+          $.get('../conf/info.json',success)
+      }
+    }
+    function callback(message) {
+      var msg = JSON.parse(message);
+      if (msg.moduleId == 90004) {
+        var CONTENTS = msg.jData.Indexes.slice(0, 10);
+        ReactDOM.render(React.createElement(InfoList, {contents: CONTENTS}), document.getElementById('info-list'));
+      }
+    }
+    reload();
+  </script>
+  </body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>持仓</title>
+
+  <!-- Bootstrap -->
+  <link href="../../../css/bootstrap.min.css" rel="stylesheet">
+  <link href="../css/position.css" rel="stylesheet">
+  <style>
+    #top-nav {position: fixed; top: 0; width: 100%; z-index: 100;}
+    #fund {position: fixed; height: 128px; width: 100%; z-index: 100; top: 10px;}
+    #contents {padding-top: 138px; z-index: 10;}
+    .details-title {display: block; width: 100%;}
+    .details-title p {display: inline-block;}
+  </style>
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="clearfix">
+      <div class="nav-blank" style="border-bottom: none;" id="top-nav"></div>
+      <div id="fund">
+        <div class="row funds-detail">
+          <div>
+            <p class="b2">当前权益</p>
+            <p class="b1">--元</p>
+          </div>
+          <div>
+            <p class="b2">当日盈亏</p>
+            <p class="b1" id="float">--元</p>
+          </div>
+        </div>
+        <div class="row funds-detail">
+          <div>
+            <p class="b2">占用保证金</p>
+            <p class="b1">--元</p>
+          </div>
+          <div>
+            <p class="c2">可用保证金</p>
+            <p class="b1">--元</p>
+          </div>
+        </div>
+      </div>
+      <div id="contents"></div>
+    </div>
+  </div>
+      
+  <script src="../../../js/react.min.js"></script>
+  <script src="../../../js/react-dom.min.js"></script>
+  <script src="../../../js/jquery-2.2.0.min.js"></script>
+  <script src="../../../js/PB.Page.js"></script>
+  <script src="../../js/futures-common.js"></script>
+  <script src="../js/thenBy.min.js"></script>
+  <script src="../../js/plugins.js"></script>
+  <script src="../js/future-po.js"></script>
+</body>
+</html>

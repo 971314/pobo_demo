@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>转义编码</title>
+</head>
+<body>
+<script>
+    function escapeHtml(string) {
+        var entityMap = {
+            "&": "&amp;",
+            "<": "&lt;",
+            ">": "&gt;",
+            '"': '&quot;',
+            "'": '&#39;',
+            "/": '&#x2F;'
+        };
+        return String(string).replace(/[&<>"'\/]/g, function (s) {
+            return entityMap[s];
+        });
+    }
+var str1='arr[i].treeId';
+    var string5 = "<div class='div2' name='" + escapeHtml(str1) + "'>test2222</div>";
+alert(string5)
+</script>
+</body>
+</html>

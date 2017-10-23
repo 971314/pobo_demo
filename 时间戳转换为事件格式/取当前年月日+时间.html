@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var d = new Date();
+    var str = d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate(),
+            time = d.getHours()+":"+d.getMinutes()+":"+d.getSeconds();
+    endTime = d.toLocaleDateString();
+    endTime = endTime.replace(/\//g,'')
+    console.log(str)
+    console.log(d.toLocaleTimeString())
+    console.log(d.getTime())
+    console.log(d.toLocaleTimeString())
+    console.log(endTime)
+</script>
+</body>
+</html>

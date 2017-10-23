@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 引入 ECharts 文件 -->
+    <script src="echarts.min.js"></script>
+    <title>柱形图</title>
+</head>
+<body>
+<!-- 为 ECharts 准备一个具备大小（宽高）的 DOM -->
+<div id="main" style="width: 600px;height:400px;border:1px solid #d6dfea"></div>
+<script type="text/javascript">
+    // 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById('main'));
+
+    myChart.setOption({
+        tooltip: {
+            trigger: 'axis'
+        },
+        legend: {
+            data:[
+                {
+                    name:'日活数据',
+                    textStyle:{
+                        color:'#539ff5'
+                    }
+                },
+                {
+                    name:'新增用户',
+                    textStyle:{
+                        color:'#f7298f'
+                    }
+                }
+            ],
+            right:0,
+            top:20
+        },
+        xAxis: {
+            type: 'category',
+            boundaryGap: false,
+            data: ['2016-9-10','2016-10-10']
+        },
+        yAxis:{},
+        series: [
+            {
+                name:'日活数据',
+                type:'line',
+                stack: '总量',
+                data:[100,112,125],
+                itemStyle:{
+                    normal:{
+                        color:'#539ff5'
+                    }
+                }
+            },
+            {
+                name:'新增用户',
+                type:'line',
+                stack: '总量',
+                data:[30,135,135],
+                itemStyle:{
+                    normal:{
+                        color:'#f7298f'
+                    }
+                }
+            }
+        ]
+    })
+</script>
+</body>
+</html>

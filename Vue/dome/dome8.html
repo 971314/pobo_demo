@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>过渡</title>
+    <link href="https://unpkg.com/animate.css@3.5.1/animate.min.css" rel="stylesheet" type="text/css">
+    <style>
+        .fade-enter-active, .fade-leave-active {
+            transition: opacity .5s
+        }
+        .fade-enter, .fade-leave-active {
+            opacity: 0
+        }
+        .bounce-enter-active{
+            animation:bounce-in .5s;
+        }
+        .bounce-leave-actiove{
+            animation:bounce-out .5s;
+        }
+        @keyframes bounce-in{
+            0%{
+                transform: scale(0)
+            }
+            50%{
+                transform:scale(1.5)
+            }
+            100%{
+                transform:scale(1)
+            }
+        }
+        @keyframes bounce-out {
+            0% {
+                transform: scale(1)
+            }
+            50% {
+                transform: scale(1.5)
+            }
+            100% {
+                transform: scale(0)
+            }
+        }
+        .component-fade-enter-active, .component-fade-leave-active {
+            transition: opacity .3s ease;
+        }
+        .component-fade-enter, .component-fade-leave-active {
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+
+<div id="demo">
+    <button @click="show = !show">Toggle</button>
+    <transition  name="fade">
+        <p v-if="show">hello</p>
+    </transition >
+</div>
+
+<div id="example-2">
+    <button @click="show = !show">Toggle show</button>
+    <transition name="bounce">
+        <p v-if="show">Look at me!</p>
+    </transition>
+</div>
+
+<div id="example-3">
+    <button @click="show = !show">Toggle render</button>
+    <transition name="custom-classes-transition" enter-active-class="animated tada" leave-active-class="animated bounceOutRight">
+        <p v-if="show">hello</p>
+    </transition>
+</div>
+
+<div id="example-4">
+    <button @click="show = !show">Toggle</button>
+    <transition @before-enter="beforeEnter" @enter="enter" @leave="leave" :css="false"><p v-if="show">Demo</p></transition>
+</div>
+
+<div id="example-5" name="component-fade" mode="out-in">
+    <input id="a" value="v-a" name="view" type="radio">
+    <label for="a"> A </label>
+    <input id="b" value="v-b" name="view" type="radio">
+    <label for="b"> B </label>
+    <component :is="view"></component>
+</div>
+
+<script src="vue.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>
+<script>
+    new Vue({
+        el:'#demo',
+        data:{
+            show:true
+        }
+    });
+    new Vue({
+        el:'#example-2',
+        data:{
+            show:true
+        }
+    });
+    new Vue({
+        el:'#example-3',
+        data:{
+            show:true
+        }
+    });
+    new Vue({
+        el:'#example-4',
+        data:{
+            show:false
+        },
+        methods:{
+            beforeEnter:function (el) {
+                el.style.opacity = 0;
+                el.style.transformOrigin ='left'
+            },
+            enter:function (el,done) {
+                Velocity(el,{opacity:1,fontSize:'1.4em'},{duration:300});
+                Velocity(el,{fontSize:'1em'},{complete:done})
+            },
+            leave:function (el,done) {
+                Velocity(el,{translateX:'15px',rotateZ:'50deg'},{duraiton:600});
+                Velocity(el,{rotateZ:'100deg'},{loop:2});
+                Velocity(el,{
+                    rotateZ:'45deg',
+                    translateY:'30px',
+                    translateX:'30px',
+                    opacity:0
+                },{complete:done})
+            }
+        }
+    });
+    new Vue({
+        el:'#example-5',
+        data:{
+            view:'v-a'
+        },
+        components:{
+            'v-a':{
+                template:'<div>Component A</div>'
+            },
+            'v-b':{
+                template:'<div>component B</div>'
+            }
+        }
+    })
+</script>
+</body>
+</html>

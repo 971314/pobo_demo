@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML DOM</title>
+    <script src="https://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+</head>
+<body>
+<div ng-app="" ng-init="mySwitch=true">
+    <button ng-disabled="mySwitch">点我！</button>
+    <input type="checkbox" ng-model="mySwitch">按钮
+    <p>{{mySwitch}}</p>
+</div>
+                                        <!--ng-show 指令-->
+<!--<div ng-app="">-->
+    <!--<p ng-show="true">我是可见的</p>-->
+    <!--<p ng-show="false">我是不可见的</p>-->
+<!--</div>-->
+                                                <!--使用表达式来计算布尔值（ true 或 false）-->
+<!--<div ng-app="" ng-init="hour=13">-->
+
+    <!--<p ng-show="hour > 12">我是可见的。</p>-->
+
+<!--</div>-->
+                                                    <!--ng-hide 指令-->
+<!--<div ng-app="">-->
+
+    <!--<p ng-hide="true">我是不可见的。</p>-->
+
+    <!--<p ng-hide="false">我是可见的。</p>-->
+
+<!--</div>-->
+
+</body>
+</html>

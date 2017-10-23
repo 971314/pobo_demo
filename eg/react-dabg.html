@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+<script src="js/react.js"></script>
+<script src="js/JSXTransformer.js"></script>
+<script type="text/jsx">
+    var style = {
+        color : "red",
+        border: "1px #000 solid",
+    };
+    var HelloWorld = React.createClass({
+        render: function(){
+            return <p>你好React</p>;
+        }
+    });
+    var rawHTML = {
+        __html: "<h2>非dom属性:dangerouslySetInnerHTML标签</h2>"
+    };
+    React.render(<div style={style} dangerouslySetInnerHTML={rawHTML}></div>, document.body);
+</script>
+</body>
+
+</html>

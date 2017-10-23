@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>成功</title>
+
+  <!-- Bootstrap -->
+  <link href="../../css/bootstrap.min.css" rel="stylesheet">
+  <link href="../css/reg.css" rel="stylesheet">
+</head>
+<body id="body">
+  <div class="container-fluid">
+    <div class="clearfix">
+      <div class="tips-top" style="font-size: 22px;">
+        <p>您的密码已修改成功</p>
+        <p><span>3</span>秒后进入投资之旅</p>
+      </div>
+      <div class="tips-middle" style="font-size: 16px; color: #fff;">
+        温馨提示：您可以在“我的”里修改密码
+      </div>
+      <a class="hide" id="target" href=""></a>
+    </div>
+  </div>
+  <script src="../../../js/jquery-2.2.0.min.js"></script>
+  <script src="../js/reg.js"></script>
+  <script>
+    var countdown = 2;
+    $('#target').attr('href', 'reg-one.html?phone=' + GetQueryString('phone'));
+    var i = setInterval(function(){
+      if(countdown == 0){
+        clearInterval(i);
+        $('#target')[0].click();
+      }else{
+        $('.a0 span').html(countdown);
+      }
+      countdown--;
+    },1000);
+  </script>
+</body>
+</html>

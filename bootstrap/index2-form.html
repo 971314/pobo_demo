@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bootstrap-form</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="js/bootstrap.min.css">
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/bootstrap.min.css"></script>
+</head>
+<body>
+<form  role="form">
+    <!-- 所有设置了form-control类的input,textarea,select,元素都将被默认为width:100%   -->
+    <div  class="form-group">
+        <!--form-group:一般讲标签和空间包裹在form-group中使用-->
+        <label   for="exampleInputEmail">Email  address</label>
+        <input   type="email"   class="form-control"  id="exampleInputEmail"  placeholder="input">
+    </div>
+
+
+    <div  class="form-group">
+        <label   for="exampleInputEmail">Email  name</label>
+        <textarea  class="form-control">11111</textarea>
+    </div>
+
+
+    <div  class="form-group">
+        <label  for="select">select  form</label>
+        <select  class="form-control">
+            <option>111</option>
+            <option>222</option>
+        </select>
+    </div>
+</form>
+
+<hr>
+<!-- form-inline类使表单水平呈现-->
+<form   class="form-inline">
+    <!--其次还有check-inline,radio-inline等-->
+    <div  class="form-group">
+        <label  class="src-only"  for="exampleInputAmount">Amount</label>
+        <div  class="input-group">
+            <!--input-group：输入组-->
+            <div  class="input-group-addon">@</div>
+            <!--addon:指添加的文本或按钮-->
+            <input  type="text"  class="form-control "  id="exampleInputAmount"  placeholder="Amount">
+            <div   class="input-group-addon">@</div>
+        </div>
+    </div>
+    <button  type="submit"  class="btn  btn-primary">search</button>
+
+</form>
+<hr>
+<!--水平排列的表单   control-label：表示文本采用右对齐 -->
+<form   class="form-horizontal" >
+    <div  class="form-group">
+        <label  for="inputEmail"   class="col-sm-2  control-label">Email:</label>
+        <div  class="col-sm-10">
+            <input  type="email"   class="form-control"   id="inputEmail"  placeholder="email">
+        </div>
+    </div>
+    <div  class="form-group">
+        <label  for="inputPassword"   class="col-sm-2  control-label">Password:</label>
+        <div  class="col-sm-10">
+            <input  type="password"   class="form-control"   id="inputPassword"  placeholder="password">
+        </div>
+    </div>
+</form>
+<hr><br>
+<div  class="form-group">
+
+    <input  type="text"   id="idCard"  aria-label="身份证">
+    <p  class="help-block">Example  block-level </p>
+    <!--help-block：用来提示解释说明的文本-->
+</div>
+<div  class="form-group">
+    <label  for="idCard">身份证</label>
+    <input  type="text"   id="idCard"  >
+    <p  class="help-block">Example  block-level </p>
+</div>
+<hr><br><br>
+<div class="dropdown">
+    <button type="button" class="btn dropdown-toggle" id="dropdownMenu1"   data-toggle="dropdown">
+
+        选择下列选项
+        <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+        <li role="presentation">
+            <a role="menuitem" tabindex="-1" href="#">1111</a>
+        </li>
+        <li role="presentation">
+            <a role="menuitem" tabindex="-1" href="#">22222</a>
+        </li>
+        <li role="presentation">
+            <a role="menuitem" tabindex="-1" href="#">33333</a>
+        </li>
+    </ul>
+</div>
+<hr><br><br>
+<!-- 引入fieldset的表单，作用：将表单包含在一个块里面 -->
+<form role="form">
+    <fieldset disabled>
+        <div class="form-group">
+            <label for="disabledTextInput">禁用的输入框</label>
+            <input type="text" id="disabledTextInput" class="form-control" placeholder="禁止输入">
+        </div>
+        <div class="form-group">
+            <label for="disabledSelect">禁用的下拉框</label>
+            <select id="disabledSelect" class="form-control">
+                <option>禁用不可选择</option>
+            </select>
+        </div>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox"> 禁用无法选择
+            </label>
+        </div>
+        <button type="submit" class="btn btn-primary">提交</button>
+    </fieldset>
+</form>
+<hr><br><br>
+<!--  加了lenged属性 -->
+<form role="form">
+    <fieldset disabled>
+        <legend><input type="text" class="form-control" placeholder="颜色变灰，但没被禁用" ></legend>
+        <!--这里鼠标可以放入输入框中-->
+        <div class="form-group">
+            <label for="disabledTextInput">禁用的输入框</label>
+            <input type="text" id="disabledTextInput" class="form-control" placeholder="禁止输入">
+        </div>
+        <div class="form-group">
+            <label for="disabledSelect">禁用的下拉框</label>
+            <select id="disabledSelect" class="form-control">
+                <option>不可选择</option>
+            </select>
+        </div>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox"> 无法选择
+            </label>
+        </div>
+        <button type="submit" class="btn btn-primary">提交</button>
+    </fieldset>
+</form>
+<!--  禁用的表单，只对button   select   input等禁用，而对于其它的项legend并不起作用-->
+<hr><br><br>
+<a  class="btn  btn-default"  href="#"  role="button">link</a>
+<button  class="btn  btn-default  btn-lg"  type="submit"  disabled="disabled">default</button>
+<button  class="btn  btn-primary"          type="submit">primary</button>
+<button  class="btn  btn-success"          type="submit">success</button>
+<button  class="btn  btn-info  btn-block"  type="submit">info</button>
+<!--btn-block：将其拉伸到父元素的100%-->
+<button  class="btn  btn-warning"          type="submit">warning</button>
+<input   class="btn  btn-danger  active"   type="button"  value="Input">
+<input   class="btn  btn-link"             type="button"  value="submit">
+<hr><br><br>
+<img  src="57aa7cdb010cb.jpg"  class="img-responsive  center-block  img-rounded"  alt="responsive  image">
+<img  src="57aa7cdb010cb.jpg"  class="img-responsive  center-block  img-circle"  alt="responsive  image">
+<img  src="57aa7cdb010cb.jpg"  class="img-responsive  center-block  img-thumbnail"  alt="responsive  image">
+</body>
+</html>

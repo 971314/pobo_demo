@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>登录</title>
+
+  <!-- Bootstrap -->
+  <link href="../../css/bootstrap.min.css" rel="stylesheet">
+  <link href="../css/reg.css" rel="stylesheet">
+  <style>
+    .btn-cfm {border-radius: 50px; background-color: #2190ed;}
+    .btn-rtn {border-radius: 50px; background-color: #2190ed;}
+    .form-control {background-color: transparent; border: none; border-bottom: 1px solid #fff; box-shadow: none; color: #fff;}
+    .form-control::-webkit-input-placeholder {color:#d3e3f1;}
+    .form-control:-moz-placeholder {color: #d3e3f1;}
+    .form-control::-moz-placeholder {color: #d3e3f1;}
+    .form-control:-ms-input-placeholder {color: #d3e3f1;}
+    .input-group-btn:last-child>.btn {background-color: transparent;}
+    .form-control:focus {border: none; border-bottom: 1px solid #9bcdfd; box-shadow: none;}
+    .input-group-btn:last-child>.btn {color: #fff;}
+    #btn-send {border: none; border-bottom: 1px solid #9bcdfd;}
+    #code {border-right: 1px solid #9bcdfd;}
+  </style>
+</head>
+<body id="body">
+  <div class="container-fluid">
+    <div class="clearfix">
+      <div class="tips-top">
+        <p>您可以在“我的”里修改密码</p>
+        <p class="error hide"></p>
+      </div>
+      <form class="clearfix">
+        <div class="form-group">
+          <input type="tel" class="form-control" id="phone" placeholder="请输入手机号码">
+        </div>
+        <div class="form-group">
+          <input type="password" class="form-control" id="password" placeholder="请输入密码" onkeydown="jump('confirm');">
+        </div>
+        <input class="btn btn-left btn-cfm" type="button" value="确&nbsp;&nbsp;定" onclick="login();" id="confirm">
+        <a class="btn btn-right btn-rtn" onclick="goBack()">返&nbsp;&nbsp;回</a>
+        <a class="forgot" href="reg-pwd.html">忘记密码</a>
+      </form>
+    </div>
+  </div>
+  <div class="load-backdrop hide" id="backdrop">
+    <div class="loading"></div>
+  </div>
+  <script src="../../../js/jquery-2.2.0.min.js"></script>
+  <script src="../js/reg.js"></script>
+</body>
+</html>

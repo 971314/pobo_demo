@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function day(str) {
+        str = str.substring(0,4)+'/'+str.substring(4,6)+'/'+str.substring(6,8);
+        return str;
+    }
+    function month() {
+        str = str.substring(0,4)+'/'+str.substring(4,6);
+        return str;
+    }
+    var str = '201611';
+    console.log(month(str))
+</script>
+</body>
+</html>

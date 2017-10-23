@@ -1,0 +1,34 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>随机数</title>
+    <style>
+        span{
+            cursor:pointer;}
+        #yzmshow{width:80px;
+            height:20px;
+            display:inline-block;
+            text-align:center;
+            background:url(images/yz0.jpg) no-repeat center}
+    </style>
+</head>
+
+<body onload="yzm()">
+<script>
+    function yzm(){
+        var x=parseInt(Math.random()*10);
+        var y=parseInt(Math.random()*10);
+        var z=parseInt(Math.random()*10);
+        var m=parseInt(Math.random()*10);
+        var sum=x+" "+y+" "+z+" "+m;
+        document.getElementById("yzmshow").innerHTML=sum;
+        document.getElementById("yzmshow").style.backgroundImage="url(images/yz"+x+".jpg)";
+    }
+
+</script>
+<p>
+    <input type="text" /><span id="yzmshow"></span><span onclick="yzm()">看不清楚，换一个</span></p>
+</body>
+</html>

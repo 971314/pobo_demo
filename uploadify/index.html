@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>My Uploadify Implementation</title>
+
+    <link rel="stylesheet" type="text/css" href="js/uploadify.css">
+
+    <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+
+    <script type="text/javascript" src="js/jquery.uploadify.min.js"></script>
+
+    <script type="text/javascript">
+
+        $(function() {
+
+            $('#file_upload').uploadify({
+
+                'swf'      : 'uploadify.swf',
+
+                'uploader' : 'uploadify.php'
+
+                // Your options here
+
+            });
+
+        });
+
+    </script>
+
+</head>
+
+<body>
+
+<input type="file" name="file_upload" id="file_upload" />
+
+</body>
+

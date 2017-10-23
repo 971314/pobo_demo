@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="vue.js"></script>
+<script>
+    /*// 定义一个混合对象
+    var myMixin = {
+        created: function () {
+            this.hello()
+        },
+        methods: {
+            hello: function () {
+                console.log('hello from mixin!')
+            }
+        }
+    }
+    // 定义一个使用混合对象的组件
+    var Component = Vue.extend({
+        mixins: [myMixin]
+    })
+    var component = new Component() // -> "hello from mixin!"*/
+
+    /*var mixin = {
+        created: function () {
+            console.log('混合对象的钩子被调用')
+        }
+    }
+    new Vue({
+        created: function () {
+            console.log('组件钩子被调用')
+        },
+        mixins: [mixin]
+    })*/
+
+    /*var mixin = {
+        methods: {
+            foo: function () {
+                console.log('foo')
+            },
+            conflicting: function () {
+                console.log('from mixin')
+            }
+        }
+    }
+    var vm = new Vue({
+        mixins: [mixin],
+        methods: {
+            bar: function () {
+                console.log('bar')
+            },
+            conflicting: function () {
+                console.log('from self')
+            }
+        }
+    })
+    vm.foo() // -> "foo"
+    vm.bar() // -> "bar"
+    vm.conflicting() // -> "from self"*/
+
+    // 为自定义的选项 'myOption' 注入一个处理器。
+    Vue.mixin({
+        created: function () {
+            var myOption = this.$options.myOption
+            if (myOption) {
+                console.log(myOption)
+            }
+        }
+    })
+    new Vue({
+        myOption: 'hello!'
+    })
+    // -> "hello!"
+</script>
+</body>
+</html>

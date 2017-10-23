@@ -1,0 +1,2140 @@
+@charset "UTF-8";
+/*! normalize.css v3.0.2 | MIT License | git.io/normalize */
+/**
+ * 1. Set default font family to sans-serif.
+ * 2. Prevent iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ */
+html {
+  font-family: sans-serif;
+  /* 1 */
+  -ms-text-size-adjust: 100%;
+  /* 2 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */ }
+
+/**
+ * Remove default margin.
+ */
+body {
+  margin: 0; }
+
+/* HTML5 display definitions
+   ========================================================================== */
+/**
+ * Correct `block` display not defined for any HTML5 element in IE 8/9.
+ * Correct `block` display not defined for `details` or `summary` in IE 10/11
+ * and Firefox.
+ * Correct `block` display not defined for `main` in IE 11.
+ */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+  display: block; }
+
+/**
+ * 1. Correct `inline-block` display not defined in IE 8/9.
+ * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
+ */
+audio,
+canvas,
+progress,
+video {
+  display: inline-block;
+  /* 1 */
+  vertical-align: baseline;
+  /* 2 */ }
+
+/**
+ * Prevent modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+audio:not([controls]) {
+  display: none;
+  height: 0; }
+
+/**
+ * Address `[hidden]` styling not present in IE 8/9/10.
+ * Hide the `template` element in IE 8/9/11, Safari, and Firefox < 22.
+ */
+[hidden],
+template {
+  display: none; }
+
+/* Links
+   ========================================================================== */
+/**
+ * Remove the gray background color from active links in IE 10.
+ */
+a {
+  background-color: transparent; }
+
+/**
+ * Improve readability when focused and also mouse hovered in all browsers.
+ */
+a:active,
+a:hover {
+  outline: 0; }
+
+/* Text-level semantics
+   ========================================================================== */
+/**
+ * Address styling not present in IE 8/9/10/11, Safari, and Chrome.
+ */
+abbr[title] {
+  border-bottom: 1px dotted; }
+
+/**
+ * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
+ */
+b,
+strong {
+  font-weight: bold; }
+
+/**
+ * Address styling not present in Safari and Chrome.
+ */
+dfn {
+  font-style: italic; }
+
+/**
+ * Address variable `h1` font-size and margin within `section` and `article`
+ * contexts in Firefox 4+, Safari, and Chrome.
+ */
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0; }
+
+/**
+ * Address styling not present in IE 8/9.
+ */
+mark {
+  background: #ff0;
+  color: #000; }
+
+/**
+ * Address inconsistent and variable font size in all browsers.
+ */
+small {
+  font-size: 80%; }
+
+/**
+ * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+ */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline; }
+
+sup {
+  top: -0.5em; }
+
+sub {
+  bottom: -0.25em; }
+
+/* Embedded content
+   ========================================================================== */
+/**
+ * Remove border when inside `a` element in IE 8/9/10.
+ */
+img {
+  border: 0; }
+
+/**
+ * Correct overflow not hidden in IE 9/10/11.
+ */
+svg:not(:root) {
+  overflow: hidden; }
+
+/* Grouping content
+   ========================================================================== */
+/**
+ * Address margin not present in IE 8/9 and Safari.
+ */
+figure {
+  margin: 1em 40px; }
+
+/**
+ * Address differences between Firefox and other browsers.
+ */
+hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0; }
+
+/**
+ * Contain overflow in all browsers.
+ */
+pre {
+  /* overflow: auto;  764:咨询页面，页面中间出现滚动条 bug fix*/ }
+
+/**
+ * Address odd `em`-unit font size rendering in all browsers.
+ */
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em; }
+
+/* Forms
+   ========================================================================== */
+/**
+ * Known limitation: by default, Chrome and Safari on OS X allow very limited
+ * styling of `select`, unless a `border` property is set.
+ */
+/**
+ * 1. Correct color not being inherited.
+ *    Known issue: affects color of disabled elements.
+ * 2. Correct font properties not being inherited.
+ * 3. Address margins set differently in Firefox 4+, Safari, and Chrome.
+ */
+button,
+input,
+optgroup,
+select,
+textarea {
+  color: inherit;
+  /* 1 */
+  font: inherit;
+  /* 2 */
+  margin: 0;
+  /* 3 */ }
+
+/**
+ * Address `overflow` set to `hidden` in IE 8/9/10/11.
+ */
+button {
+  overflow: visible; }
+
+/**
+ * Address inconsistent `text-transform` inheritance for `button` and `select`.
+ * All other form control elements do not inherit `text-transform` values.
+ * Correct `button` style inheritance in Firefox, IE 8/9/10/11, and Opera.
+ * Correct `select` style inheritance in Firefox.
+ */
+button,
+select {
+  text-transform: none; }
+
+/**
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Correct inability to style clickable `input` types in iOS.
+ * 3. Improve usability and consistency of cursor style between image-type
+ *    `input` and others.
+ */
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  /* 2 */
+  cursor: pointer;
+  /* 3 */ }
+
+/**
+ * Re-set default cursor for disabled elements.
+ */
+button[disabled],
+html input[disabled] {
+  cursor: default; }
+
+/**
+ * Remove inner padding and border in Firefox 4+.
+ */
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0; }
+
+/**
+ * Address Firefox 4+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+input {
+  line-height: normal; }
+
+/**
+ * It's recommended that you don't attempt to style these elements.
+ * Firefox's implementation doesn't respect box-sizing, padding, or width.
+ *
+ * 1. Address box sizing set to `content-box` in IE 8/9/10.
+ * 2. Remove excess padding in IE 8/9/10.
+ */
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+  /* 1 */
+  padding: 0;
+  /* 2 */ }
+
+/**
+ * Fix the cursor style for Chrome's increment/decrement buttons. For certain
+ * `font-size` values of the `input`, it causes the cursor style of the
+ * decrement button to change from `default` to `text`.
+ */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  height: auto; }
+
+/**
+ * 1. Address `appearance` set to `searchfield` in Safari and Chrome.
+ * 2. Address `box-sizing` set to `border-box` in Safari and Chrome
+ *    (include `-moz` to future-proof).
+ */
+input[type="search"] {
+  -webkit-appearance: textfield;
+  /* 1 */
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  /* 2 */
+  box-sizing: content-box; }
+
+/**
+ * Remove inner padding and search cancel button in Safari and Chrome on OS X.
+ * Safari (but not Chrome) clips the cancel button when the search input has
+ * padding (and `textfield` appearance).
+ */
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none; }
+
+/**
+ * Define consistent border, margin, and padding.
+ */
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em; }
+
+/**
+ * 1. Correct `color` not being inherited in IE 8/9/10/11.
+ * 2. Remove padding so people aren't caught out if they zero out fieldsets.
+ */
+legend {
+  border: 0;
+  /* 1 */
+  padding: 0;
+  /* 2 */ }
+
+/**
+ * Remove default vertical scrollbar in IE 8/9/10/11.
+ */
+textarea {
+  overflow: auto; }
+
+/**
+ * Don't inherit the `font-weight` (applied by a rule above).
+ * NOTE: the default cannot safely be changed in Chrome and Safari on OS X.
+ */
+optgroup {
+  font-weight: bold; }
+
+/* Tables
+   ========================================================================== */
+/**
+ * Remove most spacing between table cells.
+ */
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+td,
+th {
+  padding: 0; }
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  moz-user-select: -moz-none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+
+html {
+  font-size: 14px; }
+
+a {
+  text-decoration: none; }
+
+ul, ol, li, h1, h2, h3, h4, h5, h6 {
+  padding: 0;
+  margin: 0; }
+
+a:link, a:visited {
+  color: #fff; }
+
+[hidden] {
+  display: none !important; }
+
+.show {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transition: opacity 0.3s, visibility 0s linear 0s !important; }
+
+.left {
+  float: left; }
+
+.right {
+  float: right; }
+
+input[type='text'],
+input[type='password'] {
+  height: 30px;
+  padding-left: 10px;
+  padding-right: 10px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  border: none;
+  color: #333; }
+
+.button {
+  border-radius: 4px;
+  color: white;
+  background-color: #599afc;
+  border: 1px solid transparent;
+  padding: 4px; }
+
+.button.inverted {
+  color: #599afc;
+  border-color: #599afc;
+  background-color: #181527; }
+
+.button[disabled] {
+  color: silver;
+  background-color: #3B393F; }
+
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0; }
+
+.white {
+  color: white !important; }
+
+.positive, .red {
+  color: #ff3c23 !important; }
+
+.negative, .green {
+  color: #3ebd3b !important; }
+
+.yellow {
+  color: #D2A615 !important; }
+
+.show {
+  display: block; }
+
+.hide, .hidden {
+  display: none; }
+
+i.ico {
+  display: inline-block;
+  background-size: cover;
+  vertical-align: middle;
+  font-style: normal; }
+
+i.ico span:first-child {
+  margin-right: 4px; }
+
+i.ico span:last-child {
+  margin-left: 4px; }
+
+i.ico.sep {
+  width: 1px;
+  margin: 0 10px;
+  background-color: #181527; }
+
+@-webkit-keyframes bigger {
+  from {
+    transform: scale(1); }
+  to {
+    transform: scale(1.2); } }
+
+@-webkit-keyframes smaller {
+  from {
+    transform: scale(1.2); }
+  to {
+    transform: scale(1); } }
+
+i.ico {
+  width: 32px;
+  height: 32px; }
+  i.ico svg {
+    width: 100%;
+    height: 100%;
+    fill: white;
+    stroke: none; }
+
+a.Close {
+  width: 20px;
+  height: 20px;
+  color: transparent;
+  display: inline-block; }
+
+a.Close:before,
+a.Close:after {
+  content: '';
+  position: absolute;
+  display: block;
+  top: 2px;
+  left: -1px;
+  width: 2px;
+  height: 16px;
+  margin-left: 10px;
+  background-color: #eee;
+  transform-origin: center; }
+
+a.Close:before {
+  transform: rotateZ(45deg); }
+
+a.Close:after {
+  transform: rotateZ(-45deg); }
+
+.Gutter {
+  background-color: #3e445d !important; }
+
+.Toast .Content {
+  display: flex;
+  font-size: 1.2em; }
+
+.loader {
+  width: 100px;
+  height: 16px;
+  line-height: 0;
+  margin-left: -40px;
+  margin-top: -8px;
+  text-align: center; }
+  .loader > div {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border-radius: 100%;
+    margin: 0 2px;
+    background-color: #eee;
+    animation: bouncedelay 1.4s infinite ease-in-out both; }
+  .loader > div:nth-child(1) {
+    animation-delay: -0.32s; }
+  .loader > div:nth-child(2) {
+    animation-delay: -0.16s; }
+
+@keyframes bouncedelay {
+  0%, 80%, 100% {
+    transform: scale(0); }
+  40% {
+    transform: scale(1); } }
+
+#loader {
+  position: absolute;
+  top: 50%;
+  left: 50%; }
+
+.Menu.Show .list {
+  background-color: #ece9fa; }
+  .Menu.Show .list li:hover {
+    background-color: #599afc; }
+
+.Menu.Show .ico.gt:after {
+  border-color: #666; }
+
+.Tabs > .Tabs-Bar {
+  height: 36px; }
+  .Tabs > .Tabs-Bar .Tabs-Bar-Item {
+    color: white;
+    cursor: default;
+    display: inline-block;
+    padding: 0 20px;
+    position: relative;
+    height: 36px;
+    line-height: 36px;
+    transition: background-color, color 0.3s; }
+    .Tabs > .Tabs-Bar .Tabs-Bar-Item .Close {
+      color: transparent;
+      top: 5px;
+      right: -14px;
+      z-index: 1;
+      transform: scale(0.7); }
+  .Tabs > .Tabs-Bar .Tabs-Bar-Item[data-id="__more__"] {
+    padding: 0 10px; }
+  .Tabs > .Tabs-Bar .Tabs-Bar-Item:hover {
+    background: #34315b; }
+  .Tabs > .Tabs-Bar .Tabs-Bar-Item.active {
+    color: #4086f0;
+    background: #34315b; }
+  .Tabs > .Tabs-Bar .Tabs-Bar-Item.active::after {
+    height: 2px;
+    top: initial;
+    bottom: 0;
+    background-color: #4086f0; }
+  .Tabs > .Tabs-Bar .Tabs-Bar-Item-Container > .Tabs-Bar-Item:nth-child(1) {
+    z-index: 30; }
+  .Tabs > .Tabs-Bar .Tabs-Bar-Item-Container > .Tabs-Bar-Item:nth-child(2) {
+    z-index: 29; }
+  .Tabs > .Tabs-Bar .Tabs-Bar-Item-Container > .Tabs-Bar-Item:nth-child(3) {
+    z-index: 28; }
+  .Tabs > .Tabs-Bar .Tabs-Bar-Item-Container > .Tabs-Bar-Item:nth-child(4) {
+    z-index: 27; }
+  .Tabs > .Tabs-Bar .Tabs-Bar-Item-Container > .Tabs-Bar-Item:nth-child(5) {
+    z-index: 26; }
+  .Tabs > .Tabs-Bar .Tabs-Bar-Item-Container > .Tabs-Bar-Item:nth-child(6) {
+    z-index: 25; }
+  .Tabs > .Tabs-Bar .Tabs-Bar-Item-Container > .Tabs-Bar-Item:nth-child(7) {
+    z-index: 24; }
+  .Tabs > .Tabs-Bar .Tabs-Bar-Item-Container > .Tabs-Bar-Item:nth-child(8) {
+    z-index: 23; }
+  .Tabs > .Tabs-Bar .Tabs-Bar-Item-Container > .Tabs-Bar-Item:nth-child(9) {
+    z-index: 22; }
+  .Tabs > .Tabs-Bar .Tabs-Bar-Item-Container > .Tabs-Bar-Item:nth-child(10) {
+    z-index: 21; }
+  .Tabs > .Tabs-Bar .Tabs-Bar-Item-Container > .Tabs-Bar-Item:nth-child(11) {
+    z-index: 20; }
+  .Tabs > .Tabs-Bar .Tabs-Bar-Item-Container > .Tabs-Bar-Item:nth-child(12) {
+    z-index: 19; }
+  .Tabs > .Tabs-Bar .Tabs-Bar-Item-Container > .Tabs-Bar-Item:nth-child(13) {
+    z-index: 18; }
+  .Tabs > .Tabs-Bar .Tabs-Bar-Item-Container > .Tabs-Bar-Item:nth-child(14) {
+    z-index: 17; }
+  .Tabs > .Tabs-Bar .Tabs-Bar-Item-Container > .Tabs-Bar-Item:nth-child(15) {
+    z-index: 16; }
+  .Tabs > .Tabs-Bar .Tabs-Bar-Item-Container > .Tabs-Bar-Item:nth-child(16) {
+    z-index: 15; }
+  .Tabs > .Tabs-Bar .Tabs-Bar-Item-Container > .Tabs-Bar-Item:nth-child(17) {
+    z-index: 14; }
+  .Tabs > .Tabs-Bar .Tabs-Bar-Item-Container > .Tabs-Bar-Item:nth-child(18) {
+    z-index: 13; }
+  .Tabs > .Tabs-Bar .Tabs-Bar-Item-Container > .Tabs-Bar-Item:nth-child(19) {
+    z-index: 12; }
+  .Tabs > .Tabs-Bar .Tabs-Bar-Item-Container > .Tabs-Bar-Item:nth-child(20) {
+    z-index: 11; }
+  .Tabs > .Tabs-Bar .Tabs-Bar-Item-Container > .Tabs-Bar-Item:nth-child(21) {
+    z-index: 10; }
+  .Tabs > .Tabs-Bar .Tabs-Bar-Item-Container > .Tabs-Bar-Item:nth-child(22) {
+    z-index: 9; }
+  .Tabs > .Tabs-Bar .Tabs-Bar-Item-Container > .Tabs-Bar-Item:nth-child(23) {
+    z-index: 8; }
+  .Tabs > .Tabs-Bar .Tabs-Bar-Item-Container > .Tabs-Bar-Item:nth-child(24) {
+    z-index: 7; }
+  .Tabs > .Tabs-Bar .Tabs-Bar-Item-Container > .Tabs-Bar-Item:nth-child(25) {
+    z-index: 6; }
+  .Tabs > .Tabs-Bar .Tabs-Bar-Item-Container > .Tabs-Bar-Item:nth-child(26) {
+    z-index: 5; }
+  .Tabs > .Tabs-Bar .Tabs-Bar-Item-Container > .Tabs-Bar-Item:nth-child(27) {
+    z-index: 4; }
+  .Tabs > .Tabs-Bar .Tabs-Bar-Item-Container > .Tabs-Bar-Item:nth-child(28) {
+    z-index: 3; }
+  .Tabs > .Tabs-Bar .Tabs-Bar-Item-Container > .Tabs-Bar-Item:nth-child(29) {
+    z-index: 2; }
+  .Tabs > .Tabs-Bar .Tabs-Bar-Item-Container > .Tabs-Bar-Item:nth-child(30) {
+    z-index: 1; }
+  .Tabs > .Tabs-Bar .Tabs-Bar-Outer > .Tabs-Bar-Item:nth-child(1) {
+    z-index: 10; }
+  .Tabs > .Tabs-Bar .Tabs-Bar-Outer > .Tabs-Bar-Item:nth-child(2) {
+    z-index: 9; }
+  .Tabs > .Tabs-Bar .Tabs-Bar-Outer > .Tabs-Bar-Item:nth-child(3) {
+    z-index: 8; }
+  .Tabs > .Tabs-Bar .Tabs-Bar-Outer > .Tabs-Bar-Item:nth-child(4) {
+    z-index: 7; }
+  .Tabs > .Tabs-Bar .Tabs-Bar-Outer > .Tabs-Bar-Item:nth-child(5) {
+    z-index: 6; }
+  .Tabs > .Tabs-Bar .Tabs-Bar-Outer > .Tabs-Bar-Item:nth-child(6) {
+    z-index: 5; }
+  .Tabs > .Tabs-Bar .Tabs-Bar-Outer > .Tabs-Bar-Item:nth-child(7) {
+    z-index: 4; }
+  .Tabs > .Tabs-Bar .Tabs-Bar-Outer > .Tabs-Bar-Item:nth-child(8) {
+    z-index: 3; }
+  .Tabs > .Tabs-Bar .Tabs-Bar-Outer > .Tabs-Bar-Item:nth-child(9) {
+    z-index: 2; }
+  .Tabs > .Tabs-Bar .Tabs-Bar-Outer > .Tabs-Bar-Item:nth-child(10) {
+    z-index: 1; }
+  .Tabs > .Tabs-Bar .Tabs-Bar-Outer > .Tabs-Bar-Item[data-id="__add__"] {
+    padding-left: 2px;
+    padding-right: 2px;
+    z-index: 101;
+    font-family: monospace; }
+
+.Tabs > .Tabs-Content {
+  height: calc(100% - 36px); }
+
+.Light.Tabs > .Tabs-Bar {
+  height: 40px;
+  margin-left: -8px;
+  overflow: hidden;
+  margin-bottom: -1px; }
+  .Light.Tabs > .Tabs-Bar .Tabs-Bar-Item-Container {
+    padding-right: 15px; }
+  .Light.Tabs > .Tabs-Bar .Tabs-Bar-Item {
+    color: white;
+    background-color: #a4b5cb;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 10px;
+    margin: 10px 20px 0; }
+  .Light.Tabs > .Tabs-Bar .Tabs-Bar-Item::before, .Light.Tabs > .Tabs-Bar .Tabs-Bar-Item::after {
+    content: '';
+    display: block;
+    position: absolute;
+    border-radius: 5px 5px 0 0;
+    background-color: #a4b5cb;
+    top: 0;
+    width: 40px;
+    height: 30px;
+    border: 1px solid #ccc;
+    border-bottom: none;
+    transition: background-color 0.3s; }
+  .Light.Tabs > .Tabs-Bar .Tabs-Bar-Item::before {
+    left: -20px;
+    right: auto;
+    transform: skewX(-30deg);
+    border-right: none; }
+  .Light.Tabs > .Tabs-Bar .Tabs-Bar-Item::after {
+    right: -20px;
+    left: auto;
+    transform: skewX(30deg);
+    border-left: none; }
+  .Light.Tabs > .Tabs-Bar .Tabs-Bar-Item:first-child::before {
+    transform: none; }
+  .Light.Tabs > .Tabs-Bar .Tabs-Bar-Item span {
+    display: block;
+    height: 100%;
+    z-index: 1;
+    width: 100%;
+    top: 0;
+    position: relative; }
+  .Light.Tabs > .Tabs-Bar .Tabs-Bar-Item span::before {
+    transition: background-color 0.3s;
+    content: '';
+    display: block;
+    left: -10px;
+    right: -10px;
+    border-top: 1px solid #ccc;
+    position: absolute;
+    height: 100%;
+    z-index: -1;
+    background-color: #a4b5cb; }
+  .Light.Tabs > .Tabs-Bar .Tabs-Bar-Item.active {
+    z-index: 100; }
+  .Light.Tabs > .Tabs-Bar .Tabs-Bar-Item.active, .Light.Tabs > .Tabs-Bar .Tabs-Bar-Item:hover,
+  .Light.Tabs > .Tabs-Bar .Tabs-Bar-Item.active::before, .Light.Tabs > .Tabs-Bar .Tabs-Bar-Item:hover::before,
+  .Light.Tabs > .Tabs-Bar .Tabs-Bar-Item.active::after, .Light.Tabs > .Tabs-Bar .Tabs-Bar-Item:hover::after,
+  .Light.Tabs > .Tabs-Bar .Tabs-Bar-Item.active span::before, .Light.Tabs > .Tabs-Bar .Tabs-Bar-Item:hover span::before {
+    color: #333;
+    background-color: white; }
+
+.Light.Tabs > .Tabs-Content {
+  height: calc(100% - 41px); }
+
+.Dark.Tabs {
+  /* .StockGrid {
+        height: 100%;
+    } */ }
+  .Dark.Tabs > .Tabs-Bar {
+    height: 40px;
+    margin-left: -8px;
+    background-color: #201834;
+    overflow: hidden;
+    border-bottom: 1px solid #181527; }
+    .Dark.Tabs > .Tabs-Bar .Tabs-Bar-Item-Container {
+      padding-right: 15px;
+      margin-right: -15px; }
+    .Dark.Tabs > .Tabs-Bar .Tabs-Bar-Item {
+      color: white;
+      background-color: #292a4c;
+      height: 30px;
+      line-height: 30px;
+      padding: 0 10px;
+      margin: 10px 20px 0; }
+    .Dark.Tabs > .Tabs-Bar .Tabs-Bar-Item::before, .Dark.Tabs > .Tabs-Bar .Tabs-Bar-Item::after {
+      content: '';
+      display: block;
+      position: absolute;
+      border-radius: 5px 5px 0 0;
+      background-color: #292a4c;
+      top: 0;
+      width: 40px;
+      height: 30px;
+      border: 1px solid #181527;
+      border-bottom: none;
+      transition: background-color 0.3s; }
+    .Dark.Tabs > .Tabs-Bar .Tabs-Bar-Item::before,
+    .Dark.Tabs > .Tabs-Bar .Tabs-Bar-Item.active::after {
+      left: -20px;
+      right: auto;
+      transform: skewX(-30deg);
+      border-right: none;
+      height: 30px; }
+    .Dark.Tabs > .Tabs-Bar .Tabs-Bar-Item::after,
+    .Dark.Tabs > .Tabs-Bar .Tabs-Bar-Item.active::after {
+      right: -20px;
+      left: auto;
+      transform: skewX(30deg);
+      border-left: none;
+      height: 30px; }
+    .Dark.Tabs > .Tabs-Bar .Tabs-Bar-Item:first-child::before {
+      transform: none; }
+    .Dark.Tabs > .Tabs-Bar .Tabs-Bar-Item span {
+      display: block;
+      height: 100%;
+      z-index: 1;
+      width: 100%;
+      top: 0;
+      position: relative; }
+    .Dark.Tabs > .Tabs-Bar .Tabs-Bar-Item span::before {
+      transition: background-color 0.3s;
+      content: '';
+      display: block;
+      left: -10px;
+      right: -10px;
+      border-top: 1px solid #181527;
+      position: absolute;
+      height: 100%;
+      z-index: -1;
+      background-color: #292a4c; }
+    .Dark.Tabs > .Tabs-Bar .Tabs-Bar-Item.active {
+      z-index: 100; }
+    .Dark.Tabs > .Tabs-Bar .Tabs-Bar-Item.active, .Dark.Tabs > .Tabs-Bar .Tabs-Bar-Item:hover,
+    .Dark.Tabs > .Tabs-Bar .Tabs-Bar-Item.active::before, .Dark.Tabs > .Tabs-Bar .Tabs-Bar-Item:hover::before,
+    .Dark.Tabs > .Tabs-Bar .Tabs-Bar-Item.active::after, .Dark.Tabs > .Tabs-Bar .Tabs-Bar-Item:hover::after,
+    .Dark.Tabs > .Tabs-Bar .Tabs-Bar-Item.active span::before, .Dark.Tabs > .Tabs-Bar .Tabs-Bar-Item:hover span::before {
+      background-color: #3a3c5c; }
+  .Dark.Tabs .Tabs-Bar-ToolBtns {
+    color: white;
+    height: 40px;
+    line-height: 40px;
+    margin: 0 5px; }
+    .Dark.Tabs .Tabs-Bar-ToolBtns i {
+      margin-left: 20px;
+      width: 24px;
+      height: 24px;
+      line-height: 24px;
+      box-sizing: border-box; }
+      .Dark.Tabs .Tabs-Bar-ToolBtns i svg {
+        width: 100%;
+        height: 100%; }
+    .Dark.Tabs .Tabs-Bar-ToolBtns button {
+      margin-right: 20px;
+      padding: 0 10px;
+      box-sizing: border-box;
+      font-size: 10px;
+      height: 22px;
+      line-height: 20px;
+      vertical-align: middle;
+      border: none;
+      border-radius: 3px;
+      border: 1px solid #599afc;
+      color: #599afc;
+      background-color: #1d192d; }
+    .Dark.Tabs .Tabs-Bar-ToolBtns button:hover {
+      color: white;
+      background-color: #599afc; }
+    .Dark.Tabs .Tabs-Bar-ToolBtns i:hover {
+      background-color: #34315b; }
+  .Dark.Tabs > .Tabs-Content {
+    height: calc(100% - 41px); }
+
+.StatusBar {
+  color: white;
+  background-color: #21223f;
+  flex-basis: 40px;
+  line-height: 40px;
+  -webkit-app-region: drag;
+  display: flex;
+  font-size: 12px;
+  margin-left: -60px;
+  transition: margin-left 0.3s; }
+  .StatusBar a {
+    color: white; }
+  .StatusBar .StatusBar-Item {
+    height: 100%;
+    -webkit-app-region: no-drag; }
+  .StatusBar div.plugins {
+    flex: 1; }
+    .StatusBar div.plugins > div {
+      color: #599afc; }
+  .StatusBar .hide-tab {
+    width: 60px;
+    text-align: center; }
+    .StatusBar .hide-tab i.ico {
+      transform: rotate(180deg); }
+  .StatusBar .clock {
+    color: #838383;
+    width: 6.5em;
+    text-align: center;
+    padding: 0 10px;
+    border-left: 1px solid #181527; }
+    .StatusBar .clock .label {
+      padding: 0 6px; }
+  .StatusBar i.ico {
+    margin: 5px;
+    width: 30px;
+    height: 30px; }
+    .StatusBar i.ico svg {
+      fill: white;
+      width: 100%;
+      height: 100%; }
+  .StatusBar i.ico:hover svg {
+    stroke: white; }
+
+.tab-hidden .StatusBar {
+  margin-left: 0; }
+
+.StatusBar-Item {
+  position: relative; }
+
+.StatusBar-Panel {
+  position: absolute;
+  z-index: 1001;
+  left: -50px;
+  bottom: 40px;
+  color: #666;
+  background-color: white;
+  line-height: 1.6em;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.6); }
+
+.StatusBar-Item.connection .StatusBar-Panel {
+  width: 160px;
+  padding: 10px;
+  min-height: 200px;
+  left: -50px; }
+  .StatusBar-Item.connection .StatusBar-Panel .StatusBar-Panel-QuoteStatus h2 {
+    background-color: #eee;
+    height: 36px;
+    line-height: 36px;
+    padding: 0 10px;
+    font-size: 1em; }
+    .StatusBar-Item.connection .StatusBar-Panel .StatusBar-Panel-QuoteStatus h2 i.ico {
+      margin-top: 10px;
+      cursor: pointer; }
+      .StatusBar-Item.connection .StatusBar-Panel .StatusBar-Panel-QuoteStatus h2 i.ico svg {
+        fill: #3B393F; }
+  .StatusBar-Item.connection .StatusBar-Panel .StatusBar-Panel-QuoteStatus ul {
+    list-style: none;
+    padding: 10px; }
+    .StatusBar-Item.connection .StatusBar-Panel .StatusBar-Panel-QuoteStatus ul li {
+      height: 30px;
+      line-height: 30px; }
+  .StatusBar-Item.connection .StatusBar-Panel .StatusBar-Panel-QuoteStatus i.ico {
+    margin: 0;
+    margin-top: 6px;
+    float: right;
+    width: 16px;
+    height: 16px;
+    line-height: 0; }
+    .StatusBar-Item.connection .StatusBar-Panel .StatusBar-Panel-QuoteStatus i.ico svg {
+      fill: #599afc; }
+  .StatusBar-Item.connection .StatusBar-Panel .StatusBar-Panel-QuoteStatus span.name {
+    display: inline-block;
+    color: black;
+    width: 45px;
+    white-space: nowrap;
+    overflow: hidden;
+    vertical-align: middle; }
+  .StatusBar-Item.connection .StatusBar-Panel .StatusBar-Panel-QuoteStatus span.time {
+    display: inline-block;
+    width: 50px;
+    color: #939393; }
+  .StatusBar-Item.connection .StatusBar-Panel .StatusBar-Panel-QuoteStatus::after {
+    position: absolute;
+    content: '';
+    display: block;
+    border: 8px solid white;
+    width: 0;
+    height: 0;
+    bottom: -16px;
+    left: 60px;
+    border-left-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: transparent; }
+
+.Settings {
+  -webkit-app-region: no-drag;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  background-color: #eee;
+  padding: 2em; }
+  .Settings .close {
+    position: absolute;
+    top: 6px;
+    right: 10px;
+    transition: color 0.3s;
+    color: silver; }
+  .Settings .close:hover {
+    color: #333; }
+  .Settings section {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    line-height: 2.6em; }
+  .Settings aside {
+    width: 300px;
+    text-align: right;
+    padding: 1em;
+    padding-left: 0;
+    border-right: 1px solid silver; }
+  .Settings article {
+    flex: 1;
+    padding: 1em;
+    padding-right: 0; }
+  .Settings select {
+    background: none;
+    height: 2.6em;
+    min-width: 10em; }
+
+.Loader {
+  color: white;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+  .Loader span {
+    text-align: center; }
+
+.Scrollbar {
+  position: absolute;
+  z-index: 2;
+  opacity: 0.6;
+  transition: opacity .6s; }
+  .Scrollbar .handle {
+    position: absolute;
+    background-color: #599afc;
+    background-clip: content-box;
+    border: none; }
+
+.Scrollbar.vertical {
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px; }
+  .Scrollbar.vertical .handle {
+    width: 100%;
+    height: 0;
+    right: 0;
+    /* add some padding to allow easy click */
+    padding-left: 4px; }
+
+.Scrollbar.horizontal {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px; }
+  .Scrollbar.horizontal .handle {
+    width: 0;
+    height: 100%;
+    bottom: 0;
+    /* add some padding to allow easy click */
+    padding-top: 4px; }
+
+.ScrollbarOuter .Scrollbar {
+  opacity: 0; }
+
+.ScrollbarOuter:hover .Scrollbar {
+  opacity: 0.6; }
+
+.Scrollbar:hover {
+  opacity: 1 !important; }
+
+.LoginInfo {
+  width: 300px;
+  height: 200px !important;
+  left: 50% !important;
+  top: 50% !important;
+  margin-left: -150px;
+  margin-top: -150px;
+  bottom: initial;
+  right: initial; }
+  .LoginInfo .Content {
+    text-align: center;
+    height: 100px;
+    line-height: 100px;
+    flex: 1; }
+    .LoginInfo .Content ul {
+      padding: 2em;
+      padding-bottom: 0;
+      list-style: none;
+      text-align: left; }
+    .LoginInfo .Content li {
+      height: 30px;
+      line-height: 30px;
+      border-bottom: 1px dashed silver; }
+      .LoginInfo .Content li span.key {
+        text-align: center;
+        display: inline-block;
+        width: 5em; }
+    .LoginInfo .Content a {
+      color: #666; }
+
+.TMPDOMRoot {
+  position: absolute;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  /* width: 0;
+    height: 0; */ }
+  .TMPDOMRoot .Toast {
+    animation: none !important; }
+  .TMPDOMRoot .Popup {
+    animation: none !important;
+    border: none;
+    border-radius: 4px; }
+    .TMPDOMRoot .Popup .Title {
+      border-bottom: none;
+      background-color: #3a3c5c;
+      text-align: center;
+      border-radius: 3px 3px 0 0;
+      height: 44px; }
+      .TMPDOMRoot .Popup .Title h1 {
+        color: white;
+        font-size: 16px;
+        height: 100%;
+        font-weight: 100;
+        line-height: 44px; }
+      .TMPDOMRoot .Popup .Title a.Close {
+        color: transparent !important; }
+    .TMPDOMRoot .Popup .Title::after {
+      display: none; }
+    .TMPDOMRoot .Popup .Content {
+      position: relative;
+      padding: 0;
+      font-weight: 100; }
+    .TMPDOMRoot .Popup .Footer {
+      text-align: center;
+      padding: 20px 0;
+      margin: 0;
+      border-top: 1px solid #c8c5d7; }
+      .TMPDOMRoot .Popup .Footer button {
+        height: 30px;
+        line-height: 30px;
+        border: 1px solid #599afc;
+        width: 80px;
+        padding: 0;
+        margin: 0 10px;
+        border-radius: 2px;
+        background-color: #599afc; }
+      .TMPDOMRoot .Popup .Footer button:last-child {
+        background-color: white;
+        color: #599afc; }
+      .TMPDOMRoot .Popup .Footer button:first-child {
+        color: white;
+        background-color: #599afc; }
+
+.NumberInput {
+  display: inline-block;
+  position: relative;
+  width: 70px;
+  height: 30px;
+  vertical-align: middle; }
+  .NumberInput input.inputText {
+    width: 46px;
+    height: 28px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 0 14px 0 8px;
+    vertical-align: top;
+    box-sizing: content-box; }
+  .NumberInput .arrow {
+    cursor: pointer;
+    height: 0;
+    border-style: solid;
+    border-color: #a7a4bc transparent;
+    position: absolute;
+    right: 5px; }
+  .NumberInput .arrow.inc {
+    border-width: 0px 5px 5px 5px;
+    top: 8px; }
+  .NumberInput .arrow.dec {
+    border-width: 5px 5px 0px 5px;
+    top: 18px; }
+
+.DownSelect {
+  width: 100px;
+  font-size: 12px;
+  color: #838383;
+  position: relative;
+  line-height: 20px;
+  text-indent: 10px;
+  display: inline-block; }
+  .DownSelect .active {
+    background: #292a48;
+    border-radius: 10px;
+    height: 100%;
+    cursor: pointer;
+    position: relative;
+    width: 100%;
+    border: solid 1px transparent; }
+  .DownSelect .select-arrow {
+    height: 0;
+    border-style: solid;
+    border-color: #838383 transparent;
+    position: absolute;
+    right: 10px;
+    top: 8px;
+    border-width: 5px 5px 0px 5px; }
+  .DownSelect .options {
+    position: absolute;
+    top: 20px;
+    width: 100%;
+    list-style: none;
+    background: #292a48;
+    border: solid 1px transparent;
+    z-index: 100; }
+  .DownSelect .opt {
+    cursor: pointer; }
+  .DownSelect .opt:hover {
+    background: #33406c; }
+  .DownSelect .opt:last-child {
+    border-radius: 0 0 10px 10px; }
+  .DownSelect.unexpand .options {
+    display: none; }
+  .DownSelect.expand .active {
+    border-radius: 10px 10px 0 0;
+    border-color: #595a76;
+    border-bottom-style: none; }
+  .DownSelect.expand .options {
+    display: block;
+    border-radius: 0 0 10px 10px;
+    border-color: #595a76;
+    border-top-style: none; }
+
+.TMPDOMRoot {
+  font-family: "Helvetica Neue", 'Roboto', "microsoft yahei"; }
+  .TMPDOMRoot .KeyWizardSTOCKSEARCH .KeyWizardstockList {
+    border-radius: 0 0 0 5px !important; }
+  .TMPDOMRoot .KeyWizardSTOCKSEARCH .KeyWizardinputNum {
+    border-radius: 0 0 5px 0 !important; }
+  .TMPDOMRoot .KeyWizardSTOCK {
+    height: 245px; }
+    .TMPDOMRoot .KeyWizardSTOCK .KeyWizardstockList, .TMPDOMRoot .KeyWizardSTOCK .KeyWizardinputNum {
+      height: 100%; }
+  .TMPDOMRoot .KeyWizardSTOCKSEARCH {
+    height: 275px; }
+    .TMPDOMRoot .KeyWizardSTOCKSEARCH .KeyWizardstockList, .TMPDOMRoot .KeyWizardSTOCKSEARCH .KeyWizardinputNum {
+      height: 89%; }
+  .TMPDOMRoot .KeyWizardSTOCK, .TMPDOMRoot .KeyWizardSTOCKSEARCH {
+    width: 454px;
+    position: fixed; }
+    .TMPDOMRoot .KeyWizardSTOCK .head, .TMPDOMRoot .KeyWizardSTOCKSEARCH .head {
+      border-radius: 5px 5px 0 0;
+      display: inline-block;
+      width: 454px;
+      height: 30px;
+      line-height: 30px;
+      text-align: center;
+      background-color: #393C5B;
+      color: white; }
+      .TMPDOMRoot .KeyWizardSTOCK .head .cancel, .TMPDOMRoot .KeyWizardSTOCKSEARCH .head .cancel {
+        position: absolute;
+        left: 430px; }
+    .TMPDOMRoot .KeyWizardSTOCK .KeyWizardstockList, .TMPDOMRoot .KeyWizardSTOCKSEARCH .KeyWizardstockList {
+      width: 30%;
+      background-color: white;
+      float: left;
+      overflow: hidden;
+      box-sizing: border-box;
+      border-radius: 5px 0 0 5px;
+      position: relative; }
+      .TMPDOMRoot .KeyWizardSTOCK .KeyWizardstockList .noThisCode, .TMPDOMRoot .KeyWizardSTOCKSEARCH .KeyWizardstockList .noThisCode {
+        text-align: center; }
+      .TMPDOMRoot .KeyWizardSTOCK .KeyWizardstockList .Scrollbar, .TMPDOMRoot .KeyWizardSTOCKSEARCH .KeyWizardstockList .Scrollbar {
+        left: 133px; }
+      .TMPDOMRoot .KeyWizardSTOCK .KeyWizardstockList ul, .TMPDOMRoot .KeyWizardSTOCKSEARCH .KeyWizardstockList ul {
+        list-style: none;
+        margin: 0px 0px 10px 0px;
+        font-size: 11px; }
+        .TMPDOMRoot .KeyWizardSTOCK .KeyWizardstockList ul span, .TMPDOMRoot .KeyWizardSTOCKSEARCH .KeyWizardstockList ul span {
+          text-overflow: ellipsis;
+          overflow: hidden;
+          white-space: nowrap;
+          width: 75px; }
+        .TMPDOMRoot .KeyWizardSTOCK .KeyWizardstockList ul li, .TMPDOMRoot .KeyWizardSTOCKSEARCH .KeyWizardstockList ul li {
+          height: 33px;
+          line-height: 33px;
+          text-indent: 5px; }
+          .TMPDOMRoot .KeyWizardSTOCK .KeyWizardstockList ul li .spanStockCode, .TMPDOMRoot .KeyWizardSTOCK .KeyWizardstockList ul li .spanStockName, .TMPDOMRoot .KeyWizardSTOCKSEARCH .KeyWizardstockList ul li .spanStockCode, .TMPDOMRoot .KeyWizardSTOCKSEARCH .KeyWizardstockList ul li .spanStockName {
+            display: inline-block; }
+          .TMPDOMRoot .KeyWizardSTOCK .KeyWizardstockList ul li .spanStockCode, .TMPDOMRoot .KeyWizardSTOCKSEARCH .KeyWizardstockList ul li .spanStockCode {
+            width: 40%; }
+        .TMPDOMRoot .KeyWizardSTOCK .KeyWizardstockList ul li:hover, .TMPDOMRoot .KeyWizardSTOCK .KeyWizardstockList ul .active, .TMPDOMRoot .KeyWizardSTOCKSEARCH .KeyWizardstockList ul li:hover, .TMPDOMRoot .KeyWizardSTOCKSEARCH .KeyWizardstockList ul .active {
+          background-color: #5A9AFC;
+          color: white; }
+    .TMPDOMRoot .KeyWizardSTOCK .KeyWizardinputNum, .TMPDOMRoot .KeyWizardSTOCKSEARCH .KeyWizardinputNum {
+      width: 70%;
+      float: left;
+      text-align: center;
+      font-size: 13px;
+      border-radius: 0 5px 5px 0;
+      background-color: #D6D9E0;
+      position: relative; }
+      .TMPDOMRoot .KeyWizardSTOCK .KeyWizardinputNum input, .TMPDOMRoot .KeyWizardSTOCKSEARCH .KeyWizardinputNum input {
+        font-size: 11px;
+        text-indent: 2em;
+        width: 285px;
+        height: 24px;
+        margin: 11px 13px 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc; }
+      .TMPDOMRoot .KeyWizardSTOCK .KeyWizardinputNum .cancelicon, .TMPDOMRoot .KeyWizardSTOCK .KeyWizardinputNum .searchicon, .TMPDOMRoot .KeyWizardSTOCKSEARCH .KeyWizardinputNum .cancelicon, .TMPDOMRoot .KeyWizardSTOCKSEARCH .KeyWizardinputNum .searchicon {
+        display: inline-block;
+        height: 25px;
+        width: 25px;
+        position: absolute; }
+      .TMPDOMRoot .KeyWizardSTOCK .KeyWizardinputNum .searchicon, .TMPDOMRoot .KeyWizardSTOCKSEARCH .KeyWizardinputNum .searchicon {
+        top: 8px;
+        left: 15px;
+        background-image: url(../images/magnifier.svg); }
+      .TMPDOMRoot .KeyWizardSTOCK .KeyWizardinputNum .cancelicon, .TMPDOMRoot .KeyWizardSTOCKSEARCH .KeyWizardinputNum .cancelicon {
+        top: 14px;
+        left: 275px;
+        background: url("../images/cancel.png") no-repeat; }
+      .TMPDOMRoot .KeyWizardSTOCK .KeyWizardinputNum span.cancelicon:hover, .TMPDOMRoot .KeyWizardSTOCKSEARCH .KeyWizardinputNum span.cancelicon:hover {
+        cursor: pointer; }
+      .TMPDOMRoot .KeyWizardSTOCK .KeyWizardinputNum .KeyWizardbtnQuickKeys, .TMPDOMRoot .KeyWizardSTOCKSEARCH .KeyWizardinputNum .KeyWizardbtnQuickKeys {
+        text-align: left;
+        box-sizing: border-box;
+        padding: 0 4px 0;
+        margin-left: 9px;
+        margin-bottom: 6px; }
+      .TMPDOMRoot .KeyWizardSTOCK .KeyWizardinputNum .KeyWizardbtnNumKeys, .TMPDOMRoot .KeyWizardSTOCKSEARCH .KeyWizardinputNum .KeyWizardbtnNumKeys {
+        width: 100%;
+        margin: 0 auto;
+        padding: 5px;
+        box-sizing: border-box;
+        text-align: center;
+        padding: 0px 10px 0px; }
+      .TMPDOMRoot .KeyWizardSTOCK .KeyWizardinputNum .KeyWizardbtnNumKeysSecond, .TMPDOMRoot .KeyWizardSTOCKSEARCH .KeyWizardinputNum .KeyWizardbtnNumKeysSecond {
+        padding: 0px 15px 0px; }
+        .TMPDOMRoot .KeyWizardSTOCK .KeyWizardinputNum .KeyWizardbtnNumKeysSecond .btnDelete, .TMPDOMRoot .KeyWizardSTOCKSEARCH .KeyWizardinputNum .KeyWizardbtnNumKeysSecond .btnDelete {
+          width: 54px; }
+      .TMPDOMRoot .KeyWizardSTOCK .KeyWizardinputNum .KeyWizardbtnNumKeys button, .TMPDOMRoot .KeyWizardSTOCK .KeyWizardinputNum .KeyWizardbtnNumKeysSecond button, .TMPDOMRoot .KeyWizardSTOCKSEARCH .KeyWizardinputNum .KeyWizardbtnNumKeys button, .TMPDOMRoot .KeyWizardSTOCKSEARCH .KeyWizardinputNum .KeyWizardbtnNumKeysSecond button {
+        width: 25px;
+        margin: 2px; }
+      .TMPDOMRoot .KeyWizardSTOCK .KeyWizardinputNum button, .TMPDOMRoot .KeyWizardSTOCKSEARCH .KeyWizardinputNum button {
+        width: 45px;
+        height: 33px;
+        margin-right: 3px; }
+    .TMPDOMRoot .KeyWizardSTOCK .Close, .TMPDOMRoot .KeyWizardSTOCKSEARCH .Close {
+      position: absolute;
+      top: 5px;
+      right: 3px;
+      transform: scale(0.8); }
+  .TMPDOMRoot .btnDelete {
+    background: url("../images/delete.png") no-repeat;
+    color: white;
+    background-position: center; }
+  .TMPDOMRoot .btnDelete:hover {
+    background-color: #5A9AFC; }
+  .TMPDOMRoot .KeyWizardSTOCK button, .TMPDOMRoot .KeyWizardSTOCKSEARCH button,
+  .TMPDOMRoot .KeyWizardPRICE button, .TMPDOMRoot .KeyWizardQUANTITY button {
+    outline: none;
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 0px 1px 2px #B5BDCA;
+    border: 1px solid #B5BDCA; }
+  .TMPDOMRoot .KeyWizardSTOCK button:hover, .TMPDOMRoot .KeyWizardSTOCKSEARCH button:hover,
+  .TMPDOMRoot .KeyWizardPRICE button:hover, .TMPDOMRoot .KeyWizardQUANTITY button:hover {
+    background-color: #5A9AFC;
+    color: white; }
+  .TMPDOMRoot .KeyWizardPRICE {
+    text-align: center;
+    width: 60px;
+    position: fixed;
+    background-color: white;
+    border-radius: 4px;
+    font-size: 13px; }
+    .TMPDOMRoot .KeyWizardPRICE .priceListWrap {
+      height: 203px;
+      overflow: hidden;
+      position: relative; }
+      .TMPDOMRoot .KeyWizardPRICE .priceListWrap ul {
+        color: #BABABA;
+        top: 0;
+        position: relative; }
+      .TMPDOMRoot .KeyWizardPRICE .priceListWrap li {
+        margin: 0;
+        height: 29px;
+        display: block;
+        line-height: 30px;
+        text-align: center;
+        position: relative; }
+      .TMPDOMRoot .KeyWizardPRICE .priceListWrap li.priceCircle:nth-child(4) {
+        color: black; }
+    .TMPDOMRoot .KeyWizardPRICE .priceUp, .TMPDOMRoot .KeyWizardPRICE .priceDown {
+      content: '';
+      display: block;
+      margin: 0 auto;
+      width: 0;
+      height: 0;
+      border: 8px solid transparent; }
+    .TMPDOMRoot .KeyWizardPRICE .priceUp {
+      border-bottom-color: #A7A3BC; }
+    .TMPDOMRoot .KeyWizardPRICE .priceDown {
+      border-top-color: #A7A3BC; }
+  .TMPDOMRoot .KeyWizardQUANTITY {
+    font-size: 13px;
+    width: 230px;
+    padding: 5px;
+    position: fixed;
+    box-sizing: border-box;
+    background-color: #D6D9E0;
+    border-radius: 4px; }
+    .TMPDOMRoot .KeyWizardQUANTITY .KeyWizardQuantityNum {
+      margin-left: 7px;
+      margin-top: 3px; }
+      .TMPDOMRoot .KeyWizardQUANTITY .KeyWizardQuantityNum button {
+        height: 35px;
+        width: 35px;
+        margin: 3px; }
+    .TMPDOMRoot .KeyWizardQUANTITY .KeyWizardQuantityQuickNum {
+      margin: 0 auto;
+      margin-left: 8px; }
+      .TMPDOMRoot .KeyWizardQUANTITY .KeyWizardQuantityQuickNum button {
+        height: 35px;
+        width: 44px;
+        margin: 2px; }
+      .TMPDOMRoot .KeyWizardQUANTITY .KeyWizardQuantityQuickNum .btnDelete {
+        width: 54px; }
+    .TMPDOMRoot .KeyWizardQUANTITY .quantityCal {
+      text-align: center;
+      margin-top: 3px; }
+  .TMPDOMRoot button.quantityCalbtn {
+    height: 35px;
+    width: 48px;
+    margin-right: 2px; }
+  .TMPDOMRoot .KeyWizardSTOCKSEARCH.UP:after, .TMPDOMRoot .KeyWizardSTOCKSEARCH.DOWN:before,
+  .TMPDOMRoot .KeyWizardSTOCKSEARCH.RIGHT:before, .TMPDOMRoot .KeyWizardSTOCKSEARCH.LEFT:after,
+  .TMPDOMRoot .KeyWizardSTOCK.UP:after, .TMPDOMRoot .KeyWizardSTOCK.DOWN:before,
+  .TMPDOMRoot .KeyWizardSTOCK.RIGHT:before, .TMPDOMRoot .KeyWizardSTOCK.LEFT:after,
+  .TMPDOMRoot .KeyWizardPRICE.RIGHT:before, .TMPDOMRoot .KeyWizardPRICE.LEFT:after,
+  .TMPDOMRoot .KeyWizardQUANTITY.UP:after, .TMPDOMRoot .KeyWizardQUANTITY.LEFT:after,
+  .TMPDOMRoot .KeyWizardQUANTITY.RIGHT:before, .TMPDOMRoot .KeyWizardQUANTITY.DOWN:before {
+    content: '';
+    width: 0;
+    height: 0;
+    border: 8px solid transparent;
+    position: absolute; }
+  .TMPDOMRoot .KeyWizardSTOCKSEARCH.UP:after, .TMPDOMRoot .KeyWizardSTOCK.UP:after {
+    border-top-color: #D6D9E0;
+    bottom: -15px;
+    right: 50px; }
+  .TMPDOMRoot .KeyWizardSTOCKSEARCH.LEFT:after, .TMPDOMRoot .KeyWizardSTOCK.LEFT:after {
+    border-left-color: #D6D9E0;
+    right: -15px;
+    top: 50px; }
+  .TMPDOMRoot .KeyWizardSTOCKSEARCH.DOWN:before, .TMPDOMRoot .KeyWizardSTOCK.DOWN:before {
+    border-bottom-color: #393C5B;
+    left: 50px;
+    top: -15px; }
+  .TMPDOMRoot .KeyWizardSTOCK.DOWN:before {
+    border-bottom-color: white;
+    left: 50px;
+    top: -15px; }
+  .TMPDOMRoot .KeyWizardSTOCKSEARCH.RIGHT:before, .TMPDOMRoot .KeyWizardSTOCK.RIGHT:before {
+    border-right-color: white;
+    top: 50px;
+    left: -15px; }
+  .TMPDOMRoot .KeyWizardPRICE.LEFT:after, .TMPDOMRoot .KeyWizardPRICE.RIGHT:before {
+    top: 108px; }
+  .TMPDOMRoot .KeyWizardPRICE.LEFT:after {
+    border-left-color: white;
+    left: 59px; }
+  .TMPDOMRoot .KeyWizardPRICE.RIGHT:before {
+    border-right-color: white;
+    left: -15px; }
+  .TMPDOMRoot .KeyWizardQUANTITY.UP:after {
+    border-top-color: #D6D9E0;
+    bottom: -15px;
+    right: 20px; }
+  .TMPDOMRoot .KeyWizardQUANTITY.LEFT:after {
+    border-left-color: #D6D9E0;
+    top: 20px;
+    right: -15px; }
+  .TMPDOMRoot .KeyWizardQUANTITY.RIGHT:before {
+    border-right-color: #D6D9E0;
+    top: 20px;
+    left: -15px; }
+  .TMPDOMRoot .KeyWizardQUANTITY.DOWN:before {
+    border-bottom-color: #D6D9E0;
+    top: -15px;
+    left: 20px; }
+
+.LoginPopup {
+  width: 440px;
+  height: 300px;
+  left: 50% !important;
+  top: 50% !important;
+  margin-left: -220px;
+  margin-top: -150px;
+  bottom: initial;
+  right: initial; }
+
+.TradeLoginPopup {
+  width: 440px;
+  height: 370px;
+  left: 50% !important;
+  top: 50% !important;
+  margin-left: -220px;
+  margin-top: -185px;
+  bottom: initial;
+  right: initial; }
+
+.LoginForm .button {
+  vertical-align: middle; }
+
+.LoginForm .row .button {
+  vertical-align: middle;
+  height: 40px;
+  line-height: 32px; }
+
+.LoginForm .row button.button:last-child {
+  border: 1px solid #4086f0;
+  color: #4086f0;
+  background-color: white; }
+  .LoginForm .row button.button:last-child a {
+    color: #4086f0; }
+
+.LoginForm .row button.button:last-child:hover {
+  color: white;
+  background-color: #4086f0; }
+  .LoginForm .row button.button:last-child:hover a {
+    color: white; }
+
+.LoginForm form {
+  width: 300px;
+  margin: 0 auto;
+  padding-top: 30px; }
+
+.LoginForm .row {
+  text-align: center;
+  margin-bottom: 12px;
+  position: relative;
+  height: 42px;
+  white-space: nowrap; }
+
+.LoginForm .useridIcon, .LoginForm .pinIcon, .LoginForm .passwordIcon, .LoginForm .selectdownIcon {
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  display: inline-block; }
+
+.LoginForm .selectdownIcon {
+  display: none; }
+
+.LoginForm .useridIcon, .LoginForm .pinIcon, .LoginForm .passwordIcon {
+  top: 10px;
+  left: 10px; }
+
+.LoginForm .useridIcon {
+  background: url("../images/useridIcon.png"); }
+
+.LoginForm .passwordIcon {
+  background: url("../images/pwdIcon.png"); }
+
+.LoginForm .selectdownIcon {
+  top: 12px;
+  right: 70px;
+  cursor: pointer;
+  background: url("../images/selectdownIcon.png"); }
+
+.LoginForm .pinIcon {
+  background: url("../images/pinIcon.png"); }
+
+.LoginForm .row .pin {
+  width: 210px;
+  margin-right: 10px; }
+
+.LoginForm .row .pinnum {
+  width: 80px;
+  height: 40px;
+  vertical-align: middle;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  /*暂时加到这里看效果*/
+  background: url("../images/selectdownIcon.png"); }
+
+.LoginForm .inputWrap {
+  height: 40px;
+  line-height: 40px;
+  margin: 0 auto;
+  position: relative; }
+
+.LoginForm input {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  text-indent: 3em;
+  border-radius: 5px;
+  font-size: 1.1em;
+  border: 1px solid #ccc; }
+
+.LoginForm .closeBtn {
+  position: absolute;
+  right: 10px;
+  color: #fff;
+  padding: 0 4px;
+  float: right; }
+
+.LoginForm .submit {
+  font-size: 16px;
+  width: 170px;
+  height: 40px;
+  margin-right: 10px; }
+
+.LoginForm .registerbtn {
+  height: 40px;
+  width: 120px;
+  vertical-align: middle; }
+
+.LoginForm .forgetpwd {
+  height: 40px;
+  font-size: 13px;
+  padding-top: 8px;
+  display: block;
+  text-align: right;
+  position: relative; }
+  .LoginForm .forgetpwd a {
+    color: #999999; }
+
+.LoginForm a:hover, .LoginForm a:active, .LoginForm a:visited, .LoginForm a:link {
+  cursor: pointer;
+  text-decoration: none; }
+
+.LoginForm .wrong {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 30px;
+  color: red;
+  text-align: center;
+  line-height: 30px; }
+
+.LoginForm .wrongico {
+  height: 20px;
+  width: 20px;
+  display: inline-block;
+  background: url("../images/loginwrong.png");
+  margin-right: 10px; }
+
+.LoginForm iframe[name="login_helper"] {
+  width: 0;
+  height: 0;
+  visibility: hidden; }
+
+.QRpage p {
+  text-align: center;
+  color: #9A9A9A;
+  font-size: 14px; }
+
+.QRpage .QRsrc {
+  height: 150px;
+  width: 150px;
+  margin: 50px auto 0px;
+  position: relative; }
+  .QRpage .QRsrc img {
+    width: 100%;
+    height: 100%; }
+  .QRpage .QRsrc .expireTip {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    text-align: center;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; }
+
+.QRpage .row {
+  text-align: center; }
+  .QRpage .row .button {
+    width: 150px;
+    height: 40px;
+    line-height: 32px; }
+
+.TradeLogin .QRloginbtn {
+  width: 120px; }
+
+.TradeLogin .row {
+  line-height: 35px; }
+  .TradeLogin .row input[type="checkbox"] {
+    height: 15px;
+    width: 15px;
+    background-color: #489AFE;
+    margin: 0; }
+
+.TradeLogin .QRicon {
+  background: url("../images/QR.png");
+  background-size: cover;
+  height: 27px;
+  width: 27px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 4px; }
+
+.TradeLogin .protectcheckbox, .TradeLogin .rememberpwdcheckbox {
+  position: relative;
+  top: 3px; }
+
+.TradeLogin .protectcheckbox {
+  left: -80px; }
+
+.TradeLogin .rememberpwdcheckbox {
+  left: -24px; }
+
+.TradeLogin .rememberpwdspan, .TradeLogin .protectspan {
+  position: relative;
+  font-size: 13px; }
+
+.TradeLogin .protectspan {
+  left: -74px; }
+
+.TradeLogin .rememberpwdspan {
+  left: -20px; }
+
+.TradeLogin .done {
+  color: #4086f0;
+  text-align: center;
+  margin-top: 100px; }
+  .TradeLogin .done svg {
+    fill: #4086f0;
+    width: 100px;
+    height: 60px; }
+
+.TradeLockerMask.Mask {
+  left: 60px; }
+
+.TradeLocker.Popup {
+  width: 360px;
+  height: 250px;
+  top: 50%;
+  left: 50%;
+  margin-left: -180px;
+  margin-top: -125px; }
+  .TradeLocker.Popup .LockerContent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0; }
+    .TradeLocker.Popup .LockerContent .ContentOuter {
+      text-align: center;
+      display: flex;
+      height: 100%; }
+    .TradeLocker.Popup .LockerContent .ContentOuter.Login .Footer {
+      border: none; }
+      .TradeLocker.Popup .LockerContent .ContentOuter.Login .Footer .button {
+        width: 300px; }
+    .TradeLocker.Popup .LockerContent .Content {
+      flex: 1; }
+      .TradeLocker.Popup .LockerContent .Content svg {
+        margin-top: 40px;
+        fill: #73799C;
+        width: 36px;
+        height: 36px; }
+    .TradeLocker.Popup .LockerContent .Footer {
+      height: 70px; }
+
+.Popup.PluginCreator .Content {
+  padding: 10px; }
+  .Popup.PluginCreator .Content input {
+    margin: 10px 0;
+    border: 1px solid #599afc; }
+
+#main, .App {
+  width: 100%;
+  height: 100%;
+  font-family: "Helvetica Neue", 'Roboto', "microsoft yahei"; }
+
+#main {
+  background: #1d192d url("../images/bg.jpg") no-repeat;
+  background-size: cover; }
+
+.App {
+  color: white;
+  cursor: default;
+  display: flex;
+  flex-direction: column;
+  min-width: 60em; }
+  .App > .Panel {
+    flex: 1;
+    display: flex;
+    height: 100%; }
+
+/*
+#b8deff
+*/
+/* AppBar */
+.AppBar {
+  -webkit-app-region: drag;
+  flex: 0 0 60px;
+  overflow: hidden;
+  z-index: 1000;
+  margin-left: 0;
+  -webkit-transform-origin: 0 50%;
+  -webkit-transform: scale(1);
+  -webkit-transition: all 0.3s;
+  display: flex;
+  flex-direction: column;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#34315b+0,563f6f+50,7b5a71+100 */
+  background: #34315b;
+  /* Old browsers */
+  background: -moz-linear-gradient(135deg, #34315b 0%, #563f6f 50%, #7b5a71 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left bottom, right top, color-stop(0%, #34315b), color-stop(50%, #563f6f), color-stop(100%, #7b5a71));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(135deg, #34315b 0%, #563f6f 50%, #7b5a71 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(135deg, #34315b 0%, #563f6f 50%, #7b5a71 100%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(135deg, #34315b 0%, #563f6f 50%, #7b5a71 100%);
+  /* IE10+ */
+  background: linear-gradient(135deg, #34315b 0%, #563f6f 50%, #7b5a71 100%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#34315b', endColorstr='#7b5a71',GradientType=1 );
+  /* IE6-9 fallback on horizontal gradient */ }
+  .AppBar ul {
+    -webkit-app-region: no-drag;
+    position: relative;
+    list-style: none;
+    flex: 1; }
+    .AppBar ul li {
+      text-align: center;
+      width: 60px;
+      height: 80px; }
+      .AppBar ul li a {
+        display: block;
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        padding: 10px 6px 0 6px;
+        color: #fff; }
+        .AppBar ul li a svg.icon, .AppBar ul li a img.icon {
+          width: 32px;
+          height: 32px;
+          display: block;
+          margin: 4px auto;
+          fill: white; }
+    .AppBar ul li:hover {
+      background-color: rgba(66, 53, 97, 0.9); }
+    .AppBar ul li.active {
+      background-color: rgba(0, 0, 0, 0.25); }
+  .AppBar ul.dragging li {
+    position: absolute;
+    transition: top 0.3s; }
+  .AppBar .widgets {
+    -webkit-app-region: no-drag;
+    color: white;
+    text-align: center; }
+    .AppBar .widgets i {
+      display: block;
+      margin: 6px 10px; }
+      .AppBar .widgets i svg {
+        fill: white;
+        width: 40px;
+        height: 32px; }
+    .AppBar .widgets i:hover svg {
+      stroke: white; }
+
+.AppBar .Scrollbar {
+  opacity: 0; }
+
+.AppBar:hover .Scrollbar {
+  opacity: 1; }
+
+.Panel.tab-hidden .AppBar {
+  opacity: 0;
+  flex-basis: 0;
+  -webkit-transform: scale(0.3, 1); }
+
+.Panel .combinationtip {
+  position: absolute;
+  z-index: 9999;
+  height: 28px;
+  width: 205px;
+  line-height: 28px;
+  border-radius: 4px;
+  text-indent: 12px;
+  background: rgba(112, 111, 155, 0.7); }
+  .Panel .combinationtip a {
+    color: #494A69;
+    position: absolute;
+    right: 3px;
+    top: 4px;
+    cursor: pointer; }
+
+.Panel .combinationtip:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 5px;
+  left: -15px;
+  width: 0;
+  height: 0;
+  border: 8px solid transparent;
+  border-right-color: rgba(112, 111, 155, 0.7); }
+
+.DragDummy {
+  position: absolute;
+  box-sizing: border-box;
+  color: #fff;
+  padding: 10px 6px 0 6px;
+  width: 60px;
+  height: 80px;
+  text-align: center;
+  z-index: 1001;
+  background-color: #423561;
+  transform-origin: 50% 50%;
+  -webkit-animation: bigger 0.3s;
+  -webkit-animation-fill-mode: forwards; }
+  .DragDummy svg, .DragDummy img {
+    width: 32px;
+    height: 32px;
+    display: block;
+    margin: 4px auto;
+    fill: white; }
+
+.DragDummy.out {
+  -webkit-animation: smaller 0.3s; }
+
+.ContentOuter {
+  flex: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column; }
+  .ContentOuter .AppContent {
+    position: relative;
+    overflow: hidden;
+    flex: 1; }
+    .ContentOuter .AppContent .ContentInner {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0; }
+      .ContentOuter .AppContent .ContentInner > div {
+        display: none;
+        height: 100%; }
+      .ContentOuter .AppContent .ContentInner > div.active {
+        display: block; }
+        .ContentOuter .AppContent .ContentInner > div.active > div {
+          height: 100%;
+          box-sizing: border-box; }
+        .ContentOuter .AppContent .ContentInner > div.active > div.external {
+          overflow: hidden; }
+          .ContentOuter .AppContent .ContentInner > div.active > div.external iframe, .ContentOuter .AppContent .ContentInner > div.active > div.external webview {
+            width: 100%;
+            height: 100%;
+            border: none; }
+        .ContentOuter .AppContent .ContentInner > div.active .Loader {
+          display: flex; }
+  .ContentOuter .StockGrid {
+    overflow: hidden;
+    background-color: #181527;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column; }
+    .ContentOuter .StockGrid table {
+      table-layout: fixed;
+      border-collapse: collapse;
+      border-spacing: 0;
+      cursor: default; }
+      .ContentOuter .StockGrid table tr, .ContentOuter .StockGrid table td {
+        height: 40px; }
+      .ContentOuter .StockGrid table tr.selected {
+        background-color: #221f30 !important; }
+      .ContentOuter .StockGrid table th, .ContentOuter .StockGrid table td {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        width: 5.5rem;
+        max-width: 6rem;
+        min-width: 5.5rem;
+        text-align: right;
+        color: #eee;
+        padding: 0 0.2rem;
+        box-sizing: border-box;
+        border: 1px solid #221f30; }
+      .ContentOuter .StockGrid table th {
+        color: #838383;
+        border: 1px solid #2e2b3e;
+        border-top: none;
+        border-bottom: none; }
+      .ContentOuter .StockGrid table th.id, .ContentOuter .StockGrid table td.id {
+        text-align: center;
+        color: gray;
+        position: relative;
+        width: 3.2rem;
+        max-width: 3.2rem;
+        min-width: 3.2rem; }
+      .ContentOuter .StockGrid table th.name, .ContentOuter .StockGrid table td.name {
+        width: 7.5em;
+        max-width: 7.5em;
+        min-width: 7.5em; }
+      .ContentOuter .StockGrid table th.amount, .ContentOuter .StockGrid table td.amount, .ContentOuter .StockGrid table th.volume, .ContentOuter .StockGrid table td.volume {
+        width: 6rem;
+        max-width: 6rem;
+        min-width: 6rem; }
+      .ContentOuter .StockGrid table td {
+        transition: color .6s linear;
+        padding: 0 5px; }
+      .ContentOuter .StockGrid table td.board_hk::after {
+        content: '';
+        display: inline-block;
+        vertical-align: -2px;
+        margin-left: 3px;
+        width: 18px;
+        height: 13px;
+        background: url("../images/HK.png") no-repeat center center;
+        background-size: cover;
+        vertical-align: baseline; }
+      .ContentOuter .StockGrid table td.name, .ContentOuter .StockGrid table td.code {
+        text-align: left; }
+      .ContentOuter .StockGrid table th.name, .ContentOuter .StockGrid table th.code {
+        text-align: center; }
+      .ContentOuter .StockGrid table td.name, .ContentOuter .StockGrid table td.yellow {
+        color: #D2A615; }
+      .ContentOuter .StockGrid table td.blue {
+        color: #4086f0; }
+      .ContentOuter .StockGrid table td.green {
+        color: #3ebd3b; }
+      .ContentOuter .StockGrid table td.red {
+        color: #ff3c23; }
+      .ContentOuter .StockGrid table td.up {
+        color: #FF81C8 !important; }
+      .ContentOuter .StockGrid table td.down {
+        color: #0083FC !important; }
+      .ContentOuter .StockGrid table th.sortable::after {
+        content: '';
+        margin-left: 2px;
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        vertical-align: middle;
+        background: url("../images/sort.png") no-repeat center center;
+        background-size: contain;
+        cursor: pointer; }
+      .ContentOuter .StockGrid table th.sortable.asc::after {
+        background-image: url("../images/sort-asc.png"); }
+      .ContentOuter .StockGrid table th.sortable.desc::after {
+        background-image: url("../images/sort-desc.png"); }
+      .ContentOuter .StockGrid table tr .actions {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity 0.5s, visibility 0s 0.5s;
+        line-height: 40px; }
+        .ContentOuter .StockGrid table tr .actions a {
+          text-decoration: none;
+          outline: none;
+          color: gray; }
+      .ContentOuter .StockGrid table td.blue .actions a {
+        color: #599afc; }
+    .ContentOuter .StockGrid .TheadWrap {
+      height: 40px;
+      min-height: 40px;
+      background-color: #1c1c2f;
+      width: 100%;
+      overflow: hidden;
+      z-index: 2;
+      box-sizing: border-box;
+      background-clip: content-box;
+      display: flex; }
+      .ContentOuter .StockGrid .TheadWrap tr {
+        height: 40px; }
+      .ContentOuter .StockGrid .TheadWrap .scrollctrl {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 40px;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: flex;
+        height: 100%;
+        display: none; }
+        .ContentOuter .StockGrid .TheadWrap .scrollctrl a {
+          color: orange;
+          display: inline-block;
+          width: 20px;
+          height: 100%; }
+    .ContentOuter .StockGrid .TbodyWrap {
+      position: relative;
+      box-sizing: border-box;
+      overflow: hidden;
+      -webkit-box-flex: 1;
+      -moz-box-flex: 1;
+      -webkit-flex: 1;
+      -ms-flex: 1;
+      flex: 1; }
+      .ContentOuter .StockGrid .TbodyWrap tr {
+        border-bottom: 1px solid #1e2b3c;
+        transition: opacity .6s; }
+      .ContentOuter .StockGrid .TbodyWrap tr.hover, .ContentOuter .StockGrid .TbodyWrap tr:hover {
+        background-color: #221f30; }
+      .ContentOuter .StockGrid .TbodyWrap .TbodyInner {
+        display: flex;
+        position: relative;
+        overflow: hidden; }
+    .ContentOuter .StockGrid .detailOuter {
+      flex: 1;
+      overflow: hidden; }
+    .ContentOuter .StockGrid .detail {
+      position: relative;
+      left: -1px; }
+      .ContentOuter .StockGrid .detail th:last-child, .ContentOuter .StockGrid .detail td:last-child {
+        width: 6rem;
+        max-width: 6rem;
+        min-width: 6rem;
+        padding-right: 1rem; }
+    .ContentOuter .StockGrid .dragElement {
+      position: absolute;
+      left: 0;
+      background-color: #221f30;
+      z-index: 3;
+      cursor: move; }
+      .ContentOuter .StockGrid .dragElement th:last-child, .ContentOuter .StockGrid .dragElement td:last-child {
+        width: 6rem;
+        max-width: 6rem;
+        min-width: 6rem;
+        padding-right: 1rem; }
+    .ContentOuter .StockGrid .TheadWrap .brief {
+      background-color: #1c1c2f; }

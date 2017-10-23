@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>404</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="1952/css/common.css">
+    <style>
+        body{
+            padding:0;
+            margin:0;
+        }
+        div>img{
+            width:80%;
+            height:auto;
+            position: absolute;
+            left: 9%;
+            top:29%;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a href="goBack" class="navbar-brand">
+                <img src="1952/images/goback.png" alt="返回">
+            </a>
+        </div>
+    </div>
+</nav>
+<div>
+    <img src="1952/images/err.png">
+</div>
+<script src="js/jquery-2.2.0.min.js"></script>
+<script src="1952/js/plugins.js"></script>
+<script>
+    var goBack = GetQueryString('goBack');
+    if(goBack == 0){
+        $('.navbar').css('display','none')
+    }
+</script>
+</body>
+</html>

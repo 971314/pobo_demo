@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<button id="box">dfgdfgdfg</button>
+<script src="jquery-1.11.3.min.js"></script>
+<script>
+   muapp();
+   function muapp(){
+   $("#box").click(function(){
+            if ($("div[boxshadow]").length==0) {
+                $("<div boxshadow id='box'>").appendTo("body").css({
+                    position: "fixed",
+                    zIndex: 4,
+                    left: 0,
+                    right: 0,
+                    top: 0,
+                    bottom: 0,
+                    backgroundColor: "black",
+                    opacity: 0.5
+                })
+            }
+   })
+   }
+               /* $(this).click(function () {
+                    $("#box").show();
+                });*/
+               /* $("#box").click(function () {
+                    $(this).hide().siblings("#Box").hide();
+                    $(".zx-rd_page").hide().siblings(".zx-lg_page");
+                    $(".form-validation").removeClass("err");
+                    $(".form-validation").removeClass("suc");
+                    $(".form-validation").next().text("")
+                    $(".form-validation").children("input").val("")
+                    $(".user_switch").show().siblings(".pwd-suitch,.code_suitch,.Activation_suitch").hide()*/
+     /*           });
+            }
+            $("#box").siblings("#Box").hide();
+        });
+*/
+</script>
+</body>
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>止损止盈</title>
+    <link href="../../../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../css/common.css" rel="stylesheet">
+    <link href="../css/condition.css" rel="stylesheet">
+</head>
+<body>
+<div id="stopOfFiled">
+    <!-- 模态框（Modal） -->
+    <template v-if="conNoneTouchObj.clientFlag == 1 &&  !conNoneTouchObj.serverFlag
+    || conNoneTouchObj.clientFlag == 4 &&  conNoneTouchObj.serverFlag == 23
+    || conNoneTouchObj.clientFlag == 3 &&  conNoneTouchObj.serverFlag == 22
+    || conNoneTouchObj.clientFlag == 2 &&  conNoneTouchObj.serverFlag == 21">
+        <div class="modal  dialog-info" id="noneTuchDialog" tabindex="-1" role="dialog"
+             aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content" style="border-radius: 10px;line-height: 63px; height: 100px;">
+                    <div class="modal-body dialog-bottom" style="border-bottom: none;" data-dismiss="modal">
+                        正在申报中，不能进行操作！
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+    <template v-if="conNoneTouchObj.clientFlag == 5 &&   conNoneTouchObj.serverFlag == 26
+    ">
+        <div class="modal  dialog-info" id="noneTuchDialog" tabindex="-1" role="dialog"
+             aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content" style="border-radius: 10px;line-height: 63px; height: 100px;">
+                    <div class="modal-body dialog-bottom" style="border-bottom: none;" data-dismiss="modal">
+                        删除状态，不能进行操作！
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+    <template v-else>
+        <div class="modal  dialog-info" id="noneTuchDialog" tabindex="-1" role="dialog"
+             aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content" style="border-radius: 10px;">
+                    <!--
+                      1:运行的可以修改、暂停、删除
+                      2:暂停的可以修改、运行、删除
+                      3:异常的，只能删除
+                   -->
+                    <template v-if="conNoneTouchObj.clientFlag == 1 && conNoneTouchObj.serverFlag == 21
+                            || conNoneTouchObj.clientFlag == 4 && conNoneTouchObj.serverFlag == 22
+                            || conNoneTouchObj.clientFlag == 1 && conNoneTouchObj.serverFlag == 22">
+                        <div class="modal-body dialog-bottom" @click="conStopOrOnClick(3)" data-dismiss="modal">
+                            <a href="#setTuch" data-toggle="tab" data-dismiss="modal" >修改</a>
+                        </div>
+                        <div class="modal-body dialog-bottom" @click="conStopOrOnClick(1)" data-dismiss="modal">
+                            暂停
+                        </div>
+                    </template>
+                    <template v-else-if="conNoneTouchObj.clientFlag == 3 && conNoneTouchObj.serverFlag == 23">
+                        <div class="modal-body dialog-bottom"  data-dismiss="modal"   @click="conStopOrOnClick(3)">
+                            <a href="#setTuch" data-toggle="tab" data-dismiss="modal" >修改</a>
+                        </div>
+                        <div class="modal-body dialog-bottom"  data-dismiss="modal"  @click="conStopOrOnClick(2)">
+                            运行
+                        </div>
+                    </template>
+                    <div class="modal-body dialog-bottom" data-dismiss="modal"  @click="conStopOrOnClick(4)">
+                        删除
+                    </div>
+                    <div class="modal-body dialog-bottom" @click="conStopOrOnClick(5)" style="border-bottom: none;" data-dismiss="modal">
+                        全部删除
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+    <nav class="navbar navInfo navbar-fixed-top">
+        <div  class="titleBack"><a href="#"><img src="../../images/goback.png"> </a></div>
+        <div class="nav-title">止损止盈 </div>
+        <div class="navThree">
+            <img  src="../images/refresh.png" width="18px" height="18px" v-if="initImg">
+            <span v-else="orSet" class="navThreeTitle">{{reSetValue}}</span>
+        </div>
+    </nav>
+    <div class="divFixed">
+        <div   v-bind:class="[stopFiledNoTuch ? 'stopNoTuchBlue' : 'stopNoTuch']" @click="stopFiledClick(0)" >
+            <a  href="#noneTuch"  data-toggle="tab" >未触发列表</a>
+        </div>
+        <div v-bind:class="[stopFiledIsTuch ? 'stopNoTuch' : 'stopNoTuchBlue']"  @click="stopFiledClick(1)">
+            <a  href="#isTuch"  data-toggle="tab"> 已触发列表</a>
+        </div>
+    </div>
+    <div class="splitLine"></div>
+    <div class="table-top tab-content">
+        <div class="tab-pane fade in active" id="noneTuch" style="margin-top:36px;">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>合约</th>
+                    <th>状态</th>
+                    <th>数量</th>
+                    <th>止损价</th>
+                    <th>止盈价</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr  v-for="data in stopListContextObj.contextValue" @click="conNoneClick(data.conditionID,data.flag1,data.flag3)"  data-toggle="modal"  data-target="#noneTuchDialog" >
+                    <td>{{data.hyName}}</td>
+                    <!--//redTd greenTd-->
+                    <!--运行、暂停、异常
+                    客户端flag1：1：新增 2：修改 3：暂停 4：开始 5：删除
+                    服务器flag3: 21：初始化  22：正在执行  23：已暂停  24：已触发  25：已完成  26: 已删除 27:28：执行异常 网络异常
+                    如果flag1和flag3不匹配  那就以客户端flag1的值翻译 为 正在.....-->
+                    <template v-if="data.flag1 == 1 && !data.flag3">
+                        <td> 正在申报 </td>
+                    </template>
+                    <template v-else-if="data.flag1 == 1 &&  data.flag3 == 21">
+                        <td> 正在申报 </td>
+                    </template>
+                    <template v-else-if="data.flag1 == 1 &&  data.flag3 == 22">
+                        <td class="greenTd"> 运行 </td>
+                    </template>
+                    <template v-else-if="data.flag1 == 2 &&  data.flag3 == 22">
+                        <td class="greenTd"> 运行 </td>
+                    </template>
+                    <template v-else-if="data.flag1 == 4  && data.flag3 == 23 ">
+                        <td> 正在申报 </td>
+                    </template>
+                    <template v-else-if="data.flag1 == 4 &&  data.flag3 == 22">
+                        <td class="greenTd"> 运行 </td>
+                    </template>
+                    <template v-else-if="data.flag1 == 3 &&　data.flag3 == 22 ">
+                        <td> 正在申报 </td>
+                    </template>
+                    <template v-else-if="data.flag1 == 3 &&　data.flag3 == 23 ">
+                        <td class="blueTd"> 暂停 </td>
+                    </template>
+                    <template v-else-if="data.flag1 == 2 &&　data.flag3 == 21 ">
+                        <td> 正在申报 </td>
+                    </template>
+                    <template v-else-if="data.flag1 == 1 || data.flag1 == 2 || data.flag1 == 3 || data.flag1 == 4 ||
+                           data.flag1 == 5  && data.flag3 == 27 ||  data.flag3 == 28 ">
+                        <td class="redTd"> 异常 </td>
+                    </template>
+                    <template v-else-if="data.flag1 == 5 &&　data.flag3 != 26">
+                        <td>正在删除 </td>
+                    </template>
+                    <template v-else-if="data.flag1 == 5 && data.flag3 == 26 ">
+                        <td>已删除 </td>
+                    </template>
+                    <template v-else>
+                        <td> ---- </td>
+                    </template>
+                    <td>{{data.Volume}}</td>
+                    <td>{{data.StopLossCheckPriceType}}</td>
+                    <td>{{data.StopProfitCheckPriceType}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="tab-pane" id="isTuch"  style="margin-top:36px;">
+            <table class="table sigTr">
+                <thead>
+                <tr>
+                    <th>触发时间</th>
+                    <th>合约</th>
+                    <th>数量</th>
+                    <th>止损价</th>
+                    <th>止盈价</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr  v-for="data in isTouchObj.contextValue" data-toggle="modal">
+                    <td>{{data.createTime}}</td>
+                    <td>{{data.hyName}}</td>
+                    <td>{{data.Volume}}</td>
+                    <td>{{data.StopLossCheckPriceType}}</td>
+                    <td>{{data.StopProfitCheckPriceType}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="navbar-fixed-bottom">
+        <p>提示： 1：长按可修改和删除止盈止损</p>
+        <p class="footerP" style="margin-left: -13px;">2：云端服务器只保证触发不保证成交</p>
+        </span>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="../../../js/vue.js"></script>
+<script type="text/javascript" src="../../../js/jquery-2.2.0.min.js"></script>
+<script type="text/javascript" src="../../../js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../js/config.js"></script>
+<script type="text/javascript" src="../js/feture-stop-filled.js"></script>
+</html>

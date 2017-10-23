@@ -1,0 +1,2147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Element</title>
+    <link rel="stylesheet" href="index.css">
+    <style>
+        .el-table .info-row {
+            background: #c9e5f5;
+        }
+
+        .el-table .positive-row {
+            background: #e2f0e4;
+        }
+        .item {
+            margin-top: 10px;
+            margin-right: 40px;
+        }.box {
+             width: 400px;
+         }
+        .box .top {
+            text-align: center;
+        }
+
+        .box .left {
+            float: left;
+            width: 60px;
+        }
+        .box .right {
+            float: right;
+            width: 60px;
+        }
+
+        .box .bottom {
+            clear: both;
+            text-align: center;
+        }
+
+        .box .item {
+            margin: 4px;
+        }
+
+        .box .left .el-tooltip__popper,
+        .right .el-tooltip__popper {
+            padding: 8px 10px;
+        }
+        .text {
+            font-size: 14px;
+        }
+
+        .item {
+            padding: 18px 0;
+        }
+
+        .clearfix:before,
+        .clearfix:after {
+            display: table;
+            content: "";
+        }
+        .clearfix:after {
+            clear: both
+        }
+
+        .box-card {
+            width: 480px;
+        }
+        .el-carousel__item h3 {
+            color: #475669;
+            font-size: 14px;
+            opacity: 0.75;
+            line-height: 150px;
+            margin: 0;
+        }
+
+        .el-carousel__item:nth-child(2n) {
+            background-color: #99a9bf;
+        }
+
+        .el-carousel__item:nth-child(2n+1) {
+            background-color: #d3dce6;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <!--DateTimePicker 日期时间选择器-->
+    <!--<div class="block">
+        <span class="demonstration">默认</span>
+        <el-date-picker
+                v-model="value1"
+                type="datetime"
+                placeholder="选择日期时间">
+        </el-date-picker>
+    </div>
+    <div class="block">
+        <span class="demonstration">带快捷选项</span>
+        <el-date-picker
+                v-model="value2"
+                type="datetime"
+                placeholder="选择日期时间"
+                align="right"
+                :picker-options="pickerOptions1">
+        </el-date-picker>
+    </div>
+    &lt;!&ndash;日期和时间范围&ndash;&gt;
+    <div class="block">
+        <span class="demonstration">默认</span>
+        <el-date-picker
+                v-model="value3"
+                type="datetimerange"
+                placeholder="选择时间范围">
+        </el-date-picker>
+    </div>
+    <div class="block">
+        <span class="demonstration">带快捷选项</span>
+        <el-date-picker
+                v-model="value4"
+                type="datetimerange"
+                :picker-options="pickerOptions2"
+                placeholder="选择时间范围"
+                align="right">
+        </el-date-picker>
+    </div>-->
+
+    <!--Upload 上传/点击上传多个文件-->
+    <!--<el-upload
+            action="//jsonplaceholder.typicode.com/posts/"
+            :on-preview="handlePreview"
+            :on-remove="handleRemove"
+            :default-file-list="fileList">
+        <el-button size="small" type="primary">点击上传</el-button>
+        <div class="el-upload__tip" slot="tip">只能上传jpg/png文件，且不超过500kb</div>
+    </el-upload>
+    &lt;!&ndash;拖拽上传&ndash;&gt;
+    <el-upload
+            action="//jsonplaceholder.typicode.com/posts/"
+            type="drag"
+            :multiple="true"
+            :on-preview="handlePreview"
+            :on-remove="handleRemove"
+            :on-success="handleSuccess"
+            :on-error="handleError"
+            :default-file-list="fileList"
+    >
+        <i class="el-icon-upload"></i>
+        <div class="el-dragger__text">将文件拖到此处，或<em>点击上传</em></div>
+        <div class="el-upload__tip" slot="tip">只能上传jpg/png文件，且不超过500kb</div>
+    </el-upload>
+    &lt;!&ndash;上传单个图片&ndash;&gt;
+    <el-upload
+            action="//jsonplaceholder.typicode.com/posts/"
+            type="drag"
+            :thumbnail-mode="true"
+            :on-preview="handlePreview"
+            :on-remove="handleRemove"
+            :default-file-list="fileList"
+    >
+        <i class="el-icon-upload"></i>
+        <div class="el-dragger__text">将文件拖到此处，或<em>点击上传</em></div>
+        <div class="el-upload__tip" slot="tip">只能上传jpg/png文件，且不超过500kb</div>
+    </el-upload>-->
+
+    <!--Rate 评分-->
+    <!--<div class="block">
+        <span class="demonstration">默认不区分颜色</span>
+        <el-rate v-model="value1"></el-rate>
+    </div>
+    <div class="block">
+        <span class="demonstration">区分颜色</span>
+        <el-rate
+                v-model="value2"
+                :colors="['#99A9BF', '#F7BA2A', '#FF9900']">
+        </el-rate>
+    </div>
+    &lt;!&ndash;辅助文字&ndash;&gt;
+    <el-rate
+            v-model="value3"
+            show-text>
+    </el-rate>
+    &lt;!&ndash;其它 icon&ndash;&gt;
+    <el-rate
+            v-model="value4"
+            :icon-classes="['icon-rate-face-1', 'icon-rate-face-2', 'icon-rate-face-3']"
+            void-icon-class="icon-rate-face-off"
+            :colors="['#99A9BF', '#F7BA2A', '#FF9900']">
+    </el-rate>-->
+
+    <!--Form 表单-->
+    <!--<el-form ref="form" :model="form" label-width="80px">
+        <el-form-item label="活动名称">
+            <el-input v-model="form.name"></el-input>
+        </el-form-item>
+        <el-form-item label="活动区域">
+            <el-select v-model="form.region" placeholder="请选择活动区域">
+                <el-option label="区域一" value="shanghai"></el-option>
+                <el-option label="区域二" value="beijing"></el-option>
+            </el-select>
+        </el-form-item>
+        <el-form-item label="活动时间">
+            <el-col :span="11">
+                <el-date-picker type="date" placeholder="选择日期" v-model="form.date1" style="width: 100%;"></el-date-picker>
+            </el-col>
+            <el-col class="line" :span="2">-</el-col>
+            <el-col :span="11">
+                <el-time-picker type="fixed-time" placeholder="选择时间" v-model="form.date2" style="width: 100%;"></el-time-picker>
+            </el-col>
+        </el-form-item>
+        <el-form-item label="即时配送">
+            <el-switch on-text="" off-text="" v-model="form.delivery"></el-switch>
+        </el-form-item>
+        <el-form-item label="活动性质">
+            <el-checkbox-group v-model="form.type">
+                <el-checkbox label="美食/餐厅线上活动" name="type"></el-checkbox>
+                <el-checkbox label="地推活动" name="type"></el-checkbox>
+                <el-checkbox label="线下主题活动" name="type"></el-checkbox>
+                <el-checkbox label="单纯品牌曝光" name="type"></el-checkbox>
+            </el-checkbox-group>
+        </el-form-item>
+        <el-form-item label="特殊资源">
+            <el-radio-group v-model="form.resource">
+                <el-radio label="线上品牌商赞助"></el-radio>
+                <el-radio label="线下场地免费"></el-radio>
+            </el-radio-group>
+        </el-form-item>
+        <el-form-item label="活动形式">
+            <el-input type="textarea" v-model="form.desc"></el-input>
+        </el-form-item>
+        <el-form-item>
+            <el-button type="primary" @click="onSubmit">立即创建</el-button>
+            <el-button>取消</el-button>
+        </el-form-item>
+    </el-form>
+    &lt;!&ndash;行内表单&ndash;&gt;
+    <el-form :inline="true" :model="formInline" class="demo-form-inline">
+        <el-form-item>
+            <el-input v-model="formInline.user" placeholder="审批人"></el-input>
+        </el-form-item><el-form-item>
+        <el-select v-model="formInline.region" placeholder="活动区域">
+            <el-option label="区域一" value="shanghai"></el-option>
+            <el-option label="区域二" value="beijing"></el-option>
+        </el-select>
+    </el-form-item><el-form-item>
+        <el-button type="primary" @click="onSubmit">查询</el-button>
+    </el-form-item>
+    </el-form>
+    &lt;!&ndash;对齐方式&ndash;&gt;
+    <el-radio-group v-model="labelPosition" size="small">
+        <el-radio-button label="left">左对齐</el-radio-button>
+        <el-radio-button label="right">右对齐</el-radio-button>
+        <el-radio-button label="top">顶部对齐</el-radio-button>
+    </el-radio-group>
+    <div style="margin: 20px;"></div>
+    <el-form :label-position="labelPosition" label-width="80px" :model="formLabelAlign">
+        <el-form-item label="名称">
+            <el-input v-model="formLabelAlign.name"></el-input>
+        </el-form-item>
+        <el-form-item label="活动区域">
+            <el-input v-model="formLabelAlign.region"></el-input>
+        </el-form-item>
+        <el-form-item label="活动形式">
+            <el-input v-model="formLabelAlign.type"></el-input>
+        </el-form-item>
+    </el-form>
+    &lt;!&ndash;表单验证&ndash;&gt;
+    <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
+        <el-form-item label="活动名称" prop="name">
+            <el-input v-model="ruleForm.name"></el-input>
+        </el-form-item>
+        <el-form-item label="活动区域" prop="region">
+            <el-select v-model="ruleForm.region" placeholder="请选择活动区域">
+                <el-option label="区域一" value="shanghai"></el-option>
+                <el-option label="区域二" value="beijing"></el-option>
+            </el-select>
+        </el-form-item>
+        <el-form-item label="活动时间" required>
+            <el-col :span="11">
+                <el-form-item prop="date1">
+                    <el-date-picker type="date" placeholder="选择日期" v-model="ruleForm.date1" style="width: 100%;"></el-date-picker>
+                </el-form-item>
+            </el-col>
+            <el-col class="line" :span="2">-</el-col>
+            <el-col :span="11">
+                <el-form-item prop="date2">
+                    <el-time-picker type="fixed-time" placeholder="选择时间" v-model="ruleForm.date2" style="width: 100%;"></el-time-picker>
+                </el-form-item>
+            </el-col>
+        </el-form-item>
+        <el-form-item label="即时配送" prop="delivery">
+            <el-switch on-text="" off-text="" v-model="ruleForm.delivery"></el-switch>
+        </el-form-item>
+        <el-form-item label="活动性质" prop="type">
+            <el-checkbox-group v-model="ruleForm.type">
+                <el-checkbox label="美食/餐厅线上活动" name="type"></el-checkbox>
+                <el-checkbox label="地推活动" name="type"></el-checkbox>
+                <el-checkbox label="线下主题活动" name="type"></el-checkbox>
+                <el-checkbox label="单纯品牌曝光" name="type"></el-checkbox>
+            </el-checkbox-group>
+        </el-form-item>
+        <el-form-item label="特殊资源" prop="resource">
+            <el-radio-group v-model="ruleForm.resource">
+                <el-radio label="线上品牌商赞助"></el-radio>
+                <el-radio label="线下场地免费"></el-radio>
+            </el-radio-group>
+        </el-form-item>
+        <el-form-item label="活动形式" prop="desc">
+            <el-input type="textarea" v-model="ruleForm.desc"></el-input>
+        </el-form-item>
+        <el-form-item>
+            <el-button type="primary" @click="submitForm('ruleForm')">立即创建</el-button>
+            <el-button @click="resetForm('ruleForm')">重置</el-button>
+        </el-form-item>
+    </el-form>-->
+
+    <!--Table 表格-->
+    <!--<el-table
+            :data="tableData"
+            style="width: 100%">
+        <el-table-column
+                prop="date"
+                label="日期"
+                width="180">
+        </el-table-column>
+        <el-table-column
+                prop="name"
+                label="姓名"
+                width="180">
+        </el-table-column>
+        <el-table-column
+                prop="address"
+                label="地址">
+        </el-table-column>
+    </el-table>
+    &lt;!&ndash;带斑马纹表格&ndash;&gt;
+    <el-table
+            :data="tableData"
+            stripe
+            style="width: 100%">
+        <el-table-column
+                prop="date"
+                label="日期"
+                width="180">
+        </el-table-column>
+        <el-table-column
+                prop="name"
+                label="姓名"
+                width="180">
+        </el-table-column>
+        <el-table-column
+                prop="address"
+                label="地址">
+        </el-table-column>
+    </el-table>
+    &lt;!&ndash;带边框表格&ndash;&gt;
+    <el-table
+            :data="tableData"
+            border
+            style="width: 100%">
+        <el-table-column
+                prop="date"
+                label="日期"
+                width="180">
+        </el-table-column>
+        <el-table-column
+                prop="name"
+                label="姓名"
+                width="180">
+        </el-table-column>
+        <el-table-column
+                prop="address"
+                label="地址">
+        </el-table-column>
+    </el-table>
+    &lt;!&ndash;带状态表格&ndash;&gt;
+    <el-table
+            :data="tableData"
+            style="width: 100%"
+            :row-class-name="tableRowClassName">
+        <el-table-column
+                prop="date"
+                label="日期"
+                width="180">
+        </el-table-column>
+        <el-table-column
+                prop="name"
+                label="姓名"
+                width="180">
+        </el-table-column>
+        <el-table-column
+                prop="address"
+                label="地址">
+        </el-table-column>
+    </el-table>
+    &lt;!&ndash;固定表头&ndash;&gt;
+    <el-table
+            :data="tableData3"
+            height="250"
+            border
+            style="width: 100%">
+        <el-table-column
+                prop="date"
+                label="日期"
+                width="180">
+        </el-table-column>
+        <el-table-column
+                prop="name"
+                label="姓名"
+                width="180">
+        </el-table-column>
+        <el-table-column
+                prop="address"
+                label="地址">
+        </el-table-column>
+    </el-table>
+    &lt;!&ndash;固定列&ndash;&gt;
+    <el-table
+            :data="tableData"
+            border
+            style="width: 100%">
+        <el-table-column
+                fixed
+                prop="date"
+                label="日期"
+                width="150">
+        </el-table-column>
+        <el-table-column
+                prop="name"
+                label="姓名"
+                width="120">
+        </el-table-column>
+        <el-table-column
+                prop="province"
+                label="省份"
+                width="120">
+        </el-table-column>
+        <el-table-column
+                prop="city"
+                label="市区"
+                width="120">
+        </el-table-column>
+        <el-table-column
+                prop="address"
+                label="地址"
+                width="300">
+        </el-table-column>
+        <el-table-column
+                prop="zip"
+                label="邮编"
+                width="120">
+        </el-table-column>
+        <el-table-column
+                fixed="right"
+                label="操作"
+                width="100">
+            <template scope="scope">
+                <el-button @click="handleClick" type="text" size="small">查看</el-button>
+                <el-button type="text" size="small">编辑</el-button>
+            </template>
+        </el-table-column>
+    </el-table>
+    &lt;!&ndash;固定列和表头&ndash;&gt;
+    <el-table
+            :data="tableData3"
+            border
+            style="width: 100%"
+            height="250">
+        <el-table-column
+                fixed
+                prop="date"
+                label="日期"
+                width="150">
+        </el-table-column>
+        <el-table-column
+                prop="name"
+                label="姓名"
+                width="120">
+        </el-table-column>
+        <el-table-column
+                prop="province"
+                label="省份"
+                width="120">
+        </el-table-column>
+        <el-table-column
+                prop="city"
+                label="市区"
+                width="120">
+        </el-table-column>
+        <el-table-column
+                prop="address"
+                label="地址"
+                width="300">
+        </el-table-column>
+        <el-table-column
+                prop="zip"
+                label="邮编"
+                width="120">
+        </el-table-column>
+    </el-table>
+    &lt;!&ndash;流体高度&ndash;&gt;
+    <el-table
+            :data="tableData3"
+            border
+            style="width: 100%"
+            max-height="250">
+        <el-table-column
+                fixed
+                prop="date"
+                label="日期"
+                width="150">
+        </el-table-column>
+        <el-table-column
+                prop="name"
+                label="姓名"
+                width="120">
+        </el-table-column>
+        <el-table-column
+                prop="province"
+                label="省份"
+                width="120">
+        </el-table-column>
+        <el-table-column
+                prop="city"
+                label="市区"
+                width="120">
+        </el-table-column>
+        <el-table-column
+                prop="address"
+                label="地址"
+                width="300">
+        </el-table-column>
+        <el-table-column
+                prop="zip"
+                label="邮编"
+                width="120">
+        </el-table-column>
+        <el-table-column
+                fixed="right"
+                label="操作"
+                width="120">
+            <template scope="scope">
+                <el-button
+                        @click.native.prevent="deleteRow(scope.$index, tableData3)"
+                        type="text"
+                        size="small">
+                    移除
+                </el-button>
+            </template>
+        </el-table-column>
+    </el-table>
+    &lt;!&ndash;多级表头&ndash;&gt;
+    <el-table
+            :data="tableData3"
+            border
+            style="width: 100%">
+        <el-table-column
+                prop="date"
+                label="日期"
+                width="150">
+        </el-table-column>
+        <el-table-column label="配送信息">
+            <el-table-column
+                    prop="name"
+                    label="姓名"
+                    width="120">
+            </el-table-column>
+            <el-table-column label="地址">
+                <el-table-column
+                        prop="province"
+                        label="省份"
+                        width="120">
+                </el-table-column>
+                <el-table-column
+                        prop="city"
+                        label="市区"
+                        width="120">
+                </el-table-column>
+                <el-table-column
+                        prop="address"
+                        label="地址"
+                        width="300">
+                </el-table-column>
+                <el-table-column
+                        prop="zip"
+                        label="邮编"
+                        width="120">
+                </el-table-column>
+            </el-table-column>
+        </el-table-column>
+    </el-table>
+    &lt;!&ndash;单选&ndash;&gt;
+    <el-table
+            :data="tableData"
+            highlight-current-row
+            @current-change="handleCurrentChange"
+            style="width: 100%">
+        <el-table-column
+                type="index"
+                width="50">
+        </el-table-column>
+        <el-table-column
+                property="date"
+                label="日期"
+                width="120">
+        </el-table-column>
+        <el-table-column
+                property="name"
+                label="姓名"
+                width="120">
+        </el-table-column>
+        <el-table-column
+                property="address"
+                label="地址">
+        </el-table-column>
+    </el-table>
+    &lt;!&ndash;排序&ndash;&gt;
+    <el-table
+            :data="tableData"
+            border
+            style="width: 100%"
+            :default-sort = "{prop: 'date', order: 'descending'}"
+    >
+        <el-table-column
+                prop="date"
+                label="日期"
+                sortable
+                width="180">
+        </el-table-column>
+        <el-table-column
+                prop="name"
+                label="姓名"
+                sortable
+                width="180">
+        </el-table-column>
+        <el-table-column
+                prop="address"
+                label="地址"
+                :formatter="formatter">
+        </el-table-column>
+    </el-table>
+    &lt;!&ndash;筛选&ndash;&gt;
+    <el-table :data="tableData" border style="width: 100%">
+        <el-table-column prop="date" label="日期" sortable width="180">
+        </el-table-column>
+        <el-table-column prop="name" label="姓名" width="180">
+        </el-table-column>
+        <el-table-column prop="address" label="地址" :formatter="formatter">
+        </el-table-column>
+        <el-table-column prop="tag" label="标签" width="100" :filters="[{ text: '家', value: '家' }, { text: '公司', value: '公司' }]" :filter-method="filterTag">
+            <template scope="scope">
+                <el-tag :type="scope.row.tag === '家' ? 'primary' : 'success'" close-transition>{{scope.row.tag}}</el-tag>
+            </template>
+        </el-table-column>
+    </el-table>
+    &lt;!&ndash;展开行&ndash;&gt;
+    <el-table
+            :data="tableData3"
+            style="width: 100%">
+        <el-table-column type="expand">
+            <template scope="props">
+                <p>省: {{ props.row.province }}</p>
+                <p>市: {{ props.row.city }}</p>
+                <p>住址: {{ props.row.detailAddress }}</p>
+                <p>邮编: {{ props.row.zip }}</p>
+            </template>
+        </el-table-column>
+        <el-table-column
+                label="日期"
+                prop="date">
+        </el-table-column>
+        <el-table-column
+                label="姓名"
+                prop="name">
+        </el-table-column>
+    </el-table>-->
+
+    <!--Tag 标签-->
+    <!--<el-tag>标签一</el-tag>
+    <el-tag type="gray">标签二</el-tag>
+    <el-tag type="primary">标签三</el-tag>
+    <el-tag type="success">标签四</el-tag>
+    <el-tag type="warning">标签五</el-tag>
+    <el-tag type="danger">标签六</el-tag>
+    &lt;!&ndash;可移除标签&ndash;&gt;
+    <el-tag
+            v-for="tag in tags"
+            :closable="true"
+            :type="tag.type"
+    >
+        {{tag.name}}
+    </el-tag>
+    &lt;!&ndash;动态编辑标签&ndash;&gt;
+    <el-tag
+            v-for="tag in dynamicTags"
+            :closable="true"
+            :close-transition="false"
+            @close="handleClose(tag)"
+    >
+        {{tag}}
+    </el-tag>
+    <el-input
+            class="input-new-tag"
+            v-if="inputVisible"
+            v-model="inputValue"
+            ref="saveTagInput"
+            size="mini"
+            @keyup.enter.native="handleInputConfirm"
+            @blur="handleInputConfirm"
+    >
+    </el-input>
+    <el-button v-else class="button-new-tag" size="small" @click="showInput">+ New Tag</el-button>-->
+
+    <!--Progress 进度条-->
+    <!--<el-progress :percentage="0"></el-progress>
+    <el-progress :percentage="70"></el-progress>
+    <el-progress :percentage="100" status="success"></el-progress>
+    <el-progress :percentage="50" status="exception"></el-progress>
+    &lt;!&ndash;线形进度条 — 百分比内显&ndash;&gt;
+    <el-progress :text-inside="true" :stroke-width="18" :percentage="0"></el-progress>
+    <el-progress :text-inside="true" :stroke-width="18" :percentage="70"></el-progress>
+    <el-progress :text-inside="true" :stroke-width="18" :percentage="100" status="success"></el-progress>
+    <el-progress :text-inside="true" :stroke-width="18" :percentage="50" status="exception"></el-progress>
+    &lt;!&ndash;环形进度条&ndash;&gt;
+    <el-progress type="circle" :percentage="0"></el-progress>
+    <el-progress type="circle" :percentage="25"></el-progress>
+    <el-progress type="circle" :percentage="100" status="success"></el-progress>
+    <el-progress type="circle" :percentage="50" status="exception"></el-progress>-->
+
+    <!--Tree 树形控件-->
+    <!--<el-tree :data="data" :props="defaultProps" @node-click="handleNodeClick"></el-tree>
+    &lt;!&ndash;可选择&ndash;&gt;
+    <el-tree
+            :data="regions"
+            :props="props"
+            :load="loadNode"
+            lazy
+            show-checkbox
+            @check-change="handleCheckChange">
+    </el-tree>
+    &lt;!&ndash;手风琴模式&ndash;&gt;
+    <el-tree :data="data" :props="defaultProps" accordion @node-click="handleNodeClick"></el-tree>-->
+
+    <!--Pagination 分页-->
+   <!-- <div class="block">
+        <span class="demonstration">页数较少时的效果</span>
+        <el-pagination
+                layout="prev, pager, next"
+                :total="50">
+        </el-pagination>
+    </div>
+    <div class="block">
+        <span class="demonstration">大于 7 页时的效果</span>
+        <el-pagination
+                layout="prev, pager, next"
+                :total="1000">
+        </el-pagination>
+    </div>
+    &lt;!&ndash;小型分页&ndash;&gt;
+    <el-pagination
+            small
+            layout="prev, pager, next"
+            :total="100">
+    </el-pagination>
+    &lt;!&ndash;附加功能&ndash;&gt;
+    <div class="block">
+        <span class="demonstration">显示总数</span>
+        <el-pagination
+                @size-change="handleSizeChange"
+                @current-change="handleCurrentChange"
+                :current-page="currentPage1"
+                :page-size="100"
+                layout="total, prev, pager, next"
+                :total="1000">
+        </el-pagination>
+    </div>
+    <div class="block">
+        <span class="demonstration">调整每页显示条数</span>
+        <el-pagination
+                @size-change="handleSizeChange"
+                @current-change="handleCurrentChange"
+                :current-page="currentPage2"
+                :page-sizes="[100, 200, 300, 400]"
+                :page-size="100"
+                layout="sizes, prev, pager, next"
+                :total="1000">
+        </el-pagination>
+    </div>
+    <div class="block">
+        <span class="demonstration">直接前往</span>
+        <el-pagination
+                @size-change="handleSizeChange"
+                @current-change="handleCurrentChange"
+                :current-page="currentPage3"
+                :page-size="100"
+                layout="prev, pager, next, jumper"
+                :total="1000">
+        </el-pagination>
+    </div>
+    <div class="block">
+        <span class="demonstration">完整功能</span>
+        <el-pagination
+                @size-change="handleSizeChange"
+                @current-change="handleCurrentChange"
+                :current-page="currentPage4"
+                :page-sizes="[100, 200, 300, 400]"
+                :page-size="100"
+                layout="total, sizes, prev, pager, next, jumper"
+                :total="400">
+        </el-pagination>
+    </div>-->
+
+    <!--Badge 标记-->
+   <!-- <el-badge :value="12" class="item">
+        <el-button size="small">评论</el-button>
+    </el-badge>
+    <el-badge :value="3" class="item">
+        <el-button size="small">回复</el-button>
+    </el-badge>
+
+    <el-dropdown trigger="click">
+  <span class="el-dropdown-link">
+    点我查看<i class="el-icon-caret-bottom el-icon&#45;&#45;right"></i>
+  </span>
+        <el-dropdown-menu slot="dropdown">
+            <el-dropdown-item class="clearfix">
+                评论
+                <el-badge class="mark" :value="12" />
+            </el-dropdown-item>
+            <el-dropdown-item class="clearfix">
+                回复
+                <el-badge class="mark" :value="3" />
+            </el-dropdown-item>
+        </el-dropdown-menu>
+    </el-dropdown>
+    &lt;!&ndash;最大值&ndash;&gt;
+    <el-badge :value="200" :max="99" class="item">
+        <el-button size="small">评论</el-button>
+    </el-badge>
+    <el-badge :value="100" :max="10" class="item">
+        <el-button size="small">回复</el-button>
+    </el-badge>
+    &lt;!&ndash;自定义内容&ndash;&gt;
+    <el-badge value="new" class="item">
+        <el-button size="small">评论</el-button>
+    </el-badge>
+    <el-badge value="hot" class="item">
+        <el-button size="small">回复</el-button>
+    </el-badge>
+    &lt;!&ndash;小红点&ndash;&gt;
+    <el-badge is-dot class="item">数据查询</el-badge>
+    <el-badge is-dot class="item">
+        <el-button class="share-button" icon="share" type="primary"></el-button>
+    </el-badge>-->
+
+    <!--Alert 警告-->
+    <!--<el-alert
+            title="成功提示的文案"
+            type="success">
+    </el-alert>
+    <el-alert
+            title="消息提示的文案"
+            type="info">
+    </el-alert>
+    <el-alert
+            title="警告提示的文案"
+            type="warning">
+    </el-alert>
+    <el-alert
+            title="错误提示的文案"
+            type="error">
+    </el-alert>
+    &lt;!&ndash;自定义关闭按钮&ndash;&gt;
+    <el-alert
+            title="不可关闭的 alert"
+            type="success"
+            :closable="false">
+    </el-alert>
+    <el-alert
+            title="自定义 close-text"
+            type="info"
+            close-text="知道了">
+    </el-alert>
+    <el-alert
+            title="设置了回调的 alert"
+            type="warning"
+            @close="hello">
+    </el-alert>
+    &lt;!&ndash;带有 icon&ndash;&gt;
+    <el-alert
+            title="成功提示的文案"
+            type="success"
+            show-icon>
+    </el-alert>
+    <el-alert
+            title="消息提示的文案"
+            type="info"
+            show-icon>
+    </el-alert>
+    <el-alert
+            title="警告提示的文案"
+            type="warning"
+            show-icon>
+    </el-alert>
+    <el-alert
+            title="错误提示的文案"
+            type="error"
+            show-icon>
+    </el-alert>
+    &lt;!&ndash;带有辅助性文字介绍&ndash;&gt;
+    <el-alert
+            title="带辅助性文字介绍"
+            type="success"
+            description="这是一句绕口令：黑灰化肥会挥发发灰黑化肥挥发；灰黑化肥会挥发发黑灰化肥发挥。 黑灰化肥会挥发发灰黑化肥黑灰挥发化为灰……">
+    </el-alert>
+    &lt;!&ndash;带有 icon 和辅助性文字介绍&ndash;&gt;
+    <el-alert
+            title="成功提示的文案"
+            type="success"
+            description="文字说明文字说明文字说明文字说明文字说明文字说明"
+            show-icon>
+    </el-alert>
+    <el-alert
+            title="消息提示的文案"
+            type="info"
+            description="文字说明文字说明文字说明文字说明文字说明文字说明"
+            show-icon>
+    </el-alert>
+    <el-alert
+            title="警告提示的文案"
+            type="warning"
+            description="文字说明文字说明文字说明文字说明文字说明文字说明"
+            show-icon>
+    </el-alert>
+    <el-alert
+            title="错误提示的文案"
+            type="error"
+            description="文字说明文字说明文字说明文字说明文字说明文字说明"
+            show-icon>
+    </el-alert>-->
+    <!--Loading 加载-->
+    <!--<el-table
+            v-loading.body="loading"
+            :data="tableData"
+            style="width: 100%">
+        <el-table-column
+                prop="date"
+                label="日期"
+                width="180">
+        </el-table-column>
+        <el-table-column
+                prop="name"
+                label="姓名"
+                width="180">
+        </el-table-column>
+        <el-table-column
+                prop="address"
+                label="地址">
+        </el-table-column>
+    </el-table>
+    &lt;!&ndash;整页加载&ndash;&gt;
+    <el-button
+            type="primary"
+            @click="openFullScreen"
+            v-loading.fullscreen.lock="fullscreenLoading">
+        显示整页加载，3 秒后消失
+    </el-button>-->
+
+    <!--Message 消息提示-->
+    <!--<el-button :plain="true" @click="open">打开消息提示</el-button>
+    &lt;!&ndash;不同状态&ndash;&gt;
+    <el-button :plain="true" @click="open2">成功</el-button>
+    <el-button :plain="true" @click="open3">警告</el-button>
+    <el-button :plain="true" @click="open">消息</el-button>
+    <el-button :plain="true" @click="open4">错误</el-button>-->
+
+    <!--MessageBox 弹框-->
+    <!--<el-button type="text" @click="opp">点击打开 Message Box</el-button>
+    &lt;!&ndash;确认消息&ndash;&gt;
+    <el-button type="text" @click="opp2">点击打开 Message Box</el-button>
+    &lt;!&ndash;提交内容&ndash;&gt;
+    <el-button type="text" @click="opp3">点击打开 Message Box</el-button>
+    &lt;!&ndash;自定义&ndash;&gt;
+    <el-button type="text" @click="opp4">点击打开 Message Box</el-button>-->
+
+    <!--Notification 通知-->
+    <!--<el-button
+            plain
+            @click="ope">
+        可自动关闭
+    </el-button>
+    <el-button
+            plain
+            @click="ope2">
+        不会自动关闭
+    </el-button>
+    &lt;!&ndash;带有倾向性&ndash;&gt;
+    <el-button
+            plain
+            @click="ope3">
+        成功
+    </el-button>
+    <el-button
+            plain
+            @click="ope4">
+        警告
+    </el-button>
+    <el-button
+            plain
+            @click="ope5">
+        消息
+    </el-button>
+    <el-button
+            plain
+            @click="ope6">
+        错误
+    </el-button>
+    &lt;!&ndash;带有偏移&ndash;&gt;
+    <el-button
+            plain
+            @click="ope7">
+        偏移的消息
+    </el-button>-->
+
+    <!--NavMenu 导航菜单-->
+    <!--<el-menu theme="dark" default-active="1" class="el-menu-demo" mode="horizontal" @select="handleSelect">
+        <el-menu-item index="1">处理中心</el-menu-item>
+        <el-submenu index="2">
+            <template slot="title">我的工作台</template>
+            <el-menu-item index="2-1">选项1</el-menu-item>
+            <el-menu-item index="2-2">选项2</el-menu-item>
+            <el-menu-item index="2-3">选项3</el-menu-item>
+        </el-submenu>
+        <el-menu-item index="3"><a href="https://www.ele.me" target="_blank">订单管理</a></el-menu-item>
+    </el-menu>
+    <div class="line"></div>
+    <el-menu default-active="1" class="el-menu-demo" mode="horizontal" @select="handleSelect">
+        <el-menu-item index="1">处理中心</el-menu-item>
+        <el-submenu index="2">
+            <template slot="title">我的工作台</template>
+            <el-menu-item index="2-1">选项1</el-menu-item>
+            <el-menu-item index="2-2">选项2</el-menu-item>
+            <el-menu-item index="2-3">选项3</el-menu-item>
+        </el-submenu>
+        <el-menu-item index="3"><a href="https://www.ele.me" target="_blank">订单管理</a></el-menu-item>
+    </el-menu>
+    &lt;!&ndash;侧栏&ndash;&gt;
+    <el-row class="tac">
+        <el-col :span="8">
+            <h5>带 icon</h5>
+            <el-menu default-active="2" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose">
+                <el-submenu index="1">
+                    <template slot="title"><i class="el-icon-message"></i>导航一</template>
+                    <el-menu-item-group>
+                        <template slot="title">分组一</template>
+                        <el-menu-item index="1-1">选项1</el-menu-item>
+                        <el-menu-item index="1-2">选项2</el-menu-item>
+                    </el-menu-item-group>
+                    <el-menu-item-group title="分组2">
+                        <el-menu-item index="1-3">选项3</el-menu-item>
+                    </el-menu-item-group>
+                    <el-submenu index="1-4">
+                        <template slot="title">选项4</template>
+                        <el-menu-item index="1-4-1">选项1</el-menu-item>
+                    </el-submenu>
+                </el-submenu>
+                <el-menu-item index="2"><i class="el-icon-menu"></i>导航二</el-menu-item>
+                <el-menu-item index="3"><i class="el-icon-setting"></i>导航三</el-menu-item>
+            </el-menu>
+        </el-col>
+        <el-col :span="8">
+            <h5>不带 icon</h5>
+            <el-menu default-active="2" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" theme="dark">
+                <el-submenu index="1">
+                    <template slot="title">导航一</template>
+                    <el-menu-item-group title="分组一">
+                        <el-menu-item index="1-1">选项1</el-menu-item>
+                        <el-menu-item index="1-2">选项2</el-menu-item>
+                    </el-menu-item-group>
+                    <el-menu-item-group title="分组2">
+                        <el-menu-item index="1-3">选项3</el-menu-item>
+                    </el-menu-item-group>
+                    <el-submenu index="1-4">
+                        <template slot="title">选项4</template>
+                        <el-menu-item index="1-4-1">选项1</el-menu-item>
+                    </el-submenu>
+                </el-submenu>
+                <el-menu-item index="2">导航二</el-menu-item>
+                <el-menu-item index="3">导航三</el-menu-item>
+            </el-menu>
+        </el-col>
+        <el-col :span="8">
+            <h5>分组</h5>
+            <el-menu mode="vertical" default-active="1" class="el-menu-vertical-demo">
+                <el-menu-item-group title="分组一">
+                    <el-menu-item index="1"><i class="el-icon-message"></i>导航一</el-menu-item>
+                    <el-menu-item index="2"><i class="el-icon-message"></i>导航二</el-menu-item>
+                </el-menu-item-group>
+                <el-menu-item-group title="分组二">
+                    <el-menu-item index="3"><i class="el-icon-message"></i>导航三</el-menu-item>
+                    <el-menu-item index="4"><i class="el-icon-message"></i>导航四</el-menu-item>
+                </el-menu-item-group>
+            </el-menu>
+        </el-col>
+    </el-row>-->
+
+    <!--Tabs 标签页-->
+    <!--<el-tabs v-model="activeName" @tab-click="handleClick">
+        <el-tab-pane label="用户管理" name="first">用户管理</el-tab-pane>
+        <el-tab-pane label="配置管理" name="second">配置管理</el-tab-pane>
+        <el-tab-pane label="角色管理" name="third">角色管理</el-tab-pane>
+        <el-tab-pane label="定时任务补偿" name="fourth">定时任务补偿</el-tab-pane>
+    </el-tabs>
+    &lt;!&ndash;选项卡样式&ndash;&gt;
+    <el-tabs v-model="activeName" type="card" @tab-click="handleClick">
+        <el-tab-pane label="用户管理" name="first">用户管理</el-tab-pane>
+        <el-tab-pane label="配置管理" name="second">配置管理</el-tab-pane>
+        <el-tab-pane label="角色管理" name="third">角色管理</el-tab-pane>
+        <el-tab-pane label="定时任务补偿" name="fourth">定时任务补偿</el-tab-pane>
+    </el-tabs>
+    &lt;!&ndash;可关闭&ndash;&gt;
+    <el-tabs type="card" closable @tab-click="handleClick" @tab-remove="handleRemove">
+        <el-tab-pane label="用户管理">用户管理</el-tab-pane>
+        <el-tab-pane label="配置管理">配置管理</el-tab-pane>
+        <el-tab-pane label="角色管理">角色管理</el-tab-pane>
+        <el-tab-pane label="定时任务补偿">定时任务补偿</el-tab-pane>
+    </el-tabs>
+    &lt;!&ndash;卡片化&ndash;&gt;
+    <el-tabs type="border-card">
+        <el-tab-pane label="用户管理">用户管理</el-tab-pane>
+        <el-tab-pane label="配置管理">配置管理</el-tab-pane>
+        <el-tab-pane label="角色管理">角色管理</el-tab-pane>
+        <el-tab-pane label="定时任务补偿">定时任务补偿</el-tab-pane>
+    </el-tabs>
+    &lt;!&ndash;自定义标签页&ndash;&gt;
+    <el-tabs type="border-card">
+        <el-tab-pane>
+            <span slot="label"><i class="el-icon-date"></i> 我的行程</span>
+            我的行程
+        </el-tab-pane>
+        <el-tab-pane label="消息中心">消息中心</el-tab-pane>
+        <el-tab-pane label="角色管理">角色管理</el-tab-pane>
+        <el-tab-pane label="定时任务补偿">定时任务补偿</el-tab-pane>
+    </el-tabs>
+    &lt;!&ndash;动态增加标签页&ndash;&gt;
+    <div style="margin-bottom: 20px;">
+        <el-button size="small" @click="tabs.push({ name: 'Tab ' + ++tabIndex, title: 'new Tab', content: 'new Tab content' })">add tab</el-button>
+    </div>
+    <el-tabs type="card" closable>
+        <el-tab-pane v-for="(item, index) in tabs" :label="item.title" :name="item.name">{{item.content}}</el-tab-pane>
+    </el-tabs>-->
+
+    <!--Dropdown 下拉菜单-->
+   <!-- <el-dropdown>
+  <span class="el-dropdown-link">
+    下拉菜单<i class="el-icon-caret-bottom el-icon&#45;&#45;right"></i>
+  </span>
+        <el-dropdown-menu slot="dropdown">
+            <el-dropdown-item>黄金糕</el-dropdown-item>
+            <el-dropdown-item>狮子头</el-dropdown-item>
+            <el-dropdown-item>螺蛳粉</el-dropdown-item>
+            <el-dropdown-item disabled>双皮奶</el-dropdown-item>
+            <el-dropdown-item divided>蚵仔煎</el-dropdown-item>
+        </el-dropdown-menu>
+    </el-dropdown>
+    &lt;!&ndash;触发对象&ndash;&gt;
+    <el-dropdown>
+        <el-button type="primary">
+            更多菜单<i class="el-icon-caret-bottom el-icon&#45;&#45;right"></i>
+        </el-button>
+        <el-dropdown-menu slot="dropdown">
+            <el-dropdown-item>黄金糕</el-dropdown-item>
+            <el-dropdown-item>狮子头</el-dropdown-item>
+            <el-dropdown-item>螺蛳粉</el-dropdown-item>
+            <el-dropdown-item>双皮奶</el-dropdown-item>
+            <el-dropdown-item>蚵仔煎</el-dropdown-item>
+        </el-dropdown-menu>
+    </el-dropdown>
+    <el-dropdown split-button type="primary" @click="handleClick">
+        更多菜单
+        <el-dropdown-menu slot="dropdown">
+            <el-dropdown-item>黄金糕</el-dropdown-item>
+            <el-dropdown-item>狮子头</el-dropdown-item>
+            <el-dropdown-item>螺蛳粉</el-dropdown-item>
+            <el-dropdown-item>双皮奶</el-dropdown-item>
+            <el-dropdown-item>蚵仔煎</el-dropdown-item>
+        </el-dropdown-menu>
+    </el-dropdown>
+    &lt;!&ndash;触发方式&ndash;&gt;
+    <el-row class="block-col-2">
+        <el-col :span="12">
+            <span class="demonstration">hover 激活</span>
+            <el-dropdown>
+      <span class="el-dropdown-link">
+        下拉菜单<i class="el-icon-caret-bottom el-icon&#45;&#45;right"></i>
+      </span>
+                <el-dropdown-menu slot="dropdown">
+                    <el-dropdown-item>黄金糕</el-dropdown-item>
+                    <el-dropdown-item>狮子头</el-dropdown-item>
+                    <el-dropdown-item>螺蛳粉</el-dropdown-item>
+                    <el-dropdown-item>双皮奶</el-dropdown-item>
+                    <el-dropdown-item>蚵仔煎</el-dropdown-item>
+                </el-dropdown-menu>
+            </el-dropdown>
+        </el-col>
+        <el-col :span="12">
+            <span class="demonstration">click 激活</span>
+            <el-dropdown trigger="click">
+      <span class="el-dropdown-link">
+        下拉菜单<i class="el-icon-caret-bottom el-icon&#45;&#45;right"></i>
+      </span>
+                <el-dropdown-menu slot="dropdown">
+                    <el-dropdown-item>黄金糕</el-dropdown-item>
+                    <el-dropdown-item>狮子头</el-dropdown-item>
+                    <el-dropdown-item>螺蛳粉</el-dropdown-item>
+                    <el-dropdown-item>双皮奶</el-dropdown-item>
+                    <el-dropdown-item>蚵仔煎</el-dropdown-item>
+                </el-dropdown-menu>
+            </el-dropdown>
+        </el-col>
+    </el-row>
+    &lt;!&ndash;菜单隐藏方式&ndash;&gt;
+    <el-dropdown :hide-on-click="false">
+  <span class="el-dropdown-link">
+    下拉菜单<i class="el-icon-caret-bottom el-icon&#45;&#45;right"></i>
+  </span>
+        <el-dropdown-menu slot="dropdown">
+            <el-dropdown-item>黄金糕</el-dropdown-item>
+            <el-dropdown-item>狮子头</el-dropdown-item>
+            <el-dropdown-item>螺蛳粉</el-dropdown-item>
+            <el-dropdown-item disabled>双皮奶</el-dropdown-item>
+            <el-dropdown-item divided>蚵仔煎</el-dropdown-item>
+        </el-dropdown-menu>
+    </el-dropdown>
+    &lt;!&ndash;指令事件&ndash;&gt;
+    <el-dropdown @command="handleCommand">
+  <span class="el-dropdown-link">
+    下拉菜单<i class="el-icon-caret-bottom el-icon&#45;&#45;right"></i>
+  </span>
+        <el-dropdown-menu slot="dropdown">
+            <el-dropdown-item command="a">黄金糕</el-dropdown-item>
+            <el-dropdown-item command="b">狮子头</el-dropdown-item>
+            <el-dropdown-item command="c">螺蛳粉</el-dropdown-item>
+            <el-dropdown-item command="d" disabled>双皮奶</el-dropdown-item>
+            <el-dropdown-item command="e" divided>蚵仔煎</el-dropdown-item>
+        </el-dropdown-menu>
+    </el-dropdown>-->
+
+    <!--Steps 步骤条-->
+   <!-- <el-steps :space="100" :active="active" finish-status="success">
+        <el-step title="步骤 1"></el-step>
+        <el-step title="步骤 2"></el-step>
+        <el-step title="步骤 3"></el-step>
+    </el-steps>
+
+    <el-button style="margin-top: 12px;" @click="next">下一步</el-button>
+    &lt;!&ndash;含状态步骤条&ndash;&gt;
+    <el-steps :space="100" :active="1" finish-status="success">
+        <el-step title="已完成"></el-step>
+        <el-step title="进行中"></el-step>
+        <el-step title="步骤 3"></el-step>
+    </el-steps>
+    &lt;!&ndash;有描述的步骤条&ndash;&gt;
+    <el-steps :space="200" :active="1">
+        <el-step title="步骤 1" description="这是一段很长很长很长的描述性文字"></el-step>
+        <el-step title="步骤 2" description="这是一段很长很长很长的描述性文字"></el-step>
+        <el-step title="步骤 3" description="这是一段很长很长很长的描述性文字"></el-step>
+    </el-steps>
+    &lt;!&ndash;带图标的步骤条&ndash;&gt;
+    <el-steps :space="100" :active="1">
+        <el-step title="步骤 1" icon="edit"></el-step>
+        <el-step title="步骤 2" icon="upload"></el-step>
+        <el-step title="步骤 3" icon="picture"></el-step>
+    </el-steps>
+    &lt;!&ndash;竖式步骤条&ndash;&gt;
+    <el-steps :space="100" direction="vertical" :active="1">
+        <el-step title="步骤 1"></el-step>
+        <el-step title="步骤 2"></el-step>
+        <el-step title="步骤 3"></el-step>
+    </el-steps>-->
+
+    <!--Dialog 对话框-->
+    <!--<el-button type="text" @click="dialogVisible = true">点击打开 Dialog</el-button>
+
+    <el-dialog title="提示" v-model="dialogVisible" size="tiny">
+        <span>这是一段信息</span>
+        <span slot="footer" class="dialog-footer">
+    <el-button @click="dialogVisible = false">取 消</el-button>
+    <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
+  </span>
+    </el-dialog>
+    &lt;!&ndash;自定义内容&ndash;&gt;
+    <el-button type="text" @click="dialogTableVisible = true">打开嵌套表格的 Dialog</el-button>
+
+    <el-dialog title="收货地址" v-model="dialogTableVisible">
+        <el-table :data="gridData">
+            <el-table-column property="date" label="日期" width="150"></el-table-column>
+            <el-table-column property="name" label="姓名" width="200"></el-table-column>
+            <el-table-column property="address" label="地址"></el-table-column>
+        </el-table>
+    </el-dialog>
+
+    &lt;!&ndash; Form &ndash;&gt;
+    <el-button type="text" @click="dialogFormVisible = true">打开嵌套表单的 Dialog</el-button>
+
+    <el-dialog title="收货地址" v-model="dialogFormVisible">
+        <el-form :model="form">
+            <el-form-item label="活动名称" :label-width="formLabelWidth">
+                <el-input v-model="form.name" auto-complete="off"></el-input>
+            </el-form-item>
+            <el-form-item label="活动区域" :label-width="formLabelWidth">
+                <el-select v-model="form.region" placeholder="请选择活动区域">
+                    <el-option label="区域一" value="shanghai"></el-option>
+                    <el-option label="区域二" value="beijing"></el-option>
+                </el-select>
+            </el-form-item>
+        </el-form>
+        <div slot="footer" class="dialog-footer">
+            <el-button @click="dialogFormVisible = false">取 消</el-button>
+            <el-button type="primary" @click="dialogFormVisible = false">确 定</el-button>
+        </div>
+    </el-dialog>-->
+
+    <!--Tooltip 文字提示-->
+    <!--<div class="box">
+        <div class="top">
+            <el-tooltip class="item" effect="dark" content="Top Left 提示文字" placement="top-start">
+                <el-button>上左</el-button>
+            </el-tooltip>
+            <el-tooltip class="item" effect="dark" content="Top Center 提示文字" placement="top">
+                <el-button>上边</el-button>
+            </el-tooltip>
+            <el-tooltip class="item" effect="dark" content="Top Right 提示文字" placement="top-end">
+                <el-button>上右</el-button>
+            </el-tooltip>
+        </div>
+        <div class="left">
+            <el-tooltip class="item" effect="dark" content="Left Top 提示文字" placement="left-start">
+                <el-button>左上</el-button>
+            </el-tooltip>
+            <el-tooltip class="item" effect="dark" content="Left Center 提示文字" placement="left">
+                <el-button>左边</el-button>
+            </el-tooltip>
+            <el-tooltip class="item" effect="dark" content="Left Bottom 提示文字" placement="left-end">
+                <el-button>左下</el-button>
+            </el-tooltip>
+        </div>
+
+        <div class="right">
+            <el-tooltip class="item" effect="dark" content="Right Top 提示文字" placement="right-start">
+                <el-button>右上</el-button>
+            </el-tooltip>
+            <el-tooltip class="item" effect="dark" content="Right Center 提示文字" placement="right">
+                <el-button>右边</el-button>
+            </el-tooltip>
+            <el-tooltip class="item" effect="dark" content="Right Bottom 提示文字" placement="right-end">
+                <el-button>右下</el-button>
+            </el-tooltip>
+        </div>
+        <div class="bottom">
+            <el-tooltip class="item" effect="dark" content="Bottom Left 提示文字" placement="bottom-start">
+                <el-button>下左</el-button>
+            </el-tooltip>
+            <el-tooltip class="item" effect="dark" content="Bottom Center 提示文字" placement="bottom">
+                <el-button>下边</el-button>
+            </el-tooltip>
+            <el-tooltip class="item" effect="dark" content="Bottom Right 提示文字" placement="bottom-end">
+                <el-button>下右</el-button>
+            </el-tooltip>
+        </div>
+    </div>
+    &lt;!&ndash;主题&ndash;&gt;
+    <el-tooltip content="Top center" placement="top">
+        <el-button>Dark</el-button>
+    </el-tooltip>
+    <el-tooltip content="Bottom center" placement="bottom" effect="light">
+        <el-button>Light</el-button>
+    </el-tooltip>
+    &lt;!&ndash;更多 Content&ndash;&gt;
+    <el-tooltip placement="top">
+        <div slot="content">多行信息<br/>第二行信息</div>
+        <el-button>Top center</el-button>
+    </el-tooltip>
+    &lt;!&ndash;高级扩展&ndash;&gt;
+    <template>
+        <el-tooltip :disabled="disabled" content="点击关闭 tooltip 功能" placement="bottom" effect="light">
+            <el-button @click="disabled = !disabled">点击{{disabled ? '开启' : '关闭'}} tooltip 功能</el-button>
+        </el-tooltip>
+    </template>-->
+
+    <!--Popover 弹出框-->
+    <!--<el-popover
+            ref="popover1"
+            placement="top-start"
+            title="标题"
+            width="200"
+            trigger="hover"
+            content="这是一段内容,这是一段内容,这是一段内容,这是一段内容。">
+    </el-popover>
+
+    <el-popover
+            ref="popover2"
+            placement="bottom"
+            title="标题"
+            width="200"
+            trigger="click"
+            content="这是一段内容,这是一段内容,这是一段内容,这是一段内容。">
+    </el-popover>
+
+    <el-button v-popover:popover1>hover 激活</el-button>
+    <el-button v-popover:popover2>click 激活</el-button>
+    <el-popover
+            placement="right"
+            title="标题"
+            width="200"
+            trigger="focus"
+            content="这是一段内容,这是一段内容,这是一段内容,这是一段内容。">
+        <el-button slot="reference">focus 激活</el-button>
+    </el-popover>
+    &lt;!&ndash;嵌套信息&ndash;&gt;
+    <el-popover
+            ref="popover4"
+            placement="right"
+            width="400"
+            trigger="click">
+        <el-table :data="gridData">
+            <el-table-column width="150" property="date" label="日期"></el-table-column>
+            <el-table-column width="100" property="name" label="姓名"></el-table-column>
+            <el-table-column width="300" property="address" label="地址"></el-table-column>
+        </el-table>
+    </el-popover>
+
+    <el-button v-popover:popover4>click 激活</el-button>
+    &lt;!&ndash;嵌套操作&ndash;&gt;
+    <el-popover
+            ref="popover5"
+            placement="top"
+            width="160"
+            v-model="visible2">
+        <p>这是一段内容这是一段内容确定删除吗？</p>
+        <div style="text-align: right; margin: 0">
+            <el-button size="mini" type="text" @click="visible2 = false">取消</el-button>
+            <el-button type="primary" size="mini" @click="visible2 = false">确定</el-button>
+        </div>
+    </el-popover>
+
+    <el-button v-popover:popover5>删除</el-button>-->
+
+    <!--Card 卡片-->
+    <!--<el-card class="box-card">
+        <div slot="header" class="clearfix">
+            <span style="line-height: 36px;">卡片名称</span>
+            <el-button style="float: right;" type="primary">操作按钮</el-button>
+        </div>
+        <div v-for="o in 4" class="text item">
+            {{'列表内容 ' + o }}
+        </div>
+    </el-card>
+    &lt;!&ndash;简单卡片&ndash;&gt;
+    <el-card class="box-card">
+        <div v-for="o in 4" class="text item">
+            {{'列表内容 ' + o }}
+        </div>
+    </el-card>
+    &lt;!&ndash;带图片&ndash;&gt;
+    <el-row>
+        <el-col :span="8" v-for="(o, index) in 2" :offset="index > 0 ? 2 : 0">
+            <el-card :body-style="{ padding: '0px' }">
+                <img src="~examples/assets/images/hamburger.png" class="image">
+                <div style="padding: 14px;">
+                    <span>好吃的汉堡</span>
+                    <div class="bottom clearfix">
+                        <time class="time">{{ currentDate }}</time>
+                        <el-button type="text" class="button">操作按钮</el-button>
+                    </div>
+                </div>
+            </el-card>
+        </el-col>
+    </el-row>-->
+
+    <!--Carousel 走马灯-->
+    <!--<div class="block">
+        <span class="demonstration">默认 Hover 指示器触发</span>
+        <el-carousel height="150px">
+            <el-carousel-item v-for="item in 4">
+                <h3>{{ item }}</h3>
+            </el-carousel-item>
+        </el-carousel>
+    </div>
+    <div class="block">
+        <span class="demonstration">Click 指示器触发</span>
+        <el-carousel trigger="click" height="150px">
+            <el-carousel-item v-for="item in 4">
+                <h3>{{ item }}</h3>
+            </el-carousel-item>
+        </el-carousel>
+    </div>
+    &lt;!&ndash;指示器&ndash;&gt;
+    <el-carousel indicator-position="outside">
+        <el-carousel-item v-for="item in 4">
+            <h3>{{ item }}</h3>
+        </el-carousel-item>
+    </el-carousel>
+    &lt;!&ndash;可以设置切换箭头的显示时机&ndash;&gt;
+    <el-carousel :interval="5000" arrow="always">
+        <el-carousel-item v-for="item in 4">
+            <h3>{{ item }}</h3>
+        </el-carousel-item>
+    </el-carousel>
+    &lt;!&ndash;卡片化&ndash;&gt;
+    <el-carousel :interval="4000" type="card" height="200px">
+        <el-carousel-item v-for="item in 6">
+            <h3>{{ item }}</h3>
+        </el-carousel-item>
+    </el-carousel>-->
+
+    <!--Collapse 折叠面板-->
+    <el-collapse v-model="activeNames" @change="handleChange">
+        <el-collapse-item title="一致性 Consistency" name="1">
+            <div>与现实生活一致：与现实生活的流程、逻辑保持一致，遵循用户习惯的语言和概念；</div>
+            <div>在界面中一致：所有的元素和结构需保持一致，比如：设计样式、图标和文本、元素的位置等。</div>
+        </el-collapse-item>
+        <el-collapse-item title="反馈 Feedback" name="2">
+            <div>控制反馈：通过界面样式和交互动效让用户可以清晰的感知自己的操作；</div>
+            <div>页面反馈：操作后，通过页面元素的变化清晰地展现当前状态。</div>
+        </el-collapse-item>
+        <el-collapse-item title="效率 Efficiency" name="3">
+            <div>简化流程：设计简洁直观的操作流程；</div>
+            <div>清晰明确：语言表达清晰且表意明确，让用户快速理解进而作出决策；</div>
+            <div>帮助用户识别：界面简单直白，让用户快速识别而非回忆，减少用户记忆负担。</div>
+        </el-collapse-item>
+        <el-collapse-item title="可控 Controllability" name="4">
+            <div>用户决策：根据场景可给予用户操作建议或安全提示，但不能代替用户进行决策；</div>
+            <div>结果可控：用户可以自由的进行操作，包括撤销、回退和终止当前操作等。</div>
+        </el-collapse-item>
+    </el-collapse>
+    <!--手风琴效果-->
+    <el-collapse v-model="activeName1" accordion>
+        <el-collapse-item title="一致性 Consistency" name="1">
+            <div>与现实生活一致：与现实生活的流程、逻辑保持一致，遵循用户习惯的语言和概念；</div>
+            <div>在界面中一致：所有的元素和结构需保持一致，比如：设计样式、图标和文本、元素的位置等。</div>
+        </el-collapse-item>
+        <el-collapse-item title="反馈 Feedback" name="2">
+            <div>控制反馈：通过界面样式和交互动效让用户可以清晰的感知自己的操作；</div>
+            <div>页面反馈：操作后，通过页面元素的变化清晰地展现当前状态。</div>
+        </el-collapse-item>
+        <el-collapse-item title="效率 Efficiency" name="3">
+            <div>简化流程：设计简洁直观的操作流程；</div>
+            <div>清晰明确：语言表达清晰且表意明确，让用户快速理解进而作出决策；</div>
+            <div>帮助用户识别：界面简单直白，让用户快速识别而非回忆，减少用户记忆负担。</div>
+        </el-collapse-item>
+        <el-collapse-item title="可控 Controllability" name="4">
+            <div>用户决策：根据场景可给予用户操作建议或安全提示，但不能代替用户进行决策；</div>
+            <div>结果可控：用户可以自由的进行操作，包括撤销、回退和终止当前操作等。</div>
+        </el-collapse-item>
+    </el-collapse>
+    <!--自定义面板标题-->
+    <el-collapse accordion>
+        <el-collapse-item>
+            <template slot="title">
+                一致性 Consistency<i class="header-icon el-icon-information"></i>
+            </template>
+            <div>与现实生活一致：与现实生活的流程、逻辑保持一致，遵循用户习惯的语言和概念；</div>
+            <div>在界面中一致：所有的元素和结构需保持一致，比如：设计样式、图标和文本、元素的位置等。</div>
+        </el-collapse-item>
+        <el-collapse-item title="反馈 Feedback">
+            <div>控制反馈：通过界面样式和交互动效让用户可以清晰的感知自己的操作；</div>
+            <div>页面反馈：操作后，通过页面元素的变化清晰地展现当前状态。</div>
+        </el-collapse-item>
+        <el-collapse-item title="效率 Efficiency">
+            <div>简化流程：设计简洁直观的操作流程；</div>
+            <div>清晰明确：语言表达清晰且表意明确，让用户快速理解进而作出决策；</div>
+            <div>帮助用户识别：界面简单直白，让用户快速识别而非回忆，减少用户记忆负担。</div>
+        </el-collapse-item>
+        <el-collapse-item title="可控 Controllability">
+            <div>用户决策：根据场景可给予用户操作建议或安全提示，但不能代替用户进行决策；</div>
+            <div>结果可控：用户可以自由的进行操作，包括撤销、回退和终止当前操作等。</div>
+        </el-collapse-item>
+    </el-collapse>
+</div>
+<script src="../../vue.js"></script>
+<script src="index.js"></script>
+<script>
+    new Vue({
+        el:'#app',
+        created:function () {
+        },
+        data:{
+            pickerOptions1: {
+                shortcuts: [{
+                    text: '今天',
+                    onClick(picker) {
+                        picker.$emit('pick', new Date());
+                    }
+                }, {
+                    text: '昨天',
+                    onClick(picker) {
+                        const date = new Date();
+                        date.setTime(date.getTime() - 3600 * 1000 * 24);
+                        picker.$emit('pick', date);
+                    }
+                }, {
+                    text: '一周前',
+                    onClick(picker) {
+                        const date = new Date();
+                        date.setTime(date.getTime() - 3600 * 1000 * 24 * 7);
+                        picker.$emit('pick', date);
+                    }
+                }]
+            },
+            value1: '',
+            value2: '',
+            pickerOptions2: {
+                shortcuts: [{
+                    text: '最近一周',
+                    onClick(picker) {
+                        const end = new Date();
+                        const start = new Date();
+                        start.setTime(start.getTime() - 3600 * 1000 * 24 * 7);
+                        picker.$emit('pick', [start, end]);
+                    }
+                }, {
+                    text: '最近一个月',
+                    onClick(picker) {
+                        const end = new Date();
+                        const start = new Date();
+                        start.setTime(start.getTime() - 3600 * 1000 * 24 * 30);
+                        picker.$emit('pick', [start, end]);
+                    }
+                }, {
+                    text: '最近三个月',
+                    onClick(picker) {
+                        const end = new Date();
+                        const start = new Date();
+                        start.setTime(start.getTime() - 3600 * 1000 * 24 * 90);
+                        picker.$emit('pick', [start, end]);
+                    }
+                }]
+            },
+            value3: [new Date(2000, 10, 10, 10, 10), new Date(2000, 10, 11, 10, 10)],
+            value4: '',
+            fileList: [{name: 'food.jpeg', url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'}, {name: 'food2.jpeg', url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'}],
+            value4: null,
+            form: {
+                name: '',
+                region: '',
+                date1: '',
+                date2: '',
+                delivery: false,
+                type: [],
+                resource: '',
+                desc: ''
+            },
+            formInline: {
+                user: '',
+                region: ''
+            },
+            labelPosition: 'right',
+            formLabelAlign: {
+                name: '',
+                region: '',
+                type: ''
+            },
+            ruleForm: {
+                name: '',
+                region: '',
+                date1: '',
+                date2: '',
+                delivery: false,
+                type: [],
+                resource: '',
+                desc: ''
+            },
+            rules: {
+                name: [
+                    { required: true, message: '请输入活动名称', trigger: 'blur' },
+                    { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
+                ],
+                region: [
+                    { required: true, message: '请选择活动区域', trigger: 'change' }
+                ],
+                date1: [
+                    { type: 'date', required: true, message: '请选择日期', trigger: 'change' }
+                ],
+                date2: [
+                    { type: 'date', required: true, message: '请选择时间', trigger: 'change' }
+                ],
+                type: [
+                    { type: 'array', required: true, message: '请至少选择一个活动性质', trigger: 'change' }
+                ],
+                resource: [
+                    { required: true, message: '请选择活动资源', trigger: 'change' }
+                ],
+                desc: [
+                    { required: true, message: '请填写活动形式', trigger: 'blur' }
+                ]
+            },
+            tableData: [
+                {
+                date: '2016-05-02',
+                name: '王小虎',
+                address: '上海市普陀区金沙江路 1518 弄'
+            }, {
+                date: '2016-05-04',
+                name: '王小虎',
+                address: '上海市普陀区金沙江路 1517 弄'
+            }, {
+                date: '2016-05-01',
+                name: '王小虎',
+                address: '上海市普陀区金沙江路 1519 弄'
+            }, {
+                date: '2016-05-03',
+                name: '王小虎',
+                address: '上海市普陀区金沙江路 1516 弄'
+            }],
+            tableData3: [
+                {
+                date: '2016-05-03',
+                name: '王小虎',
+                province: '上海',
+                city: '普陀区',
+                address: '上海市普陀区金沙江路 1518 弄',
+                zip: 200333
+            }, {
+                date: '2016-05-02',
+                name: '王小虎',
+                province: '上海',
+                city: '普陀区',
+                address: '上海市普陀区金沙江路 1518 弄',
+                zip: 200333
+            }, {
+                date: '2016-05-04',
+                name: '王小虎',
+                province: '上海',
+                city: '普陀区',
+                address: '上海市普陀区金沙江路 1518 弄',
+                zip: 200333
+            }, {
+                date: '2016-05-01',
+                name: '王小虎',
+                province: '上海',
+                city: '普陀区',
+                address: '上海市普陀区金沙江路 1518 弄',
+                zip: 200333
+            }, {
+                date: '2016-05-08',
+                name: '王小虎',
+                province: '上海',
+                city: '普陀区',
+                address: '上海市普陀区金沙江路 1518 弄',
+                zip: 200333
+            }, {
+                date: '2016-05-06',
+                name: '王小虎',
+                province: '上海',
+                city: '普陀区',
+                address: '上海市普陀区金沙江路 1518 弄',
+                zip: 200333
+            }, {
+                date: '2016-05-07',
+                name: '王小虎',
+                province: '上海',
+                city: '普陀区',
+                address: '上海市普陀区金沙江路 1518 弄',
+                zip: 200333
+            }
+            ],
+            tags: [
+                { name: '标签一', type: '' },
+                { name: '标签二', type: 'gray' },
+                { name: '标签三', type: 'primary' },
+                { name: '标签四', type: 'success' },
+                { name: '标签五', type: 'warning' },
+                { name: '标签六', type: 'danger' }
+            ],
+            dynamicTags: ['标签一', '标签二', '标签三'],
+            inputVisible: false,
+            inputValue: '',
+            data: [
+                {
+                label: '一级 1',
+                children: [{
+                    label: '二级 1-1',
+                    children: [{
+                        label: '三级 1-1-1'
+                    }]
+                }]
+            }, {
+                label: '一级 2',
+                children: [{
+                    label: '二级 2-1',
+                    children: [{
+                        label: '三级 2-1-1'
+                    }]
+                }, {
+                    label: '二级 2-2',
+                    children: [{
+                        label: '三级 2-2-1'
+                    }]
+                }]
+            }, {
+                label: '一级 3',
+                children: [{
+                    label: '二级 3-1',
+                    children: [{
+                        label: '三级 3-1-1'
+                    }]
+                }, {
+                    label: '二级 3-2',
+                    children: [{
+                        label: '三级 3-2-1'
+                    }]
+                }]
+            }
+            ],
+            defaultProps: {
+                children: 'children',
+                label: 'label'
+            },
+            regions: [
+                {
+                'name': 'region1'
+            }, {
+                'name': 'region2'
+            }
+            ],
+            props: {
+                label: 'name',
+                children: 'zones'
+            },
+            count: 1,
+            currentPage1: 5,
+            currentPage2: 5,
+            currentPage3: 5,
+            currentPage4: 4,
+            loading: true,
+            fullscreenLoading: false,
+            activeName: 'second',
+            active: 0,
+            dialogVisible: false,
+            dialogTableVisible: false,
+            dialogFormVisible: false,
+            formLabelWidth: '120px',
+            gridData: [
+                {
+                date: '2016-05-02',
+                name: '王小虎',
+                address: '上海市普陀区金沙江路 1518 弄'
+            }, {
+                date: '2016-05-04',
+                name: '王小虎',
+                address: '上海市普陀区金沙江路 1518 弄'
+            }, {
+                date: '2016-05-01',
+                name: '王小虎',
+                address: '上海市普陀区金沙江路 1518 弄'
+            }, {
+                date: '2016-05-03',
+                name: '王小虎',
+                address: '上海市普陀区金沙江路 1518 弄'
+            }],
+            disabled:false,
+            visible2: false,
+            currentDate: new Date(),
+            activeNames: ['1','2'],
+            activeName1:'1'
+        },
+        methods:{
+            handleRemove(file,fileList){
+                console.log(file,filelist)
+            },
+            handlePreview(file){
+                console.log(file);
+            },
+            onSubmit() {
+                console.log('submit!');
+            },
+            submitForm(formName) {
+                this.$refs[formName].validate((valid) => {
+                    if (valid) {
+                        alert('submit!');
+                    } else {
+                        console.log('error submit!!');
+                        return false;
+                    }
+                });
+            },
+            resetForm(formName) {
+                this.$refs[formName].resetFields();
+            },
+            tableRowClassName(row, index) {
+                if (index === 1) {
+                    return 'info-row';
+                } else if (index === 3) {
+                    return 'positive-row';
+                }
+                return '';
+            },
+            handleClick() {
+                console.log(1);
+            },
+            deleteRow(index, rows) {
+                rows.splice(index, 1);
+            },
+            handleCurrentChange(val) {
+                this.currentRow = val;
+            },
+            formatter(row, column) {
+                return row.address;
+            },
+            filterTag(value, row) {
+                return row.tag === value;
+            },
+            handleClose(tag) {
+                this.dynamicTags.splice(this.dynamicTags.indexOf(tag), 1);
+            },
+            showInput() {
+                this.inputVisible = true;
+            },
+            handleInputConfirm() {
+                let inputValue = this.inputValue;
+                if (inputValue) {
+                    this.dynamicTags.push(inputValue);
+                }
+                this.inputVisible = false;
+                this.inputValue = '';
+            },
+            handleNodeClick(data) {
+                console.log(data);
+            },
+            handleCheckChange(data, checked, indeterminate) {
+                console.log(data, checked, indeterminate);
+            },
+            handleNodeClick(data) {
+                console.log(data);
+            },
+            loadNode(node, resolve) {
+                if (node.level === 0) {
+                    return resolve([{ name: 'region1' }, { name: 'region2' }]);
+                }
+                if (node.level > 3) return resolve([]);
+
+                var hasChild;
+                if (node.data.name === 'region1') {
+                    hasChild = true;
+                } else if (node.data.name === 'region2') {
+                    hasChild = false;
+                } else {
+                    hasChild = Math.random() > 0.5;
+                }
+
+                setTimeout(() => {
+                    var data;
+                    if (hasChild) {
+                        data = [{
+                            name: 'zone' + this.count++
+                        }, {
+                            name: 'zone' + this.count++
+                        }];
+                    } else {
+                        data = [];
+                    }
+
+                    resolve(data);
+                }, 500);
+            },
+            handleSizeChange(val) {
+                console.log(`每页 ${val} 条`);
+            },
+            handleCurrentChange(val) {
+                this.currentPage = val;
+                console.log(`当前页: ${val}`);
+            },
+            hello() {
+                alert('Hello World!');
+            },
+            openFullScreen() {
+                this.fullscreenLoading = true;
+                setTimeout(() => {
+                    this.fullscreenLoading = false;
+                }, 3000);
+            },
+            open() {
+                this.$message('这是一条消息提示');
+            },
+            open2() {
+                this.$message({
+                    showClose:true,
+                    message: '恭喜你，这是一条成功消息',
+                    type: 'success'
+                });
+            },
+            open3() {
+                this.$message({
+                    duration:0,
+                    message: '警告哦，这是一条警告消息',
+                    type: 'warning'
+                });
+            },
+            open4() {
+                this.$message.error('错了哦，这是一条错误消息');
+            },
+            opp() {
+                this.$alert('这是一段内容', '标题名称', {
+                    confirmButtonText: '确定',
+                    callback: action => {
+                        this.$message({
+                            type: 'info',
+                            message: `action: ${ action }`
+                        });
+                    }
+                });
+            },
+            opp2() {
+                this.$confirm('此操作将永久删除该文件, 是否继续?', '提示', {
+                    confirmButtonText: '确定',
+                    cancelButtonText: '取消',
+                    type: 'warning'
+                }).then(() => {
+                    this.$message({
+                        type: 'success',
+                        message: '删除成功!'
+                    });
+                }).catch(() => {
+                    this.$message({
+                        type: 'info',
+                        message: '已取消删除'
+                    });
+                });
+            },
+            opp3() {
+                this.$prompt('请输入邮箱', '提示', {
+                    confirmButtonText: '确定',
+                    cancelButtonText: '取消',
+                    inputPattern: /[\w!#$%&'*+/=?^_`{|}~-]+(?:\.[\w!#$%&'*+/=?^_`{|}~-]+)*@(?:[\w](?:[\w-]*[\w])?\.)+[\w](?:[\w-]*[\w])?/,
+                    inputErrorMessage: '邮箱格式不正确'
+                }).then(({ value }) => {
+                    this.$message({
+                        type: 'success',
+                        message: '你的邮箱是: ' + value
+                    });
+                }).catch(() => {
+                    this.$message({
+                        type: 'info',
+                        message: '取消输入'
+                    });
+                });
+            },
+            opp4() {
+                this.$msgbox({
+                    title: '消息',
+                    message: '这是一段内容, 这是一段内容, 这是一段内容, 这是一段内容, 这是一段内容, 这是一段内容, 这是一段内容',
+                    showCancelButton: true,
+                    confirmButtonText: '确定',
+                    cancelButtonText: '取消',
+                    beforeClose: (action, instance, done) => {
+                        if (action === 'confirm') {
+                            instance.confirmButtonLoading = true;
+                            instance.confirmButtonText = '执行中...';
+                            setTimeout(() => {
+                                done();
+                                setTimeout(() => {
+                                    instance.confirmButtonLoading = false;
+                                }, 300);
+                            }, 3000);
+                        } else {
+                            done();
+                        }
+                    }
+                }).then(action => {
+                    this.$message({
+                        type: 'info',
+                        message: 'action: ' + action
+                    });
+                });
+            },
+            ope() {
+                const h = this.$createElement;
+
+                this.$notify({
+                    title: '标题名称',
+                    message: h('p', { style: 'color: red'}, '这是提示文案这是提示文案这是提示文案这是提示文案这是提示文案这是提示文案这是提示文案这是提示文案')
+                });
+            },
+            ope2() {
+                this.$notify({
+                    title: '提示',
+                    message: '这是一条不会自动关闭的消息',
+                    duration: 0
+                });
+            },
+            ope3() {
+                this.$notify({
+                    title: '成功',
+                    message: '这是一条成功的提示消息',
+                    type: 'success'
+                });
+            },
+            ope4() {
+                this.$notify({
+                    title: '警告',
+                    message: '这是一条警告的提示消息',
+                    type: 'warning'
+                });
+            },
+            ope5() {
+                this.$notify.info({
+                    title: '消息',
+                    message: '这是一条消息的提示消息'
+                });
+            },
+            ope6() {
+                this.$notify.error({
+                    title: '错误',
+                    message: '这是一条错误的提示消息'
+                });
+            },
+            ope7() {
+                this.$notify.success({
+                    title: '成功',
+                    message: '这是一条成功的提示消息',
+                    offset: 0
+                });
+            },
+            handleSelect(key, keyPath) {
+                console.log(key, keyPath);
+            },
+            handleOpen(key, keyPath) {
+                console.log(key, keyPath);
+            },
+            handleClose(key, keyPath) {
+                console.log(key, keyPath);
+            },
+            handleClick(tab, event) {
+                console.log(tab, event);
+            },
+            handleRemove(tab) {
+                console.log(tab);
+            },
+            handleCommand(command) {
+                this.$message('click on item ' + command);
+            },
+            next() {
+                if (this.active++ > 2) this.active = 0;
+            }
+        }
+    })
+</script>
+</body>
+</html>

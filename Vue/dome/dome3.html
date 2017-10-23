@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>列表渲染</title>
+</head>
+<body>
+<ul id="example-1">
+    <li v-for="item in items">
+        {{item.message}}
+    </li>
+</ul>
+
+<ul id="example-2">
+    <li v-for="(item,index) in items">
+        {{parentMessage}} - {{index}} - {{item.message}}
+    </li>
+</ul>
+
+<ul id="repeat-object">
+    <!--<li v-for="value in object">-->
+        <!--{{value}}-->
+    <!--</li>-->
+
+    <!--<div v-for="(value, key) in object">-->
+        <!--{{ key }} : {{ value }}-->
+    <!--</div>-->
+
+    <div v-for="(value, key, index) in object">
+        {{ index }}. {{ key }} : {{ value }}
+    </div>
+</ul>
+
+<div id="todo-list-example">
+    <input v-model="newTodoText" v-on:keyup.enter="addNewTodo" placeholder="Add a todo">
+    <ul>
+        <li is="todo-item" v-for="(todo,index) in todos" v-bind:title="todo" v-on:remove="todos.splice(index,1)"></li>
+    </ul>
+</div>
+
+<div id="exaple-3">
+    <ul>
+        <li v-for="n in evenNumbers">{{n}}</li>
+    </ul>
+    <ul>
+        <li v-for="r in numbers">{{r}}</li>
+    </ul>
+</div>
+
+
+<div id="example-4">
+    <ul>
+        <li v-for="n in even(numbers)">{{n}}</li>
+    </ul>
+</div>
+<script src="vue.js"></script>
+<script>
+    var example = new Vue({
+        el:'#example-1',
+        data:{
+            items:[
+                {message:'Foo'},
+                {message:'Bar'}
+            ]
+        }
+    });
+
+    var example2 = new Vue({
+        el:'#example-2',
+        data:{
+            parentMessage:'Parent',
+            items:[
+                {message:'Foo'},
+                {message:'Bar'}
+            ]
+        }
+    });
+
+    new Vue({
+        el:'#repeat-object',
+        data:{
+            object:{
+                firstName:'John',
+                lastName:'Doe',
+                age:30
+            }
+        }
+    });
+
+    Vue.component('todo-item',{
+        template:'\
+        <li>\
+        {{title}}\
+        <button v-on:click="$emit(\'remove\')">X</button>\
+        </li>\
+        ',
+        props:['title']
+    });
+    new Vue({
+        el:'#todo-list-example',
+        data:{
+            newTodoText:'',
+            todos:[
+                'Do the dishes',
+                'Take out the trash',
+                'Mow the lawn'
+            ]
+        },
+        methods:{
+            addNewTodo:function () {
+                this.todos.push(this.newTodoText);
+                this.newTodoText = '';
+            }
+        }
+    });
+
+    var example3 = new Vue({
+        el:'#exaple-3',
+        data:{
+            numbers:[1,2,3,4,5]
+        },
+        computed:{
+            evenNumbers:function () {
+                return this.numbers.filter(function (number) {
+                    return number % 2 === 0;
+                })
+            }
+        }
+    });
+
+    var example4 = new Vue({
+        el:'#example-4',
+        data:{
+            numbers:[1,2,3,4,5]
+        },
+        methods:{
+            even:function (numbers) {
+                return numbers.filter(function (number) {
+                    return number % 2 === 0
+                })
+            }
+        }
+    })
+</script>
+</body>
+</html>

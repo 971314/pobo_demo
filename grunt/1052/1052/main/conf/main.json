@@ -1,0 +1,175 @@
+{
+  "version": 1,
+  "banners": {
+    "version": 1,
+    "isShow": true,
+    "data": [
+      {
+        "img": "images/b1.jpg",
+        "url": ""
+      },
+      {
+        "img": "images/b2.jpg",
+        "url": ""
+      },
+      {
+        "img": "images/b3.jpg",
+        "url": ""
+      },
+      {
+        "img": "images/b4.jpg",
+        "url": ""
+      }
+    ]
+  },
+  "contracts": {
+    "isShow": false,
+    "showType": 3,
+    "data": [
+      {
+        "market": "2001",
+        "name": "沪铜1702",
+        "code": "010002"
+      },
+      {
+        "market": "2001",
+        "name": "沪铜1703",
+        "code": "010003"
+      },
+      {
+        "market": "2001",
+        "name": "沪铜1704",
+        "code": "010004"
+      },
+      {
+        "market": "2001",
+        "name": "沪铜1706",
+        "code": "010005"
+      },
+      {
+        "market": "2001",
+        "name": "沪铜1706",
+        "code": "010006"
+      },
+      {
+        "market": "2001",
+        "name": "沪铜1707",
+        "code": "010007"
+      }
+    ]
+  },
+  "customs": {
+    "isShow": true,
+    "isReplace": false,
+    "version": 0.04,
+    "updateDate": "2016-09-08",
+    "contents": [
+      {
+        "title": "在线开户",
+        "checked": "1",
+        "image1": "ic1.jpg",
+        "image2": "ic1.jpg",
+        "url": "pobo:uncheck=1&pageId=800006",
+        "id": "kaihu"
+      },
+      {
+        "title": "交易日历",
+        "checked": "1",
+        "image1": "ic2.jpg",
+        "image2": "ic2.jpg",
+        "url": "pobo:uncheck=1&pageId=900004&title=交易日历&url=http://www.htfutures.com/jsp/m_jyrl.jsp",
+        "id": "rili"
+      },
+      {
+        "title": "业务指南",
+        "checked": "1",
+        "image1": "ic3.jpg",
+        "image2": "ic3.jpg",
+        "url": "pobo:uncheck=1&pageId=900005&url=content/firm.html",
+        "id": "zhinan"
+      },
+      {
+        "title": "培训课堂",
+        "checked": "1",
+        "image1": "ic7.jpg",
+        "image2": "ic7.jpg",
+        "url": "pobo:uncheck=1&pageId=900004&title=培训课堂&url=content/training.html",
+        "id": "ketan"
+      },
+      {
+        "title": "实盘大赛",
+        "checked": "1",
+        "image1": "ic6.jpg",
+        "image2": "ic6.jpg",
+        "url": "pobo:uncheck=1&pageId=900004&title=实盘大赛&url=content/shipan.html",
+        "id": "dasai"
+      },
+      {
+        "title": "期货问答",
+        "checked": "1",
+        "image1": "qhwd.png",
+        "image2": "qhwd.png",
+        "url": "pobo:uncheck=1&pageId=900004&title=期货问答&url=https://pbwenda.pobo.net.cn:13443",
+        "id": "longhu"
+      },
+      {
+        "title": "走进海通",
+        "checked": "1",
+        "image1": "ic8.jpg",
+        "image2": "ic8.jpg",
+        "url": "pobo:uncheck=1&pageId=900005&url=http://58.246.171.6:28080/appview/index-haitong.html",
+        "id": "haitong"
+      }
+    ]
+  },
+  "news": {
+    "isShow": true,
+    "version": 1,
+    "webservice": "https://192.168.6.18/HdNews2/Web/Hd_LatestNewsList.aspx?type=mu&doc=json",
+    "data": [
+      {
+        "name": "今日要闻",
+        "ids": [
+          "10101"
+        ],
+        "count": 10
+      },
+      {
+        "name": "金融财经",
+        "ids": [
+          "10301"
+        ],
+        "count": 10
+      },
+      {
+        "name": "稀贵金属",
+        "ids": [
+          "40102",
+          "40202"
+        ],
+        "count": 10
+      }
+    ]
+  },
+  "my": {
+    "version": 1,
+    "data": [
+      {
+        "name": "交易设置",
+        "url": "pobo:uncheck=1&pageId=805006"
+      },
+      {
+        "name": "系统设置",
+        "url": "pobo:uncheck=1&pageId=805007"
+      },
+      {
+        "name": "系统地址",
+        "url": "pobo:uncheck=1&pageId=805008"
+      },
+      {
+        "name": "版本说明",
+        "url": "pobo:uncheck=1&pageId=805009"
+      }
+    ]
+  }
+}

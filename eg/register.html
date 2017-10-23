@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="new_file1.css">
+    <link rel="stylesheet" href="media.css">
+    <style>
+        html{
+            background-color: #F0F0F0;
+        }
+        #content{
+            width:100%;
+        }
+        #head{
+            width:100%;
+            height:0.5rem;
+            line-height:0.5rem;
+            background:#f7f7f8;
+            border-bottom: 1px solid #C8C8C8;
+            text-align:center;
+        }
+        #head span{
+            display:inline-block;
+            float:left;
+            margin-left:0.2rem;
+            border-radius:5px;
+            border: 1px solid #c3c2c2;
+            height:0.35rem;
+            line-height:0.35rem;
+            margin-top:0.05rem;
+            width:16%;
+        }
+        #login{
+            margin-top:0.6rem;
+            text-align:center;
+        }
+        .back{
+            width:100%;
+            padding:0.1rem 0.1rem;
+            height:0.5rem;
+            background:white;
+            ling-height:0.5rem;
+            border-bottom: 1px solid #DDD;
+        }
+        .back span{
+            display:inline-block;
+            width:21%;
+            color: #6C6C6C;
+            font-size:0.17rem;
+        }
+        input{
+            padding:0;
+            margin:0;
+            border:0;
+            width:70%;
+            height:0.3rem;
+            font:0.2rem Arial;
+            outline-style: none;
+        }
+        .submit{
+            margin-top:0.5rem;
+        }
+        .sign{
+            margin:0.4rem 0.1rem 0 0.1rem;
+        }
+        .sign a:nth-of-type(1){
+            float:left;
+        }
+        .sign a:nth-of-type(2){
+            float:right;
+        }
+    </style>
+</head>
+<body>
+<div id="content">
+    <div id="head"><span>返回</span>用户注册</div>
+    <div id="login">
+        <form>
+            <div class="back"><span>账户</span><input type="text" name="username" placeholder="请输入6-12位数字/字母"></div>
+            <div class="back"><span>注册密码</span><input type="password" name="password" placeholder="请输入6-12位数字/字母/特殊符号"></div>
+            <input type="submit" class="submit" value="登录">
+        </form>
+    </div>
+</div>
+<script src="jquery-1.11.3.min.js"></script>
+<script>
+    $("#head>span").click(function () {
+        history.back(-1);
+    })
+</script>
+</body>
+</html>

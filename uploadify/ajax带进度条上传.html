@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <script type="text/javascript">
+
+        function f1(){
+            var mypic = document.getElementById('myhead').files[0];
+            var fd = new FormData();
+            fd.append("myhead",mypic);
+
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState==4 || xhr.status==200){
+                    alert(xhr.responseText);
+                }
+            }
+
+            //侦查当前附件上传情况
+            xhr.upload.onprogress = function(evt){
+                //侦查附件上传情况
+                //通过事件对象侦查
+                //该匿名函数表达式大概0.05-0.1秒执行一次
+                //console.log(evt);
+                //console.log(evt.loaded);  //已经上传大小情况
+                //evt.total; 附件总大小
+                var loaded = evt.loaded;
+                var tot = evt.total;
+                var per = Math.floor(100*loaded/tot);  //已经上传的百分比
+                var son =  document.getElementById('son');
+                son.innerHTML = per+"%";
+                son.style.width=per+"%";
+            }
+
+            xhr.open("post","./04.php");
+            xhr.send(fd);
+        }
+
+        //立刻显示被上传的图片
+        function f2(){
+            //利用files获得被上传附件(图片)信息
+            var mypic = document.getElementById('myhead').files[0];
+            //利用mypic获得图像的url地址(二进制源码)
+            //URL  html5新标准属性
+            //window.URL.createObjectURL(mypic);
+            document.getElementsByTagName('img')[0].src = window.URL.createObjectURL(mypic);
+        }
+    </script>
+
+    <style type="text/css">
+        #parent{width:550px; height:50px; border:5px solid blue;}
+        #son {width:0; height:100%; background-color:red; text-align:center; line-height:50px; font-size:20px; font-weight:bold;}
+    </style>
+</head>
+
+
+<body>
+<div id="parent"><div id="son"></div></div>
+用户头像：<input type="file" id="myhead" name="myhead" onchange="f2()"/><br />
+<img src="" alt="" width="200" height="150"/><br />
+<input type="button" value="上传头像" onclick="f1()" /><br />
+</body>
+</html>

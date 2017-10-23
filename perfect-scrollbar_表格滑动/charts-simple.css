@@ -1,0 +1,57 @@
+line {
+  fill: none;
+  stroke: #393959;
+  shape-rendering: crispEdges;
+}
+#Chart {
+  font: 10px sans-serif;
+  background-color: #181527;
+}
+.axis path,
+.axis line {
+	fill: none;
+	stroke: #393959;
+	shape-rendering: crispEdges;
+}
+.x.axis path {
+	stroke: #393959;
+	display: block;
+}
+.line {
+	fill: none;
+	stroke: #5e91ec;
+	stroke-width: 1px;
+}
+.lineAP {
+	fill: none;
+	stroke: #ffcb00;
+	stroke-width: 1px;
+}
+.crosshair path.wire {
+	stroke: #DDDDDD;
+	stroke-dasharray: 1, 1;
+}
+.crosshair .axisannotation path {
+	fill: #DDDDDD;
+}
+.area {
+	fill: #393b5c;
+	stroke: #393959;
+	fill-opacity: 0.4;
+}
+.axis text {
+	fill: #DDDDDD;
+}
+.grid line {
+	stroke-dasharray: 2, 2;
+}
+path.volume {
+	fill: #FF0000;
+	opacity: 0.5;
+}
+path.volume.down {
+	fill: #00AA00;
+}
+path.volume.up {
+	fill: #FF0000;
+}

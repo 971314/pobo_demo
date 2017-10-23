@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>删除数组中的指定内容</title>
+</head>
+<body>
+<script src="jquery-1.11.3.min.js"></script>
+<script>
+    var namelist =[
+        "11161584615",
+        "12161584615",
+        "13161584615",
+        "14461584615",
+        "15161584615",
+        "16161584615",
+        "17161584615",
+        "18161584615",
+        "19161584615",
+        "11561584615",
+        "11516584615"
+    ];
+    $.each(namelist,function(index,item){
+
+        // index是索引值（即下标）   item是每次遍历得到的值；
+
+        if(item=='12161584615'){
+
+            namelist.splice(index,1);
+
+        }
+
+    });
+    console.log(namelist);
+
+</script>
+</body>
+</html>

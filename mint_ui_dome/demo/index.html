@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/mint-ui/lib/style.css">
+    <!--<link rel="stylesheet" href="style.css">-->
+    <style>
+        ul,li{
+            padding:0;
+            margin:0;
+            list-style: none;
+        }
+        /*#app{
+            height:10px;
+            background:red;
+        }*/
+        body{
+            margin:0;
+            padding:0;
+        }
+    </style>
+</head>
+<body>
+<div id="app" @click="openPicker">
+    <!--<mt-button @click.native="handleClick">按钮</mt-button>-->
+    <!--<button @click="handleClick">按钮</button>-->
+    <!--<a @click="handleClick" href="javascript:;">111</a>--><!--
+    <div :top-method="loadTop" @bottom-status-change="handleTopChange" ref="loadmore">
+        <ul>
+            <li v-for="item in list">{{ item }}</li>
+        </ul>
+        <div slot="bottom" class="mint-loadmore-bottom">
+            <span v-show="topStatus !== 'loading'" :class="{ 'rotate': topStatus === 'drop' }">↓</span>
+            <span v-show="topStatus === 'loading'">Loading...</span>
+        </div>
+    </div>-->
+    <!--<ul
+            v-infinite-scroll="loadMore"
+            infinite-scroll-distance="10">
+        <li v-for="item in list">{{ item }}</li>
+    </ul>-->
+    <!--<mt-actionsheet
+            :actions="actions"
+            :cancelText=""
+            v-model="sheetVisible">
+    </mt-actionsheet>-->
+    <!--<mt-popup
+            v-model="popupVisible"
+            popup-transition="popup-fade">
+        sjeem
+    </mt-popup>-->
+    <!--<mt-swipe :auto="4000">
+        <mt-swipe-item>1</mt-swipe-item>
+        <mt-swipe-item>2</mt-swipe-item>
+        <mt-swipe-item>3</mt-swipe-item>
+    </mt-swipe>-->
+   <!-- <mt-range v-model="rangeValue"></mt-range>
+    <mt-range
+            v-model="rangeValue"
+            :min="1"
+            :max="10"
+            :step="20"
+            :bar-height="10">
+    </mt-range>
+    <mt-range v-model="rangeValue">
+        <div slot="start">0</div>
+        <div slot="end">100</div>
+    </mt-range>-->
+   <!-- <mt-progress :value="60">
+        <div slot="start">0%</div>
+        <div slot="end">100%</div>
+    </mt-progress>
+    <mt-progress :value="50" :bar-height="5"></mt-progress>-->
+    <!--<mt-picker :slots="slots" @change="onValuesChange"></mt-picker>-->
+    <!--<mt-datetime-picker ref="picker" cancelText="取" type="datetime" v-model="vie"></mt-datetime-picker>-->
+    <!--<mt-index-list :show-indicator="false">
+        <mt-index-section index="A">
+            <mt-cell title="Aaron"></mt-cell>
+            <mt-cell title="Alden"></mt-cell>
+            <mt-cell title="Austion"></mt-cell>
+        </mt-index-section>
+        <mt-index-section index="B">
+            <mt-cell title="Baldwin"></mt-cell>
+            <mt-cell title="Braden"></mt-cell>
+        </mt-index-section>
+    </mt-index-list>-->
+    <!--<mt-palette-button content="+" @expand="main_log('expand')" @expanded="main_log('expanded')" @collapse="main_log('collapse')"
+                       direction="rt" class="pb" :radius="80" ref="target_1" mainButtonStyle="color:#fff;background-color:#26a2ff;"
+                       style="left:30px;">
+        <div class="my-icon-button indexicon icon-popup" @touchstart="sub_log(1)"></div>
+        <div class="my-icon-button indexicon icon-popup" @touchstart="sub_log(2)"></div>
+        <div class="my-icon-button indexicon icon-popup" @touchstart="sub_log(3)"></div>
+    </mt-palette-button>-->
+    <!--<mt-header fixed title="固定在顶部"></mt-header>-->
+    <!--<mt-header fixed title="标题过长会隐藏后面的内容啊啊啊啊啊哈哈哈哈哈哈哈哈哈哈哈哈">
+        <router-link to="/" slot="left">
+            <mt-button icon="back">返回</mt-button>
+        </router-link>
+        <mt-button icon="more" slot="right"></mt-button>
+    </mt-header>-->
+    <!--<mt-header title="多个按钮">-->
+        <!--<router-link to="/" slot="left">-->
+            <!--<mt-button icon="back">返回</mt-button>-->
+            <!--<mt-button @click="handleClose">关闭</mt-button>-->
+        <!--</router-link>-->
+        <!--<mt-button icon="more" slot="right"></mt-button>-->
+    <!--</mt-header>-->
+    <!--<mt-tabbar v-model="selected">
+        <mt-tab-item id="外卖">
+            <img slot="icon" src="../assets/100*100.png">
+            外卖
+        </mt-tab-item>
+        <mt-tab-item id="订单">
+            <img slot="icon" src="../assets/100*100.png">
+            外卖
+        </mt-tab-item>
+        <mt-tab-item id="发现">
+            <img slot="icon" src="../assets/100*100.png">
+            外卖
+        </mt-tab-item>
+        <mt-tab-item id="我的">
+            <img slot="icon" src="../assets/100*100.png">
+            外卖
+        </mt-tab-item>
+    </mt-tabbar>-->
+    <!--<mt-navbar v-model="selected">
+        <mt-tab-item id="1">选项一</mt-tab-item>
+        <mt-tab-item id="2">选项二</mt-tab-item>
+        <mt-tab-item id="3">选项三</mt-tab-item>
+    </mt-navbar>
+    <mt-tab-container v-model="selected">
+        <mt-tab-container-item id="1">
+            <mt-cell v-for="n in 10" :title="'内容' + n"/>
+        </mt-tab-container-item>
+        <mt-tab-container-item id="2">
+            <mt-cell v-for="n in 10" :title="'测试' + n"/>
+        </mt-tab-container-item>
+        <mt-tab-container-item id="3">
+            <mt-cell v-for="n in 10" :title="'选项' + n"/>
+        </mt-tab-container-item>
+    </mt-tab-container>-->
+    <!--<mt-button type="default" size="small" disabled>default</mt-button>
+    <mt-button type="primary" size="large" plain icon="more">primary</mt-button>
+    <mt-button type="danger" size="normal" icon="back">danger</mt-button>-->
+    <!--<mt-cell title="标题文字"></mt-cell>
+    <mt-cell title="标题文字" value="说明文字"></mt-cell>
+    <mt-cell title="标题文字" to="//github.com" is-link value="带链接"></mt-cell>
+    <mt-cell title="标题文字" icon="more" value="带 icon"></mt-cell>
+    <mt-cell title="标题文字" is-link>
+        <span style="color:green">这里是元素</span>
+    </mt-cell>
+    <mt-cell title="标题" label="描述信息" is-link></mt-cell>-->
+   <!-- <mt-cell-swipe
+            title="标题文字"
+            :right="[
+    {
+      content: 'Delete',
+      style: { background: 'red', color: '#fff' },
+      handler: () => this.$messagebox('delete')
+    }
+  ]"></mt-cell-swipe>-->
+    <!--<mt-spinner type="snake"></mt-spinner>
+    <mt-spinner type="double-bounce"></mt-spinner>
+    <mt-spinner type="triple-bounce"></mt-spinner>
+    <mt-spinner type="fading-circle"></mt-spinner>
+    <mt-spinner :type="0" color="#26a2ff"></mt-spinner>
+    <mt-spinner :type="1" color="rgb(100, 100, 100)"></mt-spinner>
+    <mt-spinner :type="2" color="yellow" :size="100"></mt-spinner>
+    <mt-spinner :type="3"></mt-spinner>
+    <mt-spinner color="#26a2ff"></mt-spinner>
+    <mt-spinner color="rgb(100, 100, 100)"></mt-spinner>
+    <mt-spinner color="yellow"></mt-spinner>-->
+    <!--<mt-tab-container value="tab-container1">tab-container1</mt-tab-container>
+    <mt-tab-container v-model="active">
+        <mt-tab-container-item id="tab-container1">
+            <mt-cell v-for="n in 10" title="tab-container 1"></mt-cell>
+        </mt-tab-container-item>
+        <mt-tab-container-item id="tab-container2">
+            <mt-cell v-for="n in 5" title="tab-container 2"></mt-cell>
+        </mt-tab-container-item>
+        <mt-tab-container-item id="tab-container3">
+            <mt-cell v-for="n in 7" title="tab-container 3"></mt-cell>
+        </mt-tab-container-item>
+    </mt-tab-container>-->
+    <!--<mt-search v-model="value"></mt-search>-->
+    <!--<mt-search
+            v-model="value"
+            cancel-text="取消"
+            placeholder="搜索">
+    </mt-search>-->
+    <!--<mt-search v-model="value">
+        <mt-cell
+                v-for="item in result"
+                :title="item.title"
+                :value="item.value">
+        </mt-cell>
+    </mt-search>-->
+    <!--<mt-switch v-model="value"></mt-switch>
+    <mt-switch v-model="value">开关</mt-switch>-->
+    <!--<mt-checklist title="复选框列表" v-model="value" :options="['选项A','选项B','选项C']"></mt-checklist>-->
+    <mt-radio title="单选框列表" v-model="value" :options="['选项A','选项B','选项C']"></mt-radio>
+    <mt-field label="用户名" placeholder="请输入用户名" state="success"></mt-field>
+    <mt-field label="邮箱" placeholder="请输入邮箱" type="email" state="error"></mt-field>
+    <mt-field label="密码" placeholder="请输入密码" type="password" state="warning"></mt-field>
+    <mt-field label="手机号" placeholder="请输入手机号" type="tel"></mt-field>
+    <mt-field label="网站" placeholder="请输入网址" type="url"></mt-field>
+    <mt-field label="数字" placeholder="请输入数字" type="number"></mt-field>
+    <mt-field label="生日" placeholder="请输入生日" type="date"></mt-field>
+    <mt-field label="自我介绍" placeholder="自我介绍" type="textarea" rows="4"></mt-field>
+    <mt-badge size="small">30</mt-badge>
+    <mt-badge size="normal">10</mt-badge>
+    <mt-badge size="large">10</mt-badge>
+    <mt-badge type="primary">30</mt-badge>
+    <mt-badge type="error">10</mt-badge>
+    <mt-badge type="success">10</mt-badge>
+    <mt-badge type="warning">10</mt-badge>
+    <mt-badge size="small" color="#888">自定义颜色</mt-badge>
+</div>
+</body>
+<!-- 先引入 Vue -->
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<!-- 引入组件库 -->
+<script src="https://unpkg.com/mint-ui/lib/index.js"></script>
+<!--<script src="index.js"></script>-->
+<script>
+    new Vue({
+        el:'#app',
+        data:{
+            list:0,
+            sheetVisible:true,
+            add:'bu',
+            rangeValue:true,
+            popupVisible:true,
+            actions:[
+                {
+                name:'从相册中选取',
+                method:function () {
+                    console.log('111')
+                    }
+                },
+                {
+                    name:'拍照',
+                    method:function () {
+                        console.log('222')
+                    }
+                },
+            ],
+            slots:[
+                {
+                    fles:1,
+                    values:['2015-01', '2015-02', '2015-03', '2015-04', '2015-05', '2015-06'],
+                    className:'slot1',
+                    textAlign:'right'
+                },
+                {
+                    divider:true,
+                    content:'-',
+                    className:'slot2'
+                },
+                {
+                    flex:1,
+                    values:['2015-01', '2015-02', '2015-03', '2015-04', '2015-05', '2015-06'],
+                    className:'slot3',
+                    textAlign:'left'
+                }
+            ],
+            vie:'',
+            selected:'',
+            active:'',
+            value:'',
+        },
+        created:function () {
+            for(var i = 0;i < 30;i++){
+                this.list = i;
+            }
+        },
+        methods:{
+            loadMore(){
+                console.log('111');
+            },
+            handleClick(){
+//                this.$messagebox('提示','操作成功');
+                /*this.$messagebox({
+                    title:'提示',
+                    message:'确认执行此炒作',
+                    showCancelButton:true
+                })*/
+                /*this.$messagebox.confirm('确认执行此操作').then(function () {
+                    console.log('1111')
+                })*/
+                /*this.$messagebox.confirm('确认执行此操作','tish')*/
+                /*this.$messagebox.alert('操作成功').then(action => {
+                    console.log('222')
+                })*/
+                /*this.$messagebox.prompt('请输入姓名').then(function (value) {
+                   console.log(value)
+                })*/
+                /*this.$messagebox({
+                    title:'提示',
+                    showInput:false,
+                    confirmButtonText:'确认',
+                }).then(function () {
+                    console.log('1111')
+                });*/
+            },
+            onValuesChange(picker,values){
+                if(values[0] > values[1]){
+                    picker.setSlotValue(1,values[0])
+                }
+            },
+            openPicker(){
+                //this.$refs.picker.open();
+            },
+            main_log(val) {
+                console.log('main_log', val);
+            },
+            sub_log(val) {
+                console.log('sub_log', val);
+                this.$refs.target_1.collapse();
+            }
+        }
+    })
+</script>
+</html>

@@ -1,0 +1,3975 @@
+@keyframes Show {
+  0% {
+    transform: scale(0)
+  }
+  to {
+    transform: scale(1)
+  }
+}
+
+@keyframes Hide {
+  0% {
+    transform: scale(1)
+  }
+  to {
+    transform: scale(0)
+  }
+}
+
+.Tabs-Bar {
+  display: flex;
+  height: 36px
+}
+
+.Tabs-Bar a {
+  color: silver
+}
+
+.Tabs-Bar .Tabs-Bar-Outer {
+  display: inline-flex;
+  flex: 1
+}
+
+.Tabs-Bar .Tabs-Bar-Item-Container {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden
+}
+
+.Tabs-Bar .Tabs-Bar-Item.edit {
+  float: right
+}
+
+.Tabs-Bar .Tabs-Bar-Item.add a,
+.Tabs-Bar .Tabs-Bar-Item.edit a {
+  color: #333
+}
+
+.Tabs-Bar .Tabs-Bar-Item {
+  cursor: default;
+  display: inline-block;
+  padding: 0 20px;
+  position: relative;
+  height: 36px;
+  line-height: 36px;
+  transition: background-color .4s
+}
+
+.Tabs-Bar .Tabs-Bar-Item .Close {
+  position: absolute;
+  top: 0;
+  right: 5px;
+  text-decoration: none;
+  opacity: .4;
+  transition: opacity .4s
+}
+
+.Tabs-Bar .Tabs-Bar-Item.active,
+.Tabs-Bar .Tabs-Bar-Item:hover {
+  background: #eee
+}
+
+.Tabs-Bar .Tabs-Bar-Item.active:after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  content: '';
+  display: block;
+  height: 3px;
+  background-color: #1675bd
+}
+
+.Tabs-Bar .Tabs-Bar-Item:hover .Close {
+  opacity: 1
+}
+
+.Tabs-Bar .Tabs-Bar-Item:hover .closeBtn:hover {
+  color: #333
+}
+
+.Tabs-Bar .Tabs-Bar-ToolBtns {
+  float: right;
+  height: 36px;
+  line-height: 36px;
+  margin: 0 5px
+}
+
+.Tabs-Bar .Tabs-Bar-ToolBtns:empty {
+  display: none
+}
+
+.Tabs-Content {
+  height: calc(100% - 36px)
+}
+
+.Tabs-Content .TabContentItem {
+  position: relative;
+  height: 100%;
+  display: none;
+  overflow: hidden
+}
+
+.Tabs-Content .TabContentItem.active {
+  display: block;
+  background-color: #eee
+}
+
+.Toast {
+  position: fixed;
+  left: 30%;
+  right: 30%;
+  top: 30%;
+  bottom: 30%;
+  border: 1px solid #1675bd;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, .6);
+  z-index: 1001;
+  background-color: #fff
+}
+
+.Toast .Content {
+  height: 100%;
+  align-items: center;
+  justify-content: center
+}
+
+.Popup {
+  position: fixed;
+  left: 30%;
+  right: 30%;
+  top: 30%;
+  bottom: 30%;
+  border: 1px solid #1675bd;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, .6);
+  z-index: 1001;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column
+}
+
+.Popup .Content,
+.Popup .Footer,
+.Popup .Title {
+  box-sizing: border-box;
+  padding: 0 10px
+}
+
+.Popup .Title {
+  position: relative;
+  border-bottom: 1px solid #eee
+}
+
+.Popup .Title h1 {
+  font-size: 1rem;
+  color: #333;
+  padding: 0;
+  margin: 0;
+  height: 36px;
+  line-height: 36px
+}
+
+.Popup .Title a.Close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  text-decoration: none;
+  color: #888
+}
+
+.Popup .Title:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background-color: #1675bd
+}
+
+.Popup .Content {
+  flex: 1;
+  padding: 10px
+}
+
+.Popup .Footer {
+  text-align: right;
+  margin: 10px 0
+}
+
+.Popup .Footer button {
+  color: #eee;
+  background-color: #1675bd;
+  border: none;
+  margin: 0 4px;
+  padding: 8px
+}
+
+.Popup.Show,
+.Toast.Show {
+  animation: Show .4s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out
+}
+
+.Popup.Hide,
+.Toast.Hide {
+  animation: Hide .4s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in
+}
+
+.Menu {
+  position: absolute;
+  z-index: 1001
+}
+
+.Menu .list {
+  list-style: none;
+  background-color: #fff;
+  box-shadow: 0 0 3px rgba(0, 0, 0, .3);
+  border-radius: 4px;
+  cursor: default;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, .3)
+}
+
+.Menu .list ul {
+  margin: 0;
+  padding: 0
+}
+
+.Menu .list li {
+  position: relative;
+  padding: 0 3em 0 1.6em;
+  white-space: nowrap;
+  list-style: none;
+  height: 30px;
+  line-height: 30px;
+  min-width: 5em;
+  max-width: 10em;
+  box-sizing: border-box;
+  color: #333
+}
+
+.Menu .list li i {
+  position: absolute;
+  right: 1em;
+  line-height: 30px;
+  color: #333
+}
+
+.Menu .list li.on:before {
+  content: '\2713';
+  position: absolute;
+  left: .4em
+}
+
+.Menu .list li:hover {
+  color: #fff;
+  background-color: #298afb
+}
+
+.Menu .list li:first-child:hover {
+  border-radius: 4px 4px 0 0
+}
+
+.Menu .list li:last-child:hover {
+  border-radius: 0 0 4px 4px
+}
+
+.Menu .list li.sep {
+  height: 1px;
+  background-color: #ddd;
+  margin-left: 1.6em
+}
+
+.Menu .ico.gt {
+  display: block;
+  top: 50%;
+  margin-top: -5px;
+  width: 10px;
+  height: 10px
+}
+
+.Menu .ico.gt:after {
+  content: "";
+  display: block;
+  width: 8px;
+  height: 8px;
+  border: 2px solid #000;
+  border-width: 1px 1px 0 0;
+  top: 0;
+  left: 0;
+  transform: rotate(45deg)
+}
+
+.HGroup,
+.VGroup,
+.View {
+  position: relative
+}
+
+.Gutter {
+  background-color: #eee
+}
+
+.HGroup>.Gutter {
+  width: 4px
+}
+
+.VGroup>.Gutter {
+  height: 4px
+}
+
+.Gutter.ns {
+  cursor: row-resize
+}
+
+.Gutter.we {
+  cursor: col-resize
+}
+
+.Grid {
+  position: relative
+}
+
+.Grid,
+.View {
+  overflow: hidden
+}
+
+.Mask,
+.View>.Grid {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0
+}
+
+.Mask {
+  background-color: rgba(0, 0, 0, .3);
+  z-index: 1000
+}
+
+.StockNews-NewsList {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%
+}
+
+.StockNews-NewsList ul li {
+  height: 28px;
+  line-height: 28px;
+  font-size: 14px;
+  display: flex;
+  text-indent: 0
+}
+
+.StockNews-NewsList ul li span {
+  display: inline-block
+}
+
+.StockNews-NewsList ul li span.title {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  flex: 1
+}
+
+.StockNews-NewsList ul li span.time {
+  color: #666;
+  text-align: right;
+  min-width: 30px;
+  margin: 0 10px
+}
+
+.StockNews-NewsList ul li:hover .title {
+  color: #2e2b3e
+}
+
+.StockNews-NewsList ul li:before {
+  content: "\2022";
+  color: #666;
+  margin: 0 8px 0 12px
+}
+
+.StockNews-NewsList .Scrollbar {
+  opacity: 0
+}
+
+.StockNews-NewsList:hover .Scrollbar {
+  opacity: 1
+}
+
+.StockNews-NewsDetail {
+  position: relative;
+  overflow: hidden;
+  background-color: #161324;
+  display: flex;
+  flex-direction: column
+}
+
+.StockNews-NewsDetail .toolbar {
+  height: 40px;
+  min-height: 40px;
+  line-height: 40px;
+  background-color: #2e2b3a
+}
+
+.StockNews-NewsDetail .toolbar i.ico.next,
+.StockNews-NewsDetail .toolbar i.ico.prev {
+  width: auto;
+  height: auto;
+  cursor: pointer
+}
+
+.StockNews-NewsDetail .toolbar i.ico.next svg,
+.StockNews-NewsDetail .toolbar i.ico.prev svg {
+  width: 18px;
+  height: 18px;
+  padding: 3px;
+  vertical-align: middle
+}
+
+.StockNews-NewsDetail .toolbar i.ico.close {
+  margin-right: 10px;
+  width: 12px;
+  height: 12px;
+  cursor: pointer
+}
+
+.StockNews-NewsDetail .toolbar i.ico.close:hover svg {
+  stroke: #fff
+}
+
+.StockNews-NewsDetail .toolbar a.ico.disabled,
+.StockNews-NewsDetail .toolbar i.ico.disabled {
+  cursor: default;
+  color: #666
+}
+
+.StockNews-NewsDetail .toolbar a.ico.disabled svg,
+.StockNews-NewsDetail .toolbar i.ico.disabled svg {
+  fill: #666
+}
+
+.StockNews-NewsDetail .content {
+  flex: 1;
+  padding: 0 2em;
+  overflow: hidden;
+  position: relative
+}
+
+.StockNews-NewsDetail .content hgroup {
+  margin-top: 4em;
+  margin-bottom: 1.5em;
+  text-align: center
+}
+
+.StockNews-NewsDetail .content hgroup h1 {
+  font-size: 1.5em;
+  font-weight: 400
+}
+
+.StockNews-NewsDetail .content hgroup h2 {
+  margin-top: .5em;
+  font-size: .9em;
+  font-weight: 400;
+  color: #666
+}
+
+.StockNews-NewsDetail .content pre {
+  line-height: 2em;
+  white-space: pre-wrap
+}
+
+.StockNews-NewsDetail .content .Scrollbar {
+  opacity: 0
+}
+
+.StockNews-NewsDetail .content:hover .Scrollbar {
+  opacity: 1
+}
+
+.StockNews {
+  height: 100%;
+  width: 100%;
+  margin-right: 5px;
+  background-color: #131c29
+}
+
+.StockNews .master {
+  float: left;
+  height: 100%;
+  width: 26%;
+  background-color: #3a3c5c
+}
+
+.StockNews .master p {
+  margin: 0
+}
+
+.StockNews .master .master_head {
+  height: 35px;
+  width: 100%;
+  margin-top: 1px;
+  cursor: pointer;
+  margin-bottom: 1px
+}
+
+.StockNews .master .master_head p {
+  margin: 0
+}
+
+.StockNews .master .master_head .tab_active {
+  border-bottom: 2px solid #0099d5;
+  color: #fff;
+  cursor: default
+}
+
+.StockNews .master .master_head .classifynews_tab div,
+.StockNews .master .master_head .selfnews_tab div,
+.StockNews .master .master_head .tab_div {
+  height: 100%;
+  text-align: center;
+  color: #6bc9ee;
+  background-color: #292a48;
+  line-height: 35px
+}
+
+.StockNews .master .master_head .classifynews_tab div:hover,
+.StockNews .master .master_head .selfnews_tab div:hover,
+.StockNews .master .master_head .tab_div:hover {
+  color: #fff;
+  background-color: #08c
+}
+
+.StockNews .master .master_head .classifynews_tab {
+  width: 50%;
+  float: left;
+  color: #6bc9ee;
+  height: 100%
+}
+
+.StockNews .master .master_head .selfnews_tab {
+  width: 49.7%;
+  float: right;
+  height: 100%
+}
+
+.StockNews .master .newsbtn>ul>li {
+  cursor: pointer;
+  height: 35px;
+  border-bottom: 1px solid #2e2b3e;
+  color: #fff;
+  line-height: 35px;
+  padding-left: 10px
+}
+
+.StockNews .master .newsbtn>ul>li:hover {
+  background-color: #2e2b3e
+}
+
+.StockNews .master .newsbtn {
+  clear: both;
+  width: 100%;
+  height: 94%;
+  position: relative;
+  overflow: hidden
+}
+
+.StockNews .master .newsbtn .mainlist {
+  clear: both
+}
+
+.StockNews .master .newsbtn .mainlist #gfbg,
+.StockNews .master .newsbtn .mainlist #yjbg {
+  position: relative
+}
+
+.StockNews .master .newsbtn .mainlist #gfbg .toggle_down,
+.StockNews .master .newsbtn .mainlist #gfbg .toggle_down:hover,
+.StockNews .master .newsbtn .mainlist #gfbg .toggle_up,
+.StockNews .master .newsbtn .mainlist #gfbg .toggle_up:hover,
+.StockNews .master .newsbtn .mainlist #yjbg .toggle_down,
+.StockNews .master .newsbtn .mainlist #yjbg .toggle_down:hover,
+.StockNews .master .newsbtn .mainlist #yjbg .toggle_up,
+.StockNews .master .newsbtn .mainlist #yjbg .toggle_up:hover {
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  top: 14px;
+  right: 30px
+}
+
+.StockNews .master .newsbtn .mainlist #gfbg .toggle_down,
+.StockNews .master .newsbtn .mainlist #yjbg .toggle_down {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAGCAYAAAARx7TFAAAAW0lEQVQI12PQrN/+CohLGbAAkDgQvwQxtgLxfyBORlOQDBXfCuLwAvEFIP4LxEFQBUFQPkicF6ZLGoifAvEvIK6A0iC+NLr9BkD8GWoFiDZgwOFQDyD+AqKRxQHtC0G4nkqY+AAAAABJRU5ErkJggg==) no-repeat
+}
+
+.StockNews .master .newsbtn .mainlist #gfbg .toggle_up,
+.StockNews .master .newsbtn .mainlist #yjbg .toggle_up {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAGCAYAAAARx7TFAAAAW0lEQVQI12NgQAKa9ds9gPgLiGbABoASBkD8GYj/Q2kDdAXSQPwUiH8BcQWUBvGlYQp4gfgCEP8F4iCoWBCUDxLnBQlshVqRjGZ6MlR8K4jzEohLcbizFIhfAQDf10G48ZxnzQAAAABJRU5ErkJggg==) no-repeat
+}
+
+.StockNews .master .newsbtn .mainlist #gfbg:hover .toggle_down,
+.StockNews .master .newsbtn .mainlist #yjbg:hover .toggle_down {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAGCAYAAAARx7TFAAAAgElEQVQI12Ng3vzrL9/iZ1sYsACQOPPmn38ZOFe9f8Ww/f9/gUVPFiArAPOB4mB5kTl3JdnWffnGsP3ff8EFj7pACsA0kA8SB8mDdQnPvWvMsunnH8Zt//4DrdgBokF8kDiK/ULz7oczbf3zD2QFiAbxsbkTaM3DGqCC/yAaWRwAs+5ORqkozJYAAAAASUVORK5CYII=) no-repeat
+}
+
+.StockNews .master .newsbtn .mainlist #gfbg:hover .toggle_up,
+.StockNews .master .newsbtn .mainlist #yjbg:hover .toggle_up {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAGCAYAAAARx7TFAAAAgElEQVQI12NgQAKCCx7WMG398x9EM2ADQvPuhwMV/GPY/v8/iAbxURQIz71rzLLp5x/Gbf/+8y1+tgNEg/ggcbACkTl3JdnWffnGsP0f0JpHXRBrgTSQDxIHyTNwrnr/CmSFwKInC5BNB/OB4mB55s0//wKt2ILNnSBx5s2//gIA40NORq54gVAAAAAASUVORK5CYII=) no-repeat
+}
+
+.StockNews .master .newsbtn .mainlist .gfbg li,
+.StockNews .master .newsbtn .mainlist .yjbg li {
+  cursor: pointer;
+  color: #6bc9ee;
+  height: 35px;
+  border-bottom: 1px solid #21344c;
+  line-height: 35px;
+  padding-left: 2em;
+  background-color: #1e2b3c
+}
+
+.StockNews .master .newsbtn .mainlist .gfbg li p,
+.StockNews .master .newsbtn .mainlist .yjbg li p {
+  margin: 0
+}
+
+.StockNews .master .newsbtn .mainlist .gfbg li:hover,
+.StockNews .master .newsbtn .mainlist .yjbg li:hover {
+  background-color: #131c29
+}
+
+.StockNews .master .newsbtn .mainlist div {
+  float: right
+}
+
+.StockNews .master .newsbtn .goback {
+  height: 35px;
+  line-height: 35px;
+  padding-left: 10px;
+  color: #fff;
+  font-size: 14px;
+  background-color: #21344c;
+  border-bottom: 1px solid #2e2b3e
+}
+
+.StockNews .master .newsbtn .goback p {
+  display: inline-block
+}
+
+.StockNews .master .newsbtn .goback span {
+  float: right;
+  margin-right: 2em;
+  color: #6bc9ee;
+  cursor: pointer
+}
+
+.StockNews .master .newsbtn .newsitems ul li {
+  min-height: 40px;
+  color: #6bc9ee;
+  padding-right: 10px;
+  cursor: pointer;
+  font-size: 12px;
+  line-height: 20px;
+  border-bottom: 1px solid #2e2b3e;
+  padding: 1em
+}
+
+.StockNews .master .newsbtn .newsitems ul li time {
+  color: #407699
+}
+
+.StockNews .master .newsbtn .newsitems .loadmore {
+  text-align: center;
+  height: 35px;
+  line-height: 35px;
+  color: #6bc9ee;
+  cursor: pointer;
+  background-color: #1e2b3c
+}
+
+.StockNews .StockNewsDetail {
+  float: right;
+  height: 100%;
+  width: 74%;
+  background-color: #2e2b3e
+}
+
+.StockNews .StockNewsDetail .detailhead {
+  height: 35px;
+  margin-top: 1px;
+  margin-left: 2px;
+  background-color: #292a48;
+  color: #6bc9ee;
+  line-height: 35px
+}
+
+.StockNews .StockNewsDetail .detailhead p {
+  display: inline;
+  padding-left: 1em
+}
+
+.StockNews .StockNewsDetail .detailhead .fontbtn,
+.StockNews .StockNewsDetail .detailhead .span_active,
+.StockNews .StockNewsDetail .detailhead .spanfont {
+  margin-right: 7px;
+  text-align: center;
+  line-height: 24px;
+  cursor: pointer;
+  display: inline-block;
+  height: 24px;
+  width: 24px
+}
+
+.StockNews .StockNewsDetail .detailhead .span_active,
+.StockNews .StockNewsDetail .detailhead .spanfont:hover {
+  color: #fff;
+  background-color: #297fb7;
+  border-radius: 3px
+}
+
+.StockNews .StockNewsDetail .fontlittle {
+  font-size: 1em
+}
+
+.StockNews .StockNewsDetail .fontmid {
+  font-size: 1.3em
+}
+
+.StockNews .StockNewsDetail .fontbig {
+  font-size: 1.5em
+}
+
+.StockNews .StockNewsDetail .detailconstants {
+  margin-top: 2px;
+  margin-left: 2px;
+  height: 94%;
+  position: relative;
+  overflow: hidden
+}
+
+.StockNews .StockNewsDetail .detailconstants .news_page header {
+  text-align: center;
+  height: 5.9em;
+  background-color: #3a3c5c
+}
+
+.StockNews .StockNewsDetail .detailconstants .news_page header h2 {
+  color: #fff;
+  line-height: 2.5em
+}
+
+.StockNews .StockNewsDetail .detailconstants .news_page header small {
+  color: #6bc9ee
+}
+
+.StockNews .StockNewsDetail .detailconstants .news_page article {
+  height: 85%;
+  text-indent: 2em;
+  margin: 1em 2em;
+  color: #98a1ae;
+  line-height: 2em
+}
+
+.StockNews .StockNewsDetail .detailconstants .news_page footer {
+  text-align: center;
+  color: #6bc9ee
+}
+
+.StockQuote .StockIndex {
+  height: 100%
+}
+
+.D3Pie .StockPieD3 {
+  text-align: center;
+  font-size: 11px;
+  float: left
+}
+
+.D3Pie .D3Info {
+  width: 150px;
+  height: 200px;
+  float: left;
+  font-size: 11px;
+  box-sizing: border-box;
+  padding-top: 30px;
+  padding-left: 20px
+}
+
+.D3Pie .D3Info ul {
+  list-style: none
+}
+
+.D3Pie .D3Info ul li {
+  margin-bottom: 5px
+}
+
+.D3Pie .D3Info .binflowrate .D3Spot {
+  background-color: #db5657
+}
+
+.D3Pie .D3Info .minflowrate .D3Spot {
+  background-color: #c03435
+}
+
+.D3Pie .D3Info .sinflowrate .D3Spot {
+  background-color: #8b2727
+}
+
+.D3Pie .D3Info .boutflowrate .D3Spot {
+  background-color: #82bd51
+}
+
+.D3Pie .D3Info .moutflowrate .D3Spot {
+  background-color: #5a9926
+}
+
+.D3Pie .D3Info .soutflowrate .D3Spot {
+  background-color: #3b7020
+}
+
+.D3Pie .D3Info .binflowrate .cashFlowPercent,
+.D3Pie .D3Info .minflowrate .cashFlowPercent,
+.D3Pie .D3Info .sinflowrate .cashFlowPercent {
+  color: #ff3c23
+}
+
+.D3Pie .D3Info .boutflowrate .cashFlowPercent,
+.D3Pie .D3Info .moutflowrate .cashFlowPercent,
+.D3Pie .D3Info .soutflowrate .cashFlowPercent {
+  color: #3ebd3b
+}
+
+.D3Pie .D3Info .D3Spot {
+  margin-right: 5px;
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  display: inline-block
+}
+
+.D3Pie .D3Info .cashFlowName {
+  margin-right: 5px;
+  color: #838383
+}
+
+.StockDetailOuter {
+  position: relative;
+  height: 100%
+}
+
+.StockDetailOuter .StockNews-NewsDetail {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 500px;
+  height: 100%
+}
+
+.StockDetail,
+.StockDetailPanel {
+  display: flex;
+  flex-flow: row;
+  background-color: rgba(24, 21, 39, .3);
+  color: silver;
+  height: 100%
+}
+
+.StockDetail h1,
+.StockDetailPanel h1 {
+  font-size: 1.4em;
+  height: 50%
+}
+
+.StockDetail h2,
+.StockDetailPanel h2 {
+  font-size: 1.2em;
+  margin-top: 6px;
+  height: 50%
+}
+
+.StockDetail .left,
+.StockDetailPanel .left {
+  flex: 1;
+  height: 100%
+}
+
+.StockDetail .left .top,
+.StockDetailPanel .left .top {
+  height: 110px
+}
+
+.StockDetail .left .bottom,
+.StockDetailPanel .left .bottom {
+  display: flex;
+  height: calc(100% - 110px)
+}
+
+.StockDetail .right,
+.StockDetailPanel .right {
+  height: 100%;
+  overflow: hidden;
+  transform-origin: 100%
+}
+
+.StockDetail .handicap,
+.StockDetailPanel .handicap {
+  width: 240px;
+  height: 100%;
+  display: flex;
+  flex-direction: column
+}
+
+.StockDetail-hide-right .left {
+  -webkit-transition: flex .5s ease;
+  flex-basis: 1
+}
+
+.StockDetail-hide-right .right {
+  transform: scaleX(0);
+  flex-basis: 0
+}
+
+.StockDetailPanel .top {
+  height: 10em
+}
+
+.StockDetailPanel .bottom {
+  height: calc(100% - 10em)
+}
+
+.StockQuote-StockBrief {
+  font-size: 14px;
+  box-sizing: border-box;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  height: calc(100% - 40px);
+  background-color: #1c1c2f;
+  border-bottom: 1px solid #000
+}
+
+.StockQuote-StockBrief .stock_info {
+  min-width: 11em;
+  border-right: 1px solid #3a3c5c;
+  padding-top: 8px
+}
+
+.StockQuote-StockBrief .stock_info .s_top {
+  font-size: 22px
+}
+
+.StockQuote-StockBrief .stock_info .s_left {
+  float: left;
+  width: 50%
+}
+
+.StockQuote-StockBrief .stock_info .s_right {
+  float: right;
+  width: 50%
+}
+
+.StockQuote-StockBrief .stock_info .s_left,
+.StockQuote-StockBrief .stock_info .s_right,
+.StockQuote-StockBrief .stock_info .s_top {
+  height: 1.5em;
+  line-height: 1.5em
+}
+
+.StockQuote-StockBrief .stock_info.stop h3 {
+  margin-top: 1.2em
+}
+
+.StockQuote-StockBrief .stock_detail {
+  overflow: hidden;
+  padding-top: 8px
+}
+
+.StockQuote-StockBrief .stock_detail table {
+  table-layout: fixed
+}
+
+.StockQuote-StockBrief .stock_detail table tr {
+  height: 2em
+}
+
+.StockQuote-StockBrief .stock_detail table td {
+  padding: 0 .2em;
+  min-width: 8.8em;
+  text-align: left
+}
+
+.StockQuote-StockBrief .stock_detail table td>span:first-child {
+  display: inline-block;
+  text-align: right;
+  width: 4em;
+  color: #828282
+}
+
+.StockQuote-StockBrief .stock_detail table td>span.wider {
+  width: 5em
+}
+
+.StockQuote-StockBrief .stock_detail table td>span:last-child {
+  color: #fff
+}
+
+.StockBriefShort {
+  height: 100%;
+  box-sizing: border-box;
+  text-align: center
+}
+
+.StockBriefShort .stock_toolbar {
+  color: silver;
+  height: 3em;
+  line-height: 3em;
+  overflow: hidden;
+  border-bottom: 1px solid #383953
+}
+
+.StockBriefShort .stock_toolbar>hgroup {
+  min-width: 10em
+}
+
+.StockBriefShort .stock_toolbar>hgroup h1,
+.StockBriefShort .stock_toolbar>hgroup h2 {
+  float: left;
+  margin: 0 10px
+}
+
+.StockBriefShort .stock_toolbar .btn_group {
+  float: right;
+  padding: 0 10px;
+  border-right: 1px solid #383953
+}
+
+.StockBriefShort .stock_toolbar .btn_group a {
+  margin: 0 10px;
+  color: #599afc
+}
+
+.StockBriefShort .stock_toolbar .btn_group i.ico {
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  margin: 0 10px
+}
+
+.StockBriefShort .stock_toolbar .btn_group i.star {
+  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNy4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB3aWR0aD0iMzJweCIgaGVpZ2h0PSIzMnB4IiB2aWV3Qm94PSIwIDAgMzIgMzIiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDMyIDMyIiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxwb2x5Z29uIGZpbGw9IiMxOUEyRkYiIHBvaW50cz0iMTUuNzY1LDMuMTUxIDE5Ljk0LDExLjYxIDI5LjI3NiwxMi45NjcgMjIuNTIxLDE5LjU1MSAyNC4xMTUsMjguODQ5IDE1Ljc2NSwyNC40NTkgNy40MTYsMjguODQ5IA0KCTkuMDEsMTkuNTUxIDIuMjU1LDEyLjk2NyAxMS41OTEsMTEuNjEgIi8+DQo8L3N2Zz4NCg==)
+}
+
+.StockBriefShort .stock_toolbar .btn_group i.share {
+  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNy4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB3aWR0aD0iMzJweCIgaGVpZ2h0PSIzMnB4IiB2aWV3Qm94PSIwIDAgMzIgMzIiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDMyIDMyIiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxjaXJjbGUgZmlsbD0iIzE5QTJGRiIgY3g9IjIzLjY4NSIgY3k9IjYuNDc5IiByPSI0LjI3NyIvPg0KPGNpcmNsZSBmaWxsPSIjMTlBMkZGIiBjeD0iMjIuNTM0IiBjeT0iMjQuOTAxIiByPSIzLjc3NyIvPg0KPGNpcmNsZSBmaWxsPSIjMTlBMkZGIiBjeD0iOC40MTUiIGN5PSIxNi44NDEiIHI9IjUuMDI3Ii8+DQo8bGluZSBmaWxsPSJub25lIiBzdHJva2U9IiMxOUEyRkYiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLW1pdGVybGltaXQ9IjEwIiB4MT0iMjMuNjg1IiB5MT0iNi4yNzMiIHgyPSI4LjQxNSIgeTI9IjE2Ljg0MSIvPg0KPGxpbmUgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMTlBMkZGIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1taXRlcmxpbWl0PSIxMCIgeDE9IjIyLjUzNCIgeTE9IjI0LjkwMSIgeDI9IjguNDE1IiB5Mj0iMTYuODQxIi8+DQo8L3N2Zz4NCg==)
+}
+
+.StockBriefShort .stock_status {
+  display: flex;
+  flex-direction: row;
+  overflow: hidden
+}
+
+.StockBriefShort .stock_info {
+  box-sizing: border-box;
+  min-width: 8em
+}
+
+.StockBriefShort .stock_info .s_top {
+  margin-top: 1em
+}
+
+.StockBriefShort .stock_info .s_left {
+  float: left;
+  width: 50%
+}
+
+.StockBriefShort .stock_info .s_right {
+  float: right;
+  width: 50%
+}
+
+.StockBriefShort .stock_info .s_left,
+.StockBriefShort .stock_info .s_right,
+.StockBriefShort .stock_info .s_top {
+  height: 1.5em;
+  line-height: 1.5em
+}
+
+.StockBriefShort .stock_info.stop h3 {
+  margin-top: 2.4em
+}
+
+.StockBriefShort .stock_detail {
+  min-width: 46em;
+  max-width: 46em;
+  margin-left: 1em
+}
+
+.StockBriefShort .stock_detail>div {
+  float: left;
+  display: inline-block;
+  min-width: 10em;
+  height: 1.5em;
+  line-height: 1.5em
+}
+
+.StockBriefShort .stock_detail li {
+  float: left;
+  list-style: none;
+  height: 1.5em;
+  line-height: 1.5em;
+  padding: 0 .3em;
+  width: 8.5em;
+  text-align: left
+}
+
+.StockBriefShort .stock_detail li span {
+  color: #fff
+}
+
+.StockBriefShort .stock_detail li .label {
+  color: silver;
+  display: inline-block;
+  width: 4em;
+  text-align: right
+}
+
+.StockTick table {
+  table-layout: fixed;
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  text-align: center;
+  border-bottom: 1px solid #181527
+}
+
+.StockTick table tr {
+  height: 30px
+}
+
+.StockTick h3,
+.StockTick thead th {
+  height: 36px;
+  background-color: #21223f;
+  padding-left: 6px;
+  color: #828282;
+  font-size: 14px
+}
+
+.StockTick td:first-child,
+.StockTick th:first-child {
+  padding-left: 20px;
+  text-align: left;
+  color: #828282
+}
+
+.StockTick td:last-child,
+.StockTick th:last-child {
+  padding-right: 20px;
+  text-align: right
+}
+
+.StockTick table.two-way td {
+  width: 50%
+}
+
+.StockTick table.three-way td {
+  width: 33.3%
+}
+
+.StockTick table.three-way {
+  font-size: 14px
+}
+
+.StockTick table.three-way td {
+  width: 25%
+}
+
+.StockTick tr:hover {
+  background-color: #221f30
+}
+
+.StockTickFive {
+  background-color: #271a28
+}
+
+.StockTickFive .top-panel hr {
+  height: 1px;
+  background-color: #3a3c5c;
+  border: none
+}
+
+.StockTickFive .tick-buy {
+  background-color: #271a28;
+  border: none
+}
+
+.StockTickFive .tick-sell {
+  background-color: #1a1c36
+}
+
+.StockTickFive .tick-buy tr:hover,
+.StockTickFive .tick-sell tr:hover {
+  background-color: #271d42
+}
+
+.StockTickDuel {
+  flex: 1;
+  display: flex;
+  flex-direction: column
+}
+
+.StockTickDuel .StockTickData {
+  position: relative;
+  overflow: hidden;
+  flex: 1
+}
+
+.StockTickDuel .mark {
+  margin: 0 4px
+}
+
+.StockTickDuelAll {
+  height: 100%;
+  width: 100%
+}
+
+.StockTickDuelAll .header {
+  height: 40px;
+  line-height: 40px;
+  background-color: #3a3c5c;
+  border-bottom: 1px solid #181527;
+  position: relative;
+  z-index: 1
+}
+
+.StockTickDuelAll .header .label {
+  padding-left: 20px
+}
+
+.StockTickDuelAll .header span {
+  display: inline-block;
+  text-indent: 15px
+}
+
+.StockTickDuelAll .header span:first-child {
+  font-size: 16px
+}
+
+.StockTickDuelAll .header span:last-child {
+  color: #828282
+}
+
+.StockTickDuelAll .StockTickDataAll {
+  height: 100%;
+  box-sizing: border-box;
+  padding-top: 41px;
+  top: -41px;
+  position: relative;
+  white-space: nowrap;
+  overflow: hidden
+}
+
+.StockTickDuelColomn {
+  display: inline-block;
+  overflow: hidden;
+  width: 258px;
+  height: 100%;
+  border-right: 1px solid #3a3c5c
+}
+
+.StockTickDuelColomn tr {
+  text-align: right
+}
+
+.StockTickDuelColomn td {
+  border-bottom: 1px solid #221f30
+}
+
+.StockGraph {
+  flex: 1;
+  height: 100%
+}
+
+.StockGraph>.tabs {
+  background-color: rgba(24, 21, 39, .3);
+  border-right: 1px solid #181527
+}
+
+.StockGraph>.tabs .TabBarItem.active {
+  color: #4086f0;
+  border-bottom: 2px solid #4086f0;
+  height: 34px;
+  line-height: 36px
+}
+
+.StockGraph .StockKline,
+.StockGraph .StockTimeSeries {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column
+}
+
+.StockGraph .StockKline .klineGraph,
+.StockGraph .StockTimeSeries .klineGraph {
+  width: 100%;
+  flex: 1
+}
+
+.StockGraph .StockKline .TimeSeriesGraph,
+.StockGraph .StockTimeSeries .TimeSeriesGraph {
+  width: 100%;
+  height: 100%
+}
+
+.StockGraph .StockKline .toolBars,
+.StockGraph .StockTimeSeries .toolBars {
+  height: 30px;
+  line-height: 30px;
+  background-color: #1c1c2f;
+  font-size: 12px
+}
+
+.StockGraph .StockKline .indexBtns,
+.StockGraph .StockTimeSeries .indexBtns {
+  float: left
+}
+
+.StockGraph .StockKline .indexBtns span,
+.StockGraph .StockTimeSeries .indexBtns span {
+  padding: 5px 10px
+}
+
+.StockGraph .StockKline .indexBtns span:hover,
+.StockGraph .StockTimeSeries .indexBtns span:hover {
+  cursor: pointer
+}
+
+.StockGraph .StockKline .indexBtns .active,
+.StockGraph .StockTimeSeries .indexBtns .active {
+  color: #4086f0
+}
+
+.StockGraph .StockKline .rightBtns,
+.StockGraph .StockTimeSeries .rightBtns {
+  float: right
+}
+
+.StockGraph .StockKline .rightBtns span,
+.StockGraph .StockTimeSeries .rightBtns span {
+  border: 1px solid #828282;
+  border-radius: 2px;
+  padding: 3px;
+  line-height: normal;
+  display: inline-block;
+  margin-right: 10px
+}
+
+.StockGraph .StockKline .rightBtns span:hover,
+.StockGraph .StockTimeSeries .rightBtns span:hover {
+  cursor: pointer
+}
+
+.StockGraph .StockKline .rightBtns .active,
+.StockGraph .StockTimeSeries .rightBtns .active {
+  border-color: #4086f0;
+  color: #4086f0
+}
+
+.StockGraph .StockKline .MAConfig,
+.StockGraph .StockTimeSeries .MAConfig {
+  position: absolute;
+  left: 20px;
+  top: 7px;
+  width: 15px;
+  height: 15px
+}
+
+.StockGraph .StockKline .MAConfig svg,
+.StockGraph .StockTimeSeries .MAConfig svg {
+  width: 100%;
+  height: 100%;
+  fill: #fff
+}
+
+.StockGraph .StockKline .statisModal,
+.StockGraph .StockTimeSeries .statisModal {
+  position: absolute;
+  right: 50px;
+  top: 20px
+}
+
+.StockGraph .StockKline .crossModal,
+.StockGraph .StockTimeSeries .crossModal {
+  position: fixed;
+  background-color: #ece9fa;
+  border-radius: 4px;
+  min-width: 150px;
+  z-index: 99
+}
+
+.StockGraph .StockKline .crossModal li,
+.StockGraph .StockTimeSeries .crossModal li {
+  list-style: none;
+  height: 30px;
+  line-height: 30px;
+  white-space: nowrap
+}
+
+.StockGraph .StockKline .crossModal li>span,
+.StockGraph .StockTimeSeries .crossModal li>span {
+  display: inline-block;
+  color: #333;
+  word-spacing: 11px
+}
+
+.StockGraph .StockKline .crossModal li>span:first-child,
+.StockGraph .StockTimeSeries .crossModal li>span:first-child {
+  text-align: right;
+  width: 60px;
+  color: #666
+}
+
+.StockGraph .StockKline .crossModal li>span:last-child,
+.StockGraph .StockTimeSeries .crossModal li>span:last-child {
+  text-indent: 8px
+}
+
+.StockGraph .StockKline .crossModal li:first-child,
+.StockGraph .StockTimeSeries .crossModal li:first-child {
+  border-bottom: 1px solid #d3cfe2;
+  color: #666;
+  padding: 0 16px
+}
+
+.StockGraph .StockKline .crossModal li:first-child span:last-child,
+.StockGraph .StockTimeSeries .crossModal li:first-child span:last-child {
+  float: right
+}
+
+.StockGraph .StockKline .crossModal li:first-child span:first-child,
+.StockGraph .StockTimeSeries .crossModal li:first-child span:first-child {
+  float: left
+}
+
+.StockGraph .Tabs-Bar {
+  background-color: #34315b
+}
+
+div.StockQuote-StockSearch {
+  position: relative;
+  float: right;
+  height: 100%
+}
+
+div.StockQuote-StockSearch input {
+  border: none;
+  height: 20px;
+  box-sizing: border-box;
+  background-color: #000;
+  border-radius: 10px;
+  outline: none;
+  color: #fff;
+  padding: 4px 10px;
+  width: 180px;
+  border: 1px solid transparent
+}
+
+div.StockQuote-StockSearch input:focus {
+  border: 1px solid #599afc;
+  box-shadow: 0 0 3px #fff
+}
+
+div.StockQuote-StockSearch input::-webkit-input-placeholder {
+  color: #599afc;
+  font-size: 12px
+}
+
+div.StockQuote-StockSearchInput:after {
+  content: '';
+  display: block;
+  position: absolute;
+  right: 4px;
+  top: 11px;
+  width: 20px;
+  height: 20px;
+  opacity: .6;
+  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNy4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB3aWR0aD0iMjBweCIgaGVpZ2h0PSIyMHB4IiB2aWV3Qm94PSIwIDAgMjAgMjAiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDIwIDIwIiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxzeW1ib2wgIGlkPSJTZWFyY2giIHZpZXdCb3g9Ii0xOC4xMTMgLTE3LjU3NSAzNS44NjkgMzQuNzkzIj4NCgk8Zz4NCgkJPGc+DQoJCQk8Zz4NCgkJCQk8cGF0aCBmaWxsPSIjMjlBQkUyIiBkPSJNLTE3LjgyLTEzLjQxN2MtMC40MTksMC40NjMtMC4zODQsMS4xODYsMC4wNzksMS42MDVsOS41OTgsOC43MTljMC40NjIsMC40MTksMS4xODMsMC4zODQsMS42MDItMC4wNzkNCgkJCQkJbDMuNDI4LTMuNzg4YzAuNDE5LTAuNDYzLDAuMzg0LTEuMTg1LTAuMDc5LTEuNjA1bC05LjU5OC04LjcxOGMtMC40NjItMC40Mi0xLjE4My0wLjM4NS0xLjYwMiwwLjA3OEwtMTcuODItMTMuNDE3eiIvPg0KCQkJPC9nPg0KCQk8L2c+DQoJPC9nPg0KCTxnPg0KCQk8cGF0aCBmaWxsPSIjMjlBQkUyIiBkPSJNNS4xODgsMTcuMjE4YzEuMzYyLDAsMi43NDgtMC4yMjMsNC4xMDgtMC42OTRjNi41NTgtMi4yNjksMTAuMDM0LTkuNDI1LDcuNzY2LTE1Ljk4Mg0KCQkJYy0xLjc5OC01LjE5Ny02LjY2Ni04LjQ1OS0xMS44NzMtOC40NTljLTEuMzYyLDAtMi43NDksMC4yMjQtNC4xMDksMC42OTVDLTUuNDc4LTQuOTU0LTguOTU1LDIuMjAyLTYuNjg1LDguNzU5DQoJCQlDLTQuODg3LDEzLjk1Ny0wLjAxOSwxNy4yMTgsNS4xODgsMTcuMjE4IE01LjE4OCwxMy44MTJjLTMuOSwwLTcuMzc5LTIuNDc4LTguNjU1LTYuMTY3Yy0wLjgtMi4zMTItMC42NTItNC43OTcsMC40MTctNi45OTcNCgkJCWMxLjA2OS0yLjIwMSwyLjkzMS0zLjg1Myw1LjI0NC00LjY1M0MzLjE2Ni00LjM0LDQuMTczLTQuNTExLDUuMTg5LTQuNTExYzMuOSwwLDcuMzc4LDIuNDc5LDguNjU0LDYuMTY4DQoJCQljMC44LDIuMzExLDAuNjUxLDQuNzk2LTAuNDE3LDYuOTk2Yy0xLjA3LDIuMjAxLTIuOTMyLDMuODUzLTUuMjQzLDQuNjUzbC0wLjAwMSwwQzcuMjExLDEzLjY0Myw2LjIwNCwxMy44MTIsNS4xODgsMTMuODEyDQoJCQlMNS4xODgsMTMuODEyeiIvPg0KCTwvZz4NCjwvc3ltYm9sPg0KPHVzZSB4bGluazpocmVmPSIjU2VhcmNoIiAgd2lkdGg9IjM1Ljg2OSIgaGVpZ2h0PSIzNC43OTMiIHg9Ii0xOC4xMTMiIHk9Ii0xNy41NzUiIHRyYW5zZm9ybT0ibWF0cml4KDAuNDY1MSAwIDAgLTAuNDY1MSAxMC40MjQzIDkuNzIyNSkiIG92ZXJmbG93PSJ2aXNpYmxlIi8+DQo8L3N2Zz4NCg==);
+  transition: opacity .3s
+}
+
+div.StockQuote-StockSearchInput:hover:after {
+  opacity: 1
+}
+
+.StockQuote-StockSearchList {
+  width: 100%
+}
+
+.StockQuote-StockSearchList ul {
+  list-style: none
+}
+
+.StockQuote-StockSearchList ul li {
+  padding: 4px;
+  display: flex
+}
+
+.StockQuote-StockSearchList ul li span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap
+}
+
+.StockQuote-StockSearchList ul li.on,
+.StockQuote-StockSearchList ul li:hover {
+  color: #fff;
+  background-color: #434b5d
+}
+
+.StockQuote-StockSearchList ul span {
+  display: inline-block
+}
+
+.StockQuote-StockSearchList .code {
+  width: 4em
+}
+
+.StockQuote-StockSearchList .name {
+  flex: 1
+}
+
+.StockQuote-StockSearchList .board {
+  width: 4em;
+  text-align: right
+}
+
+.StockQuote-StockWatcher .StockQuote-StockWatcherItem {
+  cursor: pointer;
+  display: inline-block;
+  color: #fff;
+  padding: 0 6px;
+  border-right: 1px solid #383953;
+  float: left;
+  min-width: 18em;
+  height: 24px;
+  line-height: 24px;
+  margin: 8px 0;
+  font-size: 13px
+}
+
+.StockQuote-StockWatcher .StockQuote-StockWatcherItem span {
+  margin: 0 4px
+}
+
+.StockQuote-StockWatcher .StockQuote-StockWatcherItem span.name {
+  color: #fff;
+  text-align: center
+}
+
+.StockQuote-StockWatcher .StockQuote-StockWatcherItem:last-child {
+  border-right: none
+}
+
+.StockQuote-StockWatcher svg.icon {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  margin-left: 6px;
+  background-repeat: no-repeat;
+  background-position: center;
+  vertical-align: -2px
+}
+
+.StockQuote-StockWatcher .StockQuote-StockWatcherItem:hover {
+  background-color: #34315b
+}
+
+.StockQuote-StockWatcher .StockQuote-StockWatcherItem.rise .rise,
+.StockQuote-StockWatcher .StockQuote-StockWatcherItem.rise .risepercent {
+  color: #ff3c23
+}
+
+.StockQuote-StockWatcher .StockQuote-StockWatcherItem.rise svg.icon {
+  fill: #ff3c23
+}
+
+.StockQuote-StockWatcher .StockQuote-StockWatcherItem.fall .rise,
+.StockQuote-StockWatcher .StockQuote-StockWatcherItem.fall .risepercent {
+  color: #3ebd3b
+}
+
+.StockQuote-StockWatcher .StockQuote-StockWatcherItem.fall svg.icon {
+  fill: #3ebd3b
+}
+
+.StockQuote-StockBriefHeader {
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  display: table;
+  background-color: #3a3c5c;
+  font-size: 14px
+}
+
+.StockQuote-StockBriefHeader .head-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  float: left
+}
+
+.StockQuote-StockBriefHeader .arrow {
+  cursor: pointer;
+  height: 0;
+  margin: 13px 20px;
+  border-style: solid;
+  border-color: transparent #fff
+}
+
+.StockQuote-StockBriefHeader .arrow.prev {
+  border-width: 6px 6px 6px 0
+}
+
+.StockQuote-StockBriefHeader .arrow.next {
+  border-width: 6px 0 6px 6px
+}
+
+.StockQuote-StockBriefHeader .arrow.disable {
+  border-color: transparent #7a7a7a;
+  cursor: auto
+}
+
+.StockQuote-StockBriefHeader hgroup {
+  height: 40px
+}
+
+.StockQuote-StockBriefHeader hgroup .name {
+  color: #fff;
+  padding-right: 14px
+}
+
+.StockQuote-StockBriefHeader hgroup.stock .name {
+  font-size: 16px
+}
+
+.StockQuote-StockBriefHeader hgroup.stock .hk:after {
+  content: '';
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 2px;
+  width: 18px;
+  height: 13px;
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAaCAYAAADfcP5FAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyNpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChNYWNpbnRvc2gpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjdEMjc2NTY5OTcwNjExRTVCMUFCRDgxN0JEREQ0RDM4IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjdEMjc2NTZBOTcwNjExRTVCMUFCRDgxN0JEREQ0RDM4Ij4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6N0QyNzY1Njc5NzA2MTFFNUIxQUJEODE3QkRERDREMzgiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6N0QyNzY1Njg5NzA2MTFFNUIxQUJEODE3QkRERDREMzgiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz6fa12GAAABY0lEQVR42mI0iJ/lycDAMBeIJRkGFjwH4mSmQeIYBqgb5jINEsfAHcXEMMjAqIPIdpCPqRzD+QWpYIwLwORBaonRZ6MpDpebVeI+sCEkzs/BUBJrA2a/ef+FoXb2wYF1UHagEYO8lBCY3ThrH8PLjz8GzkGgaPR10Aazl287x3Dk+suBS9SgqKpMdgSzT195xNC16uzA5rLmVHsGLg42vOmGbg6KdlBlMNWRI5hukAELMQbjy/r4QIK/CZwtL86HN+3QJYREBHkYHj57B3ccKD1RJYQME2aTFXKgHLX12B2GJS1hYMfFu2sPbKIGWX71yUeww0Ag0suIQVuGf+DrsoU7rzJ8+/ELzK5KtBt4B4Fy15LNkKjSUpZAqfsGrOqYvvUKPIHnR1kPjubHnPWn4bmvLMx44B205fQjcPUBAv5OOlgTOCOw1/F/tMVIwEHPB5F7XoAclAJiDALHPAV1FAECDAC1SnpDjf31iAAAAABJRU5ErkJggg==) no-repeat center center;
+  background-size: cover;
+  vertical-align: -2px
+}
+
+.StockQuote-StockBriefHeader hgroup .indicator {
+  display: inline-block;
+  height: 12px;
+  width: 12px;
+  margin: 0 10px
+}
+
+.StockQuote-StockBriefHeader hgroup .green .indicator {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAAAaklEQVR4AWNAAZeKpgHxf2QMFWOAYyTOUNYwGYjfQfEPLBp+IMlPBmlgA+K9IEl8GKqGDWYVPxDfwqP4NhALoPtBBYhfoSuGiqng8rQ5EH+FKYayzdE9jY79gPgPFPuhy0MITJwJxNnY5ABz4PYpiu/s4wAAAABJRU5ErkJggg==)
+}
+
+.StockQuote-StockBriefHeader hgroup .red .indicator {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAAAeklEQVQokWNgwAK+O9qagTA2OWyKNYH4GhRrElIsCsQrgfg/FK8GieFSzAHEVUiKYbgWJIeumBmIQ7EohmGQHDNMMSMQGwPxHzwa/kDVMII0CADxfTyKYfgpEAuBNLCCGEDMDcSBWBQGQuVAaljR/eKCRYMLvmAdBBoAnfa94CY7li4AAAAASUVORK5CYII=)
+}
+
+.StockQuote-StockBriefHeader .head-toolbar {
+  height: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  float: right
+}
+
+.StockQuote-StockBriefHeader .head-toolbar .text-list .buy,
+.StockQuote-StockBriefHeader .head-toolbar .text-list .f10,
+.StockQuote-StockBriefHeader .head-toolbar .text-list .sell {
+  font-size: 12px;
+  font-style: normal;
+  padding: 5px 7px;
+  margin-right: 20px;
+  border-radius: 2px;
+  cursor: pointer
+}
+
+.StockQuote-StockBriefHeader .head-toolbar .text-list .buy {
+  color: #ff3c23;
+  border: 1px solid #ff3c23
+}
+
+.StockQuote-StockBriefHeader .head-toolbar .text-list .sell {
+  color: #4086f0;
+  border: 1px solid #4086f0
+}
+
+.StockQuote-StockBriefHeader .head-toolbar .ico-list {
+  padding: 0 10px;
+  border-left: 1px solid #181527
+}
+
+.StockQuote-StockBriefHeader .head-toolbar .ico {
+  width: 24px;
+  height: 24px
+}
+.StockQuote-StockBriefHeader .head-toolbar .ico.stock-star {
+  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNy4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB3aWR0aD0iMzJweCIgaGVpZ2h0PSIzMnB4IiB2aWV3Qm94PSIwIDAgMzIgMzIiIGZpbGw9IiNmZmYiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDMyIDMyIiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxnPg0KCTxwYXRoIGQ9Ik0yNC4zNjMsMjguODY5TDE2LDI0LjQ3MmwtOC4zNjMsNC4zOTdsMS41OTctOS4zMTJsLTYuNzY1LTYuNTk1bDkuMzQ5LTEuMzU4TDE2LDMuMTMxbDQuMTgyLDguNDcybDkuMzQ5LDEuMzU4DQoJCWwtNi43NjYsNi41OTVMMjQuMzYzLDI4Ljg2OXogTTYuNTk1LDE0LjMwMmw0LjcwMiw0LjU4NmwtMS4xMDksNi40NzJMMTYsMjIuMzAybDUuODEzLDMuMDU2bC0xLjExLTYuNDcybDQuNzAyLTQuNTg2bC02LjQ5OS0wLjk0NA0KCQlMMTYsNy40NjlsLTIuOTA2LDUuODlMNi41OTUsMTQuMzAyeiIvPg0KPC9nPg0KPC9zdmc+DQo=);
+}
+.StockQuote-StockBriefHeader .head-toolbar .ico.stock-star.yellow {
+  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNy4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4KCjxzdmcKICAgeG1sbnM6ZGM9Imh0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvIgogICB4bWxuczpjYz0iaHR0cDovL2NyZWF0aXZlY29tbW9ucy5vcmcvbnMjIgogICB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiCiAgIHhtbG5zOnN2Zz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciCiAgIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICAgeG1sbnM6c29kaXBvZGk9Imh0dHA6Ly9zb2RpcG9kaS5zb3VyY2Vmb3JnZS5uZXQvRFREL3NvZGlwb2RpLTAuZHRkIgogICB4bWxuczppbmtzY2FwZT0iaHR0cDovL3d3dy5pbmtzY2FwZS5vcmcvbmFtZXNwYWNlcy9pbmtzY2FwZSIKICAgdmVyc2lvbj0iMS4xIgogICBpZD0iTGF5ZXJfMSIKICAgeD0iMHB4IgogICB5PSIwcHgiCiAgIHdpZHRoPSIzMnB4IgogICBoZWlnaHQ9IjMycHgiCiAgIHZpZXdCb3g9IjAgMCAzMiAzMiIKICAgZmlsbD0iI0QyQTYxNSIKICAgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMzIgMzIiCiAgIHhtbDpzcGFjZT0icHJlc2VydmUiCiAgIGlua3NjYXBlOnZlcnNpb249IjAuOTEgcjEzNzI1IgogICBzb2RpcG9kaTpkb2NuYW1lPSJzdGFyLWZpbGxlZC5zdmciPjxtZXRhZGF0YQogICAgIGlkPSJtZXRhZGF0YTExIj48cmRmOlJERj48Y2M6V29yawogICAgICAgICByZGY6YWJvdXQ9IiI+PGRjOmZvcm1hdD5pbWFnZS9zdmcreG1sPC9kYzpmb3JtYXQ+PGRjOnR5cGUKICAgICAgICAgICByZGY6cmVzb3VyY2U9Imh0dHA6Ly9wdXJsLm9yZy9kYy9kY21pdHlwZS9TdGlsbEltYWdlIiAvPjxkYzp0aXRsZT48L2RjOnRpdGxlPjwvY2M6V29yaz48L3JkZjpSREY+PC9tZXRhZGF0YT48ZGVmcwogICAgIGlkPSJkZWZzOSIgLz48c29kaXBvZGk6bmFtZWR2aWV3CiAgICAgcGFnZWNvbG9yPSIjZmZmZmZmIgogICAgIGJvcmRlcmNvbG9yPSIjNjY2NjY2IgogICAgIGJvcmRlcm9wYWNpdHk9IjEiCiAgICAgb2JqZWN0dG9sZXJhbmNlPSIxMCIKICAgICBncmlkdG9sZXJhbmNlPSIxMCIKICAgICBndWlkZXRvbGVyYW5jZT0iMTAiCiAgICAgaW5rc2NhcGU6cGFnZW9wYWNpdHk9IjAiCiAgICAgaW5rc2NhcGU6cGFnZXNoYWRvdz0iMiIKICAgICBpbmtzY2FwZTp3aW5kb3ctd2lkdGg9IjY0MCIKICAgICBpbmtzY2FwZTp3aW5kb3ctaGVpZ2h0PSI0ODAiCiAgICAgaWQ9Im5hbWVkdmlldzciCiAgICAgc2hvd2dyaWQ9ImZhbHNlIgogICAgIGlua3NjYXBlOnpvb209IjcuMzc1IgogICAgIGlua3NjYXBlOmN4PSIxNiIKICAgICBpbmtzY2FwZTpjeT0iMTYiCiAgICAgaW5rc2NhcGU6d2luZG93LXg9IjMzMiIKICAgICBpbmtzY2FwZTp3aW5kb3cteT0iMTk4IgogICAgIGlua3NjYXBlOndpbmRvdy1tYXhpbWl6ZWQ9IjAiCiAgICAgaW5rc2NhcGU6Y3VycmVudC1sYXllcj0iZzMiIC8+PGcKICAgICBpZD0iZzMiPjxwYXRoCiAgICAgICBkPSJNIDI0LjM2MywyOC44NjkgMTYsMjQuNDcyIDcuNjM3LDI4Ljg2OSA5LjIzNCwxOS41NTcgMi40NjksMTIuOTYyIDExLjgxOCwxMS42MDQgMTYsMy4xMzEgbCA0LjE4Miw4LjQ3MiA5LjM0OSwxLjM1OCAtNi43NjYsNi41OTUgeiIKICAgICAgIGlkPSJwYXRoNSIKICAgICAgIGlua3NjYXBlOmNvbm5lY3Rvci1jdXJ2YXR1cmU9IjAiCiAgICAgICBzb2RpcG9kaTpub2RldHlwZXM9ImNjY2NjY2NjY2NjIiAvPjwvZz48L3N2Zz4=);
+}
+.StockQuote-StockBriefHeader .head-toolbar i:hover {
+  background-color: #34315b
+}
+
+.StockQuote-StockBriefHeader .head-toolbar .ico.sep {
+  width: 1px;
+  margin: 0 10px;
+  background-color: #181527
+}
+
+.StockQuote-DetailRight {
+  background-color: rgba(15, 12, 22, .3);
+  height: 100%;
+  width: 300px;
+  color: #fff;
+  display: flex;
+  flex-direction: column
+}
+
+.StockQuote-DetailRight .StockNews-NewsList {
+  flex: 1;
+  padding-top: 4px
+}
+
+.StockQuote-DetailRight .StockNews-NewsList .Scrollbar {
+  opacity: 0
+}
+
+.StockQuote-DetailRight .StockNews-NewsList:hover .Scrollbar {
+  opacity: 1
+}
+
+.StockQuote-DetailRight .MyStock-TimeSeriesWrap {
+  height: 220px
+}
+
+.StockQuote-DetailRight .MyStock-TimeSeriesWrap.noTimeSeries {
+  height: auto
+}
+
+.StockQuote-DetailRight .StockPie {
+  margin: 0 auto;
+  border-bottom: 1px solid #000
+}
+
+.StockQuote-DetailRight .plateAside-table {
+  height: 100%;
+  position: relative
+}
+
+.StockQuote-PlateAside {
+  flex: 1
+}
+
+.MyStock-TimeSeriesWrap {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column
+}
+
+.MyStock-TimeSeriesWrap hgroup {
+  height: 40px;
+  line-height: 40px;
+  background-color: #2e2b3e;
+  padding-left: 10px;
+  position: relative
+}
+
+.MyStock-TimeSeriesWrap i {
+  width: 24px;
+  height: 24px;
+  float: right;
+  margin: 8px 6px
+}
+.MyStock-TimeSeriesWrap .ico.stock-star {
+    background-image:
+    url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNy4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB3aWR0aD0iMzJweCIgaGVpZ2h0PSIzMnB4IiB2aWV3Qm94PSIwIDAgMzIgMzIiIGZpbGw9IiNmZmYiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDMyIDMyIiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxnPg0KCTxwYXRoIGQ9Ik0yNC4zNjMsMjguODY5TDE2LDI0LjQ3MmwtOC4zNjMsNC4zOTdsMS41OTctOS4zMTJsLTYuNzY1LTYuNTk1bDkuMzQ5LTEuMzU4TDE2LDMuMTMxbDQuMTgyLDguNDcybDkuMzQ5LDEuMzU4DQoJCWwtNi43NjYsNi41OTVMMjQuMzYzLDI4Ljg2OXogTTYuNTk1LDE0LjMwMmw0LjcwMiw0LjU4NmwtMS4xMDksNi40NzJMMTYsMjIuMzAybDUuODEzLDMuMDU2bC0xLjExLTYuNDcybDQuNzAyLTQuNTg2bC02LjQ5OS0wLjk0NA0KCQlMMTYsNy40NjlsLTIuOTA2LDUuODlMNi41OTUsMTQuMzAyeiIvPg0KPC9nPg0KPC9zdmc+DQo=);
+}
+.MyStock-TimeSeriesWrap .ico.stock-star.yellow {
+  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNy4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4KCjxzdmcKICAgeG1sbnM6ZGM9Imh0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvIgogICB4bWxuczpjYz0iaHR0cDovL2NyZWF0aXZlY29tbW9ucy5vcmcvbnMjIgogICB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiCiAgIHhtbG5zOnN2Zz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciCiAgIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICAgeG1sbnM6c29kaXBvZGk9Imh0dHA6Ly9zb2RpcG9kaS5zb3VyY2Vmb3JnZS5uZXQvRFREL3NvZGlwb2RpLTAuZHRkIgogICB4bWxuczppbmtzY2FwZT0iaHR0cDovL3d3dy5pbmtzY2FwZS5vcmcvbmFtZXNwYWNlcy9pbmtzY2FwZSIKICAgdmVyc2lvbj0iMS4xIgogICBpZD0iTGF5ZXJfMSIKICAgeD0iMHB4IgogICB5PSIwcHgiCiAgIHdpZHRoPSIzMnB4IgogICBoZWlnaHQ9IjMycHgiCiAgIHZpZXdCb3g9IjAgMCAzMiAzMiIKICAgZmlsbD0iI0QyQTYxNSIKICAgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMzIgMzIiCiAgIHhtbDpzcGFjZT0icHJlc2VydmUiCiAgIGlua3NjYXBlOnZlcnNpb249IjAuOTEgcjEzNzI1IgogICBzb2RpcG9kaTpkb2NuYW1lPSJzdGFyLWZpbGxlZC5zdmciPjxtZXRhZGF0YQogICAgIGlkPSJtZXRhZGF0YTExIj48cmRmOlJERj48Y2M6V29yawogICAgICAgICByZGY6YWJvdXQ9IiI+PGRjOmZvcm1hdD5pbWFnZS9zdmcreG1sPC9kYzpmb3JtYXQ+PGRjOnR5cGUKICAgICAgICAgICByZGY6cmVzb3VyY2U9Imh0dHA6Ly9wdXJsLm9yZy9kYy9kY21pdHlwZS9TdGlsbEltYWdlIiAvPjxkYzp0aXRsZT48L2RjOnRpdGxlPjwvY2M6V29yaz48L3JkZjpSREY+PC9tZXRhZGF0YT48ZGVmcwogICAgIGlkPSJkZWZzOSIgLz48c29kaXBvZGk6bmFtZWR2aWV3CiAgICAgcGFnZWNvbG9yPSIjZmZmZmZmIgogICAgIGJvcmRlcmNvbG9yPSIjNjY2NjY2IgogICAgIGJvcmRlcm9wYWNpdHk9IjEiCiAgICAgb2JqZWN0dG9sZXJhbmNlPSIxMCIKICAgICBncmlkdG9sZXJhbmNlPSIxMCIKICAgICBndWlkZXRvbGVyYW5jZT0iMTAiCiAgICAgaW5rc2NhcGU6cGFnZW9wYWNpdHk9IjAiCiAgICAgaW5rc2NhcGU6cGFnZXNoYWRvdz0iMiIKICAgICBpbmtzY2FwZTp3aW5kb3ctd2lkdGg9IjY0MCIKICAgICBpbmtzY2FwZTp3aW5kb3ctaGVpZ2h0PSI0ODAiCiAgICAgaWQ9Im5hbWVkdmlldzciCiAgICAgc2hvd2dyaWQ9ImZhbHNlIgogICAgIGlua3NjYXBlOnpvb209IjcuMzc1IgogICAgIGlua3NjYXBlOmN4PSIxNiIKICAgICBpbmtzY2FwZTpjeT0iMTYiCiAgICAgaW5rc2NhcGU6d2luZG93LXg9IjMzMiIKICAgICBpbmtzY2FwZTp3aW5kb3cteT0iMTk4IgogICAgIGlua3NjYXBlOndpbmRvdy1tYXhpbWl6ZWQ9IjAiCiAgICAgaW5rc2NhcGU6Y3VycmVudC1sYXllcj0iZzMiIC8+PGcKICAgICBpZD0iZzMiPjxwYXRoCiAgICAgICBkPSJNIDI0LjM2MywyOC44NjkgMTYsMjQuNDcyIDcuNjM3LDI4Ljg2OSA5LjIzNCwxOS41NTcgMi40NjksMTIuOTYyIDExLjgxOCwxMS42MDQgMTYsMy4xMzEgbCA0LjE4Miw4LjQ3MiA5LjM0OSwxLjM1OCAtNi43NjYsNi41OTUgeiIKICAgICAgIGlkPSJwYXRoNSIKICAgICAgIGlua3NjYXBlOmNvbm5lY3Rvci1jdXJ2YXR1cmU9IjAiCiAgICAgICBzb2RpcG9kaTpub2RldHlwZXM9ImNjY2NjY2NjY2NjIiAvPjwvZz48L3N2Zz4=);
+}
+.MyStock-TimeSeriesWrap i:hover {
+  background-color: #3a3c5c
+}
+
+.MyStock-TimeSeriesWrap .StockTimeSeries {
+  position: relative;
+  box-sizing: border-box;
+  height: 100%;
+  flex: 1
+}
+
+.MyStock-TimeSeriesWrap .StockTimeSeries .TimeSeriesGraph {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%
+}
+
+.MyStock-TimeSeriesWrap table {
+  margin-top: 15px
+}
+
+.MyStock-TimeSeriesWrap td {
+  line-height: 20px;
+  padding: 5px 0;
+  color: #828282
+}
+
+.MyStock-Influx table {
+  width: 90%;
+  margin: 0 auto;
+  font-size: 14px
+}
+
+.MyStock-Influx .plateAside-table {
+  margin-top: 20px
+}
+
+.MyStock-Influx td,
+.MyStock-Influx th {
+  width: 25%;
+  height: 35px;
+  line-height: 25px;
+  color: #828282;
+  text-align: center;
+  border: 1px solid #322e45
+}
+
+.MyStock-Influx td:first-child,
+.MyStock-Influx th {
+  width: 20%
+}
+
+.Popup.StockQuote-StockAverangeConf {
+  width: 540px;
+  height: 410px;
+  left: 50%;
+  top: 50%;
+  margin-top: -205px;
+  margin-left: -270px
+}
+
+.Popup.StockQuote-StockAverangeConf table {
+  table-layout: fixed;
+  color: #828282;
+  width: 100%
+}
+
+.Popup.StockQuote-StockAverangeConf table th {
+  height: 36px;
+  background-color: #eee;
+  width: 25%;
+  line-height: 36px
+}
+
+.Popup.StockQuote-StockAverangeConf table td {
+  height: 52px;
+  line-height: 52px;
+  width: 25%;
+  text-align: center
+}
+
+.Popup.StockQuote-StockAverangeConf table .IntegerInput {
+  margin-left: 6px
+}
+
+.Popup.StockQuote-StockAverangeConf table button {
+  width: 30px;
+  height: 30px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  vertical-align: middle;
+  padding: 0
+}
+
+.Popup.StockQuote-StockAverangeConf table button:focus {
+  outline: none
+}
+
+.Popup.StockQuote-StockAverangeConf .reset {
+  position: absolute;
+  color: #599afc;
+  bottom: -40px;
+  left: 56px;
+  cursor: pointer
+}
+
+.Popup.StockQuote-StockInterStatis {
+  width: 540px;
+  height: 378px;
+  left: 50%;
+  top: 50%;
+  margin-top: -189px;
+  margin-left: -270px
+}
+
+.Popup.StockQuote-StockInterStatis ul {
+  width: 444px;
+  border: 1px solid #ddd;
+  border-width: 0 1px 1px 0
+}
+
+.Popup.StockQuote-StockInterStatis li {
+  height: 36px;
+  line-height: 36px;
+  list-style: none
+}
+
+.Popup.StockQuote-StockInterStatis li.header {
+  background-color: #eee
+}
+
+.Popup.StockQuote-StockInterStatis li>span {
+  display: inline-block;
+  border: 1px solid #ddd;
+  border-width: 1px 0 0 1px;
+  text-indent: 12px;
+  vertical-align: top
+}
+
+.Popup.StockQuote-StockInterStatis li .title {
+  width: 80px;
+  color: #888;
+  word-spacing: 10px
+}
+
+.Popup.StockQuote-StockInterStatis li .data {
+  width: 140px;
+  color: #000
+}
+
+.Popup.StockQuote-StockInterStatis li .data span:last-child {
+  display: inline-block;
+  text-indent: 10px
+}
+
+.Popup.StockQuote-StockInterStatis .inter-brief {
+  margin: 30px auto 0
+}
+
+.Popup.StockQuote-StockInterStatis .inter-info {
+  margin: 20px auto 0
+}
+
+.Popup.StockQuote-StockInterStatis .Footer {
+  display: none
+}
+
+.Popup.StockQuote-StockWarn {
+  width: 440px;
+  height: 522px;
+  left: 50%;
+  top: 50%;
+  margin-left: -220px;
+  margin-top: -261px
+}
+
+.Popup.StockQuote-StockWarn .warn-info {
+  border-bottom: 1px solid #c8c5d7;
+  padding: 10px 0
+}
+
+.Popup.StockQuote-StockWarn li {
+  height: 50px;
+  line-height: 50px;
+  list-style: none
+}
+
+.Popup.StockQuote-StockWarn li>div {
+  display: inline-block
+}
+
+.Popup.StockQuote-StockWarn li>div:first-child {
+  margin-left: 46px;
+  width: 55%
+}
+
+.Popup.StockQuote-StockWarn li .IntegerInput {
+  margin-right: 10px
+}
+
+.Popup.StockQuote-StockWarn .header li {
+  background-color: #eee;
+  height: 36px;
+  line-height: 36px
+}
+
+.Popup.StockQuote-StockWarn .header li span {
+  padding-right: 10px
+}
+
+.Popup.StockQuote-StockWarn .header li .code {
+  color: #888
+}
+
+.Popup.StockQuote-StockWarn input[type=checkbox],
+.Popup.StockQuote-StockWarn input[type=radio] {
+  margin-right: 20px;
+  vertical-align: 2px
+}
+
+.Popup.StockQuote-StockWarn .warn-freq div:first-child {
+  width: 37%
+}
+
+.Popup.StockQuote-StockWarn .reset {
+  position: absolute;
+  color: #599afc;
+  bottom: -40px;
+  left: 56px;
+  cursor: pointer
+}
+
+.Popup.StockQuote-StockWarn.isIndex {
+  height: 372px;
+  margin-top: -186px
+}
+
+.MyStock-Settings.Popup {
+  width: 450px;
+  height: 500px;
+  left: 50%;
+  margin-left: -225px;
+  top: 50%;
+  margin-top: -250px;
+  bottom: initial;
+  right: initial
+}
+
+.MyStock-Settings.Popup .Content {
+  position: relative;
+  flex: 1;
+  padding: 0;
+  margin-top: .5em
+}
+
+.MyStock-Settings.Popup .Content .Tabs {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0
+}
+
+.MyStock-Settings.Popup .Content .Tabs .Tabs-Bar {
+  margin-left: 2em;
+  margin-right: 2em
+}
+
+.MyStock-Settings.Popup .Content .Tabs .Tabs-Content {
+  margin-left: 2em;
+  margin-right: 2em;
+  border: 1px solid #ccc
+}
+
+.MyStock-Settings.Popup .Content .Tabs .Tabs-Content>div {
+  height: 100%
+}
+
+.MyStock-Settings.Popup .Content .Tabs .Tabs-Content>div .EditListWrap {
+  height: 100%;
+  display: flex;
+  flex-direction: column
+}
+
+.MyStock-Settings.Popup .Content .Tabs .Tabs-Content>div .EditListWrap .EditList {
+  position: relative;
+  overflow: hidden;
+  flex: 1
+}
+
+.MyStock-Settings.Popup .Content .Tabs .Tabs-Content>div .EditListWrap header {
+  color: #666;
+  background-color: #eee
+}
+
+.MyStock-Settings.Popup .Content .Tabs .Tabs-Content>div .EditListWrap header,
+.MyStock-Settings.Popup .Content .Tabs .Tabs-Content>div .EditListWrap li {
+  width: 100%;
+  height: 36px;
+  line-height: 36px
+}
+
+.MyStock-Settings.Popup .Content .Tabs .Tabs-Content>div .EditListWrap ul {
+  position: relative;
+  flex: 1
+}
+
+.MyStock-Settings.Popup .Content .Tabs .Tabs-Content>div .EditListWrap ul li {
+  transition: opacity .3s
+}
+
+.MyStock-Settings.Popup .Content .Tabs .Tabs-Content>div .EditListWrap i.ico {
+  width: 24px;
+  height: 24px
+}
+
+.MyStock-Settings.Popup .Content .Tabs .Tabs-Content>div .EditListWrap i.ico svg {
+  fill: #000
+}
+
+.MyStock-Settings.Popup .Content .Tabs .Tabs-Content>div .EditListWrap li {
+  border-bottom: 1px solid #eee
+}
+
+.MyStock-Settings.Popup .Content .Tabs .Tabs-Content>div .EditListWrap li:last-child {
+  border-bottom: none
+}
+
+.MyStock-Settings.Popup .Content .Tabs .Tabs-Content>div .EditListWrap li.visible .visibility svg {
+  fill: #599afc
+}
+
+.MyStock-Settings.Popup .Content .Tabs .Tabs-Content>div .EditListWrap li.invisible {
+  color: #666
+}
+
+.MyStock-Settings.Popup .Content .Tabs .Tabs-Content>div .EditListWrap li.invisible svg {
+  fill: #666
+}
+
+.MyStock-Settings.Popup .Content .Tabs .Tabs-Content>div .EditListWrap span.column {
+  cursor: default;
+  display: inline-block;
+  text-align: center;
+  padding: 0 6px;
+  box-sizing: border-box
+}
+
+.MyStock-Settings.Popup .Content .Tabs .Tabs-Content>div .EditListWrap span.column:nth-child(1) {
+  width: 15%
+}
+
+.MyStock-Settings.Popup .Content .Tabs .Tabs-Content>div .EditListWrap span.column:nth-child(2) {
+  width: 70%;
+  text-align: left
+}
+
+.MyStock-Settings.Popup .Content .Tabs .Tabs-Content>div .EditListWrap span.column:nth-child(3) {
+  width: 15%
+}
+
+.MyStock-Settings.Popup .Footer {
+  border-top: none;
+  position: relative;
+  margin: 0 2em
+}
+
+.MyStock-Settings.Popup .Footer button:first-child {
+  left: 0;
+  top: 50%;
+  margin: 0;
+  width: auto;
+  margin-top: -15px;
+  background: none;
+  border: none;
+  color: #599afc;
+  position: absolute
+}
+
+.ListWrap.Tabs .Tabs-Bar {
+  height: 40px;
+  margin-left: -8px;
+  background-color: #201834;
+  overflow: hidden;
+  border-bottom: 1px solid #181527
+}
+
+.ListWrap.Tabs .Tabs-Bar .Tabs-Bar-Item {
+  color: #fff;
+  background-color: #292a4c;
+  height: 30px;
+  line-height: 30px;
+  padding: 0 10px;
+  margin: 10px 17px 0
+}
+
+.ListWrap.Tabs .Tabs-Bar .Tabs-Bar-Item:nth-child(1) {
+  z-index: 30
+}
+
+.ListWrap.Tabs .Tabs-Bar .Tabs-Bar-Item:nth-child(2) {
+  z-index: 29
+}
+
+.ListWrap.Tabs .Tabs-Bar .Tabs-Bar-Item:nth-child(3) {
+  z-index: 28
+}
+
+.ListWrap.Tabs .Tabs-Bar .Tabs-Bar-Item:nth-child(4) {
+  z-index: 27
+}
+
+.ListWrap.Tabs .Tabs-Bar .Tabs-Bar-Item:nth-child(5) {
+  z-index: 26
+}
+
+.ListWrap.Tabs .Tabs-Bar .Tabs-Bar-Item:nth-child(6) {
+  z-index: 25
+}
+
+.ListWrap.Tabs .Tabs-Bar .Tabs-Bar-Item:nth-child(7) {
+  z-index: 24
+}
+
+.ListWrap.Tabs .Tabs-Bar .Tabs-Bar-Item:nth-child(8) {
+  z-index: 23
+}
+
+.ListWrap.Tabs .Tabs-Bar .Tabs-Bar-Item:nth-child(9) {
+  z-index: 22
+}
+
+.ListWrap.Tabs .Tabs-Bar .Tabs-Bar-Item:nth-child(10) {
+  z-index: 21
+}
+
+.ListWrap.Tabs .Tabs-Bar .Tabs-Bar-Item:nth-child(11) {
+  z-index: 20
+}
+
+.ListWrap.Tabs .Tabs-Bar .Tabs-Bar-Item:nth-child(12) {
+  z-index: 19
+}
+
+.ListWrap.Tabs .Tabs-Bar .Tabs-Bar-Item:nth-child(13) {
+  z-index: 18
+}
+
+.ListWrap.Tabs .Tabs-Bar .Tabs-Bar-Item:nth-child(14) {
+  z-index: 17
+}
+
+.ListWrap.Tabs .Tabs-Bar .Tabs-Bar-Item:nth-child(15) {
+  z-index: 16
+}
+
+.ListWrap.Tabs .Tabs-Bar .Tabs-Bar-Item:nth-child(16) {
+  z-index: 15
+}
+
+.ListWrap.Tabs .Tabs-Bar .Tabs-Bar-Item:nth-child(17) {
+  z-index: 14
+}
+
+.ListWrap.Tabs .Tabs-Bar .Tabs-Bar-Item:nth-child(18) {
+  z-index: 13
+}
+
+.ListWrap.Tabs .Tabs-Bar .Tabs-Bar-Item:nth-child(19) {
+  z-index: 12
+}
+
+.ListWrap.Tabs .Tabs-Bar .Tabs-Bar-Item:nth-child(20) {
+  z-index: 11
+}
+
+.ListWrap.Tabs .Tabs-Bar .Tabs-Bar-Item:nth-child(21) {
+  z-index: 10
+}
+
+.ListWrap.Tabs .Tabs-Bar .Tabs-Bar-Item:nth-child(22) {
+  z-index: 9
+}
+
+.ListWrap.Tabs .Tabs-Bar .Tabs-Bar-Item:nth-child(23) {
+  z-index: 8
+}
+
+.ListWrap.Tabs .Tabs-Bar .Tabs-Bar-Item:nth-child(24) {
+  z-index: 7
+}
+
+.ListWrap.Tabs .Tabs-Bar .Tabs-Bar-Item:nth-child(25) {
+  z-index: 6
+}
+
+.ListWrap.Tabs .Tabs-Bar .Tabs-Bar-Item:nth-child(26) {
+  z-index: 5
+}
+
+.ListWrap.Tabs .Tabs-Bar .Tabs-Bar-Item:nth-child(27) {
+  z-index: 4
+}
+
+.ListWrap.Tabs .Tabs-Bar .Tabs-Bar-Item:nth-child(28) {
+  z-index: 3
+}
+
+.ListWrap.Tabs .Tabs-Bar .Tabs-Bar-Item:nth-child(29) {
+  z-index: 2
+}
+
+.ListWrap.Tabs .Tabs-Bar .Tabs-Bar-Item:nth-child(30) {
+  z-index: 1
+}
+
+.ListWrap.Tabs .Tabs-Bar .Tabs-Bar-Item:after,
+.ListWrap.Tabs .Tabs-Bar .Tabs-Bar-Item:before {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 30px;
+  border-radius: 5px 5px 0 0;
+  background-color: #292a4c;
+  top: 0;
+  width: 40px;
+  height: 30px;
+  border: 1px solid #181527;
+  transition: background-color .3s
+}
+
+.ListWrap.Tabs .Tabs-Bar .Tabs-Bar-Item:before {
+  left: -20px;
+  right: auto;
+  transform: skewX(-30deg)
+}
+
+.ListWrap.Tabs .Tabs-Bar .Tabs-Bar-Item:after {
+  right: -20px;
+  left: auto;
+  transform: skewX(30deg)
+}
+
+.ListWrap.Tabs .Tabs-Bar .Tabs-Bar-Item span {
+  display: block;
+  height: 100%;
+  z-index: 1;
+  width: 100%;
+  top: 0;
+  position: relative
+}
+
+.ListWrap.Tabs .Tabs-Bar .Tabs-Bar-Item span:before {
+  transition: background-color .3s;
+  content: '';
+  display: block;
+  left: -10px;
+  right: -10px;
+  border-top: 1px solid #181527;
+  position: absolute;
+  height: 100%;
+  z-index: -1;
+  background-color: #292a4c
+}
+
+.ListWrap.Tabs .Tabs-Bar .Tabs-Bar-Item.active {
+  z-index: 100
+}
+
+.ListWrap.Tabs .Tabs-Bar .Tabs-Bar-Item.active,
+.ListWrap.Tabs .Tabs-Bar .Tabs-Bar-Item.active:after,
+.ListWrap.Tabs .Tabs-Bar .Tabs-Bar-Item.active:before,
+.ListWrap.Tabs .Tabs-Bar .Tabs-Bar-Item.active span:before,
+.ListWrap.Tabs .Tabs-Bar .Tabs-Bar-Item:hover,
+.ListWrap.Tabs .Tabs-Bar .Tabs-Bar-Item:hover:after,
+.ListWrap.Tabs .Tabs-Bar .Tabs-Bar-Item:hover:before,
+.ListWrap.Tabs .Tabs-Bar .Tabs-Bar-Item:hover span:before {
+  background-color: #3a3c5c
+}
+
+.ListWrap.Tabs .Tabs-Bar-ToolBtns {
+  color: #fff;
+  height: 40px;
+  line-height: 40px;
+  margin: 0 5px
+}
+
+.ListWrap.Tabs .Tabs-Bar-ToolBtns i {
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  box-sizing: border-box
+}
+
+.ListWrap.Tabs .Tabs-Bar-ToolBtns i svg {
+  padding: 4px;
+  width: 32px;
+  height: 32px
+}
+
+.ListWrap.Tabs .Tabs-Bar-ToolBtns button {
+  margin-right: 20px;
+  padding: 0 10px;
+  box-sizing: border-box;
+  font-size: 10px;
+  height: 22px;
+  line-height: 20px;
+  vertical-align: middle;
+  border: none;
+  border-radius: 3px;
+  border: 1px solid #599afc;
+  color: #599afc;
+  background-color: #1d192d
+}
+
+.ListWrap.Tabs .Tabs-Bar-ToolBtns button:hover {
+  color: #fff;
+  background-color: #599afc
+}
+
+.ListWrap.Tabs .Tabs-Bar-ToolBtns i:hover {
+  background-color: #34315b
+}
+
+.ListWrap.Tabs .Tabs-Content {
+  height: calc(100% - 41px)
+}
+
+.StockListWrap {
+  display: flex;
+  flex-direction: row;
+  height: 100%
+}
+
+.StockListWrap>div {
+  overflow: hidden;
+  flex: 1;
+  display: flex;
+  flex-direction: column
+}
+
+.StockListWrap>div .StockList {
+  flex: 1
+}
+
+.StockListWrap>.PlateListWrap {
+  flex: inherit;
+  width: 312px;
+  margin-right: 10px
+}
+
+.StockListWrap>aside {
+  height: 100%;
+  overflow: hidden;
+  display: flex
+}
+
+.StockListWrap>aside .StockNews-NewsDetail {
+  width: 500px
+}
+
+.StockListWrap>aside .DetailRight {
+  width: 290px
+}
+
+header.StockQuote-Filter {
+  background-color: #3a3c5c;
+  color: #fff;
+  height: 40px;
+  min-height: 40px;
+  line-height: 40px;
+  overflow: hidden;
+  display: flex
+}
+
+header.StockQuote-Filter ul {
+  flex: 1;
+  list-style: none;
+  white-space: nowrap;
+  overflow: hidden;
+  height: 100%
+}
+
+header.StockQuote-Filter ul .Filter-Item {
+  padding: 0 20px;
+  display: inline-block;
+  position: relative;
+  text-align: center
+}
+
+header.StockQuote-Filter ul .Filter-Item:hover {
+  background-color: #34315b;
+  cursor: pointer
+}
+
+header.StockQuote-Filter ul .Filter-Item.active {
+  color: #599afc;
+  background-color: #34315b
+}
+
+header.StockQuote-Filter ul .Filter-Item.active:before {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #599afc
+}
+
+header.StockQuote-Filter .Filter-Toolbar {
+  margin-right: 10px
+}
+
+header.StockQuote-Filter .Filter-Toolbar i.ico.hideAside,
+header.StockQuote-Filter .Filter-Toolbar i.ico.openSettings,
+header.StockQuote-Filter .Filter-Toolbar i.ico.showAside {
+  width: 24px;
+  height: 24px
+}
+header.StockQuote-Filter .Filter-Toolbar i.ico.addOption {
+  width: 24px;
+  height: 24px;
+  background: url(../images/plus.png) no-repeat center;
+  background-size: 15px;
+}
+header.StockQuote-Filter .Filter-Toolbar i.ico.showMenu {
+  width: 12px;
+  margin-right: 7px;
+  line-height: 32px;
+  text-align: center
+}
+header.StockQuote-Filter .Filter-Toolbar i.ico.showAside {
+  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNy4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB3aWR0aD0iMzJweCIgaGVpZ2h0PSIzMnB4IiBzdHlsZT0iZmlsbDogI2ZmZjsiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMzIgMzIiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPGc+DQoJPHBhdGggZD0iTTEyLjkyNywyNS4xNDdjMC4yNTYsMCwwLjUxMi0wLjA5OCwwLjcwNy0wLjI5M2w4LjE0Ni04LjE0N2MwLjM5MS0wLjM5MSwwLjM5MS0xLjAyMywwLTEuNDE0bC04LjE0Ni04LjE0Nw0KCQljLTAuMzkxLTAuMzkxLTEuMDIzLTAuMzkxLTEuNDE0LDBzLTAuMzkxLDEuMDIzLDAsMS40MTRMMTkuNjU5LDE2bC03LjQzOSw3LjQ0Yy0wLjM5MSwwLjM5MS0wLjM5MSwxLjAyMywwLDEuNDE0DQoJCUMxMi40MTUsMjUuMDUsMTIuNjcxLDI1LjE0NywxMi45MjcsMjUuMTQ3eiIvPg0KPC9nPg0KPC9zdmc+DQo=);
+}
+header.StockQuote-Filter .Filter-Toolbar i.ico.hideAside {
+  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNy4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB3aWR0aD0iMzJweCIgaGVpZ2h0PSIzMnB4IiBzdHlsZT0iZmlsbDogI2ZmZjsiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMzIgMzIiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPGc+DQoJPHBhdGggZD0iTTE5LjA3MywyNS4xNDdjLTAuMjU2LDAtMC41MTItMC4wOTgtMC43MDctMC4yOTNsLTguMTQ2LTguMTQ3Yy0wLjM5MS0wLjM5MS0wLjM5MS0xLjAyMywwLTEuNDE0bDguMTQ2LTguMTQ3DQoJCWMwLjM5MS0wLjM5MSwxLjAyMy0wLjM5MSwxLjQxNCwwczAuMzkxLDEuMDIzLDAsMS40MTRMMTIuMzQxLDE2bDcuNDM5LDcuNDRjMC4zOTEsMC4zOTEsMC4zOTEsMS4wMjMsMCwxLjQxNA0KCQlDMTkuNTg1LDI1LjA1LDE5LjMyOSwyNS4xNDcsMTkuMDczLDI1LjE0N3oiLz4NCjwvZz4NCjwvc3ZnPg0K);
+}
+
+header.StockQuote-Filter .Filter-Toolbar i:hover {
+  background-color: #34315b
+}
+
+.StockTrade-GeneralTrade {
+  display: flex;
+  height: 100%
+}
+
+.StockTrade-GeneralTrade .left {
+  width: 870px;
+  height: 100%;
+  /*background: #181527;*/
+  position: relative
+}
+
+.StockTrade-GeneralTrade .right {
+  flex: 1;
+  margin-left: 6px;
+  height: 100%;
+  position: relative
+}
+
+.StockTrade-GeneralTrade .right button {
+  position: absolute;
+  z-index: 50
+}
+
+.StockTrade-GeneralTrade .top {
+  width: 100%;
+  height: 400px
+}
+
+.StockTrade-GeneralTrade .bottom {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 400px;
+  bottom: 0
+}
+
+.StockTrade-GeneralTrade .GeneralTrade-TradeFund,
+.StockTrade-GeneralTrade .GeneralTrade-TradeHandicap,
+.StockTrade-GeneralTrade .GeneralTrade-TradeOrder {
+  float: left
+}
+
+.StockTrade-GeneralTrade .GeneralTrade-TradeHandicap,
+.StockTrade-GeneralTrade .GeneralTrade-TradeOrder {
+  margin-left: 2px
+}
+
+.GeneralTrade-TradeFund .head {
+  font-size: 14px;
+  text-indent: 20px;
+  height: 40px;
+  line-height: 40px;
+  background: #3a3c5c
+}
+
+.GeneralTrade-TradeFund .fund-option {
+  margin-left: 10px
+}
+
+.GeneralTrade-TradeFund .content li {
+  height: 40px;
+  line-height: 40px;
+  font-size: 12px;
+  list-style: none
+}
+
+.GeneralTrade-TradeFund .content span {
+  display: inline-block;
+  border-right: 1px solid #2e2b3e;
+  border-bottom: 1px solid #2e2b3e
+}
+
+.GeneralTrade-TradeFund .content li:last-child span {
+  border-bottom-style: none
+}
+
+.GeneralTrade-TradeFund .content .title {
+  text-align: left;
+  color: #838383;
+  width: 72px;
+  text-indent: 12px;
+  vertical-align: top
+}
+
+.GeneralTrade-TradeFund .content .data {
+  text-align: right;
+  width: 84px;
+  padding-right: 12px;
+  height: 40px;
+  line-height: 40px
+}
+
+.GeneralTrade-TradeOrder {
+  font-size: 12px;
+  width: 318px
+}
+
+.GeneralTrade-TradeOrder .head {
+  height: 40px;
+  background: #3a3c5c;
+  position: relative
+}
+
+.GeneralTrade-TradeOrder .tabs {
+  padding: 0 4px
+}
+
+.GeneralTrade-TradeOrder .tab {
+  display: inline-block;
+  height: 32px;
+  line-height: 32px;
+  width: 58px;
+  margin: 8px 0 0 4px;
+  border-radius: 5px 5px 0 0;
+  color: #fff;
+  background: #2b2b46;
+  text-align: center;
+  position: relative;
+  cursor: pointer;
+  border-right: 1px solid #181527;
+  color: #838383
+}
+
+.GeneralTrade-TradeOrder .tradeSettings {
+  position: absolute;
+  top: 13px;
+  right: 15px;
+  width: 14px;
+  height: 14px;
+  cursor: pointer
+}
+
+.GeneralTrade-TradeOrder .tradeSettings:hover {
+  background: #34315b
+}
+
+.GeneralTrade-TradeOrder .content {
+  height: 293px;
+  border-bottom: 1px solid #2e2b3e;
+  padding-top: 20px
+}
+
+.GeneralTrade-TradeOrder .content ul {
+  list-style: none;
+  width: 100%
+}
+
+.GeneralTrade-TradeOrder .content span {
+  display: inline-block
+}
+
+.GeneralTrade-TradeOrder .content li {
+  height: 28px;
+  margin-top: 20px
+}
+
+.GeneralTrade-TradeOrder .content li:first-child {
+  margin-top: 0
+}
+
+.GeneralTrade-TradeOrder .content li.notitle {
+  height: 16px;
+  line-height: 16px;
+  margin-top: 10px
+}
+
+.GeneralTrade-TradeOrder .content li.note {
+  height: 16px;
+  line-height: 16px;
+  margin-top: 5px
+}
+
+.GeneralTrade-TradeOrder .content .title {
+  width: 60px;
+  text-align: right;
+  color: #838383
+}
+
+.GeneralTrade-TradeOrder .content .data {
+  width: 180px
+}
+
+.GeneralTrade-TradeOrder .content .riseTo {
+  float: left;
+  padding-left: 5px
+}
+
+.GeneralTrade-TradeOrder .content .fallTo {
+  float: right;
+  padding-right: 5px
+}
+
+.GeneralTrade-TradeOrder .content input {
+  height: 28px;
+  background: #292a48;
+  color: #fff;
+  border: none
+}
+
+.GeneralTrade-TradeOrder .content input:focus {
+  outline: none
+}
+
+.GeneralTrade-TradeOrder .content .code {
+  background: #292a48;
+  border-radius: 5px;
+  text-indent: 8px
+}
+
+.GeneralTrade-TradeOrder .content .code input {
+  width: 68px;
+  padding: 0
+}
+
+.GeneralTrade-TradeOrder .content .code span {
+  float: right;
+  margin-right: 5px;
+  color: #838383;
+  line-height: 28px
+}
+
+.GeneralTrade-TradeOrder .content .num .NumberInput,
+.GeneralTrade-TradeOrder .content .price .NumberInput {
+  width: 100%;
+  height: 28px
+}
+
+.GeneralTrade-TradeOrder .content .num input,
+.GeneralTrade-TradeOrder .content .price input {
+  width: 158px
+}
+
+.GeneralTrade-TradeOrder .content .note {
+  font-size: 12px;
+  color: red
+}
+
+.GeneralTrade-TradeOrder .content .rate {
+  line-height: 18px;
+  padding: 0 6px;
+  cursor: pointer;
+  margin-right: 16px
+}
+
+.GeneralTrade-TradeOrder .content .rate:last-child {
+  margin-right: 0
+}
+
+.GeneralTrade-TradeOrder .content .doOrder {
+  height: 32px;
+  line-height: 32px;
+  border-radius: 5px;
+  text-align: center;
+  cursor: pointer
+}
+
+.GeneralTrade-TradeOrder .foot {
+  line-height: 46px
+}
+
+.GeneralTrade-TradeOrder .foot .DownSelect {
+  height: 28px;
+  line-height: 28px
+}
+
+.GeneralTrade-TradeOrder .foot .DownSelect .active {
+  border-radius: 5px
+}
+
+.GeneralTrade-TradeOrder .foot .DownSelect .select-arrow {
+  top: 11px
+}
+
+.GeneralTrade-TradeOrder .foot .DownSelect .options {
+  top: 28px
+}
+
+.GeneralTrade-TradeOrder .foot .DownSelect .opt:last-child {
+  border-radius: 0 0 5px 5px
+}
+
+.GeneralTrade-TradeOrder .foot .DownSelect.expand .active {
+  border-radius: 5px 5px 0 0
+}
+
+.GeneralTrade-TradeOrder .foot .DownSelect.expand .options {
+  border-radius: 0 0 5px 5px
+}
+
+.GeneralTrade-TradeOrder .foot .account-option,
+.GeneralTrade-TradeOrder .foot .entrust-option {
+  margin: 0 10px;
+  width: 100px
+}
+
+.GeneralTrade-TradeOrder .foot .transfer {
+  color: #599afc;
+  border: 1px solid #599afc;
+  border-radius: 5px;
+  cursor: pointer;
+  line-height: 26px;
+  display: inline-block;
+  width: 46px;
+  text-align: center
+}
+
+.GeneralTrade-TradeOrder.Buy .tab.active,
+.GeneralTrade-TradeOrder.Buy .tab.active:after {
+  background: #2a1010;
+  z-index: 10;
+  color: #dd5839
+}
+
+.GeneralTrade-TradeOrder.Buy .content {
+  background: #2a1010
+}
+
+.GeneralTrade-TradeOrder.Buy .content .code,
+.GeneralTrade-TradeOrder.Buy .content .num,
+.GeneralTrade-TradeOrder.Buy .content .price {
+  border: 1px solid #6d3b29;
+  border-radius: 4px
+}
+
+.GeneralTrade-TradeOrder.Buy .content .rate.on {
+  color: #843425;
+  border: 1px solid #843425;
+  border-radius: 3px
+}
+
+.GeneralTrade-TradeOrder.Buy .content .doOrder {
+  background: #dd5839
+}
+
+.GeneralTrade-TradeOrder.Sell .tab.active,
+.GeneralTrade-TradeOrder.Sell .tab.active:after {
+  background: #10203f;
+  z-index: 10;
+  color: #599afc
+}
+
+.GeneralTrade-TradeOrder.Sell .content {
+  background: #10203f
+}
+
+.GeneralTrade-TradeOrder.Sell .content .code,
+.GeneralTrade-TradeOrder.Sell .content .num,
+.GeneralTrade-TradeOrder.Sell .content .price {
+  border: 1px solid #2e5590;
+  border-radius: 4px
+}
+
+.GeneralTrade-TradeOrder.Sell .content .rate.on {
+  color: #355d9e;
+  border: 1px solid #355d9e;
+  border-radius: 3px
+}
+
+.GeneralTrade-TradeOrder.Sell .content .doOrder {
+  background: #599afc
+}
+
+.GeneralTrade-TradeOrder.Transfer .tab.active,
+.GeneralTrade-TradeOrder.Transfer .tab.active:after {
+  background: #10203f;
+  z-index: 10
+}
+
+.GeneralTrade-TradeOrder.Transfer .content {
+  background: #10203f
+}
+
+.GeneralTrade-TradeOrder.Transfer .content .rate.on {
+  color: #355d9e;
+  border: 1px solid #355d9e;
+  border-radius: 3px
+}
+
+.GeneralTrade-TradeOrder.Transfer .content .doOrder {
+  background: #599afc
+}
+
+.TradeOrdrConfig-Wrap {
+  width: 410px;
+  height: 410px;
+  left: 50%;
+  top: 50%;
+  margin-left: -205px;
+  margin-top: -205px
+}
+
+.TradeOrdrConfig-Wrap .TradeOrdrConfig {
+  padding-left: 45px
+}
+
+.TradeOrdrConfig-Wrap .TradeOrdrConfig>ul {
+  list-style: none;
+  width: 100%
+}
+
+.TradeOrdrConfig-Wrap .TradeOrdrConfig>ul>li {
+  line-height: 30px;
+  margin-top: 30px
+}
+
+.TradeOrdrConfig-Wrap .TradeOrdrConfig .title {
+  width: 100px;
+  word-spacing: 6px;
+  display: inline-block
+}
+
+.TradeOrdrConfig-Wrap .TradeOrdrConfig .data {
+  display: inline-block
+}
+
+.TradeOrdrConfig-Wrap .TradeOrdrConfig .data .DownSelect {
+  height: 28px;
+  line-height: 28px;
+  width: 210px
+}
+
+.TradeOrdrConfig-Wrap .TradeOrdrConfig .data .DownSelect .active,
+.TradeOrdrConfig-Wrap .TradeOrdrConfig .data .DownSelect .options {
+  border-radius: 4px;
+  background: #fff;
+  border: 1px solid #ccc
+}
+
+.TradeOrdrConfig-Wrap .TradeOrdrConfig .data .DownSelect .select-arrow {
+  top: 12px
+}
+
+.TradeOrdrConfig-Wrap .TradeOrdrConfig .data .DownSelect .options {
+  top: 28px
+}
+
+.TradeOrdrConfig-Wrap .TradeOrdrConfig .data .DownSelect .opt:last-child {
+  border-radius: 0 0 4px 4px
+}
+
+.TradeOrdrConfig-Wrap .TradeOrdrConfig .data .DownSelect.expand .active {
+  border-radius: 4px 4px 0 0;
+  border-bottom: none
+}
+
+.TradeOrdrConfig-Wrap .TradeOrdrConfig .data .DownSelect.expand .options {
+  border-radius: 0 0 4px 4px;
+  border-top: none
+}
+
+.TradeOrdrConfig-Wrap .Footer {
+  position: relative
+}
+
+.TradeOrdrConfig-Wrap .Footer button:first-child {
+  left: 30px;
+  top: 50%;
+  margin: 0;
+  width: auto;
+  margin-top: -15px;
+  background: none;
+  border: none;
+  color: #599afc;
+  position: absolute
+}
+
+.OrderConfim-wrap.Popup {
+  width: 410px;
+  height: 360px;
+  left: 50%;
+  top: 50%;
+  margin-left: -205px;
+  margin-top: -180px
+}
+
+.OrderConfim-wrap.Popup .OrderConfim {
+  padding: 32px 35px
+}
+
+.OrderConfim-wrap.Popup .OrderConfim table {
+  table-layout: fixed;
+  line-height: 36px;
+  width: 100%
+}
+
+.OrderConfim-wrap.Popup .OrderConfim td {
+  border: 1px solid #ddd
+}
+
+.OrderConfim-wrap.Popup .OrderConfim .title {
+  color: #838383;
+  text-indent: 12px;
+  width: 110px
+}
+
+.OrderConfim-wrap.Popup .OrderConfim .data {
+  font-weight: 200;
+  text-indent: 15px
+}
+
+.GeneralTrade-TradeHandicap {
+  width: 378px;
+  height: 400px;
+  font-size: 12px
+}
+
+.GeneralTrade-TradeHandicap .head {
+  height: 40px;
+  background: #3a3c5c;
+  position: relative;
+  padding: 0 20px;
+  border-bottom: 1px solid #181527
+}
+
+.GeneralTrade-TradeHandicap .headLeft {
+  float: left;
+  line-height: 39px
+}
+
+.GeneralTrade-TradeHandicap .headLeft .name {
+  font-size: 16px
+}
+
+.GeneralTrade-TradeHandicap .headLeft .code {
+  color: #838383;
+  font-size: 13px
+}
+
+.GeneralTrade-TradeHandicap .headRight {
+  float: right;
+  line-height: 40px
+}
+
+.GeneralTrade-TradeHandicap .headRight span {
+  display: inline-block;
+  margin-left: 10px
+}
+
+.GeneralTrade-TradeHandicap .Tabs>.Tabs-Bar {
+  background: #21223f
+}
+
+.GeneralTrade-TradeHandicap .GeneralTrade-Handicap {
+  display: flex
+}
+
+.GeneralTrade-TradeHandicap .GeneralTrade-Handicap .StockTickFive {
+  width: 168px
+}
+
+.GeneralTrade-TradeHandicap .GeneralTrade-Handicap .StockTickDuel {
+  background: #1c1c2f;
+  margin-left: 1px
+}
+
+.GeneralTrade-TradeHandicap .GeneralTrade-Handicap .StockTickDuel,
+.GeneralTrade-TradeHandicap .GeneralTrade-Handicap .StockTickFive {
+  height: 323px
+}
+
+.GeneralTrade-TradeHandicap .GeneralTrade-Handicap .StockTickDuel table,
+.GeneralTrade-TradeHandicap .GeneralTrade-Handicap .StockTickFive table {
+  font-size: 12px
+}
+
+.GeneralTrade-TradeHandicap .MyStock-TimeSeriesWrap {
+  height: 323px
+}
+
+.GeneralTrade-TradePositionBoard {
+  position: relative;
+  height: 100%
+}
+
+.GeneralTrade-TradePositionBoard .openSettings {
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  cursor: pointer
+}
+
+.GeneralTrade-TradePositionBoard .openSettings:hover {
+  background-color: #34315b
+}
+
+.GeneralTrade-TradePositionBoard .DownSelect {
+  position: absolute;
+  right: 44px;
+  top: 8px
+}
+
+.GeneralTrade-TradePositionBoard .Tabs {
+  height: 100%
+}
+
+.GeneralTrade-TradePositionBoard .Tabs>.Tabs-Bar {
+  background: #3a3c5c
+}
+
+.GeneralTrade-TradePositionBoard .GeneralTrade-Position {
+  height: 100%;
+  overflow: hidden;
+  position: relative
+}
+
+.GeneralTrade-TradePositionBoard .GeneralTrade-Position .tbody-scorll {
+  width: 100%;
+  overflow: hidden
+}
+
+.GeneralTrade-TradePositionBoard .GeneralTrade-Position table {
+  table-layout: fixed;
+  width: 100%;
+  font-size: 13px;
+  min-width: 700px
+}
+
+.GeneralTrade-TradePositionBoard .GeneralTrade-Position thead {
+  background: #1c1c2f;
+  color: #838383
+}
+
+.GeneralTrade-TradePositionBoard .GeneralTrade-Position td,
+.GeneralTrade-TradePositionBoard .GeneralTrade-Position th {
+  border: 1px solid #29263a;
+  height: 28px;
+  line-height: 28px;
+  font-weight: 100;
+  padding-right: 10px;
+  text-align: right
+}
+
+.GeneralTrade-TradeEntrustBoard {
+  position: relative;
+  height: 100%
+}
+
+.GeneralTrade-TradeEntrustBoard .op-area {
+  position: absolute;
+  right: 16px;
+  top: 7px
+}
+
+.GeneralTrade-TradeEntrustBoard .op-area .btn {
+  display: inline-block;
+  cursor: pointer;
+  line-height: 20px;
+  border: 1px solid #599afc;
+  color: #599afc;
+  text-align: center;
+  border-radius: 5px;
+  vertical-align: top
+}
+
+.GeneralTrade-TradeEntrustBoard .op-area .cancel {
+  width: 46px
+}
+
+.GeneralTrade-TradeEntrustBoard .op-area .query {
+  width: 76px
+}
+
+.GeneralTrade-TradeEntrustBoard .op-area .openSettings {
+  width: 24px;
+  height: 24px;
+  cursor: pointer
+}
+
+.GeneralTrade-TradeEntrustBoard .op-area .openSettings:hover {
+  background-color: #34315b
+}
+
+.GeneralTrade-TradeEntrustBoard .Tabs {
+  height: 100%
+}
+
+.GeneralTrade-TradeEntrustBoard .Tabs>.Tabs-Bar {
+  background: #3a3c5c
+}
+
+.GeneralTrade-TradeEntrustBoard .tbody-wrap {
+  height: 100%;
+  position: relative;
+  overflow: hidden
+}
+
+.GeneralTrade-TradeEntrustBoard .tbody-wrap .tbody-scorll {
+  width: 100%;
+  overflow: hidden
+}
+
+.GeneralTrade-TradeEntrustBoard .tbody-wrap .tbody-scorll.hover {
+  overflow: auto
+}
+
+.GeneralTrade-TradeEntrustBoard .tbody-wrap table {
+  table-layout: fixed;
+  width: 100%;
+  font-size: 13px;
+  min-width: 700px
+}
+
+.GeneralTrade-TradeEntrustBoard .tbody-wrap thead {
+  background: #1c1c2f;
+  color: #838383
+}
+
+.GeneralTrade-TradeEntrustBoard .tbody-wrap td,
+.GeneralTrade-TradeEntrustBoard .tbody-wrap th {
+  border: 1px solid #29263a;
+  height: 28px;
+  line-height: 28px;
+  font-weight: 100;
+  padding-right: 10px;
+  text-align: right
+}
+
+.Confirm-Cancel.Popup,
+.Hint.Popup {
+  width: 410px;
+  height: 220px;
+  left: 50%;
+  top: 50%;
+  margin-left: -205px;
+  margin-top: -110px
+}
+
+.Confirm-Cancel.Popup .Content p,
+.Hint.Popup .Content p {
+  text-align: center;
+  margin: 45px 0
+}
+
+.Columns-Settings.Popup {
+  width: 450px;
+  height: 500px;
+  left: 50%;
+  margin-left: -225px;
+  top: 50%;
+  margin-top: -250px;
+  bottom: initial;
+  right: initial
+}
+
+.Columns-Settings.Popup .Content {
+  position: relative;
+  flex: 1;
+  padding: 0;
+  margin-top: .5em
+}
+
+.Columns-Settings.Popup .Content .Tabs {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0
+}
+
+.Columns-Settings.Popup .Content .Tabs .Tabs-Bar {
+  margin-left: 2em;
+  margin-right: 2em
+}
+
+.Columns-Settings.Popup .Content .Tabs .Tabs-Content {
+  margin-left: 2em;
+  margin-right: 2em;
+  border: 1px solid #ccc
+}
+
+.Columns-Settings.Popup .Content .Tabs .Tabs-Content>div {
+  height: 100%
+}
+
+.Columns-Settings.Popup .Content .Tabs .Tabs-Content>div .EditListWrap {
+  height: 100%;
+  display: flex;
+  flex-direction: column
+}
+
+.Columns-Settings.Popup .Content .Tabs .Tabs-Content>div .EditListWrap .EditList {
+  position: relative;
+  overflow: hidden;
+  flex: 1
+}
+
+.Columns-Settings.Popup .Content .Tabs .Tabs-Content>div .EditListWrap header {
+  color: #666;
+  background-color: #eee
+}
+
+.Columns-Settings.Popup .Content .Tabs .Tabs-Content>div .EditListWrap header,
+.Columns-Settings.Popup .Content .Tabs .Tabs-Content>div .EditListWrap li {
+  width: 100%;
+  height: 36px;
+  line-height: 36px
+}
+
+.Columns-Settings.Popup .Content .Tabs .Tabs-Content>div .EditListWrap ul {
+  position: relative;
+  flex: 1
+}
+
+.Columns-Settings.Popup .Content .Tabs .Tabs-Content>div .EditListWrap ul li {
+  transition: opacity .3s
+}
+
+.Columns-Settings.Popup .Content .Tabs .Tabs-Content>div .EditListWrap i.ico {
+  width: 24px;
+  height: 24px
+}
+
+.Columns-Settings.Popup .Content .Tabs .Tabs-Content>div .EditListWrap i.ico svg {
+  fill: #000
+}
+
+.Columns-Settings.Popup .Content .Tabs .Tabs-Content>div .EditListWrap li {
+  border-bottom: 1px solid #eee
+}
+
+.Columns-Settings.Popup .Content .Tabs .Tabs-Content>div .EditListWrap li:last-child {
+  border-bottom: none
+}
+
+.Columns-Settings.Popup .Content .Tabs .Tabs-Content>div .EditListWrap li.visible .visibility svg {
+  fill: #599afc
+}
+
+.Columns-Settings.Popup .Content .Tabs .Tabs-Content>div .EditListWrap li.invisible {
+  color: #666
+}
+
+.Columns-Settings.Popup .Content .Tabs .Tabs-Content>div .EditListWrap li.invisible svg {
+  fill: #666
+}
+
+.Columns-Settings.Popup .Content .Tabs .Tabs-Content>div .EditListWrap span.column {
+  cursor: default;
+  display: inline-block;
+  text-align: center;
+  padding: 0 6px;
+  box-sizing: border-box
+}
+
+.Columns-Settings.Popup .Content .Tabs .Tabs-Content>div .EditListWrap span.column:nth-child(1) {
+  width: 15%
+}
+
+.Columns-Settings.Popup .Content .Tabs .Tabs-Content>div .EditListWrap span.column:nth-child(2) {
+  width: 70%;
+  text-align: left
+}
+
+.Columns-Settings.Popup .Content .Tabs .Tabs-Content>div .EditListWrap span.column:nth-child(3) {
+  width: 15%
+}
+
+.Columns-Settings.Popup .Footer {
+  border-top: none;
+  position: relative;
+  margin: 0 2em
+}
+
+.Columns-Settings.Popup .Footer button:first-child {
+  left: 0;
+  top: 50%;
+  margin: 0;
+  width: auto;
+  margin-top: -15px;
+  background: none;
+  border: none;
+  color: #599afc;
+  position: absolute
+}
+
+.TradeTransfer-Wrap {
+  width: 410px;
+  height: 440px;
+  left: 50%;
+  top: 50%;
+  margin-left: -205px;
+  margin-top: -220px
+}
+
+.GeneralTrade-TradeTransfer {
+  padding: 10px 30px
+}
+
+.GeneralTrade-TradeTransfer .Light.Tabs>.Tabs-Bar {
+  margin-left: 0
+}
+
+.GeneralTrade-TradeTransfer .Tabs-Content {
+  border: 1px solid #ccc
+}
+
+.GeneralTrade-TradeTransfer .TransferInOut>ul {
+  list-style: none;
+  width: 100%;
+  padding: 0 0 40px 30px
+}
+
+.GeneralTrade-TradeTransfer .TransferInOut>ul>li {
+  line-height: 30px;
+  margin-top: 20px
+}
+
+.GeneralTrade-TradeTransfer .TransferInOut>ul>li.note {
+  line-height: 16px;
+  margin-top: 5px
+}
+
+.GeneralTrade-TradeTransfer .TransferInOut .title {
+  width: 80px;
+  word-spacing: 25px;
+  display: inline-block
+}
+
+.GeneralTrade-TradeTransfer .TransferInOut .data {
+  display: inline-block
+}
+
+.GeneralTrade-TradeTransfer .TransferInOut .data .DownSelect {
+  height: 28px;
+  line-height: 28px;
+  width: 180px
+}
+
+.GeneralTrade-TradeTransfer .TransferInOut .data .DownSelect .active,
+.GeneralTrade-TradeTransfer .TransferInOut .data .DownSelect .options {
+  border-radius: 4px;
+  background: #fff;
+  border: 1px solid #ccc
+}
+
+.GeneralTrade-TradeTransfer .TransferInOut .data .DownSelect .select-arrow {
+  top: 12px
+}
+
+.GeneralTrade-TradeTransfer .TransferInOut .data .DownSelect .options {
+  top: 28px
+}
+
+.GeneralTrade-TradeTransfer .TransferInOut .data .DownSelect .opt:last-child {
+  border-radius: 0 0 4px 4px
+}
+
+.GeneralTrade-TradeTransfer .TransferInOut .data .DownSelect.expand .active {
+  border-radius: 4px 4px 0 0;
+  border-bottom: none
+}
+
+.GeneralTrade-TradeTransfer .TransferInOut .data .DownSelect.expand .options {
+  border-radius: 0 0 4px 4px;
+  border-top: none
+}
+
+.GeneralTrade-TradeTransfer .TransferInOut .data input {
+  width: 182px;
+  height: 30px;
+  line-height: 30px;
+  padding: 0;
+  text-indent: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box
+}
+
+.GeneralTrade-TradeTransfer .TransferInOut .data input:focus {
+  outline: none
+}
+
+.GeneralTrade-TradeTransfer .TransferInOut .data input.currency {
+  color: #ccc
+}
+
+.GeneralTrade-TradeTransfer .TransferInOut .data.transfer-btn {
+  width: 182px;
+  height: 30px;
+  line-height: 30px;
+  border-radius: 4px;
+  text-align: center;
+  color: #fff;
+  margin-top: 5px;
+  cursor: pointer
+}
+
+.GeneralTrade-TradeTransfer .TransferInOut .data.in {
+  background: #dd5839
+}
+
+.GeneralTrade-TradeTransfer .TransferInOut .data.out,
+.GeneralTrade-TradeTransfer .TransferInOut .data.query {
+  background: #499aff
+}
+
+.Confirm-Transfer.Popup,
+.Hint.Popup {
+  width: 410px;
+  height: 220px;
+  left: 50%;
+  top: 50%;
+  margin-left: -205px;
+  margin-top: -110px
+}
+
+.Confirm-Transfer.Popup .Content p,
+.Hint.Popup .Content p {
+  text-align: center;
+  margin: 45px 0
+}
+
+.Hint-Loading.Popup {
+  width: 410px;
+  height: 180px;
+  left: 50%;
+  top: 50%;
+  margin-left: -205px;
+  margin-top: -90px
+}
+
+.Hint-Loading.Popup .Content p {
+  text-align: center;
+  margin: 45px 0
+}
+
+.Hint-Loading.Popup .Content #loader>div {
+  background-color: #3a3c5c
+}
+
+.QuickTrade-Wrap.Popup {
+  width: 876px;
+  height: 496px;
+  left: 50%;
+  top: 50%;
+  margin-left: -438px;
+  margin-top: -248px
+}
+
+.GeneralTrade-QuickTrade {
+  position: relative;
+  padding: 20px 30px;
+  overflow: hidden
+}
+
+.GeneralTrade-QuickTrade .GeneralTrade-TradeFund {
+  width: 223px;
+  height: 400px;
+  float: left;
+  margin-right: 10px;
+  border: 1px solid #ddd
+}
+
+.GeneralTrade-QuickTrade .GeneralTrade-TradeFund .head {
+  background: #eee;
+  border-bottom: 1px solid #ddd
+}
+
+.GeneralTrade-QuickTrade .GeneralTrade-TradeFund .fund-option {
+  margin-left: 62px
+}
+
+.GeneralTrade-QuickTrade .GeneralTrade-TradeFund .fund-option .active,
+.GeneralTrade-QuickTrade .GeneralTrade-TradeFund .fund-option .options {
+  background: #fff
+}
+
+.GeneralTrade-QuickTrade .GeneralTrade-TradeFund .fund-option .active {
+  border: 1px solid #ddd
+}
+
+.GeneralTrade-QuickTrade .GeneralTrade-TradeFund .content span {
+  border-color: #ddd
+}
+
+.GeneralTrade-QuickTrade .GeneralTrade-TradeFund .content .title {
+  width: 80px
+}
+
+.GeneralTrade-QuickTrade .GeneralTrade-TradeFund .content .data {
+  width: 130px;
+  border-right-style: none;
+  font-weight: 400
+}
+
+.GeneralTrade-QuickTrade .GeneralTrade-TradeOrder {
+  width: 346px;
+  height: 400px;
+  float: left;
+  margin-right: 10px
+}
+
+.GeneralTrade-QuickTrade .GeneralTrade-TradeOrder .head {
+  background: #fff;
+  height: 32px
+}
+
+.GeneralTrade-QuickTrade .GeneralTrade-TradeOrder .tabs {
+  padding: 0
+}
+
+.GeneralTrade-QuickTrade .GeneralTrade-TradeOrder .tabs .tab {
+  background: #a4b5cb;
+  color: #fff;
+  margin: 0 4px 0 0;
+  border: 1px solid #ccc;
+  border-bottom: none
+}
+
+.GeneralTrade-QuickTrade .GeneralTrade-TradeOrder .tabs .tab.active {
+  color: #000
+}
+
+.GeneralTrade-QuickTrade .GeneralTrade-TradeOrder .tradeSettings svg {
+  fill: #838383
+}
+
+.GeneralTrade-QuickTrade .GeneralTrade-TradeOrder .tradeSettings:hover {
+  background: #eee
+}
+
+.GeneralTrade-QuickTrade .GeneralTrade-TradeOrder .content {
+  border: 1px solid #ccc;
+  border-bottom: none;
+  font-weight: 400;
+  height: 302px
+}
+
+.GeneralTrade-QuickTrade .GeneralTrade-TradeOrder .content .title {
+  color: #000
+}
+
+.GeneralTrade-QuickTrade .GeneralTrade-TradeOrder .content .rate {
+  color: #777
+}
+
+.GeneralTrade-QuickTrade .GeneralTrade-TradeOrder .content .doOrder {
+  color: #fff
+}
+
+.GeneralTrade-QuickTrade .GeneralTrade-TradeOrder .foot {
+  background: #eee;
+  border: 1px solid #ccc;
+  border-top: none
+}
+
+.GeneralTrade-QuickTrade .GeneralTrade-TradeOrder.Buy .content,
+.GeneralTrade-QuickTrade .GeneralTrade-TradeOrder.Buy .tab.active {
+  background: #ffefef
+}
+
+.GeneralTrade-QuickTrade .GeneralTrade-TradeOrder.Buy .content input {
+  background: #fff4e6;
+  color: #000
+}
+
+.GeneralTrade-QuickTrade .GeneralTrade-TradeOrder.Buy .content .code,
+.GeneralTrade-QuickTrade .GeneralTrade-TradeOrder.Buy .content .num,
+.GeneralTrade-QuickTrade .GeneralTrade-TradeOrder.Buy .content .price {
+  background: #fff4e6;
+  border-color: #f3b88d
+}
+
+.GeneralTrade-QuickTrade .GeneralTrade-TradeOrder.Buy .content .rate.on {
+  color: #fff;
+  background: #dd5839;
+  border: none
+}
+
+.GeneralTrade-QuickTrade .GeneralTrade-TradeOrder.Sell .content,
+.GeneralTrade-QuickTrade .GeneralTrade-TradeOrder.Sell .tab.active {
+  background: #edf4ff
+}
+
+.GeneralTrade-QuickTrade .GeneralTrade-TradeOrder.Sell .content input {
+  background: #f4f8fb;
+  color: #000
+}
+
+.GeneralTrade-QuickTrade .GeneralTrade-TradeOrder.Sell .content .code,
+.GeneralTrade-QuickTrade .GeneralTrade-TradeOrder.Sell .content .num,
+.GeneralTrade-QuickTrade .GeneralTrade-TradeOrder.Sell .content .price {
+  background: #f4f8fb;
+  border-color: #9cc1d2
+}
+
+.GeneralTrade-QuickTrade .GeneralTrade-TradeOrder.Sell .content .rate.on {
+  color: #fff;
+  background: #599afc;
+  border: none
+}
+
+.GeneralTrade-QuickTrade .QuickPosition {
+  width: 222px;
+  height: 400px;
+  float: left;
+  border: 1px solid #ddd
+}
+
+.GeneralTrade-QuickTrade .QuickPosition .head {
+  font-size: 14px;
+  text-indent: 20px;
+  height: 40px;
+  line-height: 40px;
+  background: #eee
+}
+
+.GeneralTrade-QuickTrade .QuickPosition .GeneralTrade-Position {
+  position: relative;
+  height: 360px;
+  overflow: hidden
+}
+
+.GeneralTrade-QuickTrade .QuickPosition .GeneralTrade-Position .tbody-scorll {
+  width: 100%
+}
+
+.GeneralTrade-QuickTrade .QuickPosition .GeneralTrade-Position table {
+  table-layout: fixed;
+  width: 100%;
+  font-size: 13px
+}
+
+.GeneralTrade-QuickTrade .QuickPosition .GeneralTrade-Position thead {
+  background: #f8f8f8;
+  color: #838383
+}
+
+.GeneralTrade-QuickTrade .QuickPosition .GeneralTrade-Position td,
+.GeneralTrade-QuickTrade .QuickPosition .GeneralTrade-Position th {
+  border: 1px solid #ddd;
+  height: 28px;
+  line-height: 28px;
+  font-weight: 100;
+  padding-right: 10px;
+  text-align: right
+}
+
+.GeneralTrade-QuickTrade .QuickPosition .GeneralTrade-Position td:last-child,
+.GeneralTrade-QuickTrade .QuickPosition .GeneralTrade-Position th:last-child {
+  border-right: none
+}
+
+.GeneralTrade-QuickTrade .QuickPosition .GeneralTrade-Position td:first-child,
+.GeneralTrade-QuickTrade .QuickPosition .GeneralTrade-Position th:first-child {
+  border-left: none
+}
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+:after, :before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.clearfix:after, .clearfix:before, .row:after, .row:before {
+  display: table;
+  content: " ";
+}
+.clearfix:after, .row:after {
+  clear: both;
+}
+.pull-left {
+  float: left;
+}
+.pull-right {
+  float: right;
+}
+p {
+  margin: 0;
+}
+.font102 {
+  font-size: 16px;
+  color: #fff;
+  line-height: 16px;
+}
+.color16 { color: #5e91ec; }
+.color17 { color: #dc4936; }
+.color18 { color: #41b43f; }
+.lh20 { line-height: 20px; }
+.lh38 { line-height: 38px; }
+.mt16 { margin-top: 16px; }
+.mt20 { margin-top: 20px; }
+.ml18 { margin-left: 18px; }
+.ml22 { margin-left: 22px; }
+label.radio {
+  cursor: pointer;
+}
+label.checkbox {
+  cursor: pointer;
+}
+.radio input[type="radio"] {
+  position: absolute;
+  visibility: hidden;
+}
+.checkbox input[type="checkbox"] {
+  position: absolute;
+  visibility: hidden;
+}
+.icon-radio {
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+  background: url(../images/radio1.png) no-repeat;
+  vertical-align: baseline;
+  margin-right: 9px;
+}
+.selected .icon-radio {
+  background: url(../images/radio2.png) no-repeat;
+}
+.disabled .icon-radio {
+  background: url(../images/radio5.png) no-repeat;
+}
+.disabled.selected .icon-radio {
+  background: url(../images/radio6.png) no-repeat;
+}
+.icon-checkbox {
+  display: inline-block;
+  width: 13px;
+  height: 12px;
+  background: url(../images/checkbox1.png) no-repeat;
+  vertical-align: baseline;
+  margin-right: 9px;
+}
+.selected .icon-checkbox {
+  background: url(../images/checkbox2.png) no-repeat;
+}
+.disabled .icon-checkbox {
+  background: url(../images/checkbox3.png) no-repeat;
+}
+.disabled.selected .icon-checkbox {
+  background: url(../images/checkbox4.png) no-repeat;
+}
+.disabled.radio, .disabled.checkbox {
+  color: #7a7c7d;
+  pointer-events: none;
+}
+.visible-hidden {
+  visibility: hidden;
+}
+.ContentOuter .StockGrid table th, .ContentOuter .StockGrid table td {
+  width: 6.5rem;
+  max-width: 6.5rem;
+  min-width: 6.5rem;
+}
+.ContentOuter .StockGrid table th.name, .ContentOuter .StockGrid table td.name {
+  width: 9.5em;
+  max-width: 9.5em;
+  min-width: 9.5em;
+}
+.ContentOuter .StockGrid table th.code, .ContentOuter .StockGrid table td.code {
+  width: 9em;
+  max-width: 9em;
+  min-width: 9em;
+  text-align: right;
+}
+.ContentOuter .StockGrid .detail th:last-child, .ContentOuter .StockGrid .detail td:last-child {
+  width: 6.5rem;
+  max-width: 6.5rem;
+  min-width: 6.5rem;
+}
+.Scrollbar .handle {
+  -webkit-box-sizing: content-box;
+     -moz-box-sizing: content-box;
+          box-sizing: content-box;
+}
+.ContentOuter .StockGrid .TableWrap {
+  position: relative;
+  overflow: hidden;
+  background-color: #181527;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  flex: 1;
+}
+header.StockQuote-Filter ul .Filter-Item {
+  padding: 0;
+}
+.Filter-Item a {
+  display: block;
+  padding: 0 20px;
+  color: inherit;
+}
+.Tabs > .Tabs-Bar .Tabs-Bar-Item {
+  padding: 0;
+}
+.Tabs > .Tabs-Bar .Tabs-Bar-Item a {
+  display: block;
+  color: inherit;
+  padding: 0 20px;
+  cursor: pointer;
+}
+.hide {
+  display: none!important;
+}
+input:focus {
+  outline: 0;
+}

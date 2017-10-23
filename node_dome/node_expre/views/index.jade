@@ -1,0 +1,51 @@
+//- extends layout
+
+//- block content
+//-   h1= title
+//-   p Welcome to #{title}
+//-   section#wrapper
+//-     h2 Basic Structure
+//-     section
+//-       p
+//-         span This is a span within a p within a div!
+
+//- - var name = 'your name'
+//- h1 hello #{name}!
+
+//- - users = ['sally','joseph','michael','sanjay']
+//- - each user in users
+//-   p= user
+
+//- - awake = true
+//- - if(awake)
+//-   p you are awake !Make coffce!
+//- - else
+//-   p you are sleeping
+
+//- script
+//-   alert('Inline javascript in Jade!')
+
+//- h1 Jade Includes Express
+//- include includes/footer
+
+//- mixin users(users)
+//-   ul
+//-     each user in users
+//-       li= user
+//- - users = ['Tanya','Jose','Kim']
+//- mixin users(users)
+//- - more_users = ['Mark','Elean','Dave','Pete','Keiron']
+//- mixin users(more_users)
+
+h2 Form exapmple
+form(method='post',action='/')
+  fieldset
+    legend Add a user
+    p
+      label First name
+      input(name='user[first_name]')
+    p
+      label Last name
+      input(name='user[surname]')
+    p
+      input(type='submit',value='Save')

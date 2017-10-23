@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>示例</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+</head>
+<body>
+<div class="container" id="todu">
+    <h1 class="text-center"> TODOLIST</h1>
+    <form>
+        <label for="name">名称：</label>
+        <input type="text" class="form-control" name="name" id="name" ref="sele" placeholder="请输入名称" v-model="username">
+        <br/>
+        <label for="sag">年龄：</label>
+        <input type="text" class="form-control" name="seg" id="sag" ref="sele" placeholder="请输入年龄" v-model="ages">
+        <br/>
+        <div>
+            <button type="button" class="btn btn-primary" @click="addData()" value="添加">添加</button>
+            <input class="btn btn-danger" type="reset" value="重置">
+        </div>
+    </form>
+    <hr/>
+    <h3 class="text-center text-muted">数据查询列表</h3>
+    <table role="table" class="table">
+        <tr>
+            <th class="text-center">#</th>
+            <th class="text-center">名称</th>
+            <th class="text-center">年龄</th>
+            <th class="text-center">操作</th>
+        </tr>
+        <tr class="text-center" v-for="(list,index) in myData">
+            <td>{{index + 1}}</td>
+            <td>{{list.name}}</td>
+            <td>{{list.age}}</td>
+            <td>
+                <button class="btn btn-danger" data-toggle="modal" data-target="#layer" @click="nowindex=index,m=false">删除</button>
+            </td>
+        </tr>
+        <tr v-show="myData.lenth==0">
+            <td colspan="4">
+                <p class="text-center text-muted">暂无数据......</p>
+            </td>
+        </tr>
+        <tr v-show="myData.length!=0">
+            <td colspan="4" class="text-right">
+                <button class="btn btn-danger" @click="nowindex=-1,m=true" data-toggle="modal" data-target="#layer">删除全部</button>
+            </td>
+        </tr>
+    </table>
+    <!--模态框-->
+    <div role="dialog" class="modal fade" id="layer">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">确定<span v-show="m">全部</span>删除吗？</h4>
+                    <div class="text-right">
+                        <button class="btn btn-primary" data-dismiss="modal">取消</button>
+                        <button class="btn btn-danger" data-dismiss="modal" @click="noindex(nowindex)">确定</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="vue.js"></script>
+<script src="jquery-2.2.0.min.js"></script>
+<script src="bootstrap.min.js"></script>
+<script>
+    window.onload = function () {
+        new Vue({
+            el:'#todu',
+            data:{
+                myData:[],
+                username:'',
+                ages:'',
+                nowindex:1,
+                m:false
+            },
+            methods:{
+                addData:function () {
+                    if(this.$refs.sele.value == ''){
+                        alert('请填满资料！')
+                    }else{
+                        this.myData.push({
+                            name:this.username,
+                            age:this.ages
+                        });
+                        this.username = '';
+                        this.ages = '';
+                    }
+                },
+                noindex:function (n) {
+                    if(n == -1){
+                        this.myData = []
+                    }else{
+                        this.myData.splice(n,1)
+                    }
+                }
+            }
+        })
+    }
+</script>
+</body>
+</html>

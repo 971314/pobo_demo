@@ -1,0 +1,51 @@
+{
+  "index":{
+    "webservice": "http://192.168.6.18/HdNews2/Web/Hd_LatestNewsList.aspx?type=mu&doc=json",
+    "data":[
+      {
+        "name":"国内资讯",
+        "ids":["10101"],
+        "count": 30
+      },
+      {
+        "name":"金融财经",
+        "ids":["10301"],
+        "count": 30
+      },
+      {
+        "name":"稀贵金属",
+        "ids":["40102","40202"],
+        "count": 30
+      },
+      {
+        "name":"金属市场",
+        "ids":["40101","40201"],
+        "count": 30
+      },
+      {
+        "name":"农产品",
+        "ids":["40104","40204"],
+        "count": 30
+      },
+      {
+        "name":"能源化工",
+        "ids":["40105","40205"],
+        "count": 30
+      },
+      {
+        "name":"黑色金属",
+        "ids":["40103","40203"],
+        "count": 30
+      },
+      {
+        "name":"股指期货",
+        "ids":["30101","30102"],
+        "count": 30
+      }
+    ]
+  },
+  "details":{
+    "webservice": "http://192.168.6.18/HdNews2/Web/Hd_NewsContent.aspx?&type=mu&doc=json"
+  }
+
+}

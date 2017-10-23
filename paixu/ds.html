@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var arr = [
+        {
+            '63': '10001',
+            '503': '2'
+        },
+        {
+            '63': '10006',
+            '503': '1'
+        },
+        {
+            '63': '10005',
+            '503': '1'
+        },
+        {
+            '63': '10001',
+            '503': '0'
+        },
+        {
+            '63': '10002',
+            '503': '1'
+        },
+        {
+            '63': '10003',
+            '503': '1'
+        },
+        {
+            '63': '10002',
+            '503': '0'
+        },
+        {
+            '63': '10002',
+            '503': '2'
+        }
+        ,
+        {
+            '63': '美国',
+            '503': '0'
+        },
+        {
+            '63': '10002',
+            '503': '0'
+        },
+        {
+            '63': '中国',
+            '503': '0'
+        }
+        ,
+        {
+            '63': '美国',
+            '503': '1'
+        }
+
+    ];
+    function mySorter(a, b) {
+        a = a["63"]; b = b["63"];
+        if (/^\d/.test(a) ^ /^\D/.test(b)) return a > b ? 1 : (a == b ? 0 : -1);
+        return a > b ? -1 : (a == b ? 0 : 1);
+    }
+
+
+    function mpSort(arr) {
+        for (var i = 0; i < arr.length; i++) {
+            for (var j = 0; j < arr.length - i - 1; j++) {
+                if (arr[j]['503'] != 1
+                        && arr[j + 1]['503'] == 1) {
+                    var temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
+            }
+        }
+        return arr;
+    }
+    mpSort(arr);
+    arr.sort(mySorter);
+
+
+    for (var item in arr)
+        console.log(arr);
+</script>
+</body>
+</html>

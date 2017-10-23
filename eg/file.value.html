@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>截取file的文件名</title>
+</head>
+<body>
+<input type="file" id="file">
+<div class="e4"></div>
+<script src="jquery-1.11.3.min.js"></script>
+<script>
+    document.getElementById('file').onchange = function () {
+        var txt=$(this).val();
+//        var tfoot=txt.substring(txt.indexOf('.',12)+1)
+//        console.log(tfoot);
+        console.log(txt.indexOf('.',1) );
+        console.log(txt.substring(0,txt.lastIndexOf(".")))
+        console.log(txt.substring(txt.indexOf('.',-1)))
+//        var txt=$(this).val();
+//        var tnam=txt.substring(12);
+//        var tfoot=txt.substring(txt.indexOf('.',12)+1);
+//        if( /[\s\u4E00-\u9FA5\uF900-\uFA2D]/i.test(tnam)){
+//            $(".e4").html('<p>文件名不能为空格和中文</p>');
+//            return;
+//        }else{
+//            $(".e4").html("<p></p>");
+//        }
+//        if(tfoot!="ipa"&&tfoot!="apk"){
+//            $(".e4").html('<p>文件名格式不正确</p>');
+//            return;
+//        }else{
+//            $(".e4").html('<p></p>');
+//        }
+//        value()
+    };
+//    function value(){
+//        alert(document.getElementById('file').value);
+//        document.getElementById('file').value='';
+//    }
+
+
+
+//    var fileName = $("#file").val();
+//    if(fileName==""){
+//        //点击取消，取消事件的编写
+//        return;
+//    }
+</script>
+</body>
+</html>

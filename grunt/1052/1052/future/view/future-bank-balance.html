@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>银行余额</title>
+
+  <!-- Bootstrap -->
+  <link href="../../css/bootstrap.min.css" rel="stylesheet">
+  <link href="../../css/common.css" rel="stylesheet">
+  <style>
+    .row>.col-center {
+      margin-top: 52px;
+    }
+    .btn-3b0, .bgc-fe0000 {background-color: #3366cc;}
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" id="goBack">
+          <img src="../../images/goback.png" alt="返回">
+        </a>
+      </div>
+      <p class="navbar-text">银行余额</p>
+    </div>
+  </nav>
+  <div class="container-fluid">
+    <div class="clearfix">
+      <div class="row content">
+        <div class="col-xs-3 left-title">
+          选择银行
+        </div>
+        <div class="col-xs-6 select bank-div">
+          <div id="bank" class="text-center"></div>
+          <input id="bank-val" type="hidden" value="">  <!--银行账号-->
+          <input id="bank-code" type="hidden" value="">
+          <input id="bank-currency" type="hidden" value="">
+          <input id="fund-account" type="hidden" value="">
+        </div>
+        <div class="col-xs-3 select bank-div">
+          <img src="../images/select.png" alt="">
+        </div>
+      </div>
+      <div class="row select-options">
+        <ul class="col-xs-6 option-ul hide" id="bank-ul">
+        </ul>
+      </div>
+      <div class="row content" id="bankPwd">
+        <div class="col-xs-4 left-title">
+          银行密码
+        </div>
+        <div class="col-xs-8 right-input">
+          <input id="bank-pwd" type="password" placeholder="请输入银行密码">
+        </div>
+      </div>
+      <div class="row content" id="moneyPwd">
+        <div class="col-xs-4 left-title">
+          资金密码
+        </div>
+        <div class="col-xs-8 right-input">
+          <input id="money-pwd" type="password" placeholder="请输入资金密码">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-center">
+          <input type="button" class="btn btn-block btn-3b0" value="查 询" onclick="queryBalance();">
+        </div>
+      </div>
+      
+      <div class="c3 hide" id="error"></div>  <!--错误信息，密码错误及其他错误-->
+      
+      <div class="my-modal hide">
+        <div class="my-modal-backdrop"></div>
+        <div class="my-modal-dialog c1 balance-dialog">
+          <p><span>银行：</span><span id="result-bank"></span></p>
+          <p><span>账号：</span><span id="result-val"></span></p>
+          <p><span>余额：</span><span id="result-balance"></span></p>
+          <div class="row btn-bottom text-center">
+            <a class="btn btn-xs bgc-fe0000 d0" onclick="cancelIn();">关闭</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="../../../js/jquery-2.2.0.min.js"></script>
+  <script src="../../js/common.js"></script>
+  <script src="../../js/futures-common.js"></script>
+  <script src="../js/future-tr.js"></script>
+<script>
+  bankBalanceView();
+  ready()
+</script>
+</body>
+</html>

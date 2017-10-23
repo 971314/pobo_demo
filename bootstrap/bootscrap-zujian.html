@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bootstrap-zujian</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="js/bootstrap.min.css">
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/bootstrap.min.css"></script>
+    <style>
+        .sideBar-menu{margin:20px  auto;width: 180px;}
+        /*重写鼠标滑过的样式*/
+        .nav-pills  li  a:hover
+        {
+            background-color: #337ab7;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+<!--  bootstrap制作导航菜单 -->
+<div  class="sideBar-menu  ">
+    <ul  class="nav   nav-pills  nav-stacked">
+        <li  role="presentation"  class="active"><a href="#"><span  class=" glyphicon  glyphicon-th-large">&nbsp;&nbsp;</span>首页</a></li>
+        <li  role="presentation"  class=""><a href="#"><span  class=" glyphicon  glyphicon-user">&nbsp;&nbsp;</span>关于我</a></li>
+        <li  role="presentation"  class=""><a href="#"><span  class=" glyphicon glyphicon-camera">&nbsp;&nbsp;</span>那些年</a></li>
+        <li  role="presentation"  class=""><a href="#"><span  class=" glyphicon glyphicon-pencil">&nbsp;&nbsp;</span>碎碎念</a></li>
+        <li  role="presentation"  class=""><a href="#"><span  class=" glyphicon  glyphicon-book">&nbsp;&nbsp;</span>留言板</a></li>
+        <li  role="presentation"  class=""><a href="#"><span  class=" glyphicon  glyphicon-heart">&nbsp;&nbsp;</span>情感语</a></li>
+    </ul>
+</div>
+<hr><br><br>
+<!-- 导航依赖于nav类nav-tabs类依赖nav类 -->
+<ul  class="nav  nav-tabs">
+    <li  role="presentation"  class="active"><a href="#">Home</a></li>
+    <!--注意加上role属性-->
+    <li  role="presentation"  class=""><a href="#">Profile</a></li>
+    <li  role="presentation"  class=""><a href="#">Messages</a></li>
+</ul>
+<!--胶囊式标签页 竖直排列nav-stacked-->
+<ul  class="nav  nav-pills  nav-stacked">
+    <li  role="presentation"  class="active"><a href="#">Home</a></li>
+    <li  role="presentation"  class=""><a href="#">Profile</a></li>
+    <li  role="presentation"  class=""><a href="#">Messages</a></li>
+</ul>
+<!--两端对齐导航nav-justified可实现导航均列对齐-->
+<ul  class="nav  nav-tabs  nav-justified">
+    <li  role="presentation"  class="active"><a href="#">Home</a></li>
+    <li  role="presentation"  class=""><a href="#">Profile</a></li>
+    <li  role="presentation"  class=""><a href="#">Messages</a></li>
+</ul>  <br><br>
+<hr>
+<br><br>
+<ul  class="nav  nav-pills">
+    <li  role="presentation"  class="dropdown">
+        <a  class="dropdown-toggle"  data-toggle="dropdown"  href="#"  role="button"  aria-haspopup="true"
+            aria-expanded="false">
+            Dropdown<span  class="caret"></span>
+        </a>
+        <ul  class="dropdown-menu">
+            <li><a  href="#">Action</a></li>
+            <li><a  href="#">Action  111</a></li>
+            <li><a  href="#">Action  222</a></li>
+            <li><a  href="#">Action  333</a></li>
+        </ul>
+    </li>
+    <li  role="presentation"  class="divider"></li>
+    <!--divider表示添加分隔线，一般都是给空的li或者span进行使用-->
+    <li  role="presentation"  class=""><a href="#">Profile</a></li>
+    <li  role="presentation"  class=""><a href="#">Messages</a></li>
+
+</ul>
+</body>
+</html>

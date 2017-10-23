@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var arr = [
+        {
+            '63': '10003',
+            '503': '2'
+        },
+        {
+            '63': '10001',
+            '503': '2'
+        },
+        {
+            '63': '10006',
+            '503': '1'
+        },
+        {
+            '63': '10005',
+            '503': '1'
+        },
+        {
+            '63': '10001',
+            '503': '1'
+        },
+        {
+            '63': '10002',
+            '503': '1'
+        },
+        {
+            '63': '10003',
+            '503': '1'
+        },
+        {
+            '63': '10002',
+            '503': '0'
+        },
+        {
+            '63': '10002',
+            '503': '2'
+        }
+
+    ];
+    function eqSort(arr) {
+        for(var i = 0;i < arr.length;i++){
+            for(var j = 1;j<arr.length;j++){
+                if(arr[i]['63'] == arr[j]['63']){
+//                    if(i ==0) i=1;
+                    var temp = arr[j];
+//                    arr[j] = arr[i-1];
+//                    arr[i-1] = temp;
+                    console.log(temp)
+                }
+            }
+        }
+        return arr;
+    }
+    console.log(eqSort(arr))
+</script>
+</body>
+</html>

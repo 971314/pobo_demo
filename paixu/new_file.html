@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="{CHARSET}">
+		<title></title>
+	</head>
+	<body>
+		<script>
+//			var olist=[
+//			{"63":"10001","503":"2"},
+//			{"63":"10002","503":"1"},
+//			{"63":"10001","503":"1"},
+//			{"63":"10005","503":"2"},
+//			{"63":"10002","503":"2"}
+//			];
+
+			var arr =[
+				    {'159': '15:20:50'},
+				{'159': '20:20:50'},
+				    {'159': '11:20:50'},
+				    {'159': '08:17:50'},
+				    {'159': '06:20:50'},
+				    {'159': '05:20:50'},
+				    {'159': '03:20:50'},
+					{'159': '22:20:50'},
+					{'159': '21:20:50'},
+				    {'159': '20:19:50'}
+			];
+function aa(arr) {
+	var nightArr = arr.filter(function (item) {
+		var timeStr = item['159'].replace(/\:/g, "");
+		return timeStr > '195959';
+	});
+	var todayArr = arr.filter(function (item) {
+		var timeStr = item['159'].replace(/\:/g, "");
+		return timeStr < '200000';
+	});
+	nightArr = nightArr.sort(function (item1, item2) {
+		return item2 - item1;
+	});
+	todayArr = todayArr.sort(function (item1, item2) {
+		return item2 - item1;
+	});
+	var newArr = [];
+	newArr = newArr.concat(todayArr, nightArr);
+	return newArr;
+}
+console.log(aa(arr));
+
+
+
+			
+			
+//			olist.sort(keysrt('63',true));
+//
+//			function keysrt(key,desc) {
+//				  return function(a,b){
+//				    return desc ? ~~(a[key] > b[key]) : ~~(a[key] < b[key]);
+//				  }
+//				}
+
+		</script>
+	</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>包含</title>
+    <script src="https://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+</head>
+<body>
+<!--<div ng-include="'runoob.html'"></div>-->
+<!--<div ng-app="myApp" ng-controller="sitesCtrl">-->
+    <!--<div ng-include="'sites.html'"></div>-->
+<!--</div>-->
+<!--<script>-->
+    <!--var app = angular.module('myApp', []);-->
+    <!--app.controller('sitesCtrl', function($scope, $http) {-->
+        <!--$http.get("https://c.runoob.com/runoobtest/angular_include.php").then(function (response) {-->
+            <!--$scope.names = response;-->
+        <!--});-->
+    <!--});-->
+<!--</script>-->
+<div ng-app="myApp">
+    <div ng-include="'https://c.runoob.com/runoobtest/angular_include.php'"></div>
+</div>
+
+<script>
+    var app = angular.module('myApp', []);
+    app.config(function($sceDelegateProvider) {
+        $sceDelegateProvider.resourceUrlWhitelist([
+            'https://c.runoob.com/runoobtest/**'
+        ]);
+    });
+</script>
+</body>
+</html>

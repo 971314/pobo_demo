@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>pobo应用商店</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="new_file1.css">
+    <link rel="stylesheet" href="media.css">
+    <!--<script src="js/jquery-1.11.3.min.js"></script>-->
+    <!--<script src="js/jquip.js"></script>-->
+    <!--<script src="js/jquip.events.js"></script>-->
+    <!--<script src="js/jquip.ajax.js"></script>-->
+    <!--<script src="js/jquip.docready.js"></script>-->
+<script src="js/jquery.js"></script>
+    <script src="js/url.js"></script>
+    <style>
+    #header{
+        width:100%;
+        height:0.35rem;
+        background:#277fc2;
+        text-align:center;
+        color:white;
+        line-height:0.35rem;
+        font-size:0.3rem;
+
+    }
+    #header .a{
+        display:inline-block;
+        width:0.3rem;
+        height:0.3rem;
+        float:right;
+        margin-right:0.1rem;
+        margin-top:0.02rem;
+    }
+    .home{
+        color:white;
+        font-size:.18rem;
+        position:absolute;
+        left:.1rem;
+        display:none;
+    }
+    .text{
+        width:100%;
+        height: .33rem;
+        font-size: .15rem;
+        text-align: center;
+        outline-color: #d9f3ff;
+        display:none;
+    }
+    #accordion{
+        width:98%;
+        margin:0.06rem auto;
+        padding:0.067rem;
+        height:4rem;
+    }
+    .co{
+        background-color:rgb(211,211,211);
+        margin:0.04rem 0 0 0;
+        cursor:pointer;
+        font-size:0.16rem;
+        font-weight:normal;
+        color:#666;
+        padding:0.067rem;
+        border:1px solid #bbb;
+    }
+    #accordion>h3:hover{
+        color:#444;
+        background-color:rgb(200,200,200);
+        border-color:#aaa;
+    }
+    #accordion>div{
+        padding:0.16rem 0.334rem;
+        overflow:auto;
+        display:none;
+    }
+    h3{
+        text-align:center;
+    }
+    .h3{
+        background-color:rgb(167, 208, 239);
+    }
+    .app_li a{
+        display:inline-block;
+        float:left;
+    }
+    .app_name{
+        width:62%;
+        display:inline-block;
+        float:left;
+    }
+    /*.adroid,.apple{*/
+        /*width:7.1%;*/
+        /*height:0.2rem;*/
+        /*float:right;*/
+    /*}*/
+    .adroid{
+        margin-right:0.5rem;
+    }
+    .adroid:hover{
+        background:url("img/adroid-1.png") no-repeat 0 0;
+    }
+    .adroid{
+        background:url("img/adroid.png") no-repeat 0 0;
+    }
+    .apple{
+        background:url("img/apple.png") no-repeat 0 0;
+    }
+    .apple:hover{
+        background:url("img/apple-1.png") no-repeat 0 0;
+    }
+    @media screen and (min-width: 320px) {
+        /*.app_li{*/
+            /*height:.3rem;*/
+        /*}*/
+        .app_li a{
+            line-height:0.2rem;
+        }
+        .adroid,.apple{
+            width:8%;
+            height:0.27rem;
+        }
+        #header>img{
+            float:left;
+            margin-left:.1rem;
+            margin-top: .03rem;
+        }
+    }
+    @media screen and (min-width: 360px) {
+
+    }
+    @media screen and (min-width: 375px) {
+        #header>img{
+            float:left;
+            margin-left:.1rem;
+            margin-top: .05rem;
+        }
+
+    }
+    @media screen and (min-width: 768px) {
+        #header>img{
+            float:left;
+            margin-left:.1rem;
+            margin-top: .09rem;
+        }
+    }
+    @media screen and (min-width: 1024px) {
+        #header>a>img{
+            display:block;
+        }
+    }
+    @media screen and (max-width: 1024px) {
+        #header .a{
+            display:none;
+        }
+    }
+    #accordion div:nth-of-type(1){
+            display:block;
+        }
+    </style>
+</head>
+<body>
+<div id="header">
+    <a href="index.html" class="home">首页</a>
+    <img src="img/soso.png">
+    <span>pobo</span>
+    <a href="login.html" class="a"><img src="img/login.png" alt=""></a>
+</div>
+<div id="accordion">
+    <input type="text" class="text" placeholder="请输入要搜索的圈商">
+</div>
+<script>
+    $(function () {
+        //    获取id/name
+        GetQueryString = function (name) {
+            var urls = decodeURI(window.location.search.substr(1));
+            var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)');
+            var r = urls.match(reg);
+            if (r) return unescape(r[2]);
+            return null;
+        };
+        var contractID =GetQueryString('treeId');
+//        百叶窗
+        $(document).on("click","#accordion>h3",function () {
+            $(this).next().stop(true).slideDown().siblings("div").stop(true).slideUp();
+            $(this).addClass('h3').siblings("h3").removeClass("h3");
+            var s=$(this).text();
+            $("#header span").text(s);
+        });
+//        搜索框
+        var time=0;
+        $("#header>img").click(function () {
+            if(time==0){
+                $(".text").css({
+                    'display':'block'
+                });
+                time++;
+            }else if(time<=1){
+                $(".text").css({
+                    'display':'none'
+                });
+                time--;
+            }
+        });
+        $(".text").bind("input propertychange", function () {
+            var txt=$(this).val();
+            $("h3").hide();
+            $("#accordion>h3:eq(0)").next().hide();
+            $("h3:contains('"+txt+"')").not().css({
+                'display':'block',
+                'background':'#a7d0ef'
+            }).eq(0).next().show();
+            if($(".text").val()==''){
+                $("h3").css({
+                    'background':'rgb(211,211,211)'
+                }).next().hide();
+            }
+        });
+//        后台添加圈伤
+        var dad={
+            "func":1,
+            "data":JSON.stringify({"treeId":"0"})
+        };
+        $.ajax({
+            type:"POST",
+            url:url()[0],
+            crossDomain: true,
+            data:dad,
+            success:function (data) {
+                var arr=data.data;
+                console.log(arr)
+                var str="";
+                for(var i=0;i<arr.length;i++){
+                    str=str+"<h3 class='co'>"+arr[i].treeName +"</h3>"+"<div>"+"<ul class='app'>"+
+                            "<li class='app_li clearfloat'>"+"<p class='app_name'>"+"历史版本"+"</p>"+
+                            "<a href='Android.html?treeId=" +arr[i].treeId+"' class='adroid'>"+"</a>"+
+                            "<a href='Apple.html?treeId=" + arr[i].treeId +"' class='apple'>"+"</a>"+
+                            "<p class='app_name'>"+"最新版本"+"</p>"+
+                            "<a href='#' class='adroid' name='' ul='' onclick='conHerf(this)'>"+"</a>"+
+                            "<a href='#' class='apple' name='' ul='' onclick='conHerf(this)'>"+"</a>"+
+                            "</li>"+"</ul>"+"</div>";
+                }
+                $("#accordion").append(str) ;
+                $("#accordion h3").eq(0).addClass('h3');
+            },
+            erroe:function (err) {
+              console.log("服务器异常")
+            }
+        });
+    });
+//    长传次数
+    function conHerf(_this) {
+        console.log($(this).attr('ul'));
+        var iid=$(_this).attr('name');
+        var ul=$(_this).attr('ul');
+        var daa = {
+            "func": 3,
+            "data": JSON.stringify({
+                "id" : iid
+            })
+        };
+        $.ajax({
+            type:"POST",
+            url:url()[0],
+            crossDomain: true,
+            data:daa,
+            success:function (data) {
+                var arr=data.data;
+            },
+            erroe:function (err) {
+                console.log("服务器异常")
+            }
+        });
+//    window.location.href=ul;
+        $(_this).attr('href',ul);
+    }
+</script>
+</body>
+</html>

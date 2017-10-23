@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>导航</title>
+
+    <!-- Bootstrap -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/common.css" rel="stylesheet">
+    <link href="css/reg.css" rel="stylesheet">
+    <style>
+        .btn-reg {border-radius: 50px; background-color: #2e9bf6; width: 90%; margin-left: 5%;}
+        .btn-cfm,.btn-cfm1 {border-radius: 50px; width: 90%; margin-left: 5%; border-color: #2e9bf6; font-size: 20px; color: #fff}
+        .btn-reg+.btn-cfm {background-color: #6cb2f7;}
+        .btn-cfm1 {background-color: #6cb2f7;}
+        .btn-block+.btn-block {margin-top: 20px;}
+        .a-visitor {float:right; margin-right:20px; font-size: 16px; text-decoration: underline; color:#fff}
+        .navbar-top{ position: fixed; min-height: 44px;  border: none; top:20px; }
+        form {width: 100%; margin-top: 100px;}
+    </style>
+</head>
+<body id="body">
+<div class="container-fluid">
+    <div class="navbar-top">
+                <a href="goBack" class="navbar-brand" id="back">
+                    <img src="../images/goback.png" alt="返回">
+                </a>
+    </div>
+    <div class="clearfix">
+        <div class="tips-top" style="font-size: 22px;">
+            <p>为保障您的投资安全</p><p>首次使用需注册</p>
+        </div>
+        <form>
+            <a class="btn btn-block btn-reg" href="view/reg-log.html">登&nbsp;&nbsp;录</a>
+            <a class="btn btn-block btn-cfm" href="view/reg-regi.html">注&nbsp;&nbsp;册</a>
+            <a class="btn a-visitor" id="visitor" style="display:none" href="">游客进入</a>
+        </form>
+    </div>
+</div>
+</body>
+<script src="./../../js/jquery-2.2.0.min.js"></script>
+<script src="./js/reg.js"></script>
+<script>
+    $("#visitor").click(function(){
+        pbE.SYS().sendMessageToNative('PbKey_H5_Home_Visitor_Login', "1");
+    });
+
+    $("#back").click(function(){
+        location.href = 'goBack';
+    });
+
+    var visitor = GetQueryString("visitor");
+    if(visitor == "1")
+    {
+        $('#visitor').show();
+        $('#back').hide();
+    }
+    else
+    {
+        $('#back').show();
+        $('#visitor').hide();
+    }
+
+
+</script>
+</html>
+

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">  <!--定义文档兼容模式，最佳兼容方案-->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>当日成交</title>
+  <!-- Bootstrap -->
+  <link href="../../../css/bootstrap.min.css" rel="stylesheet">
+  <link href="../../css/common.css" rel="stylesheet">
+  <style>
+    .nav-blank {background-color: #f7f7fa; position: fixed; top: 0; width: 100%; z-index: 100;}
+    #title {position: fixed; height: 41px; left: 0; top: 9px; width: 100%; overflow: hidden; padding-left: 8px; padding-right: 8px; z-index: 100;}
+    #contents {padding-top: 50px; z-index: 10;}
+    .four-title {color: #52668c;}
+    .deal0,.deal1,.deal2,.deal3{
+      line-height: 2rem;
+    }
+    div[id^="hideBox"]{
+      height:auto;
+    }
+    .pd24t {
+      padding-left: .3rem;
+    }
+  </style>
+</head>
+<body class="entrust-body">
+  <div class="nav-blank"></div>
+  <div class="container-fluid">
+    <div class="clearfix">
+      <div id="title"></div> 
+      <div id="contents">
+      </div>
+    </div>
+  </div>
+  <script src="../../../js/jquery-2.2.0.min.js"></script>
+  <script src="../../../js/react.min.js"></script>
+  <script src="../../../js/react-dom.min.js"></script>
+  <script src="../../js/futures-common.js"></script>
+  <script src="../../js/plugins.js"></script>
+  <script src="../js/future-dl.js"></script>
+</body>
+</html>

@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .detailOuter {
+            width: 300%;
+        }
+        /*
+        table {
+            table-layout: fixed;
+            border-collapse: collapse;
+            border-spacing: 0;
+            cursor: default;
+        }*/
+
+        tr {
+            height: 40px;
+            border-collapse: collapse;
+        }
+
+        th,td {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            width: 5.5rem;
+            max-width: 6rem;
+            min-width: 5.5rem;
+            text-align: right;
+            padding: 0 0.2rem;
+            box-sizing: border-box;
+            /*border: 1px solid #221f30;*/
+            border-top: none;
+            border-bottom: none;
+            color: #838383;
+        }
+
+        .detailOuter {
+            flex: 1;
+            overflow: hidden;
+        }
+        .TheadWrap {
+            height: 40px;
+            min-height: 40px;
+            width: 100%;
+            overflow: hidden;
+            z-index: 2;
+            box-sizing: border-box;
+            background-clip: content-box;
+            display: flex;
+        }
+        .detail{
+            position: relative;
+            left: -1px;
+        }
+        .TbodyInner{
+            display: flex;
+            position: relative;
+            overflow: hidden;
+        }
+        .static th,td{
+            border:0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<!--<div id="TableList">-->
+    <div class="TheadWrap">
+        <table class="brief static">
+            <tbody>
+            <tr>
+                <td>
+                    <span>序号</span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="detailOuter">
+            <table class="">
+                <thead>
+                <tr>
+                    <th class="buyprice sortable" data-sortkey="PX_BUY_PRICE"><span>买价</span></th>
+                    <th class="sellprice sortable" data-sortkey="PX_SELL_PRICE"><span>卖价</span>
+                    </th>
+                    <th class="buyvolume sortable" data-sortkey="PX_BUY_VOLUME"><span>买量</span>
+                    </th>
+                    <th class="sellvolume sortable" data-sortkey="PX_SELL_VOLUME"><span>卖量</span>
+                    </th>
+                    <th class="nowvolume sortable" data-sortkey="PX_NOW_VOLUME"><span>现量</span>
+                    </th>
+                    <th class="totalvolume sortable" data-sortkey="PX_TOTAL_VOLUME"><span>总量</span>
+                    </th>
+                    <th class="position sortable" data-sortkey="PX_POSITION"><span>持仓量</span></th>
+                    <th class="premium sortable" data-sortkey="PX_PREMIUM"><span>溢价率</span></th>
+                    <th class="leverage sortable" data-sortkey="PX_LEVERAGE"><span>杠杆率</span></th>
+                    <th class="timevalue sortable" data-sortkey="PX_TIME_VALUE"><span>时间价值</span>
+                    </th>
+                    <th class="intrvalue sortable" data-sortkey="PX_INTR_VALUE"><span>内在价值</span>
+                    </th>
+                    <th class="trueleverage sortable" data-sortkey="PX_TRUE_LEVERAGE">
+                        <span>真实杠杆率</span></th>
+                    <th class="positiondiff sortable" data-sortkey="PX_POSITION_DIFF"><span>仓差</span>
+                    </th>
+                    <th class="expiration sortable" data-sortkey="PX_EXPIRATION"><span>期权到期日</span>
+                    </th>
+                    <th class="rightway sortable" data-sortkey="PX_RIGHT_WAY"><span>行权方式</span>
+                    </th>
+                    <th class="contunit sortable" data-sortkey="PX_CONT_UNIT"><span>合约单位</span>
+                    </th>
+                </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+    <div class="TbodyWrap" id="TbodyList">
+        <div class="TbodyInner">
+            <table class="brief static">
+                <tbody>
+                <tr>
+                    <td>
+                        <span>1</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>1</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>1</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>1</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>1</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>1</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>1</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>1</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>1</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>1</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>1</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>1</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>1</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>1</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>1</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>1</span>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <div class="detailOuter">
+                <table class="detail">
+                    <tbody>
+                    <tr data-key="0" class="">
+                        <td class="buyprice red"><span>0.0403</span></td>
+                        <td class="sellprice red"><span>0.0404</span></td>
+                        <td class="buyvolume"><span>20</span></td>
+                        <td class="sellvolume"><span>25</span></td>
+                        <td class="nowvolume"><span>1</span></td>
+                        <td class="totalvolume"><span>59529</span></td>
+                        <td class="position"><span>103972</span></td>
+                        <td class="premium"><span>1.49%</span></td>
+                        <td class="leverage"><span>57.08</span></td>
+                        <td class="timevalue"><span>0.0344</span></td>
+                        <td class="intrvalue"><span>0.0060</span></td>
+                        <td class="trueleverage"><span>33.03</span></td>
+                        <td class="positiondiff"><span>3864</span></td>
+                        <td class="expiration"><span>20170125</span>
+                        </td>
+                        <td class="rightway"><span>0</span></td>
+                        <td class="contunit"><span>10000.00</span></td>
+                    </tr>
+                    <tr data-key="0" class="">
+                        <td class="buyprice red"><span class="quick-order">0.0403</span></td>
+                        <td class="sellprice red"><span class="quick-order">0.0404</span></td>
+                        <td class="buyvolume"><span>20</span></td>
+                        <td class="sellvolume"><span>25</span></td>
+                        <td class="nowvolume"><span>1</span></td>
+                        <td class="totalvolume"><span>59529</span></td>
+                        <td class="position"><span>103972</span></td>
+                        <td class="premium"><span>1.49%</span></td>
+                        <td class="leverage"><span>57.08</span></td>
+                        <td class="timevalue"><span>0.0344</span></td>
+                        <td class="intrvalue"><span>0.0060</span></td>
+                        <td class="trueleverage"><span>33.03</span></td>
+                        <td class="positiondiff"><span>3864</span></td>
+                        <td class="expiration"><span>20170125</span>
+                        </td>
+                        <td class="rightway"><span>0</span></td>
+                        <td class="contunit"><span>10000.00</span></td>
+                    </tr>
+                    <tr data-key="0" class="">
+                        <td class="buyprice red"><span>0.0403</span></td>
+                        <td class="sellprice red"><span>0.0404</span></td>
+                        <td class="buyvolume"><span>20</span></td>
+                        <td class="sellvolume"><span>25</span></td>
+                        <td class="nowvolume"><span>1</span></td>
+                        <td class="totalvolume"><span>59529</span></td>
+                        <td class="position"><span>103972</span></td>
+                        <td class="premium"><span>1.49%</span></td>
+                        <td class="leverage"><span>57.08</span></td>
+                        <td class="timevalue"><span>0.0344</span></td>
+                        <td class="intrvalue"><span>0.0060</span></td>
+                        <td class="trueleverage"><span>33.03</span></td>
+                        <td class="positiondiff"><span>3864</span></td>
+                        <td class="expiration"><span>20170125</span>
+                        </td>
+                        <td class="rightway"><span>0</span></td>
+                        <td class="contunit"><span>10000.00</span></td>
+                    </tr>
+                    <tr data-key="0" class="">
+                        <td class="buyprice red"><span>0.0403</span></td>
+                        <td class="sellprice red"><span>0.0404</span></td>
+                        <td class="buyvolume"><span>20</span></td>
+                        <td class="sellvolume"><span>25</span></td>
+                        <td class="nowvolume"><span>1</span></td>
+                        <td class="totalvolume"><span>59529</span></td>
+                        <td class="position"><span>103972</span></td>
+                        <td class="premium"><span>1.49%</span></td>
+                        <td class="leverage"><span>57.08</span></td>
+                        <td class="timevalue"><span>0.0344</span></td>
+                        <td class="intrvalue"><span>0.0060</span></td>
+                        <td class="trueleverage"><span>33.03</span></td>
+                        <td class="positiondiff"><span>3864</span></td>
+                        <td class="expiration"><span>20170125</span>
+                        </td>
+                        <td class="rightway"><span>0</span></td>
+                        <td class="contunit"><span>10000.00</span></td>
+                    </tr>
+                    <tr data-key="0" class="">
+                        <td class="buyprice red"><span>0.0403</span></td>
+                        <td class="sellprice red"><span>0.0404</span></td>
+                        <td class="buyvolume"><span>20</span></td>
+                        <td class="sellvolume"><span>25</span></td>
+                        <td class="nowvolume"><span>1</span></td>
+                        <td class="totalvolume"><span>59529</span></td>
+                        <td class="position"><span>103972</span></td>
+                        <td class="premium"><span>1.49%</span></td>
+                        <td class="leverage"><span>57.08</span></td>
+                        <td class="timevalue"><span>0.0344</span></td>
+                        <td class="intrvalue"><span>0.0060</span></td>
+                        <td class="trueleverage"><span>33.03</span></td>
+                        <td class="positiondiff"><span>3864</span></td>
+                        <td class="expiration"><span>20170125</span>
+                        </td>
+                        <td class="rightway"><span>0</span></td>
+                        <td class="contunit"><span>10000.00</span></td>
+                    </tr>
+                    <tr data-key="0" class="">
+                        <td class="buyprice red"><span>0.0403</span></td>
+                        <td class="sellprice red"><span>0.0404</span></td>
+                        <td class="buyvolume"><span>20</span></td>
+                        <td class="sellvolume"><span>25</span></td>
+                        <td class="nowvolume"><span>1</span></td>
+                        <td class="totalvolume"><span>59529</span></td>
+                        <td class="position"><span>103972</span></td>
+                        <td class="premium"><span>1.49%</span></td>
+                        <td class="leverage"><span>57.08</span></td>
+                        <td class="timevalue"><span>0.0344</span></td>
+                        <td class="intrvalue"><span>0.0060</span></td>
+                        <td class="trueleverage"><span>33.03</span></td>
+                        <td class="positiondiff"><span>3864</span></td>
+                        <td class="expiration"><span>20170125</span>
+                        </td>
+                        <td class="rightway"><span>0</span></td>
+                        <td class="contunit"><span>10000.00</span></td>
+                    </tr>
+                    <tr data-key="0" class="">
+                        <td class="buyprice red"><span>0.0403</span></td>
+                        <td class="sellprice red"><span>0.0404</span></td>
+                        <td class="buyvolume"><span>20</span></td>
+                        <td class="sellvolume"><span>25</span></td>
+                        <td class="nowvolume"><span>1</span></td>
+                        <td class="totalvolume"><span>59529</span></td>
+                        <td class="position"><span>103972</span></td>
+                        <td class="premium"><span>1.49%</span></td>
+                        <td class="leverage"><span>57.08</span></td>
+                        <td class="timevalue"><span>0.0344</span></td>
+                        <td class="intrvalue"><span>0.0060</span></td>
+                        <td class="trueleverage"><span>33.03</span></td>
+                        <td class="positiondiff"><span>3864</span></td>
+                        <td class="expiration"><span>20170125</span>
+                        </td>
+                        <td class="rightway"><span>0</span></td>
+                        <td class="contunit"><span>10000.00</span></td>
+                    </tr>
+                    <tr data-key="0" class="">
+                        <td class="buyprice red"><span>0.0403</span></td>
+                        <td class="sellprice red"><span>0.0404</span></td>
+                        <td class="buyvolume"><span>20</span></td>
+                        <td class="sellvolume"><span>25</span></td>
+                        <td class="nowvolume"><span>1</span></td>
+                        <td class="totalvolume"><span>59529</span></td>
+                        <td class="position"><span>103972</span></td>
+                        <td class="premium"><span>1.49%</span></td>
+                        <td class="leverage"><span>57.08</span></td>
+                        <td class="timevalue"><span>0.0344</span></td>
+                        <td class="intrvalue"><span>0.0060</span></td>
+                        <td class="trueleverage"><span>33.03</span></td>
+                        <td class="positiondiff"><span>3864</span></td>
+                        <td class="expiration"><span>20170125</span>
+                        </td>
+                        <td class="rightway"><span>0</span></td>
+                        <td class="contunit"><span>10000.00</span></td>
+                    </tr>
+                    <tr data-key="0" class="">
+                        <td class="buyprice red"><span>0.0403</span></td>
+                        <td class="sellprice red"><span>0.0404</span></td>
+                        <td class="buyvolume"><span>20</span></td>
+                        <td class="sellvolume"><span>25</span></td>
+                        <td class="nowvolume"><span>1</span></td>
+                        <td class="totalvolume"><span>59529</span></td>
+                        <td class="position"><span>103972</span></td>
+                        <td class="premium"><span>1.49%</span></td>
+                        <td class="leverage"><span>57.08</span></td>
+                        <td class="timevalue"><span>0.0344</span></td>
+                        <td class="intrvalue"><span>0.0060</span></td>
+                        <td class="trueleverage"><span>33.03</span></td>
+                        <td class="positiondiff"><span>3864</span></td>
+                        <td class="expiration"><span>20170125</span>
+                        </td>
+                        <td class="rightway"><span>0</span></td>
+                        <td class="contunit"><span>10000.00</span></td>
+                    </tr>
+                    <tr data-key="0" class="">
+                        <td class="buyprice red"><span>0.0403</span></td>
+                        <td class="sellprice red"><span>0.0404</span></td>
+                        <td class="buyvolume"><span>20</span></td>
+                        <td class="sellvolume"><span>25</span></td>
+                        <td class="nowvolume"><span>1</span></td>
+                        <td class="totalvolume"><span>59529</span></td>
+                        <td class="position"><span>103972</span></td>
+                        <td class="premium"><span>1.49%</span></td>
+                        <td class="leverage"><span>57.08</span></td>
+                        <td class="timevalue"><span>0.0344</span></td>
+                        <td class="intrvalue"><span>0.0060</span></td>
+                        <td class="trueleverage"><span>33.03</span></td>
+                        <td class="positiondiff"><span>3864</span></td>
+                        <td class="expiration"><span>20170125</span>
+                        </td>
+                        <td class="rightway"><span>0</span></td>
+                        <td class="contunit"><span>10000.00</span></td>
+                    </tr>
+                    <tr data-key="0" class="">
+                        <td class="buyprice red"><span>0.0403</span></td>
+                        <td class="sellprice red"><span>0.0404</span></td>
+                        <td class="buyvolume"><span>20</span></td>
+                        <td class="sellvolume"><span>25</span></td>
+                        <td class="nowvolume"><span>1</span></td>
+                        <td class="totalvolume"><span>59529</span></td>
+                        <td class="position"><span>103972</span></td>
+                        <td class="premium"><span>1.49%</span></td>
+                        <td class="leverage"><span>57.08</span></td>
+                        <td class="timevalue"><span>0.0344</span></td>
+                        <td class="intrvalue"><span>0.0060</span></td>
+                        <td class="trueleverage"><span>33.03</span></td>
+                        <td class="positiondiff"><span>3864</span></td>
+                        <td class="expiration"><span>20170125</span>
+                        </td>
+                        <td class="rightway"><span>0</span></td>
+                        <td class="contunit"><span>10000.00</span></td>
+                    </tr>
+                    <tr data-key="0" class="">
+                        <td class="buyprice red"><span>0.0403</span></td>
+                        <td class="sellprice red"><span>0.0404</span></td>
+                        <td class="buyvolume"><span>20</span></td>
+                        <td class="sellvolume"><span>25</span></td>
+                        <td class="nowvolume"><span>1</span></td>
+                        <td class="totalvolume"><span>59529</span></td>
+                        <td class="position"><span>103972</span></td>
+                        <td class="premium"><span>1.49%</span></td>
+                        <td class="leverage"><span>57.08</span></td>
+                        <td class="timevalue"><span>0.0344</span></td>
+                        <td class="intrvalue"><span>0.0060</span></td>
+                        <td class="trueleverage"><span>33.03</span></td>
+                        <td class="positiondiff"><span>3864</span></td>
+                        <td class="expiration"><span>20170125</span>
+                        </td>
+                        <td class="rightway"><span>0</span></td>
+                        <td class="contunit"><span>10000.00</span></td>
+                    </tr>
+                    <tr data-key="0" class="">
+                        <td class="buyprice red"><span>0.0403</span></td>
+                        <td class="sellprice red"><span>0.0404</span></td>
+                        <td class="buyvolume"><span>20</span></td>
+                        <td class="sellvolume"><span>25</span></td>
+                        <td class="nowvolume"><span>1</span></td>
+                        <td class="totalvolume"><span>59529</span></td>
+                        <td class="position"><span>103972</span></td>
+                        <td class="premium"><span>1.49%</span></td>
+                        <td class="leverage"><span>57.08</span></td>
+                        <td class="timevalue"><span>0.0344</span></td>
+                        <td class="intrvalue"><span>0.0060</span></td>
+                        <td class="trueleverage"><span>33.03</span></td>
+                        <td class="positiondiff"><span>3864</span></td>
+                        <td class="expiration"><span>20170125</span>
+                        </td>
+                        <td class="rightway"><span>0</span></td>
+                        <td class="contunit"><span>10000.00</span></td>
+                    </tr>
+                    <tr data-key="0" class="">
+                        <td class="buyprice red"><span>0.0403</span></td>
+                        <td class="sellprice red"><span>0.0404</span></td>
+                        <td class="buyvolume"><span>20</span></td>
+                        <td class="sellvolume"><span>25</span></td>
+                        <td class="nowvolume"><span>1</span></td>
+                        <td class="totalvolume"><span>59529</span></td>
+                        <td class="position"><span>103972</span></td>
+                        <td class="premium"><span>1.49%</span></td>
+                        <td class="leverage"><span>57.08</span></td>
+                        <td class="timevalue"><span>0.0344</span></td>
+                        <td class="intrvalue"><span>0.0060</span></td>
+                        <td class="trueleverage"><span>33.03</span></td>
+                        <td class="positiondiff"><span>3864</span></td>
+                        <td class="expiration"><span>20170125</span>
+                        </td>
+                        <td class="rightway"><span>0</span></td>
+                        <td class="contunit"><span>10000.00</span></td>
+                    </tr>
+                    <tr data-key="0" class="">
+                        <td class="buyprice red"><span>0.0403</span></td>
+                        <td class="sellprice red"><span>0.0404</span></td>
+                        <td class="buyvolume"><span>20</span></td>
+                        <td class="sellvolume"><span>25</span></td>
+                        <td class="nowvolume"><span>1</span></td>
+                        <td class="totalvolume"><span>59529</span></td>
+                        <td class="position"><span>103972</span></td>
+                        <td class="premium"><span>1.49%</span></td>
+                        <td class="leverage"><span>57.08</span></td>
+                        <td class="timevalue"><span>0.0344</span></td>
+                        <td class="intrvalue"><span>0.0060</span></td>
+                        <td class="trueleverage"><span>33.03</span></td>
+                        <td class="positiondiff"><span>3864</span></td>
+                        <td class="expiration"><span>20170125</span>
+                        </td>
+                        <td class="rightway"><span>0</span></td>
+                        <td class="contunit"><span>10000.00</span></td>
+                    </tr>
+                    <tr data-key="0" class="">
+                        <td class="buyprice red"><span>0.0403</span></td>
+                        <td class="sellprice red"><span>0.0404</span></td>
+                        <td class="buyvolume"><span>20</span></td>
+                        <td class="sellvolume"><span>25</span></td>
+                        <td class="nowvolume"><span>1</span></td>
+                        <td class="totalvolume"><span>59529</span></td>
+                        <td class="position"><span>103972</span></td>
+                        <td class="premium"><span>1.49%</span></td>
+                        <td class="leverage"><span>57.08</span></td>
+                        <td class="timevalue"><span>0.0344</span></td>
+                        <td class="intrvalue"><span>0.0060</span></td>
+                        <td class="trueleverage"><span>33.03</span></td>
+                        <td class="positiondiff"><span>3864</span></td>
+                        <td class="expiration"><span>20170125</span>
+                        </td>
+                        <td class="rightway"><span>0</span></td>
+                        <td class="contunit"><span>10000.00</span></td>
+                    </tr>
+                    <tr data-key="0" class="">
+                        <td class="buyprice red"><span>0.0403</span></td>
+                        <td class="sellprice red"><span>0.0404</span></td>
+                        <td class="buyvolume"><span>20</span></td>
+                        <td class="sellvolume"><span>25</span></td>
+                        <td class="nowvolume"><span>1</span></td>
+                        <td class="totalvolume"><span>59529</span></td>
+                        <td class="position"><span>103972</span></td>
+                        <td class="premium"><span>1.49%</span></td>
+                        <td class="leverage"><span>57.08</span></td>
+                        <td class="timevalue"><span>0.0344</span></td>
+                        <td class="intrvalue"><span>0.0060</span></td>
+                        <td class="trueleverage"><span>33.03</span></td>
+                        <td class="positiondiff"><span>3864</span></td>
+                        <td class="expiration"><span>20170125</span>
+                        </td>
+                        <td class="rightway"><span>0</span></td>
+                        <td class="contunit"><span>10000.00</span></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+<!--</div>-->
+<script src="jquery-2.2.0.min.js"></script>
+<script src="perfect-scrollbar-zh.js"></script>
+<script>
+    Ps.initialize(document.getElementById('TbodyList'), {
+        frozen: true,
+        wheelSpeed: 0.3
+    });
+</script>
+</body>
+</html>

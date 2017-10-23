@@ -1,0 +1,8 @@
+{
+    "types": {
+        "2": {
+            "noDetail":true
+        }
+    },
+    "hides": ["4","5"]
+}

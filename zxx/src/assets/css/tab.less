@@ -1,0 +1,31 @@
+.tabs {
+    display: flex;
+    height: 35px;
+    background: #fff;
+    .tab {
+        flex: 1;
+        text-align: center;
+        .title {
+            display: inline-block;
+            position: relative;
+            height: 35px;
+            line-height: 35px;
+            .font-10;
+            .text-color18;
+        }
+        &.active {
+            .title {
+                .text-color2;
+                &:after {
+                    content: "";
+                    position: absolute;
+                    left: -10%;
+                    bottom: 0;
+                    width: 120%;
+                    height: 2px;
+                    background: @color2;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,37 @@
+/*title栏颜色*/
+.navbar-fixed-top{
+    background-color: #3366cc;
+}
+
+/*个人信息btn*/
+.logout{
+    background: #36c;
+}
+/*登录/设置密码-确认按钮*/
+.btn-cfm{
+    background-color: #2190ed;
+}
+/*登录/设置密码-返回按钮*/
+.btn-rtn{
+    background-color: #2190ed;
+}
+/*解除关联-按钮*/
+#unbind{
+    background: #36c;
+}
+/*future-按钮*/
+.btn-3b0, .bgc-fe0000 {
+     background-color: #3366cc;
+}
+/*认证首页-登录按钮*/
+.btn-reg{
+    background-color: #2e9bf6;
+}
+/*认证首页-注册按钮*/
+.btn-reg+.btn-cfm {
+    background-color: #6cb2f7;
+}
+/*认证页面背景图*/
+#body{
+    background-image: url(../images/bgimage.png);
+}

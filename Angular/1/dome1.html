@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+</head>
+<body>
+<!--=======================================================================-->
+<!--<div ng-app="">-->
+    <!--<p>名字：<input type="text" ng-model="name"> </p>-->
+    <!--<h1>hello {{name}}</h1>-->
+<!--</div>-->
+<!--=======================================================================-->
+<!--<div ng-app="" ng-init="firstName='wang'">-->
+<!--<p>姓名为：<span ng-bind="firstName"></span></p>-->
+<!--</div>-->
+<!--=======================================================================-->
+<!--<div ng-app="">-->
+    <!--<p>我的第一个表达式：{{5+10}}</p>-->
+<!--</div>-->
+<!--=======================================================================-->
+<!--<div ng-app="myapp" ng-controller="myCtrl">-->
+    <!--名：<input type="text" ng-model="firstName">-->
+    <!--姓：<input type="text" ng-model="lastName">-->
+    <!--<br/>-->
+    <!--姓名：{{ lastName+ " " + firstName}}-->
+<!--</div>-->
+<!--<script>-->
+    <!--var app = angular.module('myapp',[]);-->
+    <!--app.controller('myCtrl',function ($scope) {-->
+        <!--$scope.firstName = 'John';-->
+        <!--$scope.lastName = 'Doe'-->
+    <!--})-->
+<!--</script>-->
+<!--===========================================AngularJS 数字-->
+<!--<div ng-app="" ng-init="quantity=5;cost=5">-->
+    <!--&lt;!&ndash;<p>总价：{{quantity * cost}}</p>&ndash;&gt;-->
+    <!--<p>总价：<span ng-bind="quantity * cost"></span></p>-->
+<!--</div>-->
+<!--===========================================AngularJS 对象-->
+<!--<div ng-app="" ng-init="person={firstName:'John',lastName:'Doe'}">-->
+    <!--<p>姓为：{{person.firstName}}</p>-->
+<!--</div>-->
+<!--===========================================AngularJS 数组-->
+<!--<div ng-app="" ng-init="points=[1,15,20,30]">-->
+    <!--<p>第三个值为：{{points[2]}}</p>-->
+<!--</div>-->
+<!--===============================================AngularJS 指令-->
+<!--<div ng-app="" ng-init="firstName='John'">-->
+    <!--<p>在输入框中尝试输入：</p>-->
+    <!--<p>姓名：<input type="text" ng-model="firstName"></p>-->
+    <!--<p>您输入的为：{{firstName}}</p>-->
+<!--</div>-->
+<!--===============================================AngularJS 指令-->
+<!--<div ng-app="" ng-init="quantity=1;price=5">-->
+    <!--<h2>价格计算器：</h2>-->
+    <!--数量：<input type="text" ng-model="quantity">-->
+    <!--价格：<input type="text" ng-model="price">-->
+    <!--<p><b>总价：</b>{{quantity * price}}</p>-->
+<!--</div>-->
+<!--============================================重复 HTML 元素-->
+<!--<div ng-app="" ng-init="names=['jani','hege','kai']">-->
+    <!--<p>使用ng-repeat来循环数组</p>-->
+    <!--<ul>-->
+        <!--<li ng-repeat="x in names">-->
+            <!--{{x}}-->
+        <!--</li>-->
+    <!--</ul>-->
+<!--</div>-->
+<!--============================================ng-repeat 指令用在一个对象数组上：-->
+<!--<div ng-app="" ng-init="names=[-->
+<!--{name:'jani',country:'norway'},-->
+<!--{name:'hege',country:'sweden'},-->
+<!--{name:'kai',country:'Denmark'}-->
+<!--]">-->
+    <!--<p>循环对象：</p>-->
+    <!--<ul>-->
+        <!--<li ng-repeat="x in names">-->
+            <!--{{x.name + ', ' + x.country}}-->
+        <!--</li>-->
+    <!--</ul>-->
+<!--</div>-->
+<!--=============================================创建自定义的指令-->
+
+</body>
+</html>

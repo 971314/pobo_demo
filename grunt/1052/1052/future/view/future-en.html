@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>当日委托</title>
+
+  <!-- Bootstrap -->
+  <link href="../../../css/bootstrap.min.css" rel="stylesheet">
+  <link href="../../css/common.css" rel="stylesheet">
+  <style>
+    .nav-blank {background-color: #f7f7fa; position: fixed; top: 0; width: 100%; z-index: 100;}
+    #title {position: fixed; height: 41px; left: 0; top: 9px; width: 100%; overflow: hidden; padding-left: 8px; padding-right: 8px; z-index: 100;}
+    .my-modal {z-index: 1000;}
+    #contents {padding-top: 50px; z-index: 10;}
+    .four-title {color: #52668c;}
+    /*.contents-fixed {position: fixed; overflow: hidden; padding-left: 8px; padding-right: 8px; left: 0; top: 0; width: 100%;}*/
+    .btn-3b0 {background-color: #e4e4e4; color: #000; height: 50px; line-height: 40px;}
+    #indicate {width: 60%; position: absolute; left: 20%; z-index: 1500;}
+    .deal0,.deal1,.deal2,.deal3{
+      line-height: 2rem;
+    }
+    div[id^="hideBox"]{
+      height:auto;
+    }
+    .pd24t {
+      padding-left: .3rem;
+    }
+  </style>
+</head>
+<body class="entrust-body">
+  <div class="nav-blank"></div>
+
+  <div class="container-fluid">
+    <div class="clearfix">
+      <div id="title"></div>
+      <div id="contents">
+      </div>
+    </div>
+  </div>
+  
+  <!--<div class="my-modal hide" id="indicate">
+    <div class="my-modal-backdrop"></div>
+      <div class="row btn-login">
+      <div class="col-center">
+        <a class="btn btn-block btn-3b0">撤单请求已发送</a>
+      </div>
+    </div>
+  </div>-->
+  
+    <div class="col-center hide" id="indicate">
+      <a class="btn btn-block btn-3b0">撤单请求已发送</a>
+    </div>
+    
+  <script src="../../../js/react.min.js"></script>
+  <script src="../../../js/react-dom.min.js"></script>
+  <script src="../../../js/jquery-2.2.0.min.js"></script>
+  <script src="../../js/futures-common.js"></script>
+  <script src="../../js/plugins.js"></script>
+  <script src="../js/future-en.js"></script>
+</body>
+</html>

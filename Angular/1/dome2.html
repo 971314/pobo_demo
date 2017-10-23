@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自定义指令</title>
+    <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+</head>
+<body ng-app="myApp">
+<!--元素调用：-->
+<runoob-directive></runoob-directive>
+<!--属性调用：-->
+<div runoob-directive></div>
+<!--类名调用：-->
+<!--<div class="runoob-directive"></div>-->
+<!--注释调用：-->
+<!-- directive: runoob-directive -->
+<script>
+    var app = angular.module("myApp",[]);
+    app.directive("runoobDirective",function () {
+        return {
+//            restrict:"C",//类名调用
+//            replace:true,//注释调用
+//            restrict:"M",
+            restrict:"EA",//限制使用
+            template :"<h2>自定义指令！</h2>"
+        }
+    })
+    /*
+    E 作为元素名使用
+    A 作为属性使用
+    C 作为类名使用
+    M 作为注释使用
+     restrict 默认值为 EA, 即可以通过元素名和属性名来调用指令。
+    */
+</script>
+</body>
+</html>

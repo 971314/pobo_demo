@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>获取地址</title>
+</head>
+<body>
+<script>
+    //    获取id/name
+    GetQueryString = function (name) {
+        var urls = decodeURI(window.location.search.substr(1));
+        var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)');
+        var r = urls.match(reg);
+        if (r) return unescape(r[2]);
+        return null;
+    };
+    var contractID =GetQueryString('usen');
+    console.log(contractID)
+</script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>防止重复点击事件</title>
+</head>
+<body>
+<button id="but">点击</button>
+<script src="jquery-1.11.3.min.js"></script>
+<script>
+    var but=$("#but")
+    but.click(function () {
+        but.unbind('click');
+        console.log('111111')
+    })
+</script>
+</body>
+</html>

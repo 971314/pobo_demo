@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>应用上传</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="new_file1.css">
+    <link rel="stylesheet" href="media.css">
+    <script src="jquery-1.11.3.min.js"></script>
+    <script src="plupload.full.min.js"></script>
+    <style>
+        #header{
+            width:100%;
+            height:0.35rem;
+            background:grey;
+            text-align:center;
+            color:white;
+            line-height:0.35rem;
+            font-size:0.3rem;
+
+        }
+        #header a{
+            display:inline-block;
+            width:0.3rem;
+            height:0.3rem;
+            float:right;
+            margin-right:0.1rem;
+            margin-top:0.02rem;
+        }
+        #content{
+            width:100%;
+            padding:.2rem .1rem;
+        }
+        #content>div{
+            padding-top:.15rem;
+            text-align:center;
+        }
+        #content p{
+            display:inline-block;
+            float:left;
+            width:24%;
+            text-align:center;
+        }
+        input{
+            padding:0;
+            border:0;
+            margin:0 .03rem 0 .04rem;
+        }
+
+        input[type="text"]{
+            border: 1px solid #c3c3c3;
+            border-top: 1px solid #7c7c7c;
+            border-left: 1px solid #9a9a9a;
+            width:22%;
+            height:.2rem;
+            float:left;
+        }
+        input[type=file]{
+            float:right;
+        }
+        @media screen and (min-width: 320px) {
+            input[type="file"]{
+                margin-right: .1rem;
+                margin-left: -.1rem;
+            }
+        }
+        @media screen and (max-width: 320px) {
+            input[type="file"]{
+                margin-right: 0;
+                margin-left: -.2rem;
+            }
+        }
+        @media screen and (min-width: 375px) {
+            #header img{
+                float:left;
+                margin-left:.2rem;
+                margin-top:.05rem;
+            }
+        }
+        @media screen and (max-width: 375px) {
+            #header img{
+                float:left;
+                margin-left:.2rem;
+                margin-top:.02rem;
+            }
+        }
+        @media screen and (min-width: 412px) {
+            .file{
+                width: 17.9%;
+            }
+        }
+        @media screen and (min-width: 768px) {
+            input[type="file"]{
+                float:left;
+                margin-left:1.5rem;
+            }
+        }
+        .foot{
+            text-align: center;
+        }
+        .foot input{
+            width:15%;
+            height:.3rem;
+            margin-right:.2rem;
+        }
+        .e1{
+            margin-top:.8rem;
+        }
+        .e1,.e2,.e3{
+            text-align: center;
+            color:red;
+        }
+        #browse{
+            margin-left: -3.6rem;
+            width: 4%;
+            height: .2rem;
+            background: #eee;
+            border: 1px solid #949494;
+        }
+        #os{
+            position: absolute;
+            top: .11rem;
+            right: 2.06rem;
+        }
+        #file-list{
+            margin-left: 8.1rem;
+            text-align: center;
+            width: 10%;
+        }
+        .progress{ height: 4px;
+            font-size: 0;
+            line-height: 4px;
+            background: #C8C8C8;
+            width: 0;}
+    </style>
+
+</head>
+<body>
+<div id="header">
+    <!--<img src="img/fanhui.png">-->
+    <span>应用上传</span>
+</div>
+<form id="form">
+    <div id="content">
+        <div class="clearfloat">
+            <p>应用名称</p>
+            <p>版本信息</p>
+            <p>文件上传</p>
+            <p>操作系统</p>
+        </div>
+
+        <div>
+                <input type="text" name="name" id="name">
+                <input type="text" name="version" id="version">
+            <input type="button" value="选择文件..." id="browse" />
+                <select name="os" id="os">
+                    <option value=""></option>
+                    <option value="Android">Android</option>
+                    <option value="Apple">Apple</option>
+                </select>
+        </div>
+    </div>
+    <ul id="file-list"></ul>
+    <div class="e1"></div>
+    <div class="e2"></div>
+    <div class="e3"></div>
+    <div class="foot">
+        <input type="submit" value="上传" class="upload" id="upload-btn">
+    </div>
+</form>
+<script>
+    $(function() {
+//上传文件
+        aa();
+        function aa() {
+            var uploader = new plupload.Uploader({ //实例化一个plupload上传对象
+                browse_button : 'browse',
+                url : 'upload.html',
+                flash_swf_url : 'js/Moxie.swf',
+                silverlight_xap_url : 'js/Moxie.xap',
+            });
+            uploader.init(); //初始化
+
+            //绑定文件添加进队列事件
+            uploader.bind('FilesAdded',function(uploader,files){
+                for(var i = 0, len = files.length; i<len; i++){
+                    var file_name = files[i].name; //文件名
+                    //构造html来更新UI
+                    var html = '<li id="file-' + files[i].id +'"><p class="file-name">' + file_name + '</p><p class="progress"></p></li>';
+                    $(html).appendTo('#file-list');
+                }
+            });
+
+            //绑定文件上传进度事件
+            uploader.bind('UploadProgress',function(uploader,file){
+                $('#file-'+file.id+' .progress').css('width',file.percent + '%');//控制进度条
+            });
+
+            //上传按钮
+            $('#upload-btn').click(function(){
+                uploader.start(); //开始上传
+            });
+        }
+
+        //    返回图标
+        $("#header>img").click(function () {
+            history.back(-1);
+        });
+        //判读input必须有值
+        $("#name").blur(function () {
+            if($("#name").val()==""){
+                $(".e1").html("<p>请输入应用名称</p>");
+            }else{
+                $(".e1").html("<p></p>");
+            }
+        });
+        $("#os").change(function () {
+            if($("#os").val()==""){
+                $(".e3").html("<p>请选择操作系统</p>");
+            }else{
+                $(".e3").html("<p></p>");
+            }
+        });
+        //    获取id/name
+        GetQueryString = function (name) {
+            var urls = decodeURI(window.location.search.substr(1));
+            var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)');
+            var r = urls.match(reg);
+            if (r) return unescape(r[2]);
+            return null;
+        };
+        var contractID =GetQueryString('id');
+        var marketID =GetQueryString('name');
+        //提交上传内容
+        $("#form").submit(function () {
+            var key=true;
+            if(name()==false){
+                key=false;
+                return key;
+            }
+            if(os()==false){
+                key=false;
+                return key;
+            }
+            if(key==true){
+                $.ajax({
+                    type:'post',
+                    url:'',
+                    data:{
+                        "name":$("#name").val(),
+                        "version":$("#version").val(),
+                        "os":$("#os").val(),
+                    },
+                    success:function (data) {
+                        if(data['result']=='seccess'){
+                            window.location.href=""
+                        }else{
+                            alert('修改失败，后台错误'+data['result']);
+                        }
+                    },
+                    error:function (err) {
+                    }
+                });
+                aa();
+            }
+        });
+        function name() {
+            if($("#name").val()==""||$("#name").val()==undefined){
+                $(".e1").html("<p>应用名必须填写</p>");
+                key=false;
+            }else{
+                key=true;
+            }
+            return key;
+        }
+        function os() {
+            var key;
+            if($("#os").val()==""||$("#os").val()==undefined){
+                $(".e3").html("<p>必须选择系统</p>");
+                key=false;
+            }else{
+                key=true;
+            }
+            return key;
+        }
+    })
+
+
+</script>
+
+</body>
+</html>

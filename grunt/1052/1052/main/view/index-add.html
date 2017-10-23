@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>功能模块</title>
+  <link rel="stylesheet" href="../../../css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="../../css/common.css"/>
+  <style>
+    p {margin-bottom: 0;}
+    img {margin-right: 7px;}
+    ul {list-style: none; padding-left: 8px; padding-right: 8px; margin-left: -8px; margin-right: -8px; margin-bottom: 0;}
+    ul li {height: 50px;}
+    body {background-color: #fff;}
+    .text {height: 45px; background-color: #f7f7fa;}
+    #added>li:last-child, #not-added>li:last-child {border-bottom: 1px solid #e4e7f0;}
+    li {border-top: 1px solid #e4e7f0; padding-left: 8px; padding-right: 8px; margin-left: -8px; margin-right: -8px;}
+    .lh45 {line-height: 45px;}
+    .lh50 {line-height: 50px;}
+    .drag-handle {background: url(../../images/drag.png) no-repeat center; width: 30px; height: 50px;};
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a href="goBack" class="navbar-brand">
+          <img src="../../images/goback.png" alt="返回">
+        </a>
+      </div>
+    <p class="navbar-text">功能模块</p>
+    </div>
+  </nav>
+  <div class="container-fluid">
+    <div class="clearfix">
+      <div class="text row"><p class="lh45 b2">已添加</p></div>
+      <ul id="added">
+      </ul>
+
+      <div class="text row"><p class="lh45 b2">未添加</p></div>
+      <ul id="not-added">
+      </ul>
+    </div>
+  </div>
+</body>
+
+ <!-- Latest Sortable -->
+<script src="../../../js/jquery-2.2.0.min.js"></script>
+<script src="../../../js/Sortable.min.js"></script>
+<script src="../js/main-add.js"></script>
+</html>

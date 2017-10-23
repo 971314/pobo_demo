@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title></title>
+  <link href="../../../css/bootstrap.min.css" rel="stylesheet">
+  <link href="../../../css/configStyle.css" rel="stylesheet">
+  <link href="../../css/common.css" rel="stylesheet">
+  <link href="../css/message.css" rel="stylesheet">
+  <script src="../../js/adaptation.js"></script>
+  <style>
+      body{background: #fff;}
+  </style>
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a href="goBack" class="navbar-brand">
+            <img src="../../images/goback.png" />
+          </a>
+        </div>
+        <p class="navbar-text" id="navtxt"></p>
+      </div>
+    </nav>
+    <div class="detailView" id="app">
+        <div class="fc18 fs24">{{msg.title}}</div>
+        <div class="fs11 fc17 time">时间 {{msg.time}}</div>
+        <div class="fc46 detail">
+            <detail :item="msg"></detail>
+        </div>
+    </div>
+    <script src="../../../js/PB.Api.js"></script>
+  <script src="../../../js/jquery-2.2.0.min.js"></script>
+  <script src="../../../js/vue.js"></script>
+  <script src="../js/common.js"></script>
+  <script src="../js/template-detail.js"></script>
+  <script src="../js/detail.js"></script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+{
+  "serverAdd": "http://180.169.30.6:8080/PoboAssetWS/",
+  "loginWS": "login",
+  "registerWS": "register",
+  "riskWS": "risk",
+  "prodListWS": "prod/list",
+  "prodDetlWS": "prod/detail",
+  "prodNavWS": "prod/nav",
+  "bookListWS": "booking/list",
+  "bookSbmtWS": "booking/submit",
+  "SMSCodeLength": 6,
+  "IDNoLength": 18,
+  "NSPContent": "<h4>网络服务协议</h4><p>根据《私募投资基金监督管理暂行办法》第四章第十四条规定：“ 私募基金管理人、私募基金销售 机构不得向合格投资者之外的单位和个人募集资金，不得通过报刊、电台、电视、互联网等公众传播媒体或者讲座、报告会、分析会和布告、传单、手机短信、微信、博客和电子邮件等 方式，向不特定对象宣传推介。”</p>",
+  "QIIContent": "<h4>合格投资者认定</h4><p>本人以真实身份委托广发期货有限公司运用委托资产进行投资。本人承诺委托资产来源及用途合法，不属于违反规定的公众集资,符合有关反洗钱法律法规的要求。广发期货有限公司有权要求本人提供资产来源及用途合法性证明，对资产来源及用途及合法性进行调查，本人愿意配合。</p><p>本人符合期货公司资产管理业务合格投资者相关标准，符合《私募投资基金监督管理暂行办法》第十二条规定的“净资产不低于1000万元的单位”、“金融资产不低于300万元或者最近三年个人年均收入不低于50万元的个人”条件，或符合《私募投资基金监督管理暂行办法》第十三条“合格投资者”的规定。</p><p>本人未被法律、法规或监管机构限制参与期货资产管理业务。</p><p>本人将严格遵守以上承诺，否则广发期货有限公司有权解除资产管理合同，本人违反委托资产来源及用途合法性承诺的，广发期货有限公司还有权依法限制本人提取该委托资产。本人承担因此造成的全部损失和法律责任。</p>",
+  "rslt": {
+    "level-1": {
+      "rsltImgSrc": "./images/result1.png",
+      "typeText": "保守型",
+      "riskRank": "低"
+    },
+    "level-2": {
+      "rsltImgSrc": "./images/result2.png",
+      "typeText": "稳健型",
+      "riskRank": "中/低"
+    },
+    "level-3": {
+      "rsltImgSrc": "./images/result3.png",
+      "typeText": "积极型",
+      "riskRank": "高/中/低"
+    }
+  },
+  "private": {
+    "level-1": {
+      "rankImgSrc": "./images/low.png"
+    },
+    "level-2": {
+      "rankImgSrc": "./images/middle.png"
+    },
+    "level-3": {
+      "rankImgSrc": "./images/high.png"
+    }
+  }
+}

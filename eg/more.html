@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>应用版本</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="stylesheet" href="../appstore/css/reset.css">
+    <link rel="stylesheet" href="../appstore/css/new_file1.css">
+    <link rel="stylesheet" href="../appstore/css/media.css">
+    <script src="../appstore/js/jquery-1.11.3.min.js"></script>
+    <script src="../appstore/js/url.js"></script>
+    <style>
+        #header{
+            width:100%;
+            height:0.35rem;
+            background:#277fc2;
+            text-align:center;
+            color:white;
+            line-height:0.35rem;
+            font-size:0.3rem;
+
+        }
+        #header a{
+            display:inline-block;
+            width:0.3rem;
+            height:0.3rem;
+            float:right;
+            margin-right:0.1rem;
+            margin-top:0.02rem;
+        }
+        #content{
+            width:100%;
+            padding:.2rem .1rem;
+        }
+        #content li{
+            padding-top:.15rem;
+        }
+        #content p{
+            display:inline-block;
+            float:left;
+            width:19%;
+            text-align:center;
+        }
+        #content .pName{
+            width:43%;
+        }
+        .aHover:hover{
+            color:#66bafa;
+        }
+        @media screen and (min-width: 375px) {
+            #header img{
+                float:left;
+                margin-left:.2rem;
+                margin-top:.05rem;
+            }
+        }
+        @media screen and (max-width: 375px) {
+            #header img{
+                float:left;
+                margin-left:.2rem;
+                margin-top:.02rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div id="header">
+    <img src="../appstore/img/fanhui.png">
+    <span>应用版本</span>
+</div>
+<div id="content">
+    <ul>
+        <li class="clearfloat">
+            <p>版本号</p>
+            <p class="pName">版本信息</p>
+            <p>下载次数</p>
+            <p>上传时间</p>
+        </li>
+    </ul>
+</div>
+<script>
+    $(function () {
+        $("#header>img").click(function () {
+            history.back(-1);
+        });
+        //    获取id/name
+        GetQueryString = function (name) {
+            var urls = decodeURI(window.location.search.substr(1));
+            var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)');
+            var r = urls.match(reg);
+            if (r) return unescape(r[2]);
+            return null;
+        };
+        var marketID =GetQueryString('treeId');
+        var type=GetQueryString('type');
+//    获取应用名
+        var dad={
+            "func": 2,
+            "data": JSON.stringify({
+                "treeId": marketID,
+                "type": type
+            })
+        };
+        $.ajax({
+            type:"POST",
+            url:url()[0],
+            crossDomain: true,
+            data:dad,
+            success:function (data) {
+                var arr=data.data;
+                var str="";
+                for(var i=0;i<arr.length;i++){
+                    str=str+'<li class="clearfloat U">'+'<a class="aHover" href="'+arr[0].path+'">'+
+                            '<p>'+arr[i].version+'</p>'+'<p class="pName">'+arr[i].description+'</p>'+
+                            '<p>'+arr[i].count+'</p>'+
+                            '<p>'+arr[i].createTime+'</p>'+'</a>'
+                            +'</li>';
+                }
+                $("#content>ul").append(str) ;
+            },
+            erroe:function (err) {
+                console.log("服务器异常")
+            }
+        });
+    })
+
+</script>
+</body>
+</html>

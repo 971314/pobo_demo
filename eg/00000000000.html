@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="UTF-8">
+    <title>登陆</title>
+    <script src="js/jquery-1.11.3.js"></script>
+    <script src="js/Bootstrap.js"></script>
+    <script src="js/jquery-1.7.2.js"></script>
+    <script src="js/jquery.easyui.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/deng_lu.css"/>
+    <link href="css/bootstrap.css" rel="stylesheet">
+</head>
+<body>
+<div id="landing_first">
+    <div  class="container" id="header">
+        <p class="lf">登陆</p>
+    </div>
+    <div class="deng_lu" id="deng_lu">
+        <form  method="post" id="ff" >
+            <div id="register">
+                <div class="contact_form">
+                    <i class="phone_icon lf"></i>
+                    <input name="mobile" class="lf" type="tel" id="phone_number" placeholder="手机号码/登录名"/>
+                </div>
+                <div class="contact_form reg_ma">
+                    <i class="lock_icon lf"></i>
+                    <input name="password" class="lf" type="password" id="password" placeholder="密码" />
+                    <input type="hidden" name="uid" id="gg"  />
+                    <input type="hidden" name="token" id="qq"/>
+                </div>
+            </div>
+            <div class="landing">
+                <button type="button" onclick="state()">登陆</button>
+                <p><a class="lf" href="zhaohuimima.html">找回密码</a><a class="rt" href="zhu_ce.html">注册账号</a></p>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+   var urlN="192.168.31.219:8080";
+    sessionStorage.setItem("urlN",urlN);
+
+   var urlNtopic="http://123.56.99.55/zmacs";
+   sessionStorage.setItem("urlNtopic",urlNtopic);
+   //h5的缓存数据
+
+    function find(){ //跳转找回密码的页面
+//        window.open("find_password.html","_self");
+        window.location.href="zhaohuimima.html";
+    }
+   //点击提交
+    function state(){
+        var uname=$("#phone_number").val();//取用户名框中的值
+        var phone_number1=sessionStorage.setItem("phone_number1",uname);//进行存储，每个页面需要读取一次  读取yonghuming=sessionStorage。个头Item（"phone_number1"）
+        var password=$("#password").val();//去密码的值
+
+        $.getJSON("login.do?mobile="+uname+"&password="+password+"&type=1&jsoncallback=?",function(data){
+//发送请求
+            var n=data[0].notice;//后台返回的值( 1：失败或 2：成功）
+            console.log(n);
+            if(n==1){//判断后台的返回值
+                alert("用户名或者密码错误，请重新输入...");
+            }else if(n==2){
+
+                var sid=data[0].sid;　//　从后台获取的账号的ＩＤ值　
+//                $('#gg').val(sid);
+                var token=data[0].token;//　从后台获取的账号的注册时的时间戳值值
+//                $("#qq").val(token);
+
+//                alert(n);
+//                var l=$("#uname").val();
+                var token=sessionStorage.setItem("token",token);//将值缓存，以作后用
+                var uid=sessionStorage.setItem("uid",sid);
+
+                window.location.href="personal_center.html";//进入首页
+                //window.location.href="personal_center.html?n=2";
+            }else{
+                alert("用户名或者密码错误，请重新输入...");
+            }
+        });
+    }
+</script>
+
+</body>
+</html>

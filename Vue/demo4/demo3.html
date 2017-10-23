@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>嵌套路由</title>
+</head>
+<body>
+<div id="app">
+    <p>
+        <router-link to="/user/foo">user/foo</router-link>
+        <router-link to="/user/foo/profile">uesr/foo/profile</router-link>
+        <router-link to="/user/foo/posts">user/foo/posts</router-link>
+    </p>
+    <router-view></router-view>
+</div>
+<script src="../js/vue.js"></script>
+<script src="../js/vue-router.js"></script>
+<script>
+    const User = {
+        template:'<div class="user">' +
+        '<h2>User {{$route.params.id}}</h2>' +
+        '<router-view></router-view>' +
+        '</div>'
+    };
+
+    const UserHome = {template:'<div>Home</div>'};
+    const UserProfile = {template:'<div>Profile</div>'};
+    const UserPosts = {template:'<div>Posts</div>'};
+    const router = new VueRouter({
+        routes:[
+            {path:'/user/:id',component:User,
+                children:[
+                    {path:'',component:UserHome},
+                    {path:'profile',component:UserProfile},
+                    {path:'posts',component:UserPosts}
+                ]
+            }
+        ]
+    });
+    const app = new Vue({
+        router
+    }).$mount('#app');
+</script>
+</body>
+</html>

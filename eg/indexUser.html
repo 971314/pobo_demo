@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>pobo应用商店-管理</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/new_file1.css">
+    <link rel="stylesheet" href="css/media.css">
+    <style>
+        #header{
+            width:100%;
+            height:0.35rem;
+            background:grey;
+            text-align:center;
+            color:white;
+            line-height:0.35rem;
+            font-size:0.3rem;
+
+        }
+        #accordion{
+            width:98%;
+            margin:0.06rem auto;
+            /*border:1px solid #aaa;*/
+            padding:0.067rem;
+            height:4rem;
+        }
+        #accordion>h3{
+            background-color:rgb(211,211,211);
+            margin:0.04rem 0 0 0;
+            cursor:pointer;
+            font-size:0.16rem;
+            font-weight:normal;
+            color:#666;
+            padding:0.067rem;
+            border:1px solid #bbb;
+        }
+
+        #accordion>div{
+            padding:0.16rem 0.334rem;
+            font-size:0.16rem;
+            /*height:2rem;*/
+            overflow:auto;
+            display:none;
+        }
+        h3{
+            text-align:center;
+        }
+        .app_li a{
+            display:inline-block;
+            float:left;
+        }
+
+        #foot{
+            width:100%;
+            position:fixed;
+            bottom:0;
+            text-align:center;
+        }
+        #foot span{
+            display:inline-block;
+            width:10%;
+            height:0.4rem;
+
+        }
+        #foot>span{
+            background:url("img/jiantou.png") no-repeat 0 0;
+        }
+        @media screen and (min-width: 320px) {
+            .app_li a{
+                line-height:0.24rem;
+            }
+            #foot span{
+                display:inline-block;
+                width:2%;
+                height:0.4rem;
+                margin:0 auto;
+
+            }
+        }
+        @media screen and (max-width: 320px) {
+            .app_li a{
+                font-size:0.2rem;
+                line-height:0.3rem;
+            }
+            #foot span{
+                display:inline-block;
+                width:13%;
+                height:0.5rem;
+                margin:0 auto;
+
+            }
+        }
+        .repassword{
+            color: #7de3f9;
+            float: right;
+            font-size:.12rem;
+            margin-right:.1rem;
+        }
+    </style>
+</head>
+<body>
+<div id="header">
+    <span>pobo软件商店</span>
+    <a href="password.html" class="repassword">修改密码</a>
+</div>
+<div id="accordion" data-role="page">
+    <!--<h3><a href="upload-1.html?id=111&name=wang">pobo</a></h3>-->
+</div>
+<div id="foot">
+    <span class="add"></span>
+</div>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script>
+    $(function () {
+        //        添加卷商
+        $(".add").click(function () {
+            $('<h3 contenteditable="true"></h3>').insertAfter($("#accordion h3").last());
+        });
+//        双击圈商改变可编辑
+        $(document).on("click","h3",function () {
+            $(this).each(function (i,e) {
+                $(e).find("a").attr("contenteditable","true");
+            });
+        });
+
+//        动态获取后台卷商
+        var dad={
+            "func":1,
+            "data":JSON.stringify({"treeId":"0"})
+        };
+        $.ajax({
+            type:"POST",
+            url:"http://192.168.6.49:8080/PbAppStore/Download",
+            crossDomain: true,
+            data:dad,
+            success:function (data) {
+                var arr=data.data;
+                var str="";
+                for(var i=0;i<arr.length;i++){
+                    str=str+'<h3>'+'<a href="Android.html?treeId=' +
+                            arr[i].treeId + '">'+arr[i].treeName +'</a>'+
+                            '<input type="hidden" value="'+ arr[i].treeId+'" name="'+arr[i].treeId+'">'+'</h3>';
+                }
+                $("#accordion").append(str) ;
+
+            },
+            erroe:function (err) {
+                console.log("服务器异常")
+            }
+        });
+    });
+    //    获取id/name
+    GetQueryString = function (name) {
+        var urls = decodeURI(window.location.search.substr(1));
+        var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)');
+        var r = urls.match(reg);
+        if (r) return unescape(r[2]);
+        return null;
+    };
+    var toekn=GetQueryString('toekn');
+    var userId=GetQueryString('userId');
+//        当卷商失去焦点时提交
+var data = {
+        "token" :toekn,
+        "userId" :userId
+        };
+    var blur={
+        "func": 13
+    };
+    $(document).on("blur","#accordion>h3",function () {
+            $(this).each(function (i,e) {
+                $(e).find("a").removeAttr("contenteditable");
+				var treeName = $(e).find('a').text();
+				var treeId = $(e).find('input').val();
+			    data.treeName = treeName;
+			    data.treeId = treeId;
+				blur.data = JSON.stringify(data);
+            });
+            $.ajax({
+                type:"POST",
+                url:"http://192.168.6.49:8080/PbAppStore/Upload",
+                crossDomain: true,
+                data:blur,
+                success:function (data) {
+                    var arr=data.data;
+                    console.log(arr);
+                }
+            });
+        });
+</script>
+</body>
+</html>

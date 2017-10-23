@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="dom"></div>
+<script>
+    function dom(a) {
+        return "<div>"+a+"</div>"
+    }
+    var a = 1
+    var dd = document.getElementById('dom')
+    dd.innerhtml='<div>"+a+"</div>'
+    console.log(dd)
+</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>API</title>
+    <script src="https://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+</head>
+<body>
+<div ng-app="myApp" ng-controller="myCtrl">
+    <p>{{x1}}</p>
+    <p>{{x2}}</p>
+</div>
+<script>
+    var app = angular.module('myApp',[]);
+    app.controller('myCtrl',function ($scope) {
+        $scope.x1 = 'JSON';
+//        $scope.x2 = angular.lowercase($scope.x1); //    angular.lowercase()	转换字符串为小写
+//        $scope.x2 = angular.uppercase($scope.x1);//angular.uppercase()	转换字符串为大写
+//        $scope.x2 = angular.isString($scope.x1);//angular.isString()	判断给定的对象是否为字符串，如果是返回 true
+//        $scope.x2 = angular.isNumber($scope.x1);//angular.isNumber()	判断给定的对象是否为数字，如果是返回 true。
+    });
+</script>
+</body>
+</html>

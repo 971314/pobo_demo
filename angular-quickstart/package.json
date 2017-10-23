@@ -1,0 +1,35 @@
+{
+  "name": "angular-quickstart",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run lite",
+    "lite": "lite-server"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@angular/common": "4.2.3",
+    "@angular/compiler": "4.2.3",
+    "@angular/core": "4.2.3",
+    "@angular/forms": "4.2.3",
+    "@angular/http": "4.2.3",
+    "@angular/platform-browser": "4.2.3",
+    "@angular/platform-browser-dynamic": "4.2.3",
+    "@angular/router": "4.2.3",
+    "@angular/upgrade": "4.2.3",
+
+    "core-js": "^2.4.1",
+    "reflect-metadata": "^0.1.10",
+    "rxjs": "5.4.1",
+    "zone.js": "^0.8.12",
+
+    "angular2-in-memory-web-api": "0.0.21",
+    "bootstrap": "^3.3.7"
+  },
+  "devDependencies": {
+    "concurrently": "^3.4.0",
+    "lite-server": "^2.3.0"
+  }
+}

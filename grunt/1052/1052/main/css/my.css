@@ -1,0 +1,93 @@
+.user-info {
+  margin: 5px -8px 12px;
+  border-top: 1px solid #e4e7f0;
+  border-bottom: 1px solid #e4e7f0;
+  padding: 13px 8px;
+  background-color: #fff;
+}
+.user-info>img {
+  width: 45px;
+}
+.user-info a {
+  display: block;
+  float: right;
+  padding-top: 14px;
+  padding-bottom: 16px;
+  width: 75%;
+  color: #1a1a1a;
+}
+.user-info a img {
+  top: 1px;
+}
+.btn-group {
+  display: block;
+  margin-bottom: 12px;
+  margin-left: -8px;
+  margin-right: -8px;
+  border-top: 1px solid #e4e7f0;
+  border-bottom: 1px solid #e4e7f0;
+}
+.btn-group+.btn-group {
+  border-bottom: none;
+}
+.btn-group>div {
+  float: left;
+  border-right: 1px solid #e4e7f0;
+  width: 33.33333333%;
+}
+.btn-group>div:last-child {
+  border-right: none;
+}
+.btn-group .btn {
+  display: block;
+  border: none;
+  padding-top: 11px;
+  padding-bottom: 11px;
+  background-color: #fff;
+  font-size: 15px;
+  color: #808086;
+  line-height: 12px;
+  background-repeat: no-repeat;
+  background-position: center 12px;
+}
+.btn:active {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+.btn-default:active:focus,
+.btn-default:active:hover {
+  color: #3366cc;
+  background-color: #fff;
+  border: none;
+}
+.btn-group .btn p {
+  margin-top: 25px;
+  margin-bottom: 0;
+}
+#btn-1 {
+  background-image: url(../images/my1.png);
+  background-size: 24px 16px;
+}
+#btn-1:active {
+  background-image: url(../images/my12.png);
+  background-size: 24px 16px;
+}
+#btn-2 {
+  background-image: url(../images/my2.png);
+  background-size: 18px 17px;
+}
+#btn-2:active {
+  background-image: url(../images/my22.png);
+  background-size: 18px 17px;
+}
+#btn-3 {
+  background-image: url(../images/my3.png);
+  background-size: 18px 17px;
+}
+#btn-3:active {
+  background-image: url(../images/my32.png);
+  background-size: 18px 17px;
+}
+.nav-stacked>li+li {
+  margin-top: -1px;
+}

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>设置密码</title>
+
+  <!-- Bootstrap -->
+  <link href="../../css/bootstrap.min.css" rel="stylesheet">
+  <link href="../css/reg.css" rel="stylesheet">
+  <style>
+    #sure {border-radius: 50px; background-color: #2190ed;}
+    #goBack {border-radius: 50px; background-color: #2190ed;}
+    .form-control {background-color: transparent; border: none; border-bottom: 1px solid #fff; box-shadow: none; color: #fff;}
+    .form-control::-webkit-input-placeholder {color:#d3e3f1;}
+    .form-control:-moz-placeholder {color: #d3e3f1;}
+    .form-control::-moz-placeholder {color: #d3e3f1;}
+    .form-control:-ms-input-placeholder {color: #d3e3f1;}
+    .input-group-btn:last-child>.btn {background-color: transparent;}
+    .form-control:focus {border: none; border-bottom: 1px solid #fff; box-shadow: none;}
+    .input-group-btn:last-child>.btn {color: #fff;}
+    #btn-send {border: none; border-bottom: 1px solid #fff;}
+    #code {border-right: 1px solid #fff;}
+  </style>
+</head>
+<body id="body">
+  <div class="container-fluid">
+    <div class="clearfix">
+      <div class="tips-top" onclick="fold();">
+        <p>为保障您的投资安全，请设置密码</p>
+        <p class="error hide"></p>
+      </div>
+      <form class="set-pwd clearfix">
+        <div class="form-group">
+          <input type="tel" class="form-control" id="phone" placeholder="请输入手机号码">
+        </div>
+        <div class="form-group">
+          <div class="input-group">
+            <input type="tel" class="form-control" id="code" placeholder="请输入验证码">
+            <span class="input-group-btn">
+              <input type="button" class="btn" id="btn-send" value="获取验证码" onclick="sendPwdOTP();">
+            </span>
+          </div>
+        </div>
+      </form>
+      <div class="not-form clearfix">
+        <div class="form-group">
+          <input type="password" class="form-control" id="password" placeholder="请输入新密码" onkeydown="jump('confirm');">
+        </div>
+      </div>
+      <form class="clearfix">
+        <div class="form-group">
+          <input type="password" class="form-control" id="confirm" placeholder="请再次输入新密码" onkeydown="jump('sure');">
+        </div>
+        <input class="btn btn-left btn-cfm" type="button" value="确&nbsp;&nbsp;定" onclick="setPwd();" id="sure">
+        <a class="btn btn-right btn-rtn" id="goBack">返&nbsp;&nbsp;回</a>
+      </form>
+    </div>
+  </div>
+  <div class="load-backdrop hide" id="backdrop">
+    <div class="loading"></div>
+  </div>
+  <script src="../../../js/jquery-2.2.0.min.js"></script>
+  <!--<script src="../js/common.js"></script>-->
+  <script>
+    if(typeof pbE != 'undefined'){
+      var loadSendOTPTime = pbE.SYS().getPrivateData('sendOTPTime');
+      $('#goBack').click(function () {
+        location.href='goBack';
+      })
+    }else{
+      var loadSendOTPTime = localStorage.getItem('sendOTPTime')
+      $('#goBack').click(function () {
+        location.href=document.referrer;
+      })
+    }
+
+    if (loadSendOTPTime) {
+      var loadTime = new Date().getTime();
+      var loadPeriod = loadTime - loadSendOTPTime;
+      if (loadPeriod < (120 * 1000)) {
+        var loadCountdown = 120 - Math.round(loadPeriod / 1000);
+        var iload = setInterval(function(){
+          if(loadCountdown == 0){
+            $('#btn-send').removeClass('disabled');
+            $('#btn-send').val('获取校验码');
+            clearInterval(iload);
+            return;
+          } else{
+            $('#btn-send').val('(' + loadCountdown +  'S)');
+            $('#btn-send').addClass('disabled');
+          }
+          loadCountdown--;
+        },1000);
+      }
+    }
+  </script>
+  <script src="../js/reg.js"></script>
+</body>
+</html>

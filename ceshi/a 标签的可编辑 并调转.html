@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        p{
+            width:100px;
+            background:black;
+        }
+    </style>
+</head>
+<body>
+<p onclick="myApp()"><a id="p" contenteditable="true">uiq</a></p>
+<script>
+    function myapp(){
+        window.location.href="index.html";
+    }
+    var p=document.getElementById("p");
+    p.onblur=function(){
+        window.location.href="01.html";
+    }
+</script>
+</body>
+<html>

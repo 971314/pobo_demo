@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title></title>
+  <link href="../../css/bootstrap.min.css" rel="stylesheet">
+  <link href="../../css/common.css" rel="stylesheet">
+  <script src="../../js/adaptation.js"></script>
+  <style>
+      #list{margin-top:15px;padding:0 0 0 10px;background:#fff;border-bottom:1px solid #e4e7f0;border-top:1px solid #e4e7f0;display: none;}
+      #list li{padding-right:10px;list-style: none;border-bottom:1px solid #e4e7f0;}
+      #list li:last-child{border-bottom: none;}
+      #list a{font-size: 16px;color:#808086;display: block;padding:5px 0;line-height: 21px;background:url(../images/more.png) no-repeat 100% 20px;background-size:7px 14px;}   
+      #list span{margin-right:20px;}
+      #list .t{color:#1a1a1a;font-size: 17px;}
+      #none{text-align: center;display: none;padding-top:15px;}
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="goBack">
+          <img src="../../images/goback.png" alt="返回">
+        </a>
+      </div>
+      <p class="navbar-text">已关联账户</p>
+    </div>
+  </nav>
+  <ul id="list">
+  </ul>
+  <div id="none">您还未有任何账户关联</div>
+  <script src="../../../js/jquery-2.2.0.min.js"></script>
+  <script src="../js/binds.js"></script>
+  <script>ready(listView)</script>
+</body>
+</html>

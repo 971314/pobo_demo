@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>title</title>
+    <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+    <style>
+        input.ng-invalid{
+            background-color:lightblue;
+        }
+    </style>
+</head>
+<body>
+                                                        <!--ng-model 指令-->
+<!--<div ng-app="myApp" ng-controller="myCtrl">-->
+    <!--名字：<input ng-model="name">-->
+<!--</div>-->
+<!--<script>-->
+    <!--var app = angular.module('myApp',[]);-->
+    <!--app.controller('myCtrl',function ($scope) {-->
+        <!--$scope.name='John Doe'-->
+    <!--});-->
+<!--</script>-->
+                                                            <!--双向绑定-->
+<!--<div ng-app="myApp" ng-controller="myCtrl">-->
+    <!--名字：<input ng-model="name">-->
+    <!--<h1>你输入了：{{name}}</h1>-->
+<!--</div>-->
+<!--<script>-->
+<!--var app = angular.module('myApp',[]);-->
+<!--app.controller('myCtrl',function ($scope) {-->
+<!--$scope.name='John Doe'-->
+<!--});-->
+<!--</script>-->
+                                                        <!--验证用户输入-->
+<!--<form ng-app="" name="myForm" ng-init="myText = 'test@runoob.com'">-->
+    <!--Email:-->
+    <!--<input type="email" name="myAddress" ng-model="myText" required>-->
+    <!--<h1>状态</h1>-->
+    <!--<span ng-show="myForm.myAddress.$error.email">不是一个合法的邮箱地址</span>-->
+    <!--{{myForm.myAddress.$valid}}-->
+    <!--{{myForm.myAddress.$dirty}}-->
+    <!--{{myForm.myAddress.$touched}}-->
+<!--</form>-->
+                                                        <!--css类-->
+<!--<form ng-app="" name="myForm">-->
+    <!--输入你的名字：-->
+    <!--<input name="myAddress" ng-model="text" required>-->
+<!--</form>-->
+<!--ng-empty-->
+<!--ng-not-empty-->
+<!--ng-touched-->
+<!--ng-untouched-->
+<!--ng-valid-->
+<!--ng-invalid-->
+<!--ng-dirty-->
+<!--ng-pending-->
+<!--ng-pristine-->
+                                                <!--如何使用 Scope-->
+<!--<div ng-app="myApp" ng-controller="myCtrl">-->
+    <!--<h1>{{carname}}</h1>-->
+<!--</div>-->
+<!--<script>-->
+    <!--var app = angular.module('myApp',[]);-->
+    <!--app.controller('myCtrl',function ($scope) {-->
+        <!--$scope.carname = 'Volvo'-->
+    <!--})-->
+<!--</script>-->
+                                                        <!--Scope 作用范围-->
+<!--<div ng-app="myApp" ng-controller="myCtrl">-->
+    <!--<ul>-->
+        <!--<li ng-repeat="x in names">-->
+            <!--{{x}}-->
+        <!--</li>-->
+    <!--</ul>-->
+<!--</div>-->
+<!--<script>-->
+    <!--var app = angular.module('myApp',[]);-->
+    <!--app.controller('myCtrl',function ($scope) {-->
+        <!--$scope.names = ['Emil','Tobias','Linus']-->
+    <!--})-->
+<!--</script>-->
+                                                        <!--根作用域-->
+<!--<div ng-app="myApp" ng-controller="myCtrl">-->
+    <!--<h1>{{lastname}} 家族成员：</h1>-->
+    <!--<ul>-->
+        <!--<li ng-repeat="x in names">-->
+            <!--{{x}} {{lastname}}-->
+        <!--</li>-->
+    <!--</ul>-->
+<!--</div>-->
+<!--<script>-->
+    <!--var app = angular.module('myApp',[]);-->
+    <!--app.controller('myCtrl',function ($scope,$rootScope) {-->
+        <!--$scope.names = ['Emil','Tobias','linus'];-->
+        <!--$rootScope.lastname = 'Refsnes'-->
+    <!--})-->
+<!--</script>-->
+                                                                    <!--angular 控制器-->
+<!--<div ng-app="myApp" ng-controller="myCtrl">-->
+    <!--名：<input type="text" ng-model="firstname"><br/>-->
+    <!--姓：<input type="text" ng-model="lastname"><br/>-->
+    <!--姓名：{{firstname + ' ' + lastname}}-->
+<!--</div>-->
+<!--<script>-->
+    <!--var app = angular.module('myApp',[]);-->
+    <!--app.controller('myCtrl',function ($scope) {-->
+        <!--$scope.firstname = 'john';-->
+        <!--$scope.lastname = 'doe'-->
+    <!--})-->
+<!--</script>-->
+                                                        <!--控制器方法-->
+<!--<div ng-app="myApp" ng-controller="personCtrl">-->
+    <!--名：<input type="text" ng-model="firstname"><br/>-->
+    <!--姓：<input type="text" ng-model="lastname"><br/>-->
+    <!--<br/>-->
+    <!--姓名：{{fullName()}}-->
+<!--</div>-->
+<!--<script src="personController.js"></script>-->
+
+<!--<div ng-app="myApp" ng-controller="namesCtrl">-->
+    <!--<ul>-->
+        <!--<li ng-repeat="x in names">-->
+            <!--{{x.name + ', ' + x.country}}-->
+        <!--</li>-->
+    <!--</ul>-->
+<!--</div>-->
+<!--<script src="namesController.js"></script>-->
+                                                        <!--表达式中添加过滤器-->
+<!--<div ng-app="myApp" ng-controller="personCtrl">-->
+    <!--<p>姓名为：{{lastname | lowercase}}</p>-->
+<!--</div>-->
+                                                        <!--&lt;!&ndash;currency	格式化数字为货币格式。&ndash;&gt;-->
+                                                        <!--&lt;!&ndash;filter	从数组项中选择一个子集。&ndash;&gt;-->
+                                                        <!--&lt;!&ndash;lowercase	格式化字符串为小写。&ndash;&gt;-->
+                                                        <!--&lt;!&ndash;orderBy	根据某个表达式排列数组。&ndash;&gt;-->
+                                                        <!--&lt;!&ndash;uppercase	格式化字符串为大写。&ndash;&gt;-->
+<!--<script src="personController.js"></script>-->
+                                                        <!--currency 过滤器-->
+<!--<div ng-app="myApp" ng-controller="costCtrl">-->
+    <!--<input type="number" ng-model="quantity">-->
+    <!--<input type="number" ng-model="price">-->
+    <!--<p>总价 = {{(quantity * price) | currency}}</p>-->
+<!--</div>-->
+<!--<script>-->
+    <!--var app = angular.module('myApp',[]);-->
+    <!--app.controller('costCtrl',function ($scope) {-->
+        <!--$scope.quantity = 1;-->
+        <!--$scope.price = 9.99-->
+    <!--});-->
+<!--</script>-->
+                                                        <!--向指令添加过滤器-->
+<div ng-app="myApp" ng-controller="namesCtrl">
+    <ul>
+        <li ng-repeat="x in names | orderBy:'country'">
+            <!--{{x.name + ', ' + x.country }}-->
+            {{ (x.name | uppercase) + ', ' + x.country }}
+        </li>
+    </ul>
+</div>
+<script src="namesController.js"></script>
+</body>
+</html>

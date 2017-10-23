@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>我的</title>
+
+  <!-- Bootstrap -->
+  <link href="../../../css/bootstrap.min.css" rel="stylesheet">
+  <link href="../../css/common.css" rel="stylesheet">
+  <link href="../css/my.css" rel="stylesheet">
+  <style>
+    body {
+      padding-top: 0;
+    }
+    .btn-group div {width: 50%;}
+  </style>
+</head>
+<body>
+<!--
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a href="goBack" class="navbar-brand">
+          <img src="../images/goback.png" alt="返回">
+        </a>
+      </div>
+      <p class="navbar-text">我的</p>
+    </div>
+  </nav>
+-->
+  <div class="container-fluid">
+    <div class="clearfix">
+      <div class="user-info">
+        <img src="../../images/uimg.png" alt="">
+        <a href="pobo:uncheck=0&pageId=905002&url=reg/view/reg-one.html" id="login" >
+          <span>请用手机号码登录</span>
+          <img class="more" src="../../images/more.png" alt="详细">
+        </a>
+        <a href="pobo:uncheck=0&pageId=905002&url=reg/view/reg-one.html" id="info" style="display:none ">
+          手机号：
+          <span id="phone">--</span>
+          <img class="more" src="../../images/more.png" alt="详细">
+        </a>
+      </div>
+      <!--<div class="btn-group clearfix">
+        <div>
+          <a class="btn btn-default" id="btn-1" href="pobo:push/news-center.html?pageId=905003"><p>消息中心</p></a>
+        </div>
+        <div>
+          <a class="btn btn-default" id="btn-2" href="pobo:uncheck=0&pageId=805004"><p>交易账号关联</p></a>
+        </div>
+        <div>
+          <a class="btn btn-default" id="btn-3" href="javascript:void(0);" onclick="pbE.SYS().sendMessageToNative('Pbkey_H5_Open_Account', '666');"><p>开户</p></a>
+        </div>
+      </div>-->
+      <ul class="nav nav-pills nav-stacked" id="menus">
+      </ul>
+    </div>
+  </div>
+  <script src="../../../js/jquery-2.2.0.min.js"></script>
+  <script src="../js/my.js"></script>
+</body>
+</html>

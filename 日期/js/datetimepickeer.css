@@ -1,0 +1,24 @@
+#datetimepicker1{
+}
+.input{
+    width:160px;
+    height:20px;
+    transition: border linear .2s, box-shadow linear .2s;
+    border:0;
+}
+.input-append{
+    display: inline-block;
+    border:1px solid #d6dfea;
+}
+.add-on{
+    display: inline-block;
+    width: auto;
+    height: 20px;
+    min-width: 16px;
+    padding: 4px 5px;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 20px;
+    text-align: center;
+    text-shadow: 0 1px 0 #ffffff;
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件</title>
+    <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+
+</head>
+<body>
+                                                        <!--ng-click 指令-->
+<!--<div ng-app="myApp" ng-controller="myCtrl">-->
+    <!--<button ng-click="count = count + 1">点我！</button>-->
+    <!--<p>{{count}}</p>-->
+<!--</div>-->
+<!--<script>-->
+    <!--var app = angular.module('myApp',[]);-->
+    <!--app.controller('myCtrl',function ($scope) {-->
+        <!--$scope.count = 0;-->
+    <!--})-->
+<!--</script>-->
+                                                        <!--隐藏 HTML 元素-->
+<div ng-app="myApp" ng-controller="personCtrl">
+    <button ng-click="toggle()">隐藏/显示</button>
+    <p ng-hide="myVar">
+        名：<input type="text" ng-model="firstname">
+        姓：<input type="text" ng-model="lastname">
+        姓名：{{firstname + lastname}}
+    </p>
+</div>
+<script>
+    var app = angular.module('myApp',[]);
+    app.controller('personCtrl',function ($scope) {
+        $scope.firstname = 'john';
+        $scope.lastname = 'doe';
+        $scope.myVar = false;
+        $scope.toggle = function () {
+            $scope.myVar = !$scope.myVar;
+        }
+    })
+</script>
+</body>
+</html>

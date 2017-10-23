@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="js/datetimepickeer.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="js/bootstrap-datepicker.min.css">
+    <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap-datepicker.js"  charset="UTF-8"></script>
+    <link rel="stylesheet" href="js/bootstrap.min.css">
+</head>
+<style>
+
+</style>
+<body>
+        <div id="datetimepicker1" class="input-append date">
+            <input type="text" class="input"/>
+            <span class="add-on">
+                <i class="glyphicon glyphicon-calendar"></i>
+        </span>
+        </div>
+    <script type="text/javascript">
+        $(function() {
+//            $('#datetimepicker1').datepicker({
+//                format: 'yyyy/mm/dd',
+//                language:'ch',
+//                autoclose:true
+//            });
+            $('#datetimepicker1').datepicker({
+                startView: 1,
+                maxViewMode: 1,
+                minViewMode:1,
+                format: 'yyyy/mm',
+                language:'ch',
+                autoclose:true
+            })
+        });
+    </script>
+</body>
+</html>

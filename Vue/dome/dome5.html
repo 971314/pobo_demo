@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单控制绑定</title>
+</head>
+<body>
+<div id="example-1">
+    <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+    <label for="jack">Jack</label>
+    <input type="checkbox" id="john" value="John" v-model="checkedNames">
+    <label for="john">John</label>
+    <input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+    <label for="mike">Mike</label>
+    <br/>
+    <span>Checked names: {{checkedNames}}</span>
+</div>
+
+<div id="example-2">
+    <input type="radio" id="one" value="One" v-model="picked">
+    <label for="one">One</label>
+    <br/>
+    <input type="radio" id="two" value="Two" v-model="picked">
+    <label for="two">Two</label>
+    <br/>
+    <span>picked:{{picked}}</span>
+</div>
+
+<div id="example-3">
+    <select v-model="selected">
+        <option>A</option>
+        <option>B</option>
+        <option>C</option>
+    </select>
+    <span>selected:{{selected}}</span>
+</div>
+
+<div id="example-4">
+    <select v-model="selecteds" multiple>
+        <option>A</option>
+        <option>B</option>
+        <option>C</option>
+    </select>
+    <br>
+    <span>Selected: {{selecteds}}</span>
+</div>
+
+<div id="example-5">
+    <select v-model="selected">
+        <option v-for="option in options" v-bind:value="option.value">{{option.text}}</option>
+    </select>
+    <span>Selected:{{selected}}</span>
+</div>
+
+<div id="example-6">
+    <!--<input type="checkbox" v-model="toggle" v-bind:true-value="a" v-bind:false-value="b">-->
+</div>
+
+
+<script src="vue.js"></script>
+<script>
+    var example1 = new Vue({
+        el:'#example-1',
+        data:{
+            checkedNames:[]
+        }
+    });
+
+    var example2 = new Vue({
+        el:'#example-2',
+        data:{
+            picked:null
+        }
+    });
+
+    var example3 = new Vue({
+        el:'#example-3',
+        data:{
+            selected:null
+        }
+    });
+
+    var example4 = new Vue({
+        el:'#example-4',
+        data:{
+            selecteds:[]
+        }
+    });
+
+    var example5 = new Vue({
+        el:'#example-5',
+        data:{
+            selected:'A',
+            options:[
+                {text:'One',value:'A'},
+                {text:'Two',value:'B'},
+                {text:'Three',value:'C'}
+            ]
+        }
+    });
+
+    var example6 = new Vue({
+        el:'#example-6',
+        data:{
+            toggle:null
+        }
+    })
+</script>
+</body>
+</html>

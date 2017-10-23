@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript" src="../eg/jquery-1.11.3.min.js"></script>
+<script>
+    $(function (){
+        if(history&&history.pushState){
+            alert("true");
+        }else{
+            alert("false");
+        }
+        $(window).on("hashchange",function (){
+            alert("hashchange");
+        });
+    });
+</script>
+</body>
+</html>

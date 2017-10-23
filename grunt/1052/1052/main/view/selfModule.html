@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>导航</title>
+    <!-- Bootstrap -->
+
+    <link href="../../../css/bootstrap.min.css" rel="stylesheet">
+
+    <!--<link href="../css/user.css" rel="stylesheet">-->
+    <style>
+        .btn-cfm {
+            border-radius: 10px;
+            background-color: #2190ed;
+            height: 40px;
+            width: 80px;
+
+        }
+
+        .btn-rtn {
+            border-radius: 50px;
+            background-color: #2190ed;
+        }
+
+        .form-control {
+            background-color: transparent;
+            box-shadow: none;
+            height: 50px;
+            font-size: 20px
+        }
+        .item-list{padding: 0px;}
+        .item-list ul{margin: 0px}
+         ul li{list-style: none}
+        .item-list li{height: 45px; line-height: 42px; }
+        .item-list .iname{width: 20%}
+        .item-list .iaddr{width: 60%}
+        .item-list .iclose{width: 20%}
+        table tr td{word-wrap:break-word}
+        .navbar-fixed-top {
+            min-height: 44px;
+            border: none;
+            background-color: #3366cc;
+        }
+        .navbar-header { float: left; }
+        .navbar .navbar-brand {
+            height: 44px;
+            padding: 13px 15px;
+            margin-right: -15px;
+        }
+        .navbar .glyphicon { color: #f7f7f7; }
+        .navbar .navbar-text {
+            float: none;
+            margin-top: 0;
+            margin-bottom: 0;
+            font-size: 18px;
+            line-height: 44px;
+            color: #fff;
+            text-align: center;
+        }
+
+        .nav-blank {height: 9px; border-bottom: 1px solid #e4e7f0; padding: none; margin: none;}
+        .nav-blank1 {height: 10px; border-bottom: 1px solid #e4e7f0; padding: none; margin: none;}
+
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" onclick="goBack()">
+                <img src="../../images/goback.png" alt="返回"/>
+            </a>
+        </div>
+        <p class="navbar-text">自定义</p>
+    </div>
+</nav>
+
+<div class="container-fluid">
+
+    <div class="clearfix" id="itemList">
+
+    </div>
+</div>
+
+<a style="display: none" id="guide" ></a>
+
+
+
+
+</body>
+</html>
+<script src="../../../js/jquery-2.2.0.min.js"></script>
+<script src="../../../js/bootstrap.min.js"></script>
+<script src="../../../js/react.min.js"></script>
+<script src="../../../js/react-dom.min.js"></script>
+<script src="../js/selfModule.js"></script>
+<script>
+    // 返回
+    function goBack() {
+        if(typeof pbE != 'undefined'){
+            location.href='goBack';
+        }else{
+            location.href=document.referrer;
+        }
+    }
+
+    ReactDOM.render(React.createElement(selfModule, null), document.getElementById('itemList'));
+
+</script>

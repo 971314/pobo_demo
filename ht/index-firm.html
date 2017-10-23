@@ -1,0 +1,16 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>业务指南</title><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><link rel="stylesheet" href="libs/bootstrap.min.css"><link rel="stylesheet" href="css/index-firm.css"></head><body><nav class="navbar navbar-default navbar-fixed-top"><div class="container-fluid"><div class="navbar-header"><span class="navbar-brand"><img src="images/goback.png" alt="返回"></span></div><p class="navbar-text">业务指南</p></div></nav><div><div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="3000"><!-- Indicators --><ol class="carousel-indicators">
+<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+<li data-target="#carousel-example-generic" data-slide-to="1"></li></ol><!-- Wrapper for slides --><div class="carousel-inner" role="listbox"><div class="item active"><img src="images/top.png" height="109" alt=""></div><div class="item"><img src="images/top.png" height="109" alt=""></div></div></div></div><div class="blank"></div><div class="nav clearfloat"><ul class="clearfloat"><li><a href="javascript:;" style="background:url('images/firmN-1.png') no-repeat center 0"><p>银期转帐</p></a></li><li><a href="javascript:;" style="background:url('images/firmN-2.png') no-repeat center 0;border:0"><p>银行卡新增/变更</p></a></li><li><a href="javascript:;" style="background:url('images/firmN-3.png') no-repeat center 0"><p>基础资料变更</p></a></li><li><a href="javascript:;" style="background:url('images/firmN-4.png') no-repeat center 0;border:0"><p>密码重置</p></a></li><li><a href="javascript:;" style="background:url('images/firmN-5.png') no-repeat center 0"><p>结算单查询及打印</p></a></li><li><a href="javascript:;" style="background:url('images/firmN-6.png') no-repeat center 0;border:0"><p>账户激活</p></a></li><li style="border:0"><a href="javascript:;" style="background:url('images/firmN-7.png') no-repeat center 0"><p>仿真账号申请</p></a></li></ul></div><script src="libs/jquery-2.2.0.min.js"></script><script src="libs/bootstrap.min.js"></script><script src="libs/hammer.min.js"></script><script>$(function(){
+            var myElement= document.getElementById('carousel-example-generic')
+            var hm=new Hammer(myElement);
+            hm.on("swipeleft",function(){
+                $('#carousel-example-generic').carousel('next')
+            })
+            hm.on("swiperight",function(){
+                $('#carousel-example-generic').carousel('prev')
+            })
+//    返回上一页
+    $(".navbar-brand").click(function () {
+        history.back(-1);
+    })
+        })</script></body></html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>模块</title>
+    <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+</head>
+<body>
+                                                                <!--添加控制器-->
+<!--<div ng-app="myApp" ng-controller="myCtrl">-->
+    <!--{{firstname + ' '+lastname}}-->
+<!--</div>-->
+<!--<script>-->
+    <!--var app = angular.module('myApp',[]);-->
+    <!--app.controller('myCtrl',function ($scope) {-->
+        <!--$scope.firstname = 'john';-->
+        <!--$scope.lastname = 'doe';-->
+    <!--})-->
+<!--</script>-->
+                                                                <!--添加指令-->
+<!--<div ng-app="myApp" runoob-directive></div>-->
+<!--<script>-->
+    <!--var app = angular.module('myApp',[]);-->
+    <!--app.directive('runoobDirective',function () {-->
+        <!--return {-->
+            <!--template:'我在指令构造器中创建!'-->
+        <!--};-->
+    <!--});-->
+<!--</script>-->
+                                                                <!--模块和控制器包含在 JS 文件中-->
+<div ng-app="myApp" ng-controller="myCtrl">
+    {{firstname + ' ' + lastname}}
+</div>
+<script src="myApp.js"></script>
+<script src="myCtrl.js"></script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>我的消息</title>
+
+  <!-- Bootstrap -->
+  <link href="../../css/bootstrap.min.css" rel="stylesheet">
+  <link href="../../css/configStyle.css" rel="stylesheet">
+  <link href="../css/common.css" rel="stylesheet">
+  <link href="css/message.css" rel="stylesheet">
+  <script src="../js/adaptation.js"></script>
+</head>
+<body>
+  <nav class="navbar navbar-default navbar-fixed-top" id="navbar">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a href="goBack" class="navbar-brand">
+            <img src="../images/goback.png" />
+          </a>
+        </div>
+        <p class="navbar-text">我的消息</p>
+        <a class="setting" href="pobo:pageId=900005&url=message/view/setting.html"><i class="icon"></i></a>
+      </div>
+  </nav>
+  <div class="mainView" id="app">
+    <div class="cats fs10">
+        <div><span v-for="(c,index) in cats" :class="{fc1:cat==index}" @click="changeCat(index)"><i>{{c.name}}</i></span></div>
+    </div>
+    <div v-for="(c,index) in cats" class="listCon" :class="{hd:cat!=index}">
+      <div class="list">
+        <div>
+            <div class="unread fc17"><i class="icon"></i>还有 <span>{{c.unread}}</span> 条未读消息</div>
+            <div class="con">
+                <div v-for="d in c.data" class="msgItem" :class="{ur:d.readed==0, noDetail:types[d.typeid].noDetail}">
+                    <div class="t fs33">
+                        <i></i>
+                        <div>{{d.title}}</div>
+                        <span class="fs11">{{d.time|msgTime}}</span>
+                    </div>
+                    <div class="b"><component :is="types[d.typeid].listTemplate" :item="d"></component></div>
+                    <a class="detail fs11" @click="read(d)" :href="'pobo:pageId=900005&url=message/view/detail.html?'+d.msgid+'&'+d.typeid">阅读详情</a>
+                </div>    
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="loading"><span>正在加载...</span></div>
+  <div id="timeout">请求超时</div>
+  <script src="../../js/PB.Api.js"></script>
+  <script src="../../js/jquery-2.2.0.min.js"></script>
+  <script src="js/iscroll.min.js"></script>
+  <script src="../../js/vue.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/template-list.js"></script>
+  <script src="js/message.js"></script>
+</body>
+</html>

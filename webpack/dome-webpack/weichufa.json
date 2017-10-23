@@ -1,0 +1,79 @@
+{
+  "OrderAction": {
+    "ActionType": 1,
+    "SmartOrder": {
+      "ReorderEnable": false,
+      "Order": {
+        "41": "3",
+        "42": "1",
+        "LimitPriceType": "最新价",
+        "AnyPriceType": "1",
+        "ExtRawData": {
+          "41": "3",
+          "42": "1",
+          "119": "1",
+          "127": "0",
+          "495": "1"
+        },
+        "Direction": "0",
+        "OffsetFlag": "0",
+        "OutFactorFalg": false,
+        "LimitPrice": "",
+        "EAccountId": {
+          "53": "0",
+          "67": "8",
+          "249": "133",
+          "Type": "EAccountID"
+        },
+        "Volume": 1,
+        "LimitPriceOffset": 2,
+        "Contract": {
+          "ContractCode": "m1705",
+          "ExchangeCode": "DCE"
+        },
+        "PriceType": "2"
+      },
+      "CancelOrderEnable": false,
+      "SplitOrderEnable": false,
+      "PlanId": {
+        "Type": "",
+        "CheckSum": "",
+        "Identity": ""
+      },
+      "Id": "",
+      "ComboOrderId": ""
+    }
+  },
+  "ConditionList": [
+    {
+      "Price": {
+        "Operator": "<=",
+        "Type": "最新价",
+        "Counter": 1,
+        "Value": 3000,
+        "Enabled": true,
+        "MatchedCounter": 0
+      }
+    },
+    {
+      "Time": ""
+    }
+  ],
+  "ConditionChoiced": 1,
+  "PlanId": {
+    "Type": "",
+    "CheckSum": "",
+    "Identity": ""
+  },
+  "CreateTime": "",
+  "UpdateTime": "",
+  "TradeDate": "2017-03-09",
+  "Id": "",
+  "Contracts": [
+    {
+      "ContractCode": "m1705",
+      "ExchangeCode": "DCE"
+    }
+  ],
+  "TimeCondition": 1
+}

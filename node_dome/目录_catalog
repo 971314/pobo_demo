@@ -1,0 +1,11 @@
+chapter_5   第五章>存储Node程序中的数据
+serverFreeFataFtorage5_1  5.1>无服务器的数据存储
+five1.1.js 内存存储
+five1.2.js  基于文件的存储
+serverFreeFataFtorage5_2  5.2>关系型数据库管理系统
+timetrack_server.js，用来启动程序；
+含Node的HTTPAPI，程序特定的逻辑以及MySQL API。
+根据你的MySQL配置填入host、user和password这些设定值
+ timetrack.js，包含程序相关功能的模块//创建辅助函数发送HTML，创建表单，接收表单数据
+============================
+安装MySQL Node模块》npm install mysql

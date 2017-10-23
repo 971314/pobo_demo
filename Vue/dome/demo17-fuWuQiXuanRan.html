@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>服务器渲染</title>
+</head>
+<body>
+<div id="app"></div>
+<script src="vue.js"></script>
+<script>
+    new Vue({
+        el:'#app',
+        template:'<div>你已经在这花了{{counter}}秒。</div>',
+        data:{
+            counter:0
+        },
+        created:function () {
+            var vm = this;
+            setInterval(function () {
+                vm.counter += 1;
+            },1000)
+        }
+    })
+</script>
+</body>
+</html>
